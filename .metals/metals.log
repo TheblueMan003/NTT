@@ -3068,3 +3068,84 @@ something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.s
 2022.03.07 15:08:47 INFO  time: indexed workspace in 12s
 2022.03.07 15:08:48 INFO  compiling ntt (1 scala source)
 2022.03.07 15:08:51 INFO  time: compiled ntt in 3.11s
+2022.03.07 15:09:22 INFO  compiling ntt (1 scala source)
+2022.03.07 15:09:22 INFO  time: compiled ntt in 0.86s
+mars 07, 2022 3:09:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 31
+mars 07, 2022 3:09:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 42
+2022.03.07 15:10:21 INFO  compiling ntt (1 scala source)
+2022.03.07 15:10:21 INFO  time: compiled ntt in 0.35s
+2022.03.07 15:10:26 INFO  compiling ntt (1 scala source)
+2022.03.07 15:10:26 INFO  time: compiled ntt in 0.22s
+2022.03.07 15:10:53 INFO  compiling ntt (1 scala source)
+2022.03.07 15:10:53 INFO  time: compiled ntt in 0.16s
+2022.03.07 15:11:00 INFO  compiling ntt (1 scala source)
+2022.03.07 15:11:00 INFO  time: compiled ntt in 0.18s
+mars 07, 2022 3:11:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 257
+mars 07, 2022 3:11:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 259
+2022.03.07 15:11:36 INFO  compiling ntt (1 scala source)
+2022.03.07 15:11:36 INFO  time: compiled ntt in 0.25s
+2022.03.07 15:11:39 INFO  compiling ntt (1 scala source)
+2022.03.07 15:11:40 INFO  time: compiled ntt in 1.33s
+2022.03.07 15:12:18 INFO  compiling ntt (1 scala source)
+2022.03.07 15:12:18 INFO  time: compiled ntt in 0.15s
+2022.03.07 15:12:24 INFO  compiling ntt (1 scala source)
+2022.03.07 15:12:26 INFO  time: compiled ntt in 1.45s
+2022.03.07 15:12:31 INFO  compiling ntt (1 scala source)
+2022.03.07 15:12:31 INFO  time: compiled ntt in 0.13s
+2022.03.07 15:12:50 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:51 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:50 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:51 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:53 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:53 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:54 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:55 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:54 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:55 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:55 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:56 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:55 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:57 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:57 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+mars 07, 2022 3:12:58 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 446
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 196)
+2022.03.07 15:12:57 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:12:58 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 189)
+2022.03.07 15:13:00 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:13:00 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 190)
+2022.03.07 15:13:01 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:13:01 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 191)
+2022.03.07 15:13:01 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:13:01 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 190)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 189)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 196)
+2022.03.07 15:13:03 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:13:03 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 189)
+2022.03.07 15:13:04 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:13:04 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 192)
+2022.03.07 15:13:05 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+mars 07, 2022 3:13:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 503
+2022.03.07 15:13:04 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 193)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala in List[String]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/utils/Context.scala, 182, 182, 194)
+2022.03.07 15:13:06 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:13:06 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\utils\Context.scala
+2022.03.07 15:13:06 INFO  compiling ntt (1 scala source)
+2022.03.07 15:13:07 INFO  time: compiled ntt in 1.33s
+2022.03.07 15:13:10 INFO  compiling ntt (1 scala source)
+2022.03.07 15:13:11 INFO  time: compiled ntt in 1.14s
