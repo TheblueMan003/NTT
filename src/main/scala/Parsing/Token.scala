@@ -1,5 +1,7 @@
 package parsing
 
+import utils._
+
 class Token extends Positionable{
 }
 

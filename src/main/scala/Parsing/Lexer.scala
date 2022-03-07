@@ -5,8 +5,10 @@ import Tokens._
 
 object Lexer{
     val delimiter = List('[', ']')
-    val operator = List('+', '-', '*', '/')
-    val keyword = List()
+    val operator = List('+', '-', '*', '/', '<', '=', '>')
+    val keyword = List("breed", "directed-link-breed", "end", "extensions", "globals", 
+                        "__includes", "links-own", "patches-own", "to", "to-report", 
+                        "turtles-own", "undirected-link-breed")
     
     def parse(text: StringBufferedIterator, acc: TokenBuffer):TokenBuffer = {
         text.setStart()
@@ -25,7 +27,13 @@ object Lexer{
             }
             else if (c.isLetter){
                 text.takeWhile(x => x.isLetterOrDigit || x == '-')
-                parse(text, acc.add(DelimiterToken(text.cut()), text))
+                val value = text.cut()
+                if (keyword.contains(value)){
+                    parse(text, acc.add(KeywordToken(value), text))
+                }
+                else{
+                    parse(text, acc.add(DelimiterToken(value), text))
+                }
             }
             else if (c.isSpaceChar){
                 text.takeWhile(x => x.isSpaceChar || x == '-')

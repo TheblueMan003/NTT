@@ -1710,3 +1710,1361 @@ WARNING: Unmatched cancel notification for request id 5309
 2022.03.07 13:14:07 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Main.scala
 2022.03.07 13:14:19 INFO  compiling ntt (1 scala source)
 2022.03.07 13:14:20 INFO  time: compiled ntt in 1.36s
+2022.03.07 13:16:10 INFO  compiling ntt (1 scala source)
+2022.03.07 13:16:10 INFO  time: compiled ntt in 0.74s
+mars 07, 2022 1:16:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 7 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 1:16:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 8 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:16:45 INFO  compiling ntt (1 scala source)
+2022.03.07 13:16:45 INFO  time: compiled ntt in 0.16s
+2022.03.07 13:17:00 INFO  compiling ntt (1 scala source)
+2022.03.07 13:17:01 INFO  time: compiled ntt in 1.06s
+2022.03.07 13:19:34 INFO  compiling ntt (1 scala source)
+2022.03.07 13:19:34 INFO  time: compiled ntt in 0.69s
+2022.03.07 13:19:34 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:19:34 INFO  time: compiled ntt in 0.24s
+2022.03.07 13:19:35 INFO  compiling ntt (1 scala source)
+2022.03.07 13:19:35 INFO  time: compiled ntt in 0.37s
+2022.03.07 13:19:35 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:19:35 INFO  time: compiled ntt in 0.24s
+2022.03.07 13:19:52 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:19:52 INFO  time: compiled ntt in 0.13s
+2022.03.07 13:19:54 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:19:54 INFO  time: compiled ntt in 0.1s
+2022.03.07 13:20:08 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:20:08 INFO  time: compiled ntt in 0.11s
+2022.03.07 13:20:45 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\parsing\Token.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\parsing\Token.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+mars 07, 2022 1:20:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 5 is not a valid line number, allowed [0..2]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:21:45 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:21:45 INFO  time: compiled ntt in 0.12s
+2022.03.07 13:22:06 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:22:06 INFO  time: compiled ntt in 0.19s
+2022.03.07 13:22:06 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:22:06 INFO  time: compiled ntt in 74ms
+2022.03.07 13:22:13 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 13:22:13 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:22:13 INFO  time: compiled ntt in 0.11s
+2022.03.07 13:22:16 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:22:16 INFO  time: compiled ntt in 0.16s
+2022.03.07 13:22:27 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:22:27 INFO  time: compiled ntt in 0.11s
+2022.03.07 13:22:50 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:22:50 INFO  time: compiled ntt in 0.12s
+mars 07, 2022 1:22:52 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6039
+2022.03.07 13:23:07 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:23:07 INFO  time: compiled ntt in 0.13s
+2022.03.07 13:23:12 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:23:12 INFO  time: compiled ntt in 0.12s
+2022.03.07 13:23:19 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:23:19 INFO  time: compiled ntt in 0.36s
+2022.03.07 13:23:24 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:23:24 INFO  time: compiled ntt in 0.31s
+2022.03.07 13:23:38 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:23:38 INFO  time: compiled ntt in 0.31s
+2022.03.07 13:23:45 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:23:45 INFO  time: compiled ntt in 0.29s
+2022.03.07 13:23:54 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:23:54 INFO  time: compiled ntt in 0.3s
+2022.03.07 13:24:00 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:24:04 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:24:04 INFO  time: compiled ntt in 3.87s
+2022.03.07 13:24:04 INFO  compiling ntt (4 scala sources)
+2022.03.07 13:24:04 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:24:04 INFO  time: compiled ntt in 0.84s
+2022.03.07 13:24:05 INFO  compiling ntt (1 scala source)
+2022.03.07 13:24:05 INFO  time: compiled ntt in 0.32s
+2022.03.07 13:26:43 INFO  compiling ntt (1 scala source)
+2022.03.07 13:26:44 INFO  time: compiled ntt in 1.45s
+2022.03.07 13:27:19 INFO  compiling ntt (1 scala source)
+2022.03.07 13:27:21 INFO  time: compiled ntt in 1.66s
+2022.03.07 13:27:30 INFO  compiling ntt (1 scala source)
+2022.03.07 13:27:31 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 13:27:32 INFO  time: compiled ntt in 1.56s
+2022.03.07 13:27:41 INFO  compiling ntt (1 scala source)
+2022.03.07 13:27:43 INFO  time: compiled ntt in 1.56s
+mars 07, 2022 1:27:43 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+2022.03.07 13:27:56 INFO  compiling ntt (1 scala source)
+2022.03.07 13:27:56 INFO  time: compiled ntt in 0.11s
+2022.03.07 13:27:57 INFO  compiling ntt (1 scala source)
+2022.03.07 13:28:00 INFO  time: compiled ntt in 2.29s
+2022.03.07 13:32:16 INFO  compiling ntt (1 scala source)
+2022.03.07 13:32:17 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:32:17 INFO  time: compiled ntt in 1.95s
+2022.03.07 13:33:37 INFO  compiling ntt (1 scala source)
+2022.03.07 13:33:39 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:33:39 INFO  time: compiled ntt in 1.99s
+2022.03.07 13:33:44 INFO  compiling ntt (1 scala source)
+2022.03.07 13:33:45 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:33:45 INFO  time: compiled ntt in 1.49s
+2022.03.07 13:34:01 INFO  compiling ntt (1 scala source)
+2022.03.07 13:34:03 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:34:03 INFO  time: compiled ntt in 2.16s
+mars 07, 2022 1:34:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7461
+mars 07, 2022 1:37:13 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7501
+2022.03.07 13:37:38 INFO  compiling ntt (1 scala source)
+2022.03.07 13:37:38 INFO  time: compiled ntt in 0.22s
+2022.03.07 13:37:51 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:51 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:51 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:51 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:51 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:53 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:53 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:53 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:53 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:54 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:54 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:37:54 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:38:02 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:02 INFO  time: compiled ntt in 0.42s
+2022.03.07 13:38:02 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:03 INFO  time: compiled ntt in 0.65s
+2022.03.07 13:38:09 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:09 INFO  time: compiled ntt in 0.48s
+2022.03.07 13:38:16 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:16 INFO  time: compiled ntt in 0.2s
+2022.03.07 13:38:19 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:19 INFO  time: compiled ntt in 0.14s
+2022.03.07 13:38:25 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:25 INFO  time: compiled ntt in 0.12s
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala in Array[T]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala, 77, 77, 84)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala in Array[T]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala, 77, 77, 84)
+2022.03.07 13:38:28 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:28 INFO  time: compiled ntt in 0.68s
+2022.03.07 13:38:33 ERROR searching for `parsing/StringBufferedIterator#[T]` failed
+scala.meta.internal.mtags.IndexingExceptions$InvalidSymbolException: parsing/StringBufferedIterator#[T]
+	at scala.meta.internal.mtags.OnDemandSymbolIndex.definition(OnDemandSymbolIndex.scala:48)
+	at scala.meta.internal.metals.Docstrings.indexSymbol(Docstrings.scala:71)
+	at scala.meta.internal.metals.Docstrings.documentation(Docstrings.scala:39)
+	at scala.meta.internal.metals.MetalsSymbolSearch.documentation(MetalsSymbolSearch.scala:38)
+	at scala.meta.internal.pc.MetalsGlobal.symbolDocumentation(MetalsGlobal.scala:162)
+	at scala.meta.internal.pc.CompletionItemResolver.resolve(CompletionItemResolver.scala:16)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$completionItemResolve$1(ScalaPresentationCompiler.scala:172)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.completionItemResolve(ScalaPresentationCompiler.scala:171)
+	at scala.meta.internal.metals.Compilers.$anonfun$completionItemResolve$2(Compilers.scala:255)
+	at scala.Option.map(Option.scala:230)
+	at scala.meta.internal.metals.Compilers.$anonfun$completionItemResolve$1(Compilers.scala:254)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.metals.Compilers.completionItemResolve(Compilers.scala:253)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$completionItemResolve$1(MetalsLanguageServer.scala:1573)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.completionItemResolve(MetalsLanguageServer.scala:1571)
+	at jdk.internal.reflect.GeneratedMethodAccessor11.invoke(null)
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:833)
+
+2022.03.07 13:38:33 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:33 INFO  time: compiled ntt in 0.57s
+2022.03.07 13:38:36 ERROR searching for `parsing/StringBufferedIterator#[T]` failed
+scala.meta.internal.mtags.IndexingExceptions$InvalidSymbolException: parsing/StringBufferedIterator#[T]
+	at scala.meta.internal.mtags.OnDemandSymbolIndex.definition(OnDemandSymbolIndex.scala:48)
+	at scala.meta.internal.metals.Docstrings.indexSymbol(Docstrings.scala:71)
+	at scala.meta.internal.metals.Docstrings.documentation(Docstrings.scala:39)
+	at scala.meta.internal.metals.MetalsSymbolSearch.documentation(MetalsSymbolSearch.scala:38)
+	at scala.meta.internal.pc.MetalsGlobal.symbolDocumentation(MetalsGlobal.scala:162)
+	at scala.meta.internal.pc.CompletionItemResolver.resolve(CompletionItemResolver.scala:16)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$completionItemResolve$1(ScalaPresentationCompiler.scala:172)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.completionItemResolve(ScalaPresentationCompiler.scala:171)
+	at scala.meta.internal.metals.Compilers.$anonfun$completionItemResolve$2(Compilers.scala:255)
+	at scala.Option.map(Option.scala:230)
+	at scala.meta.internal.metals.Compilers.$anonfun$completionItemResolve$1(Compilers.scala:254)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.metals.Compilers.completionItemResolve(Compilers.scala:253)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$completionItemResolve$1(MetalsLanguageServer.scala:1573)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.completionItemResolve(MetalsLanguageServer.scala:1571)
+	at jdk.internal.reflect.GeneratedMethodAccessor11.invoke(null)
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:833)
+
+2022.03.07 13:38:37 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:37 INFO  time: compiled ntt in 0.55s
+2022.03.07 13:38:51 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:38:51 INFO  time: compiled ntt in 0.41s
+2022.03.07 13:39:02 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:39:02 INFO  time: compiled ntt in 0.18s
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala, 687, 687, 701)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala in List[T]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala, 687, 687, 694)
+2022.03.07 13:39:11 ERROR searching for `parsing/StringBufferedIterator#[T]` failed
+scala.meta.internal.mtags.IndexingExceptions$InvalidSymbolException: parsing/StringBufferedIterator#[T]
+	at scala.meta.internal.mtags.OnDemandSymbolIndex.definition(OnDemandSymbolIndex.scala:48)
+	at scala.meta.internal.metals.Docstrings.indexSymbol(Docstrings.scala:71)
+	at scala.meta.internal.metals.Docstrings.documentation(Docstrings.scala:39)
+	at scala.meta.internal.metals.MetalsSymbolSearch.documentation(MetalsSymbolSearch.scala:38)
+	at scala.meta.internal.pc.MetalsGlobal.symbolDocumentation(MetalsGlobal.scala:162)
+	at scala.meta.internal.pc.CompletionItemResolver.resolve(CompletionItemResolver.scala:16)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$completionItemResolve$1(ScalaPresentationCompiler.scala:172)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.completionItemResolve(ScalaPresentationCompiler.scala:171)
+	at scala.meta.internal.metals.Compilers.$anonfun$completionItemResolve$2(Compilers.scala:255)
+	at scala.Option.map(Option.scala:230)
+	at scala.meta.internal.metals.Compilers.$anonfun$completionItemResolve$1(Compilers.scala:254)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.metals.Compilers.completionItemResolve(Compilers.scala:253)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$completionItemResolve$1(MetalsLanguageServer.scala:1573)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.completionItemResolve(MetalsLanguageServer.scala:1571)
+	at jdk.internal.reflect.GeneratedMethodAccessor11.invoke(null)
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:833)
+
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala, 687, 687, 695)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala in List[parsing.Token]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/parsing/BufferedIterator.scala, 687, 687, 698)
+2022.03.07 13:39:16 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:39:16 INFO  time: compiled ntt in 0.66s
+2022.03.07 13:39:20 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:39:20 INFO  time: compiled ntt in 0.49s
+2022.03.07 13:39:24 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:39:24 INFO  time: compiled ntt in 0.4s
+2022.03.07 13:39:32 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:39:32 INFO  time: compiled ntt in 0.88s
+2022.03.07 13:39:37 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:39:37 INFO  time: compiled ntt in 0.68s
+2022.03.07 13:41:36 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\parsing\BufferedIterator.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\parsing\BufferedIterator.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 13:41:36 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:41:36 INFO  time: compiled ntt in 0.37s
+mars 07, 2022 1:41:37 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+2022.03.07 13:42:40 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:42:40 INFO  time: compiled ntt in 0.33s
+2022.03.07 13:42:49 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:42:49 INFO  time: compiled ntt in 0.55s
+mars 07, 2022 1:42:53 PM scala.meta.internal.metals.Docstrings indexSymbol
+SEVERE: file:///C:/Users/chris/NTT/src/main/scala/Parsing/StringBufferedIterator.scala
+java.nio.file.NoSuchFileException: C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:85)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103)
+	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108)
+	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:236)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:380)
+	at java.base/java.nio.file.Files.newByteChannel(Files.java:432)
+	at java.base/java.nio.file.Files.readAllBytes(Files.java:3288)
+	at scala.meta.internal.io.PlatformFileIO$.slurp(PlatformFileIO.scala:45)
+	at scala.meta.internal.io.FileIO$.slurp(FileIO.scala:24)
+	at scala.meta.internal.mtags.CommonMtagsEnrichments$XtensionAbsolutePath.toInput(CommonMtagsEnrichments.scala:499)
+	at scala.meta.internal.metals.Docstrings.indexSymbolDefinition(Docstrings.scala:90)
+	at scala.meta.internal.metals.Docstrings.indexSymbol(Docstrings.scala:74)
+	at scala.meta.internal.metals.Docstrings.documentation(Docstrings.scala:39)
+	at scala.meta.internal.metals.MetalsSymbolSearch.documentation(MetalsSymbolSearch.scala:38)
+	at scala.meta.internal.pc.MetalsGlobal.symbolDocumentation(MetalsGlobal.scala:162)
+	at scala.meta.internal.pc.Signatures$SignaturePrinter.<init>(Signatures.scala:277)
+	at scala.meta.internal.pc.HoverProvider.toHover(HoverProvider.scala:237)
+	at scala.meta.internal.pc.HoverProvider.hoverOffset(HoverProvider.scala:69)
+	at scala.meta.internal.pc.HoverProvider.hover(HoverProvider.scala:22)
+	at scala.meta.internal.pc.ScalaPresentationCompiler.$anonfun$hover$1(ScalaPresentationCompiler.scala:192)
+	at scala.meta.internal.pc.CompilerAccess.withSharedCompiler(CompilerAccess.scala:137)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$withNonInterruptableCompiler$1(CompilerAccess.scala:125)
+	at scala.meta.internal.pc.CompilerAccess.$anonfun$onCompilerJobQueue$1(CompilerAccess.scala:197)
+	at scala.meta.internal.pc.CompilerJobQueue$Job.run(CompilerJobQueue.scala:139)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+2022.03.07 13:42:54 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:42:54 INFO  time: compiled ntt in 0.54s
+2022.03.07 13:43:34 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:43:34 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\TokenBuffer.scala
+2022.03.07 13:43:38 INFO  compiling ntt (8 scala sources)
+2022.03.07 13:43:41 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:43:41 INFO  time: compiled ntt in 3.08s
+2022.03.07 13:44:06 INFO  compiling ntt (1 scala source)
+2022.03.07 13:44:06 INFO  time: compiled ntt in 0.16s
+2022.03.07 13:44:30 INFO  compiling ntt (1 scala source)
+2022.03.07 13:44:30 INFO  time: compiled ntt in 0.16s
+2022.03.07 13:46:07 INFO  compiling ntt (1 scala source)
+2022.03.07 13:46:07 INFO  time: compiled ntt in 0.18s
+mars 07, 2022 1:46:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8271
+2022.03.07 13:46:19 INFO  compiling ntt (1 scala source)
+2022.03.07 13:46:19 INFO  time: compiled ntt in 0.17s
+2022.03.07 13:46:21 INFO  compiling ntt (1 scala source)
+2022.03.07 13:46:21 INFO  time: compiled ntt in 0.16s
+2022.03.07 13:46:34 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:46:34 INFO  time: compiled ntt in 0.23s
+2022.03.07 13:46:37 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:46:37 INFO  time: compiled ntt in 0.2s
+2022.03.07 13:46:42 INFO  compiling ntt (1 scala source)
+2022.03.07 13:46:42 INFO  time: compiled ntt in 0.16s
+2022.03.07 13:47:17 INFO  compiling ntt (1 scala source)
+2022.03.07 13:47:17 INFO  time: compiled ntt in 0.2s
+2022.03.07 13:47:27 INFO  compiling ntt (1 scala source)
+2022.03.07 13:47:27 INFO  time: compiled ntt in 0.23s
+2022.03.07 13:47:42 INFO  compiling ntt (1 scala source)
+2022.03.07 13:47:42 INFO  time: compiled ntt in 0.17s
+2022.03.07 13:47:59 INFO  compiling ntt (1 scala source)
+2022.03.07 13:47:59 INFO  time: compiled ntt in 0.22s
+2022.03.07 13:48:05 INFO  compiling ntt (1 scala source)
+2022.03.07 13:48:05 INFO  time: compiled ntt in 0.19s
+2022.03.07 13:48:26 INFO  compiling ntt (1 scala source)
+2022.03.07 13:48:26 INFO  time: compiled ntt in 0.19s
+2022.03.07 13:48:34 INFO  compiling ntt (1 scala source)
+2022.03.07 13:48:34 INFO  time: compiled ntt in 0.19s
+2022.03.07 13:48:43 INFO  compiling ntt (1 scala source)
+2022.03.07 13:48:43 INFO  time: compiled ntt in 0.17s
+2022.03.07 13:48:47 INFO  compiling ntt (1 scala source)
+2022.03.07 13:48:47 INFO  time: compiled ntt in 0.16s
+2022.03.07 13:49:56 INFO  compiling ntt (1 scala source)
+2022.03.07 13:49:56 INFO  time: compiled ntt in 0.2s
+2022.03.07 13:50:01 INFO  compiling ntt (1 scala source)
+2022.03.07 13:50:01 INFO  time: compiled ntt in 0.18s
+2022.03.07 13:50:12 INFO  compiling ntt (1 scala source)
+2022.03.07 13:50:12 INFO  time: compiled ntt in 0.19s
+2022.03.07 13:50:27 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:50:29 WARN  1 deprecation (since 2.13.0); re-run with -deprecation for details
+2022.03.07 13:50:29 INFO  time: compiled ntt in 2.23s
+2022.03.07 13:51:33 INFO  compiling ntt (1 scala source)
+2022.03.07 13:51:33 INFO  time: compiled ntt in 0.14s
+2022.03.07 13:51:39 INFO  compiling ntt (1 scala source)
+2022.03.07 13:51:39 INFO  time: compiled ntt in 0.2s
+2022.03.07 13:51:41 INFO  compiling ntt (1 scala source)
+2022.03.07 13:51:42 INFO  time: compiled ntt in 1.04s
+2022.03.07 13:51:55 INFO  compiling ntt (1 scala source)
+2022.03.07 13:51:56 INFO  time: compiled ntt in 1.13s
+2022.03.07 13:53:20 INFO  compiling ntt (1 scala source)
+2022.03.07 13:53:20 INFO  time: compiled ntt in 0.15s
+2022.03.07 13:53:22 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:22 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:22 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:22 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:23 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:22 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:25 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:25 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:31 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:31 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:31 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:31 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:31 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:32 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:32 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:34 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:34 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:34 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:34 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:34 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:36 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:36 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:36 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:37 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:36 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:38 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:38 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:38 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:40 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:40 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:42 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:42 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 1:53:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 1:53:43 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:44 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:44 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:44 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:45 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:45 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:46 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:46 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 1:53:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 1:53:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:48 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:48 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:48 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:48 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+mars 07, 2022 1:53:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 9 is not a valid line number, allowed [0..8]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 13:53:49 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:49 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:49 INFO  compiling ntt (1 scala source)
+2022.03.07 13:53:49 INFO  time: compiled ntt in 0.17s
+2022.03.07 13:53:55 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:56 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:56 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:57 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:57 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:58 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:58 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:59 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:59 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:59 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:53:59 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:54:00 INFO  compiling ntt (1 scala source)
+2022.03.07 13:54:00 INFO  time: compiled ntt in 0.15s
+2022.03.07 13:54:03 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:54:03 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:54:03 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:54:03 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:54:03 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala
+2022.03.07 13:54:04 INFO  compiling ntt (1 scala source)
+2022.03.07 13:54:05 INFO  time: compiled ntt in 1.22s
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 311, 311, 325)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 311, 311, 318)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 311, 311, 319)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 311, 311, 321)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 311, 311, 320)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 311, 311, 319)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 311, 311, 322)
+2022.03.07 14:02:02 INFO  compiling ntt (1 scala source)
+2022.03.07 14:02:02 INFO  time: compiled ntt in 0.26s
+2022.03.07 14:02:09 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:09 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:09 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:09 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:13 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:13 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:14 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:15 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:15 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:18 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:20 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:20 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:22 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:25 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:25 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:26 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:28 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:28 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:29 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:28 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:29 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:29 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:30 INFO  compiling ntt (1 scala source)
+2022.03.07 14:02:30 INFO  time: compiled ntt in 0.19s
+2022.03.07 14:02:31 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:31 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:33 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:33 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:34 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:34 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:36 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:36 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:41 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:41 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:41 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:42 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:47 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:47 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:48 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:48 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:49 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:49 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 277, 277, 291)
+2022.03.07 14:02:49 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:50 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 277, 277, 284)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 277, 277, 285)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 277, 277, 286)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[ast.Tree]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 277, 277, 287)
+2022.03.07 14:02:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:52 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:02:52 INFO  compiling ntt (1 scala source)
+2022.03.07 14:02:52 INFO  time: compiled ntt in 0.68s
+2022.03.07 14:02:54 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:02 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:06 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:06 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:08 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:08 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:08 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:08 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:09 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:08 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:10 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:10 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:11 INFO  compiling ntt (1 scala source)
+2022.03.07 14:03:11 INFO  time: compiled ntt in 99ms
+2022.03.07 14:03:15 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:15 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:16 INFO  compiling ntt (1 scala source)
+2022.03.07 14:03:16 INFO  time: compiled ntt in 96ms
+2022.03.07 14:03:18 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:18 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.07 14:03:18 INFO  compiling ntt (1 scala source)
+2022.03.07 14:03:20 INFO  time: compiled ntt in 1.78s
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 423, 423, 437)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 423, 423, 430)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 423, 423, 431)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 423, 423, 432)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[parsing.Token]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 423, 423, 434)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[parsing.Token]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 423, 423, 434)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[parsing.Token]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 423, 423, 434)
+2022.03.07 14:03:38 INFO  compiling ntt (1 scala source)
+2022.03.07 14:03:40 INFO  time: compiled ntt in 1.75s
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 359, 359, 368)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 359, 359, 369)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 359, 359, 370)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 359, 359, 371)
+something's wrong: no file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala in List[<error>]RangePosition(file:///C:/Users/chris/NTT/src/main/scala/ast/TreeModule.scala, 359, 359, 372)
+2022.03.07 14:03:54 INFO  compiling ntt (1 scala source)
+2022.03.07 14:03:56 INFO  time: compiled ntt in 1.84s
+2022.03.07 14:04:09 INFO  compiling ntt (1 scala source)
+2022.03.07 14:04:11 INFO  time: compiled ntt in 1.43s
+2022.03.07 14:07:21 INFO  shutting down Metals
+2022.03.07 14:07:21 INFO  Shut down connection with build server.
+2022.03.07 14:07:21 INFO  Shut down connection with build server.
+2022.03.07 15:08:17 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at c:\Users\chris\NTT\.metals\lsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.03.07 15:08:20 INFO  logging to file C:\Users\chris\NTT\.metals\metals.log
+2022.03.07 15:08:20 INFO  Started: Metals version 0.11.1 in workspace 'C:\Users\chris\NTT' for client Visual Studio Code 1.65.0.
+2022.03.07 15:08:20 INFO  Parse release: 17
+2022.03.07 15:08:25 INFO  time: initialize in 5.13s
+2022.03.07 15:08:26 INFO  Attempting to connect to the build server...
+2022.03.07 15:08:27 INFO  skipping build import with status 'Installed'
+2022.03.07 15:08:27 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\chris\NTT\.metals\bsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.03.07 15:08:27 INFO  Attempting to connect to the build server...
+2022.03.07 15:08:27 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\chris\NTT\project\.metals\bsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.03.07 15:08:27 INFO  time: Connected to build server in 1.21s
+2022.03.07 15:08:27 INFO  Connected to Build server: Bloop v1.4.12
+2022.03.07 15:08:34 INFO  no build target found for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala. Using presentation compiler with project's scala-library version: 3.1.0
+2022.03.07 15:08:34 INFO  time: code lens generation in 8.62s
+2022.03.07 15:08:34 INFO  time: Imported build in 0.22s
+2022.03.07 15:08:38 INFO  no build target found for C:\Users\chris\NTT\src\main\scala\parsing\Parser.scala. Using presentation compiler with project's scala-library version: 3.1.0
+2022.03.07 15:08:41 INFO  time: code lens generation in 14s
+2022.03.07 15:08:47 INFO  time: indexed workspace in 12s
+2022.03.07 15:08:48 INFO  compiling ntt (1 scala source)
+2022.03.07 15:08:51 INFO  time: compiled ntt in 3.11s

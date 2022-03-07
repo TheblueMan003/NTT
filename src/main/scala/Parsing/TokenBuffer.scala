@@ -1,6 +1,8 @@
 package parsing
 
+import utils._
 import java.util.ArrayList
+import scala.collection.JavaConverters._
 
 class TokenBuffer{
     val list = new ArrayList[Token]()
@@ -9,5 +11,9 @@ class TokenBuffer{
         token.setPosition(buffer)
         list.add(token)
         this
+    }
+
+    def toBuffer(): TokenBufferedIterator = {
+        new TokenBufferedIterator(list.asScala.toList)
     }
 }
