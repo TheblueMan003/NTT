@@ -109,3 +109,90 @@ Caused by: java.lang.IllegalArgumentException: URI authority component has undef
 	... 3 more
 
 2022.03.07 08:44:22 INFO  shutting down Metals
+2022.03.07 08:48:00 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at d:\git\NTT\.metals\lsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.03.07 08:48:00 INFO  logging to file D:\git\NTT\.metals\metals.log
+2022.03.07 08:48:00 INFO  Started: Metals version 0.11.1 in workspace 'D:\git\NTT' for client Visual Studio Code 1.65.0.
+2022.03.07 08:48:00 INFO  Parse release: 1.8.0_321
+2022.03.07 08:48:00 WARN  Can't instantiate JavaInteractiveSemanticdb (version: Some(JdkVersion(1,8)), jdkHome: C:\Program Files\Java\jre1.8.0_321, javac exists: false)
+2022.03.07 08:48:01 INFO  time: initialize in 0.46s
+2022.03.07 08:48:01 WARN  Build server is not auto-connectable.
+2022.03.07 08:48:02 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.07 08:48:05 INFO  no build target found for D:\git\NTT\src\main\scala\Main.scala. Using presentation compiler with project's scala-library version: 3.1.0
+2022.03.07 08:48:05 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+mars 07, 2022 8:48:05 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3
+2022.03.07 08:48:07 INFO  time: code lens generation in 1.66s
+2022.03.07 08:48:07 INFO  time: code lens generation in 1.66s
+2022.03.07 08:48:07 INFO  time: code lens generation in 1.64s
+2022.03.07 08:48:07 INFO  time: code lens generation in 1.64s
+2022.03.07 08:48:13 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:48:46 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:48:57 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:49:03 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:49:20 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:50:05 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:50:37 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:08 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:20 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:23 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:27 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:33 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:42 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:42 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:45 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:48 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:51:52 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:52:03 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:52:06 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:52:14 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:52:45 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:52:50 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:52:50 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:52:50 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:52:52 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:54:13 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 08:54:35 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+mars 07, 2022 8:56:04 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1287
+2022.03.07 08:58:21 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 08:58:24 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 08:58:42 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:59:05 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:59:05 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:59:13 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 08:59:53 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:00:16 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:00:51 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:01:29 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:01:58 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:02:30 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:02:58 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:03:04 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:03:07 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:03:15 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 09:03:27 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 09:03:52 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:03:58 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:04:19 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:06:09 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:06:09 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:06:11 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Positionable.scala
+2022.03.07 09:06:31 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 09:06:36 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 09:08:04 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 09:08:04 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 09:08:04 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:08:19 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:09:44 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:11:46 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 09:11:52 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 09:12:26 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:12:29 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 09:13:06 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:13:06 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:13:06 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:13:06 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:13:08 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:13:08 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:13:08 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.07 09:15:00 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala

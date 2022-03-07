@@ -1,6 +1,6 @@
 package parsing
 
-object Tokens {
+object Tokens extends Positionable{
   final case class KeywordToken(value: String) extends Token
   final case class IdentifierToken(name: String) extends Token
   final case class PrimTypeToken(value: String) extends Token
