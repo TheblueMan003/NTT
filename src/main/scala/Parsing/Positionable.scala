@@ -1,6 +1,8 @@
+package parsing
+
 trait Positionable{
-    val index: Int
-    val line: Int
+    var index: Int = 0
+    var line: Int = 0
 
     def setPosition(index: Int, line: Int) = {
         this.index = index

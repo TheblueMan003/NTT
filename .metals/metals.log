@@ -196,3 +196,1517 @@ WARNING: Unmatched cancel notification for request id 1287
 2022.03.07 09:13:08 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
 2022.03.07 09:13:08 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
 2022.03.07 09:15:00 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+2022.03.07 12:24:45 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at c:\Users\chris\NTT\.metals\lsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.03.07 12:24:47 INFO  logging to file C:\Users\chris\NTT\.metals\metals.log
+2022.03.07 12:24:47 INFO  Started: Metals version 0.11.1 in workspace 'C:\Users\chris\NTT' for client Visual Studio Code 1.64.2.
+2022.03.07 12:24:47 INFO  Parse release: 17
+2022.03.07 12:24:52 INFO  time: initialize in 4.47s
+2022.03.07 12:24:52 WARN  Build server is not auto-connectable.
+2022.03.07 12:24:53 WARN  no build target for: C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.07 12:24:53 WARN  no build target for: C:\Users\chris\NTT\src\main\scala\Main.scala
+2022.03.07 12:25:06 INFO  no build target found for C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala. Using presentation compiler with project's scala-library version: 3.1.0
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 6
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 8
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 11
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 13
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 20
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 22
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 24
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30
+mars 07, 2022 12:25:07 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 34
+2022.03.07 12:25:07 INFO  running 'C:\Program Files\Java\jdk-17\bin\java -Djline.terminal=jline.UnsupportedTerminal -Dsbt.log.noformat=true -Dfile.encoding=UTF-8 -jar C:\Users\chris\AppData\Local\Temp\metals4542107265001610834\sbt-launch.jar -Dbloop.export-jar-classifiers=sources bloopInstall'
+2022.03.07 12:25:08 ERROR [info] [launcher] getting org.scala-sbt sbt 1.6.2  (this may take some time)...
+2022.03.07 12:25:15 INFO  time: code lens generation in 3.64s
+2022.03.07 12:25:15 INFO  time: code lens generation in 5.24s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.82s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.97s
+2022.03.07 12:25:15 INFO  time: code lens generation in 4.3s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.91s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.76s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.85s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.69s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.7s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.79s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.84s
+2022.03.07 12:25:15 INFO  time: code lens generation in 2.8s
+2022.03.07 12:25:15 INFO  time: code lens generation in 6.75s
+2022.03.07 12:25:15 INFO  time: code lens generation in 3.62s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.82s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.9s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.87s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.74s
+2022.03.07 12:25:15 INFO  time: code lens generation in 8.05s
+2022.03.07 12:25:15 INFO  time: code lens generation in 6.73s
+2022.03.07 12:25:15 INFO  time: code lens generation in 5.23s
+2022.03.07 12:25:15 INFO  time: code lens generation in 2.76s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.28s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.26s
+2022.03.07 12:25:15 INFO  time: code lens generation in 4.32s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.72s
+2022.03.07 12:25:15 INFO  time: code lens generation in 7.83s
+2022.03.07 12:25:20 WARN  no build target for: C:\Users\chris\NTT\src\main\scala\Main.scala
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/sbt/1.6.2/sbt-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.15/scala-library-2.12.15.jar ...
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/main_2.12/1.6.2/main_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/run_2.12/1.6.2/run_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/logic_2.12/1.6.2/logic_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/main-settings_2.12/1.6.2/main-settings_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/actions_2.12/1.6.2/actions_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR :: loading settings :: url = jar:file:/C:/Users/chris/AppData/Local/Temp/metals4542107265001610834/sbt-launch.jar!/org/apache/ivy/core/settings/ivysettings.xml
+2022.03.07 12:25:33 ERROR :: loading settings :: url = jar:file:/C:/Users/chris/AppData/Local/Temp/metals4542107265001610834/sbt-launch.jar!/org/apache/ivy/core/settings/ivysettings.xml
+2022.03.07 12:25:33 ERROR :: loading settings :: url = jar:file:/C:/Users/chris/AppData/Local/Temp/metals4542107265001610834/sbt-launch.jar!/org/apache/ivy/core/settings/ivysettings.xml
+2022.03.07 12:25:33 ERROR :: loading settings :: url = jar:file:/C:/Users/chris/AppData/Local/Temp/metals4542107265001610834/sbt-launch.jar!/org/apache/ivy/core/settings/ivysettings.xml
+2022.03.07 12:25:33 ERROR :: loading settings :: url = jar:file:/C:/Users/chris/AppData/Local/Temp/metals4542107265001610834/sbt-launch.jar!/org/apache/ivy/core/settings/ivysettings.xml
+2022.03.07 12:25:33 ERROR :: loading settings :: url = jar:file:/C:/Users/chris/AppData/Local/Temp/metals4542107265001610834/sbt-launch.jar!/org/apache/ivy/core/settings/ivysettings.xml
+2022.03.07 12:25:33 ERROR :: loading settings :: url = jar:file:/C:/Users/chris/AppData/Local/Temp/metals4542107265001610834/sbt-launch.jar!/org/apache/ivy/core/settings/ivysettings.xml
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/io_2.12/1.6.0/io_2.12-1.6.0.jar ...
+2022.03.07 12:25:33 ERROR :: loading settings :: url = jar:file:/C:/Users/chris/AppData/Local/Temp/metals4542107265001610834/sbt-launch.jar!/org/apache/ivy/core/settings/ivysettings.xml
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#run_2.12;1.6.2!run_2.12.jar (358ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/command_2.12/1.6.2/command_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#logic_2.12;1.6.2!logic_2.12.jar (363ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/collections_2.12/1.6.2/collections_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#main-settings_2.12;1.6.2!main-settings_2.12.jar (371ms)
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#sbt;1.6.2!sbt.jar (392ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/scripted-plugin_2.12/1.6.2/scripted-plugin_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-lm-integration_2.12/1.6.2/zinc-lm-integration_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#actions_2.12;1.6.2!actions_2.12.jar (477ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/util-logging_2.12/1.6.2/util-logging_2.12-1.6.2.jar ...
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#scripted-plugin_2.12;1.6.2!scripted-plugin_2.12.jar (256ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/io/get-coursier/lm-coursier-shaded_2.12/2.0.10/lm-coursier-shaded_2.12-2.0.10.jar ...
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-lm-integration_2.12;1.6.2!zinc-lm-integration_2.12.jar (328ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-api/2.17.1/log4j-api-2.17.1.jar ...
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#command_2.12;1.6.2!command_2.12.jar (367ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-core/2.17.1/log4j-core-2.17.1.jar ...
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#io_2.12;1.6.0!io_2.12.jar (894ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/apache/logging/log4j/log4j-slf4j-impl/2.17.1/log4j-slf4j-impl-2.17.1.jar ...
+2022.03.07 12:25:33 ERROR 	[SUCCESSFUL ] org.scala-sbt#collections_2.12;1.6.2!collections_2.12.jar (600ms)
+2022.03.07 12:25:33 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/librarymanagement-core_2.12/1.6.1/librarymanagement-core_2.12-1.6.1.jar ...
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.apache.logging.log4j#log4j-api;2.17.1!log4j-api.jar (413ms)
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/librarymanagement-ivy_2.12/1.6.1/librarymanagement-ivy_2.12-1.6.1.jar ...
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.scala-sbt#util-logging_2.12;1.6.2!util-logging_2.12.jar (702ms)
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/compiler-interface/1.6.0/compiler-interface-1.6.0.jar ...
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.apache.logging.log4j#log4j-slf4j-impl;2.17.1!log4j-slf4j-impl.jar (342ms)
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-compile_2.12/1.6.0/zinc-compile_2.12-1.6.0.jar ...
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.scala-sbt#compiler-interface;1.6.0!compiler-interface.jar (563ms)
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/util-relation_2.12/1.6.2/util-relation_2.12-1.6.2.jar ...
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-compile_2.12;1.6.0!zinc-compile_2.12.jar (499ms)
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/util-position_2.12/1.6.2/util-position_2.12-1.6.2.jar ...
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.scala-sbt#util-relation_2.12;1.6.2!util-relation_2.12.jar (286ms)
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.scala-sbt#librarymanagement-core_2.12;1.6.1!librarymanagement-core_2.12.jar (1070ms)
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.scala-sbt#util-position_2.12;1.6.2!util-position_2.12.jar (248ms)
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.12.15/scala-reflect-2.12.15.jar ...
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.scala-sbt#librarymanagement-ivy_2.12;1.6.1!librarymanagement-ivy_2.12.jar (946ms)
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/completion_2.12/1.6.2/completion_2.12-1.6.2.jar ...
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/task-system_2.12/1.6.2/task-system_2.12-1.6.2.jar ...
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/tasks_2.12/1.6.2/tasks_2.12-1.6.2.jar ...
+2022.03.07 12:25:34 ERROR 	[SUCCESSFUL ] org.scala-sbt#main_2.12;1.6.2!main_2.12.jar (2111ms)
+2022.03.07 12:25:34 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/testing_2.12/1.6.2/testing_2.12-1.6.2.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.apache.logging.log4j#log4j-core;2.17.1!log4j-core.jar (1540ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/util-tracking_2.12/1.6.2/util-tracking_2.12-1.6.2.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#completion_2.12;1.6.2!completion_2.12.jar (299ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-classpath_2.12/1.6.0/zinc-classpath_2.12-1.6.0.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#testing_2.12;1.6.2!testing_2.12.jar (276ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-apiinfo_2.12/1.6.0/zinc-apiinfo_2.12-1.6.0.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#task-system_2.12;1.6.2!task-system_2.12.jar (304ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc_2.12/1.6.0/zinc_2.12-1.6.0.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#tasks_2.12;1.6.2!tasks_2.12.jar (318ms)
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#util-tracking_2.12;1.6.2!util-tracking_2.12.jar (150ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/util-control_2.12/1.6.2/util-control_2.12-1.6.2.jar ...
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/util-interface/1.6.2/util-interface-1.6.2.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-lang#scala-library;2.12.15!scala-library.jar (2449ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/core-macros_2.12/1.6.2/core-macros_2.12-1.6.2.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#util-control_2.12;1.6.2!util-control_2.12.jar (208ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.12.15/scala-compiler-2.12.15.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#util-interface;1.6.2!util-interface.jar (212ms)
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-classpath_2.12;1.6.0!zinc-classpath_2.12.jar (256ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/com/swoval/file-tree-views/2.1.7/file-tree-views-2.1.7.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc_2.12;1.6.0!zinc_2.12.jar (244ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/net/java/dev/jna/jna/5.8.0/jna-5.8.0.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-apiinfo_2.12;1.6.0!zinc-apiinfo_2.12.jar (264ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/net/java/dev/jna/jna-platform/5.8.0/jna-platform-5.8.0.jar ...
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/util-cache_2.12/1.6.2/util-cache_2.12-1.6.2.jar ...
+2022.03.07 12:25:35 ERROR 	[SUCCESSFUL ] org.scala-sbt#core-macros_2.12;1.6.2!core-macros_2.12.jar (704ms)
+2022.03.07 12:25:35 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/test-agent/1.6.2/test-agent-1.6.2.jar ...
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] com.swoval#file-tree-views;2.1.7!file-tree-views.jar (638ms)
+2022.03.07 12:25:36 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/compiler-bridge_2.12/1.6.0/compiler-bridge_2.12-1.6.0.jar ...
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] org.scala-sbt#util-cache_2.12;1.6.2!util-cache_2.12.jar (706ms)
+2022.03.07 12:25:36 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-classfile_2.12/1.6.0/zinc-classfile_2.12-1.6.0.jar ...
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] org.scala-sbt#test-agent;1.6.2!test-agent.jar (459ms)
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] net.java.dev.jna#jna;5.8.0!jna.jar (1001ms)
+2022.03.07 12:25:36 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-core_2.12/1.6.0/zinc-core_2.12-1.6.0.jar ...
+2022.03.07 12:25:36 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-persist_2.12/1.6.0/zinc-persist_2.12-1.6.0.jar ...
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] org.scala-sbt#compiler-bridge_2.12;1.6.0!compiler-bridge_2.12.jar (530ms)
+2022.03.07 12:25:36 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-compile-core_2.12/1.6.0/zinc-compile-core_2.12-1.6.0.jar ...
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-classfile_2.12;1.6.0!zinc-classfile_2.12.jar (516ms)
+2022.03.07 12:25:36 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/zinc-persist-core-assembly/1.6.0/zinc-persist-core-assembly-1.6.0.jar ...
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] org.scala-lang#scala-reflect;2.12.15!scala-reflect.jar (2071ms)
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-core_2.12;1.6.0!zinc-core_2.12.jar (489ms)
+2022.03.07 12:25:36 ERROR downloading https://repo1.maven.org/maven2/org/scala-sbt/protocol_2.12/1.6.2/protocol_2.12-1.6.2.jar ...
+2022.03.07 12:25:36 ERROR downloading https://repo1.maven.org/maven2/org/scala-lang/modules/scala-collection-compat_2.12/2.6.0/scala-collection-compat_2.12-2.6.0.jar ...
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-persist_2.12;1.6.0!zinc-persist_2.12.jar (507ms)
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-compile-core_2.12;1.6.0!zinc-compile-core_2.12.jar (340ms)
+2022.03.07 12:25:36 ERROR 	[SUCCESSFUL ] net.java.dev.jna#jna-platform;5.8.0!jna-platform.jar (1520ms)
+2022.03.07 12:25:38 ERROR 	[SUCCESSFUL ] org.scala-lang.modules#scala-collection-compat_2.12;2.6.0!scala-collection-compat_2.12.jar (600ms)
+2022.03.07 12:25:38 ERROR 	[SUCCESSFUL ] org.scala-sbt#protocol_2.12;1.6.2!protocol_2.12.jar (639ms)
+2022.03.07 12:25:38 ERROR 	[SUCCESSFUL ] org.scala-sbt#zinc-persist-core-assembly;1.6.0!zinc-persist-core-assembly.jar (1259ms)
+2022.03.07 12:25:39 ERROR 	[SUCCESSFUL ] org.scala-lang#scala-compiler;2.12.15!scala-compiler.jar (3906ms)
+2022.03.07 12:25:44 ERROR 	[SUCCESSFUL ] io.get-coursier#lm-coursier-shaded_2.12;2.0.10!lm-coursier-shaded_2.12.jar (10094ms)
+2022.03.07 12:25:44 ERROR :: retrieving :: org.scala-sbt#boot-app
+2022.03.07 12:25:44 ERROR 	confs: [default]
+2022.03.07 12:25:44 ERROR 	83 artifacts copied, 0 already retrieved
+2022.03.07 12:25:44 ERROR [info] [launcher] getting Scala 2.12.15 (for sbt)...
+2022.03.07 12:25:44 ERROR :: retrieving :: org.scala-sbt#boot-scala
+2022.03.07 12:25:44 ERROR 	confs: [default]
+2022.03.07 12:25:44 ERROR 	5 artifacts copied, 0 already retrieved
+2022.03.07 12:25:48 INFO  [info] welcome to sbt 1.6.2 (Oracle Corporation Java 17)
+2022.03.07 12:25:54 INFO  [info] loading settings for project ntt-build-build from metals.sbt ...
+2022.03.07 12:25:55 INFO  [info] loading project definition from C:\Users\chris\NTT\project\project
+2022.03.07 12:26:03 INFO  [info] loading settings for project ntt-build from metals.sbt ...
+2022.03.07 12:26:03 INFO  [info] loading project definition from C:\Users\chris\NTT\project
+2022.03.07 12:26:16 INFO  [success] Generated .bloop\ntt-build.json
+2022.03.07 12:26:16 INFO  [success] Total time: 13 s, completed 7 mars 2022, 12:26:17
+2022.03.07 12:26:21 INFO  [info] loading settings for project ntt from build.sbt ...
+2022.03.07 12:26:21 INFO  [info] set current project to hello-world (in build file:/C:/Users/chris/NTT/)
+2022.03.07 12:26:23 INFO  [success] Generated .bloop\ntt.json
+2022.03.07 12:26:23 INFO  [success] Generated .bloop\ntt-test.json
+2022.03.07 12:26:23 INFO  [success] Total time: 1 s, completed 7 mars 2022, 12:26:23
+2022.03.07 12:26:23 INFO  time: ran 'sbt bloopInstall' in 1m16s
+2022.03.07 12:26:23 INFO  Attempting to connect to the build server...
+2022.03.07 12:26:31 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\chris\NTT\.metals\bsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.03.07 12:26:36 INFO  Attempting to connect to the build server...
+2022.03.07 12:26:36 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\chris\NTT\project\.metals\bsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.03.07 12:26:39 INFO  time: Connected to build server in 15s
+2022.03.07 12:26:39 INFO  Connected to Build server: Bloop v1.4.12
+2022.03.07 12:26:39 INFO  time: Imported build in 0.26s
+2022.03.07 12:26:49 INFO  time: indexed workspace in 10s
+2022.03.07 12:26:50 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:27:12 INFO  time: compiled ntt in 21s
+2022.03.07 12:29:11 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:29:11 INFO  time: compiled ntt in 0.28s
+2022.03.07 12:30:11 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:30:11 INFO  time: compiled ntt in 0.31s
+2022.03.07 12:30:23 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:30:23 INFO  time: compiled ntt in 0.26s
+2022.03.07 12:30:29 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:30:29 INFO  time: compiled ntt in 0.16s
+2022.03.07 12:30:41 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:30:41 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:30:41 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:31:17 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Token.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Token.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:31:20 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:31:20 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:31:21 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:31:21 INFO  time: compiled ntt in 0.23s
+mars 07, 2022 12:31:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 30 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:31:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 30 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:31:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 30 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:31:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 30 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:31:44 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 30 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:31:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 33 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:31:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 32 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:31:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 33 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:31:51 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 33 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 12:32:00 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:32:00 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+mars 07, 2022 12:32:03 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 30 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:32:04 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 30 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+2022.03.07 12:32:06 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:32:09 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:32:10 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:32:10 INFO  time: compiled ntt in 0.19s
+2022.03.07 12:32:32 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:32:32 INFO  time: compiled ntt in 0.2s
+2022.03.07 12:32:36 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:32:36 INFO  time: compiled ntt in 0.16s
+2022.03.07 12:32:39 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:32:39 INFO  time: compiled ntt in 0.12s
+mars 07, 2022 12:32:42 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 36 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:32:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:32:47 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:32:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:32:49 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:32:50 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: java.lang.reflect.InvocationTargetException
+	at jdk.internal.reflect.GeneratedMethodAccessor4.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 35 is not a valid line number, allowed [0..29]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:133)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:77)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:76)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1592)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1591)
+	... 15 more
+
+mars 07, 2022 12:32:54 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 635
+2022.03.07 12:33:02 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:5: stale bloop error: '(' expected but '}' found.
+    }
+    ^
+2022.03.07 12:33:02 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:5: stale bloop error: '(' expected but '}' found.
+    }
+    ^
+2022.03.07 12:33:30 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:5: stale bloop error: '(' expected but '}' found.
+    }
+    ^
+2022.03.07 12:33:30 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:5: stale bloop error: '(' expected but '}' found.
+    }
+    ^
+2022.03.07 12:33:31 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:5: stale bloop error: '(' expected but '}' found.
+    }
+    ^
+2022.03.07 12:33:31 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:5: stale bloop error: '(' expected but '}' found.
+    }
+    ^
+2022.03.07 12:33:32 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:33:32 INFO  time: compiled ntt in 0.2s
+2022.03.07 12:33:39 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:33:39 INFO  time: compiled ntt in 0.14s
+2022.03.07 12:34:30 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:34:30 INFO  time: compiled ntt in 0.14s
+mars 07, 2022 12:34:40 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 931
+2022.03.07 12:34:45 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:34:45 INFO  time: compiled ntt in 0.12s
+2022.03.07 12:34:52 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:35:00 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:35:00 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:35:00 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:35:11 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:35:11 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:35:12 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:35:12 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:35:52 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:35:52 INFO  time: compiled ntt in 0.16s
+2022.03.07 12:36:24 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:36:24 INFO  time: compiled ntt in 0.28s
+mars 07, 2022 12:37:42 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+mars 07, 2022 12:37:42 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+java.lang.NullPointerException: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+	at scala.reflect.internal.Definitions$DefinitionsClass.isByNameParamType(Definitions.scala:419)
+	at scala.reflect.internal.TreeInfo.isStableIdent(TreeInfo.scala:136)
+	at scala.reflect.internal.TreeInfo.isStableIdentifier(TreeInfo.scala:109)
+	at scala.reflect.internal.TreeInfo.isPath(TreeInfo.scala:98)
+	at scala.tools.nsc.interactive.Global.stabilizedType(Global.scala:963)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:811)
+	at scala.meta.internal.pc.SignatureHelpProvider.signatureHelp(SignatureHelpProvider.scala:23)
+
+2022.03.07 12:38:07 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\StringBufferedIterator.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:38:27 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:38:27 INFO  time: compiled ntt in 0.33s
+2022.03.07 12:38:45 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\StringBufferedIterator.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:38:45 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\StringBufferedIterator.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:39:00 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:39:00 INFO  time: compiled ntt in 0.13s
+2022.03.07 12:39:01 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\StringBufferedIterator.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:39:01 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\StringBufferedIterator.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:39:40 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:39:40 INFO  time: compiled ntt in 0.11s
+2022.03.07 12:39:55 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:39:58 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:39:58 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:39:58 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the build target ntt is being compiled. Wait until compilation is finished and try again.
+2022.03.07 12:39:59 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:39:59 INFO  time: compiled ntt in 0.12s
+2022.03.07 12:40:06 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:40:06 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:40:13 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:40:13 INFO  time: compiled ntt in 0.12s
+2022.03.07 12:40:16 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:40:16 INFO  time: compiled ntt in 0.11s
+mars 07, 2022 12:40:28 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1841
+2022.03.07 12:40:46 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:40:46 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:40:53 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:40:53 INFO  time: compiled ntt in 0.15s
+2022.03.07 12:40:58 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:41:00 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:41:11 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:41:11 INFO  time: compiled ntt in 0.11s
+2022.03.07 12:41:37 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:41:37 INFO  time: compiled ntt in 0.11s
+2022.03.07 12:41:40 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:41:40 INFO  time: compiled ntt in 0.11s
+2022.03.07 12:41:46 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:41:46 INFO  time: compiled ntt in 96ms
+2022.03.07 12:41:50 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:41:50 INFO  time: compiled ntt in 0.14s
+2022.03.07 12:41:54 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:41:54 INFO  time: compiled ntt in 97ms
+2022.03.07 12:42:15 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:42:15 INFO  time: compiled ntt in 0.1s
+2022.03.07 12:42:18 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:42:18 INFO  time: compiled ntt in 0.11s
+2022.03.07 12:42:53 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:42:53 INFO  time: compiled ntt in 0.1s
+2022.03.07 12:42:57 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Main.scala' because the build target ntt is being compiled. Wait until compilation is finished and try again.
+2022.03.07 12:42:57 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:42:57 INFO  time: compiled ntt in 0.11s
+2022.03.07 12:43:01 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:43:01 INFO  time: compiled ntt in 0.12s
+2022.03.07 12:46:31 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:46:31 INFO  time: compiled ntt in 0.15s
+2022.03.07 12:47:28 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+extension (c: Char){
+^
+2022.03.07 12:47:28 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+extension (c: Char){
+^
+2022.03.07 12:47:30 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+extension (c: Char){
+^
+2022.03.07 12:47:30 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+extension (c: Char){
+^
+2022.03.07 12:47:30 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+extension (c: Char){
+^
+2022.03.07 12:47:30 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:47:30 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:30 INFO  time: compiled ntt in 0.13s
+2022.03.07 12:47:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:34 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:34 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:36 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:36 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:36 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:37 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:37 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char){
+^
+2022.03.07 12:47:37 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:47:37 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:37 INFO  time: compiled ntt in 0.13s
+2022.03.07 12:47:52 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:52 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:54 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:54 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:54 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:55 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:56 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:56 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:57 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:57 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:57 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> (c: Char) def isWordChar: Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:57 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:47:57 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:47:57 INFO  time: compiled ntt in 88ms
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:26 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:26 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:25 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:26 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:26 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:26 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:27 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:28 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:28 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:31 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:31 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:32 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:32 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:34 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:34 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:34 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala:31:1: stale bloop error: expected class or object definition
+<extension> def isWordChar(c: Char): Boolean = c.isLetterOrDigit || c == '-'
+^
+2022.03.07 12:48:34 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:48:34 INFO  time: compiled ntt in 0.1s
+2022.03.07 12:50:27 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala' because the build target ntt is being compiled. Wait until compilation is finished and try again.
+2022.03.07 12:50:27 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:50:27 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\StringBufferedIterator.scala' because the build target ntt is being compiled. Wait until compilation is finished and try again.
+2022.03.07 12:50:28 INFO  time: compiled ntt in 1.56s
+2022.03.07 12:51:45 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:51:45 INFO  time: compiled ntt in 0.83s
+2022.03.07 12:52:12 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:52:12 INFO  time: compiled ntt in 0.83s
+2022.03.07 12:52:15 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:52:15 INFO  time: compiled ntt in 0.78s
+2022.03.07 12:52:30 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:52:30 INFO  time: compiled ntt in 0.73s
+2022.03.07 12:52:35 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:52:35 INFO  time: compiled ntt in 0.76s
+2022.03.07 12:52:38 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:52:38 INFO  time: compiled ntt in 0.72s
+mars 07, 2022 12:52:39 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2922
+2022.03.07 12:52:59 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:52:59 INFO  time: compiled ntt in 0.59s
+2022.03.07 12:53:12 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:53:12 INFO  time: compiled ntt in 0.6s
+2022.03.07 12:53:24 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:53:24 INFO  time: compiled ntt in 0.47s
+2022.03.07 12:53:35 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:53:35 INFO  time: compiled ntt in 0.58s
+2022.03.07 12:53:40 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:53:40 INFO  time: compiled ntt in 0.43s
+2022.03.07 12:53:47 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:53:47 INFO  time: compiled ntt in 0.35s
+2022.03.07 12:53:51 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:53:51 INFO  time: compiled ntt in 0.38s
+2022.03.07 12:53:55 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:53:55 INFO  time: compiled ntt in 0.49s
+2022.03.07 12:53:58 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:53:58 INFO  time: compiled ntt in 0.43s
+2022.03.07 12:54:04 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:54:04 INFO  time: compiled ntt in 0.37s
+2022.03.07 12:54:52 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:54:52 INFO  time: compiled ntt in 0.43s
+2022.03.07 12:55:11 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:55:28 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:55:28 INFO  time: compiled ntt in 0.39s
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:19:87: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+                parse(text, acc :: List(FloatLitToken(text.cut().toFloat).setPosition(text)))
+                                                                                      ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:22:83: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+                parse(text, acc :: List(IntLitToken(text.cut().toInt).setPosition(text)))
+                                                                                  ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:27:76: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+            parse(text, acc :: List(DelimiterToken(text.cut()).setPosition(text)))
+                                                                           ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:30:76: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+            parse(text, acc :: List(DelimiterToken(text.cut()).setPosition(text)))
+                                                                           ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:33:28: stale bloop error: not found: value x
+            text.takeWhile(x -> operator.contains(x))
+                           ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:33:51: stale bloop error: not found: value x
+            text.takeWhile(x -> operator.contains(x))
+                                                  ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:34:75: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+            parse(text, acc :: List(OperatorToken(text.cut()).setPosition(text)))
+                                                                          ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:28: stale bloop error: not found: value x
+            text.takeWhile(x -> x != '\n')
+                           ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:33: stale bloop error: not found: value x
+            text.takeWhile(x -> x != '\n')
+                                ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:38:74: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+            parse(text, acc :: List(CommentToken(text.cut()).setPosition(text)))
+                                                                         ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:36:14: stale bloop error: type mismatch;
+ found   : Unit
+ required: List[parsing.Token]
+        else if (c == ';'){
+             ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:19:87: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+                parse(text, acc :: List(FloatLitToken(text.cut().toFloat).setPosition(text)))
+                                                                                      ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:22:83: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+                parse(text, acc :: List(IntLitToken(text.cut().toInt).setPosition(text)))
+                                                                                  ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:27:76: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+            parse(text, acc :: List(DelimiterToken(text.cut()).setPosition(text)))
+                                                                           ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:30:76: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+            parse(text, acc :: List(DelimiterToken(text.cut()).setPosition(text)))
+                                                                           ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:33:28: stale bloop error: not found: value x
+            text.takeWhile(x -> operator.contains(x))
+                           ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:33:51: stale bloop error: not found: value x
+            text.takeWhile(x -> operator.contains(x))
+                                                  ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:34:75: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+            parse(text, acc :: List(OperatorToken(text.cut()).setPosition(text)))
+                                                                          ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:28: stale bloop error: not found: value x
+            text.takeWhile(x -> x != '\n')
+                           ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:37:33: stale bloop error: not found: value x
+            text.takeWhile(x -> x != '\n')
+                                ^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:38:74: stale bloop error: type mismatch;
+ found   : parsing.StringBufferedIterator
+ required: parsing.Positionable
+            parse(text, acc :: List(CommentToken(text.cut()).setPosition(text)))
+                                                                         ^^^^
+2022.03.07 12:55:33 INFO  C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala:36:14: stale bloop error: type mismatch;
+ found   : Unit
+ required: List[parsing.Token]
+        else if (c == ';'){
+             ^
+2022.03.07 12:55:34 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:55:34 INFO  time: compiled ntt in 0.34s
+2022.03.07 12:55:44 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:55:44 INFO  time: compiled ntt in 0.41s
+2022.03.07 12:55:46 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:55:46 INFO  time: compiled ntt in 0.44s
+2022.03.07 12:56:06 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:56:06 INFO  time: compiled ntt in 0.33s
+2022.03.07 12:56:11 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:56:11 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:56:11 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:56:11 INFO  time: compiled ntt in 0.38s
+2022.03.07 12:56:35 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:56:35 INFO  time: compiled ntt in 0.37s
+2022.03.07 12:56:36 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:56:36 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:56:36 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:56:36 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:56:48 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:56:48 INFO  time: compiled ntt in 0.41s
+2022.03.07 12:57:21 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:57:21 INFO  time: compiled ntt in 0.51s
+2022.03.07 12:57:23 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:57:23 INFO  time: compiled ntt in 0.38s
+2022.03.07 12:57:25 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:57:25 INFO  time: compiled ntt in 0.33s
+2022.03.07 12:58:55 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:58:55 INFO  time: compiled ntt in 0.33s
+2022.03.07 12:59:20 INFO  compiling ntt (5 scala sources)
+2022.03.07 12:59:20 INFO  time: compiled ntt in 0.36s
+2022.03.07 12:59:40 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:59:40 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 12:59:40 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Parsing\Lexer.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Parsing\Lexer.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 13:00:21 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:00:21 INFO  time: compiled ntt in 0.45s
+2022.03.07 13:00:45 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:00:45 INFO  time: compiled ntt in 0.28s
+2022.03.07 13:00:49 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:00:49 INFO  time: compiled ntt in 0.33s
+mars 07, 2022 1:00:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3918
+2022.03.07 13:00:54 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:00:54 INFO  time: compiled ntt in 0.29s
+2022.03.07 13:00:57 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:00:57 INFO  time: compiled ntt in 0.25s
+2022.03.07 13:01:22 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:01:22 INFO  time: compiled ntt in 0.27s
+2022.03.07 13:01:26 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Main.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Main.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 13:01:26 ERROR code navigation does not work for the file 'C:\Users\chris\NTT\src\main\scala\Main.scala' because the SemanticDB file 'C:\Users\chris\NTT\.bloop\ntt\bloop-bsp-clients-classes\classes-Metals-FP8OKwXtQFGLU9bQorMFFQ==\META-INF\semanticdb\src\main\scala\Main.scala.semanticdb' doesn't exist. There can be many reasons for this error. 
+2022.03.07 13:01:37 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:01:37 INFO  time: compiled ntt in 0.23s
+2022.03.07 13:01:44 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:01:44 INFO  time: compiled ntt in 0.23s
+2022.03.07 13:02:57 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:02:57 INFO  time: compiled ntt in 0.27s
+2022.03.07 13:03:01 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:03:04 INFO  time: compiled ntt in 2.86s
+2022.03.07 13:03:55 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:03:57 INFO  time: compiled ntt in 2.18s
+2022.03.07 13:03:59 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:04:01 INFO  time: compiled ntt in 2.13s
+2022.03.07 13:04:05 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:04:08 INFO  time: compiled ntt in 2.99s
+2022.03.07 13:04:08 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:04:08 INFO  time: compiled ntt in 0.89s
+2022.03.07 13:04:11 INFO  compiling ntt (5 scala sources)
+2022.03.07 13:04:14 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:04:14 INFO  time: compiled ntt in 3.84s
+2022.03.07 13:06:12 INFO  compiling ntt (1 scala source)
+2022.03.07 13:06:12 INFO  time: compiled ntt in 0.26s
+2022.03.07 13:06:13 INFO  compiling ntt (1 scala source)
+2022.03.07 13:06:13 INFO  time: compiled ntt in 0.23s
+2022.03.07 13:06:24 INFO  compiling ntt (1 scala source)
+2022.03.07 13:06:24 INFO  time: compiled ntt in 0.27s
+mars 07, 2022 1:06:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4220
+2022.03.07 13:06:27 INFO  compiling ntt (1 scala source)
+2022.03.07 13:06:28 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:06:28 INFO  time: compiled ntt in 1.64s
+2022.03.07 13:06:39 INFO  compiling ntt (1 scala source)
+2022.03.07 13:06:40 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:06:40 INFO  time: compiled ntt in 1.74s
+2022.03.07 13:07:46 INFO  compiling ntt (1 scala source)
+2022.03.07 13:07:46 INFO  time: compiled ntt in 0.76s
+mars 07, 2022 1:08:34 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4392
+mars 07, 2022 1:09:02 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+mars 07, 2022 1:09:02 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+java.lang.NullPointerException: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+	at scala.reflect.internal.Definitions$DefinitionsClass.isByNameParamType(Definitions.scala:419)
+	at scala.reflect.internal.TreeInfo.isStableIdent(TreeInfo.scala:136)
+	at scala.reflect.internal.TreeInfo.isStableIdentifier(TreeInfo.scala:109)
+	at scala.reflect.internal.TreeInfo.isPath(TreeInfo.scala:98)
+	at scala.tools.nsc.interactive.Global.stabilizedType(Global.scala:963)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:811)
+	at scala.meta.internal.pc.SignatureHelpProvider.signatureHelp(SignatureHelpProvider.scala:23)
+
+2022.03.07 13:09:04 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:04 INFO  time: compiled ntt in 0.12s
+2022.03.07 13:09:14 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:14 INFO  time: compiled ntt in 0.11s
+2022.03.07 13:09:29 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:29 INFO  time: compiled ntt in 0.13s
+2022.03.07 13:09:32 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:32 INFO  time: compiled ntt in 0.14s
+2022.03.07 13:09:33 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:33 INFO  time: compiled ntt in 0.17s
+2022.03.07 13:09:48 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:48 INFO  time: compiled ntt in 0.15s
+2022.03.07 13:09:50 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:50 INFO  time: compiled ntt in 0.1s
+2022.03.07 13:09:55 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:55 INFO  time: compiled ntt in 0.16s
+mars 07, 2022 1:09:56 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4715
+2022.03.07 13:09:57 INFO  compiling ntt (1 scala source)
+2022.03.07 13:09:58 WARN  1 deprecation (since 2.13.0); re-run with -deprecation for details
+2022.03.07 13:09:58 INFO  time: compiled ntt in 1.43s
+2022.03.07 13:10:09 INFO  compiling ntt (1 scala source)
+2022.03.07 13:10:10 WARN  1 deprecation (since 2.13.0); re-run with -deprecation for details
+2022.03.07 13:10:10 INFO  time: compiled ntt in 1.14s
+2022.03.07 13:10:22 INFO  compiling ntt (1 scala source)
+2022.03.07 13:10:22 INFO  time: compiled ntt in 0.21s
+mars 07, 2022 1:10:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 4871
+2022.03.07 13:10:29 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:10:29 INFO  time: compiled ntt in 0.64s
+2022.03.07 13:10:36 INFO  compiling ntt (3 scala sources)
+2022.03.07 13:10:36 INFO  time: compiled ntt in 0.39s
+2022.03.07 13:10:45 INFO  compiling ntt (6 scala sources)
+2022.03.07 13:10:49 WARN  1 deprecation (since 2.13.0)
+2022.03.07 13:10:49 WARN  1 deprecation (since 2.13.3)
+2022.03.07 13:10:49 WARN  2 deprecations in total; re-run with -deprecation for details
+2022.03.07 13:10:49 INFO  time: compiled ntt in 3.4s
+2022.03.07 13:11:04 INFO  compiling ntt (1 scala source)
+2022.03.07 13:11:04 INFO  time: compiled ntt in 0.24s
+2022.03.07 13:11:21 INFO  compiling ntt (1 scala source)
+2022.03.07 13:11:21 INFO  time: compiled ntt in 0.25s
+mars 07, 2022 1:11:30 PM scala.meta.internal.pc.CompletionProvider expected$1
+WARNING: Cannot invoke "scala.reflect.internal.Types$Type.decls()" because the return value of "scala.reflect.internal.Trees$Tree.tpe()" is null
+2022.03.07 13:11:33 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.07 13:11:33 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.07 13:11:33 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:11:33 INFO  time: compiled ntt in 0.13s
+2022.03.07 13:11:35 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.07 13:11:35 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.07 13:11:35 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:11:35 INFO  time: compiled ntt in 0.1s
+2022.03.07 13:11:38 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.07 13:11:40 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.07 13:11:40 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.07 13:11:40 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:11:40 INFO  time: compiled ntt in 0.27s
+2022.03.07 13:11:56 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:11:56 INFO  time: compiled ntt in 0.23s
+2022.03.07 13:12:01 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:12:01 INFO  time: compiled ntt in 0.12s
+2022.03.07 13:12:08 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:12:08 INFO  time: compiled ntt in 0.29s
+2022.03.07 13:12:28 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:12:28 INFO  time: compiled ntt in 0.23s
+mars 07, 2022 1:12:30 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 5309
+2022.03.07 13:12:37 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:12:37 INFO  time: compiled ntt in 0.2s
+2022.03.07 13:13:06 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:13:06 INFO  time: compiled ntt in 0.21s
+2022.03.07 13:13:09 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:13:09 INFO  time: compiled ntt in 0.23s
+2022.03.07 13:13:14 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:13:14 INFO  time: compiled ntt in 0.2s
+2022.03.07 13:13:17 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:13:17 INFO  time: compiled ntt in 0.21s
+2022.03.07 13:13:25 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:13:25 INFO  time: compiled ntt in 0.21s
+2022.03.07 13:13:33 INFO  compiling ntt (2 scala sources)
+2022.03.07 13:13:34 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:13:34 INFO  time: compiled ntt in 1.44s
+2022.03.07 13:13:34 INFO  compiling ntt (1 scala source)
+2022.03.07 13:13:34 INFO  time: compiled ntt in 0.25s
+2022.03.07 13:14:03 INFO  compiling ntt (3 scala sources)
+2022.03.07 13:14:05 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
+2022.03.07 13:14:05 INFO  time: compiled ntt in 1.85s
+2022.03.07 13:14:05 INFO  compiling ntt (1 scala source)
+2022.03.07 13:14:05 INFO  time: compiled ntt in 0.12s
+2022.03.07 13:14:07 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Main.scala
+2022.03.07 13:14:07 WARN  Could not load snapshot text for C:\Users\chris\NTT\src\main\scala\Main.scala
+2022.03.07 13:14:19 INFO  compiling ntt (1 scala source)
+2022.03.07 13:14:20 INFO  time: compiled ntt in 1.36s

@@ -1,3 +1,8 @@
+import parsing.Lexer
+import parsing.StringBufferedIterator
+import parsing.TokenBuffer
+
 object Main extends App {
-  println("Hello, World!")
+  val r = Lexer.parse(new StringBufferedIterator("global [ test ]"), new TokenBuffer())
+  println(r.list)
 }
