@@ -14,6 +14,6 @@ class TokenBuffer{
     }
 
     def toBuffer(): TokenBufferedIterator = {
-        new TokenBufferedIterator(list.asScala.toList)
+        new TokenBufferedIterator(list.asScala.filter(_ != Tokens.SpaceToken()).toList)
     }
 }

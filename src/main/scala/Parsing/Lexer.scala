@@ -32,7 +32,7 @@ object Lexer{
                     parse(text, acc.add(KeywordToken(value), text))
                 }
                 else{
-                    parse(text, acc.add(DelimiterToken(value), text))
+                    parse(text, acc.add(IdentifierToken(value), text))
                 }
             }
             else if (c.isSpaceChar){
