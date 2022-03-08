@@ -7852,3 +7852,115 @@ WARNING: Unmatched cancel notification for request id 7603
 2022.03.08 12:52:43 INFO  time: compiled ntt in 2.7s
 2022.03.08 12:54:07 INFO  compiling ntt (1 scala source)
 2022.03.08 12:54:09 INFO  time: compiled ntt in 1.54s
+mars 08, 2022 12:55:01 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7729
+mars 08, 2022 12:55:09 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7750
+2022.03.08 12:55:34 INFO  compiling ntt (1 scala source)
+2022.03.08 12:55:36 INFO  time: compiled ntt in 1.85s
+2022.03.08 12:56:22 INFO  compiling ntt (1 scala source)
+2022.03.08 12:56:24 INFO  time: compiled ntt in 2.4s
+2022.03.08 13:07:44 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\chris\NTT\.metals\bsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.03.08 13:07:44 INFO  Connected to Build server: Bloop v1.4.12
+2022.03.08 13:07:44 INFO  compiling ntt (1 scala source)
+2022.03.08 13:07:44 INFO  time: compiled ntt in 0.27s
+2022.03.08 13:08:16 INFO  compiling ntt (1 scala source)
+2022.03.08 13:08:16 INFO  time: compiled ntt in 79ms
+2022.03.08 13:08:18 INFO  compiling ntt (1 scala source)
+2022.03.08 13:08:20 INFO  time: compiled ntt in 1.97s
+2022.03.08 13:08:27 INFO  compiling ntt (1 scala source)
+2022.03.08 13:08:30 INFO  time: compiled ntt in 2.42s
+mars 08, 2022 1:09:09 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+mars 08, 2022 1:09:09 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+java.lang.NullPointerException: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+	at scala.reflect.internal.Definitions$DefinitionsClass.isByNameParamType(Definitions.scala:419)
+	at scala.reflect.internal.TreeInfo.isStableIdent(TreeInfo.scala:136)
+	at scala.reflect.internal.TreeInfo.isStableIdentifier(TreeInfo.scala:109)
+	at scala.reflect.internal.TreeInfo.isPath(TreeInfo.scala:98)
+	at scala.tools.nsc.interactive.Global.stabilizedType(Global.scala:963)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:811)
+	at scala.meta.internal.pc.SignatureHelpProvider.signatureHelp(SignatureHelpProvider.scala:23)
+
+2022.03.08 13:09:35 INFO  compiling ntt (1 scala source)
+2022.03.08 13:09:35 INFO  time: compiled ntt in 0.23s
+2022.03.08 13:09:45 INFO  compiling ntt (1 scala source)
+2022.03.08 13:09:45 INFO  time: compiled ntt in 0.38s
+2022.03.08 13:09:50 INFO  compiling ntt (1 scala source)
+2022.03.08 13:09:50 INFO  time: compiled ntt in 0.26s
+2022.03.08 13:09:52 INFO  compiling ntt (1 scala source)
+2022.03.08 13:09:52 INFO  time: compiled ntt in 0.25s
+2022.03.08 13:09:54 INFO  compiling ntt (1 scala source)
+2022.03.08 13:09:54 INFO  time: compiled ntt in 0.25s
+2022.03.08 13:09:56 INFO  compiling ntt (1 scala source)
+2022.03.08 13:09:56 INFO  Deduplicating compilation of ntt from bsp client 'Metals 0.11.1' (since 2m 12.12s)
+2022.03.08 13:09:56 INFO  compiling ntt (1 scala source)
+2022.03.08 13:09:56 INFO  time: compiled ntt in 0.23s
+2022.03.08 13:10:00 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:00 INFO  time: compiled ntt in 0.31s
+2022.03.08 13:10:03 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:03 INFO  time: compiled ntt in 0.21s
+2022.03.08 13:10:08 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:08 INFO  time: compiled ntt in 0.22s
+2022.03.08 13:10:19 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:19 INFO  time: compiled ntt in 0.27s
+mars 08, 2022 1:10:34 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+mars 08, 2022 1:10:34 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+java.lang.NullPointerException: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+	at scala.reflect.internal.Definitions$DefinitionsClass.isByNameParamType(Definitions.scala:419)
+	at scala.reflect.internal.TreeInfo.isStableIdent(TreeInfo.scala:136)
+	at scala.reflect.internal.TreeInfo.isStableIdentifier(TreeInfo.scala:109)
+	at scala.reflect.internal.TreeInfo.isPath(TreeInfo.scala:98)
+	at scala.tools.nsc.interactive.Global.stabilizedType(Global.scala:963)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:811)
+	at scala.meta.internal.pc.SignatureHelpProvider.signatureHelp(SignatureHelpProvider.scala:23)
+
+2022.03.08 13:10:35 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:35 INFO  time: compiled ntt in 0.26s
+2022.03.08 13:10:43 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:44 INFO  time: compiled ntt in 1.68s
+2022.03.08 13:10:48 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:50 INFO  time: compiled ntt in 1.9s
+2022.03.08 13:10:53 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:54 INFO  time: compiled ntt in 1.59s
+2022.03.08 13:10:56 INFO  compiling ntt (1 scala source)
+2022.03.08 13:10:56 INFO  time: compiled ntt in 0.3s
+2022.03.08 13:11:02 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:03 INFO  time: compiled ntt in 1.53s
+2022.03.08 13:11:10 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:12 INFO  time: compiled ntt in 1.77s
+2022.03.08 13:11:15 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:17 INFO  time: compiled ntt in 1.56s
+2022.03.08 13:11:21 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:22 INFO  time: compiled ntt in 1.43s
+2022.03.08 13:11:32 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:32 INFO  time: compiled ntt in 0.22s
+2022.03.08 13:11:49 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:49 INFO  time: compiled ntt in 0.27s
+2022.03.08 13:11:52 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:52 INFO  time: compiled ntt in 0.26s
+2022.03.08 13:11:52 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:52 INFO  time: compiled ntt in 0.11s
+2022.03.08 13:11:54 INFO  compiling ntt (1 scala source)
+2022.03.08 13:11:54 INFO  time: compiled ntt in 53ms
+2022.03.08 13:12:01 INFO  compiling ntt (1 scala source)
+2022.03.08 13:12:01 INFO  time: compiled ntt in 0.23s
+2022.03.08 13:12:12 INFO  compiling ntt (1 scala source)
+2022.03.08 13:12:12 INFO  time: compiled ntt in 0.28s
+2022.03.08 13:12:16 INFO  compiling ntt (1 scala source)
+2022.03.08 13:12:16 INFO  time: compiled ntt in 0.34s
+2022.03.08 13:12:19 INFO  compiling ntt (1 scala source)
+2022.03.08 13:12:19 INFO  time: compiled ntt in 0.2s
+2022.03.08 13:12:22 INFO  compiling ntt (1 scala source)
+2022.03.08 13:12:22 INFO  time: compiled ntt in 0.23s
+2022.03.08 13:12:26 INFO  compiling ntt (1 scala source)
+2022.03.08 13:12:28 INFO  time: compiled ntt in 2.54s
+2022.03.08 13:12:28 INFO  compiling ntt (1 scala source)
+2022.03.08 13:12:28 INFO  time: compiled ntt in 0.17s
+2022.03.08 13:13:18 INFO  compiling ntt (1 scala source)
+2022.03.08 13:13:20 INFO  time: compiled ntt in 1.98s
+2022.03.08 13:13:20 INFO  compiling ntt (1 scala source)
+2022.03.08 13:13:20 INFO  time: compiled ntt in 0.16s
