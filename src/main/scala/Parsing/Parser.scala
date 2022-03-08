@@ -45,15 +45,28 @@ object Parser{
         }
     }
 
-    def parseFunctionBody()(implicit text: TokenBufferedIterator) = {
+    def parseFunctionBody()(implicit text: TokenBufferedIterator, context: Context) = {
         val body = ArrayBuffer[Tree]()
         while(text.hasNext()){
             body.addOne(parseCallOrVariable())
         }
     }
 
-    def parseCallOrVariable()(implicit text: TokenBufferedIterator): Tree = ???
-    def parseExpression()(implicit text: TokenBufferedIterator): Tree = ???
+    def parseCallOrVariable()(implicit text: TokenBufferedIterator, context: Context): Tree = {
+        val iden = text.getIdentifier()
+        if (context.hasFunction(iden)){
+            val fun = context.getFunction(iden)
+            Tree.Call(iden, List())
+        }
+        else if (context.hasVariable(iden)){
+            val var_ = context.getVariable(iden)
+            Tree.Variable(iden, var_.getOwner())
+        }
+        else{
+            ???
+        }
+    }
+    def parseExpression()(implicit text: TokenBufferedIterator, context: Context): Tree = ???
 
     def parseVariablesGroup()(implicit text: TokenBufferedIterator): List[String] = {
         text.requierToken(DelimiterToken("["))

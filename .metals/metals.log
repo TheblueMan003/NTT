@@ -7964,3 +7964,90 @@ java.lang.NullPointerException: Cannot invoke "scala.reflect.internal.Types$Type
 2022.03.08 13:13:20 INFO  time: compiled ntt in 1.98s
 2022.03.08 13:13:20 INFO  compiling ntt (1 scala source)
 2022.03.08 13:13:20 INFO  time: compiled ntt in 0.16s
+2022.03.08 14:00:52 INFO  compiling ntt (1 scala source)
+2022.03.08 14:00:54 INFO  time: compiled ntt in 2.66s
+2022.03.08 14:00:54 INFO  compiling ntt (1 scala source)
+2022.03.08 14:00:54 INFO  time: compiled ntt in 0.15s
+mars 08, 2022 2:01:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9230
+2022.03.08 14:02:18 INFO  compiling ntt (2 scala sources)
+2022.03.08 14:02:20 INFO  time: compiled ntt in 1.9s
+2022.03.08 14:02:20 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:02:20 INFO  time: compiled ntt in 0.3s
+2022.03.08 14:04:11 INFO  compiling ntt (2 scala sources)
+2022.03.08 14:04:11 INFO  time: compiled ntt in 0.28s
+2022.03.08 14:04:24 INFO  compiling ntt (2 scala sources)
+2022.03.08 14:04:24 INFO  time: compiled ntt in 0.47s
+mars 08, 2022 2:04:37 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9709
+2022.03.08 14:04:42 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:04:42 INFO  time: compiled ntt in 0.38s
+2022.03.08 14:05:12 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:05:12 INFO  time: compiled ntt in 0.39s
+2022.03.08 14:05:17 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:05:17 INFO  time: compiled ntt in 0.31s
+2022.03.08 14:05:21 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:05:21 INFO  time: compiled ntt in 0.13s
+mars 08, 2022 2:05:23 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9840
+mars 08, 2022 2:05:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9849
+mars 08, 2022 2:05:26 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9848
+2022.03.08 14:05:28 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:05:28 INFO  time: compiled ntt in 0.32s
+2022.03.08 14:05:57 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:05:57 INFO  time: compiled ntt in 0.35s
+2022.03.08 14:06:06 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:06:06 INFO  time: compiled ntt in 0.34s
+mars 08, 2022 2:06:08 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 9970
+2022.03.08 14:06:12 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:06:12 INFO  time: compiled ntt in 0.11s
+mars 08, 2022 2:06:36 PM scala.meta.internal.pc.CompilerAccess retryWithCleanCompiler
+INFO: compiler crashed due to an error in the Scala compiler, retrying with new compiler instance.
+mars 08, 2022 2:06:36 PM scala.meta.internal.pc.CompilerAccess handleError
+SEVERE: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+java.lang.NullPointerException: Cannot invoke "scala.reflect.internal.Types$Type.typeSymbol()" because "tp" is null
+	at scala.reflect.internal.Definitions$DefinitionsClass.isByNameParamType(Definitions.scala:419)
+	at scala.reflect.internal.TreeInfo.isStableIdent(TreeInfo.scala:136)
+	at scala.reflect.internal.TreeInfo.isStableIdentifier(TreeInfo.scala:109)
+	at scala.reflect.internal.TreeInfo.isPath(TreeInfo.scala:98)
+	at scala.tools.nsc.interactive.Global.stabilizedType(Global.scala:963)
+	at scala.tools.nsc.interactive.Global.typedTreeAt(Global.scala:811)
+	at scala.meta.internal.pc.SignatureHelpProvider.signatureHelp(SignatureHelpProvider.scala:23)
+
+2022.03.08 14:06:48 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:06:48 INFO  time: compiled ntt in 0.1s
+2022.03.08 14:07:18 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:07:18 INFO  time: compiled ntt in 0.1s
+2022.03.08 14:07:41 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:07:41 INFO  time: compiled ntt in 0.13s
+2022.03.08 14:07:44 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:07:44 INFO  time: compiled ntt in 0.53s
+2022.03.08 14:07:47 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:07:47 INFO  time: compiled ntt in 0.31s
+2022.03.08 14:07:52 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:07:52 INFO  time: compiled ntt in 0.16s
+2022.03.08 14:08:39 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:08:39 INFO  time: compiled ntt in 0.14s
+mars 08, 2022 2:08:41 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10613
+2022.03.08 14:08:49 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:08:49 INFO  time: compiled ntt in 0.42s
+2022.03.08 14:11:02 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:11:02 INFO  time: compiled ntt in 0.38s
+mars 08, 2022 2:11:05 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10672
+2022.03.08 14:11:12 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:11:12 INFO  time: compiled ntt in 0.36s
+2022.03.08 14:12:10 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:12:10 INFO  time: compiled ntt in 0.51s
+2022.03.08 14:12:15 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:12:15 INFO  time: compiled ntt in 0.52s
+2022.03.08 14:12:36 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:12:36 INFO  time: compiled ntt in 0.51s
+2022.03.08 14:13:29 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:13:32 INFO  time: compiled ntt in 2.97s
+2022.03.08 14:13:32 INFO  compiling ntt (3 scala sources)
+2022.03.08 14:13:32 INFO  time: compiled ntt in 0.46s
