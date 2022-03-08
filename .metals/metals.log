@@ -7850,3 +7850,5 @@ WARNING: Unmatched cancel notification for request id 7603
 2022.03.08 12:52:26 INFO  time: compiled ntt in 2.07s
 2022.03.08 12:52:40 INFO  compiling ntt (1 scala source)
 2022.03.08 12:52:43 INFO  time: compiled ntt in 2.7s
+2022.03.08 12:54:07 INFO  compiling ntt (1 scala source)
+2022.03.08 12:54:09 INFO  time: compiled ntt in 1.54s
