@@ -10,6 +10,6 @@ object Main extends App {
   val r1 = Lexer.parse(new StringBufferedIterator(text), new TokenBuffer())
   println(r1.list)
   val con = new Context()
-  val r2 = Parser.functionDiscovery()(r1.toBuffer(), con)
+  val r2 = Parser.functionDiscovery()(r1.toIterator(), con)
   println(con.functions)
 }

@@ -15,6 +15,7 @@ object Lexer{
         if (text.hasNext){
             val c: Char = text.take()
 
+            // Number
             if (c.isDigit){
                 text.takeWhile( x => x.isDigit)
                 if (text.peek() == '.'){
@@ -25,6 +26,7 @@ object Lexer{
                     parse(text, acc.add(IntLitToken(text.cut().toInt), text))
                 }
             }
+            // Identifier or Keyword
             else if (c.isLetter){
                 text.takeWhile(x => x.isLetterOrDigit || x == '-')
                 val value = text.cut()
@@ -35,18 +37,22 @@ object Lexer{
                     parse(text, acc.add(IdentifierToken(value), text))
                 }
             }
+            // Spacec Chars
             else if (c.isSpaceChar || c == '\n'){
                 text.takeWhile(x => x.isSpaceChar || x == '-')
                 parse(text, acc.add(SpaceToken(), text))
 
             }
+            // Delimiter
             else if (delimiter.contains(c)){
                 parse(text, acc.add(DelimiterToken(text.cut()), text))
             }
+            // Operator
             else if (operator.contains(c)){
                 text.takeWhile(x => operator.contains(x))
                 parse(text, acc.add(OperatorToken(text.cut()), text))
             }
+            // Comment
             else if (c == ';'){
                 text.takeWhile(x => x != '\n')
                 parse(text, acc.add(CommentToken(text.cut()), text))

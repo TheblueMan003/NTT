@@ -663,3 +663,27 @@ WARNING: Unmatched cancel notification for request id 2166
 2022.03.11 07:43:18 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\BufferedIterator.scala
 mars 11, 2022 7:44:38 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
 INFO: Unsupported notification method: $/setTrace
+2022.03.11 07:45:38 WARN  no build target for: D:\git\NTT\src\main\scala\ast\TreeModule.scala
+2022.03.11 07:46:21 WARN  no build target for: D:\git\NTT\src\main\scala\utils\BufferedIterator.scala
+2022.03.11 07:46:29 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\BufferedIterator.scala
+2022.03.11 07:46:48 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:47:06 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:47:14 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:47:30 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:47:50 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+mars 11, 2022 7:48:00 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3380
+2022.03.11 07:48:04 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:48:38 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:49:59 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:50:06 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:50:18 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:50:23 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:50:39 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.11 07:50:43 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.11 07:51:04 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+mars 11, 2022 7:51:22 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3852
+2022.03.11 07:51:27 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.11 07:52:32 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.11 07:52:36 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
