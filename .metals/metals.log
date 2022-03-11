@@ -236,3 +236,7 @@ org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequ
 2022.03.11 07:08:20 INFO  no build target found for D:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala. Using presentation compiler with project's scala-library version: 3.1.1
 2022.03.11 07:08:25 INFO  time: code lens generation in 8.97s
 2022.03.11 07:08:25 INFO  time: code lens generation in 8.97s
+2022.03.11 07:09:52 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:09:58 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
+2022.03.11 07:09:59 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.11 07:10:11 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\BufferedIterator.scala
