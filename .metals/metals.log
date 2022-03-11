@@ -8051,3 +8051,35 @@ WARNING: Unmatched cancel notification for request id 10672
 2022.03.08 14:13:32 INFO  time: compiled ntt in 2.97s
 2022.03.08 14:13:32 INFO  compiling ntt (3 scala sources)
 2022.03.08 14:13:32 INFO  time: compiled ntt in 0.46s
+2022.03.09 08:01:43 INFO  shutting down Metals
+2022.03.09 08:01:45 ERROR timeout: build server 'bloop' during shutdown
+2022.03.09 08:01:45 ERROR timeout: build server 'bloop' during shutdown
+2022.03.11 13:04:31 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at c:\Users\chris\NTT\.metals\lsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\lsp.trace.json
+2022.03.11 13:04:33 INFO  logging to file C:\Users\chris\NTT\.metals\metals.log
+2022.03.11 13:04:33 INFO  Started: Metals version 0.11.1 in workspace 'C:\Users\chris\NTT' for client Visual Studio Code 1.65.0.
+2022.03.11 13:04:33 INFO  Parse release: 17
+2022.03.11 13:04:36 INFO  time: initialize in 3.03s
+2022.03.11 13:04:37 INFO  Attempting to connect to the build server...
+2022.03.11 13:04:37 INFO  skipping build import with status 'Installed'
+2022.03.11 13:04:39 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\chris\NTT\.metals\bsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.03.11 13:04:39 INFO  Attempting to connect to the build server...
+2022.03.11 13:04:39 INFO  tracing is disabled for protocol BSP, to enable tracing of incoming and outgoing JSON messages create an empty file at C:\Users\chris\NTT\project\.metals\bsp.trace.json or C:\Users\chris\AppData\Local\scalameta\metals\cache\bsp.trace.json
+2022.03.11 13:04:39 INFO  time: Connected to build server in 1.88s
+2022.03.11 13:04:39 INFO  Connected to Build server: Bloop v1.4.12
+2022.03.11 13:04:39 INFO  time: Imported build in 0.32s
+2022.03.11 13:04:45 INFO  no build target found for C:\Users\chris\NTT\src\main\scala\utils\Context.scala. Using presentation compiler with project's scala-library version: 3.1.0
+2022.03.11 13:04:48 INFO  time: code lens generation in 9.31s
+2022.03.11 13:04:49 INFO  time: code lens generation in 9.48s
+2022.03.11 13:04:53 INFO  time: indexed workspace in 13s
+2022.03.11 13:05:56 INFO  compiling ntt (3 scala sources)
+2022.03.11 13:06:03 INFO  time: compiled ntt in 7.63s
+2022.03.11 13:06:03 INFO  compiling ntt (3 scala sources)
+2022.03.11 13:06:03 INFO  time: compiled ntt in 0.53s
+2022.03.11 13:06:03 INFO  compiling ntt (3 scala sources)
+2022.03.11 13:06:05 INFO  time: compiled ntt in 1.09s
+2022.03.11 13:06:05 INFO  compiling ntt (3 scala sources)
+2022.03.11 13:06:05 INFO  time: compiled ntt in 0.3s
+2022.03.11 13:06:08 INFO  compiling ntt (3 scala sources)
+2022.03.11 13:06:10 INFO  time: compiled ntt in 1.95s
+2022.03.11 13:06:10 INFO  compiling ntt (3 scala sources)
+2022.03.11 13:06:10 INFO  time: compiled ntt in 0.27s
