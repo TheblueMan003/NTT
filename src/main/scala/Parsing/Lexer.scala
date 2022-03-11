@@ -35,7 +35,7 @@ object Lexer{
                     parse(text, acc.add(IdentifierToken(value), text))
                 }
             }
-            else if (c.isSpaceChar){
+            else if (c.isSpaceChar || c == '\n'){
                 text.takeWhile(x => x.isSpaceChar || x == '-')
                 parse(text, acc.add(SpaceToken(), text))
 

@@ -72,7 +72,7 @@ class TokenBufferedIterator(string: List[Token]) extends Positionable{
         }
     }
     def getIdentifier(): String = {
-        if (hasNext()){
+        if (!hasNext()){
             throw new UnexpectedEOFException()
         }
         else{

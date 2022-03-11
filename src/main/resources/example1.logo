@@ -1,0 +1,23 @@
+globals [
+    test
+    index
+]
+
+turtles-own [
+    test2
+    test3
+]
+
+to go
+    argtest test2
+    noarg
+end
+
+
+to argtest [value]
+
+end
+
+to noarg
+
+end

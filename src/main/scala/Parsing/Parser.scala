@@ -12,16 +12,16 @@ object Parser{
         c match{
             case KeywordToken("to") => {
                 val name = text.getIdentifier()
-                text.setStart()
-                text.takeWhile(x => x match {
-                    case KeywordToken("end") => false
-                    case _ => true 
-                })
-
-                val body = text.cut()
-
-                text.requierToken(KeywordToken("end"))
-
+                val argName = parseArgName()
+                val body = getBody()
+            
+                context.addFunction(name, List(), body)
+            }
+            case KeywordToken("to-report") => {
+                val name = text.getIdentifier()
+                val argName = parseArgName()
+                val body = getBody()
+            
                 context.addFunction(name, List(), body)
             }
             case KeywordToken("globals") => {
@@ -45,7 +45,7 @@ object Parser{
         }
     }
 
-    def parseFunctionBody()(implicit text: TokenBufferedIterator, context: Context) = {
+    def parseFunctionsBody()(implicit text: TokenBufferedIterator, context: Context) = {
         val body = ArrayBuffer[Tree]()
         while(text.hasNext()){
             body.addOne(parseCallOrVariable())
@@ -56,7 +56,13 @@ object Parser{
         val iden = text.getIdentifier()
         if (context.hasFunction(iden)){
             val fun = context.getFunction(iden)
-            Tree.Call(iden, List())
+            val args = ArrayBuffer[Tree]()
+            var i = 0
+            for( i <- 0 to fun.argsNames.length){
+                args.addOne(parseExpression())
+            }
+
+            Tree.Call(iden, args.toList)
         }
         else if (context.hasVariable(iden)){
             val var_ = context.getVariable(iden)
@@ -66,7 +72,9 @@ object Parser{
             ???
         }
     }
-    def parseExpression()(implicit text: TokenBufferedIterator, context: Context): Tree = ???
+    def parseExpression()(implicit text: TokenBufferedIterator, context: Context): Tree = {
+        parseCallOrVariable()
+    }
 
     def parseVariablesGroup()(implicit text: TokenBufferedIterator): List[String] = {
         text.requierToken(DelimiterToken("["))
@@ -82,5 +90,24 @@ object Parser{
         text.requierToken(DelimiterToken("]"))
 
         tokens
+    }
+
+    def parseArgName()(implicit text: TokenBufferedIterator, context: Context): List[String] = {
+        text.peek() match{
+                    case DelimiterToken("[") => parseVariablesGroup()
+                    case _ => List()
+                }
+    }
+    def getBody()(implicit text: TokenBufferedIterator, context: Context): List[Token] = {
+        text.setStart()
+        text.takeWhile(x => x match {
+            case KeywordToken("end") => false
+            case _ => true 
+        })
+
+        val body = text.cut()
+
+        text.requierToken(KeywordToken("end"))
+        body
     }
 }

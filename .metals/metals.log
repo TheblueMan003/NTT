@@ -240,3 +240,426 @@ org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequ
 2022.03.11 07:09:58 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Token.scala
 2022.03.11 07:09:59 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\TokenBuffer.scala
 2022.03.11 07:10:11 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\BufferedIterator.scala
+2022.03.11 07:12:46 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.11 07:12:47 ERROR text document: file:///d:/git/NTT/src/main/scala/Parsing/StringBufferedIterator.scala
+java.nio.file.NoSuchFileException: d:\git\NTT\src\main\scala\Parsing\StringBufferedIterator.scala
+	at sun.nio.fs.WindowsException.translateToIOException(null)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(null)
+	at sun.nio.fs.WindowsException.rethrowAsIOException(null)
+	at sun.nio.fs.WindowsFileSystemProvider.newByteChannel(null)
+	at java.nio.file.Files.newByteChannel(null)
+	at java.nio.file.Files.newByteChannel(null)
+	at java.nio.file.Files.readAllBytes(null)
+	at scala.meta.internal.io.PlatformFileIO$.slurp(PlatformFileIO.scala:45)
+	at scala.meta.internal.io.FileIO$.slurp(FileIO.scala:24)
+	at scala.meta.internal.metals.InteractiveSemanticdbs.$anonfun$textDocument$2(InteractiveSemanticdbs.scala:90)
+	at scala.Option.getOrElse(Option.scala:189)
+	at scala.meta.internal.metals.InteractiveSemanticdbs.$anonfun$textDocument$1(InteractiveSemanticdbs.scala:90)
+	at java.util.HashMap.compute(null)
+	at java.util.Collections$SynchronizedMap.compute(null)
+	at scala.meta.internal.metals.InteractiveSemanticdbs.textDocument(InteractiveSemanticdbs.scala:89)
+	at scala.meta.internal.metals.InteractiveSemanticdbs.textDocument(InteractiveSemanticdbs.scala:63)
+	at scala.meta.internal.metals.AggregateSemanticdbs.loop$1(AggregateSemanticdbs.scala:30)
+	at scala.meta.internal.metals.AggregateSemanticdbs.textDocument(AggregateSemanticdbs.scala:36)
+	at scala.meta.internal.decorations.SyntheticsDecorationProvider.currentDocument(SyntheticsDecorationProvider.scala:278)
+	at scala.meta.internal.decorations.SyntheticsDecorationProvider.syntheticDecorations(SyntheticsDecorationProvider.scala:165)
+	at scala.meta.internal.decorations.SyntheticsDecorationProvider.$anonfun$publishSynthetics$1(SyntheticsDecorationProvider.scala:65)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:659)
+	at scala.util.Success.$anonfun$map$1(Try.scala:255)
+	at scala.util.Success.map(Try.scala:213)
+	at scala.concurrent.Future.$anonfun$map$1(Future.scala:292)
+	at scala.concurrent.impl.Promise.liftedTree1$1(Promise.scala:33)
+	at scala.concurrent.impl.Promise.$anonfun$transform$1(Promise.scala:33)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:64)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(null)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(null)
+	at java.lang.Thread.run(null)
+
+2022.03.11 07:12:54 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\BufferedIterator.scala
+2022.03.11 07:12:59 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+mars 11, 2022 7:15:20 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 292
+2022.03.11 07:15:25 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:15:32 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+mars 11, 2022 7:15:55 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 339
+2022.03.11 07:16:01 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:16:03 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:16:18 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:16:41 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:17:02 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:17:02 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:17:11 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:17:18 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:17:24 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:18:35 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:19:20 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:20:13 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:20:19 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:21:12 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:21:20 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:21:24 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:21:28 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:22:44 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:22:58 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:23:01 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:23:03 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:23:04 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:23:07 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:23:37 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+mars 11, 2022 7:23:50 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1059
+2022.03.11 07:23:53 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:24:01 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+mars 11, 2022 7:26:01 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1247
+2022.03.11 07:26:17 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:26:21 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:26:24 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+mars 11, 2022 7:26:39 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 116 is not a valid line number, allowed [0..114]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:143)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:78)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:77)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1615)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1614)
+	... 15 more
+
+2022.03.11 07:26:57 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:27:02 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:27:04 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:27:14 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+mars 11, 2022 7:27:48 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 119 is not a valid line number, allowed [0..112]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:143)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:78)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:77)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1615)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1614)
+	... 15 more
+
+mars 11, 2022 7:27:50 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 119 is not a valid line number, allowed [0..112]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:143)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:78)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:77)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1615)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1614)
+	... 15 more
+
+mars 11, 2022 7:27:52 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 120 is not a valid line number, allowed [0..112]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:143)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:78)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:77)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1615)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1614)
+	... 15 more
+
+2022.03.11 07:27:58 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+mars 11, 2022 7:28:09 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 113 is not a valid line number, allowed [0..112]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:143)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:78)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:77)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1615)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1614)
+	... 15 more
+
+mars 11, 2022 7:28:10 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 113 is not a valid line number, allowed [0..112]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.lineLength$1(Position.scala:57)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:60)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:143)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:78)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:77)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1615)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1614)
+	... 15 more
+
+2022.03.11 07:28:12 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+mars 11, 2022 7:28:14 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1629
+mars 11, 2022 7:28:18 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint fallbackResponseError
+SEVERE: Internal error: java.lang.reflect.InvocationTargetException
+java.lang.RuntimeException: java.lang.reflect.InvocationTargetException
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:67)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.request(GenericEndpoint.java:120)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleRequest(RemoteEndpoint.java:261)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:190)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:194)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:94)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:113)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint.lambda$null$0(GenericEndpoint.java:65)
+	... 11 more
+Caused by: java.lang.IllegalArgumentException: 117 is not a valid line number, allowed [0..112]
+	at scala.meta.internal.inputs.InternalInput.lineToOffset(InternalInput.scala:37)
+	at scala.meta.internal.inputs.InternalInput.lineToOffset$(InternalInput.scala:32)
+	at scala.meta.inputs.Input$VirtualFile.lineToOffset(Input.scala:80)
+	at scala.meta.inputs.Position$Range$.apply(Position.scala:59)
+	at scala.meta.internal.mtags.MtagsEnrichments$XtensionPositionLspInverse.toMeta(MtagsEnrichments.scala:143)
+	at scala.meta.internal.parsing.Trees.$anonfun$findLastEnclosingAt$4(Trees.scala:78)
+	at scala.Option.flatMap(Option.scala:271)
+	at scala.meta.internal.parsing.Trees.findLastEnclosingAt(Trees.scala:77)
+	at scala.meta.internal.metals.codeactions.PatternMatchRefactor.contribute(PatternMatchRefactor.scala:96)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:64)
+	at scala.meta.internal.metals.CodeActionProvider$$anonfun$1.applyOrElse(CodeActionProvider.scala:63)
+	at scala.collection.immutable.List.collect(List.scala:323)
+	at scala.meta.internal.metals.CodeActionProvider.codeActions(CodeActionProvider.scala:63)
+	at scala.meta.internal.metals.MetalsLanguageServer.$anonfun$codeAction$1(MetalsLanguageServer.scala:1615)
+	at scala.meta.internal.metals.CancelTokens$.future(CancelTokens.scala:38)
+	at scala.meta.internal.metals.MetalsLanguageServer.codeAction(MetalsLanguageServer.scala:1614)
+	... 15 more
+
+2022.03.11 07:28:33 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:28:41 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:28:41 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:28:43 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:28:50 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:29:07 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:30:52 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:31:15 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:31:16 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:31:25 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:32:02 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:32:04 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:32:06 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:32:10 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:32:11 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:32:14 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:32:22 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+mars 11, 2022 7:32:22 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2166
+2022.03.11 07:32:24 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:32:43 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:32:57 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:33:15 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:33:15 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:33:19 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:33:31 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:34:09 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Parser.scala
+2022.03.11 07:34:32 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:34:35 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:34:40 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:34:46 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:34:52 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:35:07 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:35:07 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:35:08 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:35:08 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Context.scala
+2022.03.11 07:35:33 WARN  no build target for: D:\git\NTT\src\main\scala\utils\Positionable.scala
+2022.03.11 07:35:40 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:35:52 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:37:06 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:37:14 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:37:17 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:37:17 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:37:17 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:37:17 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:37:27 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:37:59 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:38:03 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:40:50 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:41:08 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\BufferedIterator.scala
+2022.03.11 07:41:15 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\TokenBuffer.scala
+2022.03.11 07:41:29 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.11 07:41:33 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.11 07:43:18 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\BufferedIterator.scala
+mars 11, 2022 7:44:38 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
