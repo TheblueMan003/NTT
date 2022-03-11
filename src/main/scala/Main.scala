@@ -3,11 +3,16 @@ import parsing.StringBufferedIterator
 import parsing.TokenBuffer
 import parsing.Parser
 import utils.Context
+import scala.io.Source
 
 object Main extends App {
-  val r1 = Lexer.parse(new StringBufferedIterator("globals [ test dummy ]"), new TokenBuffer())
+  val text = Source.fromResource("example1.logo").getLines.reduce((x,y) => x + "\n" +y)
+  val r1 = Lexer.parse(new StringBufferedIterator(text), new TokenBuffer())
   println(r1.list)
+
+  println
+
   val con = new Context()
-  val r2 = Parser.functionDiscovery(r1.toBuffer(), con)
-  println(con.variable)
+  val r2 = Parser.functionDiscovery()(r1.toIterator(), con)
+  println(con.functions)
 }

@@ -30,9 +30,13 @@ class Context{
     def getVariable(name: String): Variable = variables.get(name).get
 }
 
-class Function(name: String, argsNames: List[String], body: List[Token]){
+case class Function(name: String, argsNames: List[String], body: List[Token]){
+    override def toString(): String = {
+        s"${body} (${argsNames}){${body}}"
+    }
 }
-class Variable(name: String, owner: VariableOwner){
+
+case class Variable(name: String, owner: VariableOwner){
     def getName() = name
     def getOwner() = owner 
 }
