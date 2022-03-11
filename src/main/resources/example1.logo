@@ -5,7 +5,7 @@ globals [
 
 turtles-own [
     test2
-    test3
+    test3-test?
 ]
 
 to go

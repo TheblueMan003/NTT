@@ -687,3 +687,8 @@ WARNING: Unmatched cancel notification for request id 3852
 2022.03.11 07:51:27 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
 2022.03.11 07:52:32 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\TokenBuffer.scala
 2022.03.11 07:52:36 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:53:50 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:53:51 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:54:03 WARN  no build target for: D:\git\NTT\src\main\scala\Main.scala
+2022.03.11 07:55:23 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala
+2022.03.11 07:55:37 WARN  no build target for: D:\git\NTT\src\main\scala\Parsing\Lexer.scala

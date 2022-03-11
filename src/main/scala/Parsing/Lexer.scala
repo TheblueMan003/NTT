@@ -6,6 +6,7 @@ import Tokens._
 object Lexer{
     val delimiter = List('[', ']')
     val operator = List('+', '-', '*', '/', '<', '=', '>')
+    val identifier = List('-', '?')
     val keyword = List("breed", "directed-link-breed", "end", "extensions", "globals", 
                         "__includes", "links-own", "patches-own", "to", "to-report", 
                         "turtles-own", "undirected-link-breed")
@@ -28,7 +29,7 @@ object Lexer{
             }
             // Identifier or Keyword
             else if (c.isLetter){
-                text.takeWhile(x => x.isLetterOrDigit || x == '-')
+                text.takeWhile(x => x.isLetterOrDigit || identifier.contains(x))
                 val value = text.cut()
                 if (keyword.contains(value)){
                     parse(text, acc.add(KeywordToken(value), text))
