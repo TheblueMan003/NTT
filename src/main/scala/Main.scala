@@ -12,7 +12,6 @@ object Main extends App {
 
   println
 
-  val con = new Context()
-  val r2 = Parser.functionDiscovery()(r1.toIterator(), con)
-  println(con.functions)
+  val r2 = Parser.parse(r1.toIterator())
+  println(r2.functions.map(f => "\n" + f._1 + "->" + f._2.body+"\n"))
 }

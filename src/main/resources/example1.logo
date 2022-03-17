@@ -9,13 +9,11 @@ turtles-own [
 ]
 
 to go
-    argtest test2
-    noarg
+
 end
 
-
 to argtest [value]
-
+    argtest test + index + index
 end
 
 to noarg
