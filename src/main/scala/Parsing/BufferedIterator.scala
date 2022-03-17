@@ -82,4 +82,23 @@ class TokenBufferedIterator(string: List[Token]) extends Positionable{
             }
         }
     }
+    def getOperator(possible: List[String]): Option[String] = {
+        if (!hasNext()){
+            None
+        }
+        else{
+            peek() match{
+                case OperatorToken(name) => { 
+                    if (possible.contains(name)){
+                        take()
+                        Some(name)
+                    }
+                    else{
+                        None
+                    }
+                }
+                case token => None
+            }
+        }
+    }
 }

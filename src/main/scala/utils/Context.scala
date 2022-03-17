@@ -4,6 +4,7 @@ import ast.Tree._
 import scala.collection.mutable.Map
 import parsing.Token
 import javax.swing.text.StyledEditorKit.BoldAction
+import ast.Tree
 
 trait VariableOwner{
 }
@@ -30,7 +31,8 @@ class Context{
     def getVariable(name: String): Variable = variables.get(name).get
 }
 
-case class Function(name: String, argsNames: List[String], body: List[Token]){
+case class Function(name: String, argsNames: List[String], tokenBody: List[Token]){
+    var body: Tree = null
     override def toString(): String = {
         s"${body} (${argsNames}){${body}}"
     }

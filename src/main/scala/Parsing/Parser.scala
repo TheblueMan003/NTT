@@ -5,8 +5,21 @@ import Tokens._
 import utils.Context
 import utils.VariableOwner
 import scala.collection.mutable.ArrayBuffer
+import java.lang.module.ModuleDescriptor.Exports
+import ast.Expression
+import scala.collection.mutable.ListBuffer
 
 object Parser{
+
+    private var operatorsPriority = List(List("<", ">", "<=", ">=" ,"=","!="), List("^"), List("*", "/"), List("+", "-")).reverse
+
+    def parse(text: TokenBufferedIterator): Context = {
+        val con = new Context()
+        functionDiscovery()(text, con)
+        parseAllFuncitonsBody()(con)
+        con
+    }
+
     /**
      * Get All functions and variables from code 
      */
@@ -47,21 +60,28 @@ object Parser{
             functionDiscovery()
         }
     }
+    
+    def parseAllFuncitonsBody()(context: Context) = {
+        context.functions.values.map( f =>
+            f.body = parseFunctionsBody()(new TokenBufferedIterator(f.tokenBody), context)
+        )
+    }
 
     /**
      * Parse inside of Function Body
      */
-    def parseFunctionsBody()(implicit text: TokenBufferedIterator, context: Context) = {
-        val body = ArrayBuffer[Tree]()
+    def parseFunctionsBody()(implicit text: TokenBufferedIterator, context: Context):Tree = {
+        val body = ListBuffer[Tree]()
         while(text.hasNext()){
             body.addOne(parseCallOrVariable())
         }
+        return Tree.Block(body.toList)
     }
 
     /**
      * Parse a function call or a variable 
      */
-    def parseCallOrVariable()(implicit text: TokenBufferedIterator, context: Context): Tree = {
+    def parseCallOrVariable()(implicit text: TokenBufferedIterator, context: Context): Expression = {
         val iden = text.getIdentifier()
         if (context.hasFunction(iden)){
             val fun = context.getFunction(iden)
@@ -85,8 +105,24 @@ object Parser{
     /**
      * Parse an expression
      */ 
-    def parseExpression()(implicit text: TokenBufferedIterator, context: Context): Tree = {
-        parseCallOrVariable()
+    def parseExpression(opIndex: Int = 0)(implicit text: TokenBufferedIterator, context: Context): Expression = {
+        def rec(): Expression = {
+            if (opIndex + 1 == operatorsPriority.size){
+                return parseCallOrVariable()
+            }
+            else{
+                return parseExpression(opIndex + 1)
+            }
+        }
+
+        var left = rec()
+        val ops = operatorsPriority(opIndex)
+        var op = text.getOperator(ops)
+        while(op.nonEmpty){
+            left = Tree.BinarayExpr(op.get, left, rec())
+            op = text.getOperator(ops)
+        }
+        return left
     }
 
     /**

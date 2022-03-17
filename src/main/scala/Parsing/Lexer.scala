@@ -5,7 +5,7 @@ import Tokens._
 
 object Lexer{
     val delimiter = List('[', ']')
-    val operator = List('+', '-', '*', '/', '<', '=', '>')
+    val operator = List('+', '-', '*', '/', '<', '=', '>', '!')
     val identifier = List('-', '?')
     val keyword = List("breed", "directed-link-breed", "end", "extensions", "globals", 
                         "__includes", "links-own", "patches-own", "to", "to-report", 
