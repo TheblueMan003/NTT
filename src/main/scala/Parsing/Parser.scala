@@ -12,7 +12,7 @@ import ast.BreedType._
 
 object Parser{
 
-    private var operatorsPriority = List(List("<", ">", "<=", ">=" ,"=","!="), List("^"), List("*", "/"), List("+", "-")).reverse
+    private var operatorsPriority = List(List("<", ">", "<=", ">=" ,"=","!="), List("^"), List("*", "/", "and"), List("+", "-", "or", "xor")).reverse
 
     def parse(text: TokenBufferedIterator): Context = {
         val con = new Context()
@@ -117,6 +117,7 @@ object Parser{
             ???
         }
         else if (text.isKeyword("set")){
+            text.take()
             val iden = text.getIdentifier()
             val vari = context.getVariable(iden)
             val value = parseExpression()
@@ -131,9 +132,80 @@ object Parser{
                 throw new Exception(f"Unknown function: ${iden}")
             }
         }
+        else if (text.isKeyword("if")){
+            text.take()
+            val cond = parseExpression()
+            val cmds = parseInstructionBlock()
+
+            Tree.IfBlock(cond, cmds)
+        }
+        else if (text.isKeyword("ifelse")){
+            text.take()
+            val buffer = ListBuffer[(Expression, Tree)]()
+
+            while(!text.isDelimiter("[")){
+                val cond = parseExpression()
+                val cmds = parseInstructionBlock()
+                buffer.addOne((cond, cmds))
+            }
+
+            val cmds = parseInstructionBlock()
+
+            Tree.IfElseBlock(buffer.toList, cmds)
+        }
+        else if (text.isKeyword("ifelse-value")){
+            text.take()
+            val buffer = ListBuffer[(Expression, Expression)]()
+
+            while(!text.isDelimiter("[")){
+                val cond = parseExpression()
+                text.requierToken(DelimiterToken("["))
+                val value = parseExpression()
+                text.requierToken(DelimiterToken("]"))
+                buffer.addOne((cond, value))
+            }
+
+            text.requierToken(DelimiterToken("["))
+            val value = parseExpression()
+            text.requierToken(DelimiterToken("]"))
+
+            Tree.IfElseBlockExpression(buffer.toList, value)
+        }
+        else if (text.isKeyword("loop")){
+            text.take()
+            val cmds = parseInstructionBlock()
+            Tree.Loop(cmds)
+        }
+        else if (text.isKeyword("repeat")){
+            text.take()
+            val cond = parseExpression()
+            val cmds = parseInstructionBlock()
+            Tree.Repeat(cond, cmds)
+        }
+        else if (text.isKeyword("while")){
+            text.take()
+            val cond = parseExpression()
+            val cmds = parseInstructionBlock()
+            Tree.While(cond, cmds)
+        }
         else{
             ???
         }
+    }
+
+    /**
+     * Parse an instruction block delimited by [ ]
+     */ 
+    def parseInstructionBlock()(implicit text: TokenBufferedIterator, context: Context): Tree = {
+        text.requierToken(DelimiterToken("["))
+
+        val buffer = ListBuffer[Tree]()
+        while(text.isDelimiter("]")){
+            buffer.addOne(parseIntruction())
+        }
+
+        text.requierToken(DelimiterToken("]"))
+        Tree.Block(buffer.toList)
     }
 
     /**
@@ -152,16 +224,24 @@ object Parser{
     /**
      * Parse a function call or a variable 
      */
-    def parseCallOrVariable()(implicit text: TokenBufferedIterator, context: Context): Expression = {
-        val iden = text.getIdentifier()
-        if (context.hasFunction(iden)){
-            parseCall(iden)
-        }
-        else if (context.hasVariable(iden)){
-            context.getVariable(iden)
-        }
-        else{
-            ???
+    def parseSimpleExpression()(implicit text: TokenBufferedIterator, context: Context): Expression = {
+        val token = text.take() 
+        token match{
+            case IdentifierToken(iden) => {
+                if (context.hasFunction(iden)){
+                    parseCall(iden)
+                }
+                else if (context.hasVariable(iden)){
+                    context.getVariable(iden)
+                }
+                else{
+                    throw new Exception("Unknown Identifier")
+                }
+            }
+            case IntLitToken(value)    => Tree.IntValue(value)
+            case BoolLitToken(value)   => Tree.BooleanValue(value)
+            case StringLitToken(value) => Tree.StringValue(value)
+            case FloatLitToken(value)  => Tree.FloatValue(value)
         }
     }
     
@@ -171,7 +251,7 @@ object Parser{
     def parseExpression(opIndex: Int = 0)(implicit text: TokenBufferedIterator, context: Context): Expression = {
         def rec(): Expression = {
             if (opIndex + 1 == operatorsPriority.size){
-                return parseCallOrVariable()
+                return parseSimpleExpression()
             }
             else{
                 return parseExpression(opIndex + 1)

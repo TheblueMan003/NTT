@@ -91,6 +91,36 @@ class TokenBufferedIterator(string: List[Token]) extends Positionable{
     }
 
     /**
+     * @return true is next is a KeywordToken(value)
+     */
+    def isDelimiter(value: String): Boolean = {
+        if (!hasNext()){
+            false
+        }
+        else{
+            peek() match{
+                case DelimiterToken(name) => name == value
+                case token => false
+            }
+        }
+    }
+
+    /**
+     * @return true is next is a KeywordToken(value)
+     */
+    def isLiteralValue(value: String): Boolean = {
+        if (!hasNext()){
+            false
+        }
+        else{
+            peek() match{
+                case DelimiterToken(name) => name == value
+                case token => false
+            }
+        }
+    }
+
+    /**
      * @return Some(operator) if next is an operator token and None otherwise
      */
     def getOperator(possible: List[String]): Option[String] = {
