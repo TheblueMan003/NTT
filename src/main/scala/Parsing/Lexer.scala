@@ -2,16 +2,17 @@ package parsing
 
 import java.io.File
 import Tokens._
+import utils.{TokenBufferBuilder,StringBufferedIterator}
 
 object Lexer{
     val delimiter = List('[', ']')
     val operator = List('+', '-', '*', '/', '<', '=', '>', '!')
     val identifier = List('-', '?')
     val keyword = List("breed", "directed-link-breed", "end", "extensions", "globals", 
-                        "__includes", "links-own", "patches-own", "to", "to-report", 
-                        "turtles-own", "undirected-link-breed")
+                        "__includes", "to", "to-report", 
+                        "undirected-link-breed")
     
-    def parse(text: StringBufferedIterator, acc: TokenBuffer):TokenBuffer = {
+    def parse(text: StringBufferedIterator, acc: TokenBufferBuilder):TokenBufferBuilder = {
         text.setStart()
         if (text.hasNext){
             val c: Char = text.take()

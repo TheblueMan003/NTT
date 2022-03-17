@@ -4,10 +4,11 @@ import ast.Tree
 import Tokens._
 import utils.Context
 import utils.VariableOwner
+import utils.TokenBufferedIterator
 import scala.collection.mutable.ArrayBuffer
-import java.lang.module.ModuleDescriptor.Exports
 import ast.Expression
 import scala.collection.mutable.ListBuffer
+import ast.BreedType._
 
 object Parser{
 
@@ -15,7 +16,14 @@ object Parser{
 
     def parse(text: TokenBufferedIterator): Context = {
         val con = new Context()
+
+        // Phase 1 - Function & Breed Discovery
         functionDiscovery()(text, con)
+
+        // Phase 1.5 - Add All owned variable to their breed
+        con.breadVariableOwnSetup()
+
+        // Phase 2 - Parse Inside of Function
         parseAllFuncitonsBody()(con)
         con
     }
@@ -29,31 +37,53 @@ object Parser{
             case KeywordToken("to") => {
                 val name = text.getIdentifier()
                 val argName = getArgsName()
-                val body = getBody()
+                val body = getFunctionBody()
             
                 context.addFunction(name, List(), body)
             }
+
             case KeywordToken("to-report") => {
                 val name = text.getIdentifier()
                 val argName = getArgsName()
-                val body = getBody()
+                val body = getFunctionBody()
             
                 context.addFunction(name, List(), body)
             }
+
+            case KeywordToken("breed") => {
+                val names = getVariablesGroup()
+                if (names.size != 2) throw new Exception("Wrong Number of names for breed")
+                context.addBreed(names(0), names(1), TurtleBreed())
+            }
+
+            case KeywordToken("undirected-link-breed") => {
+                val names = getVariablesGroup()
+                if (names.size != 2) throw new Exception("Wrong Number of names for breed")
+                context.addBreed(names(0), names(1), LinkBreed(false))
+            }
+
+            case KeywordToken("directed-link-breed") => {
+                val names = getVariablesGroup()
+                if (names.size != 2) throw new Exception("Wrong Number of names for breed")
+                context.addBreed(names(0), names(1), LinkBreed(true))
+            }
+
             case KeywordToken("globals") => {
                 getVariablesGroup().map(
-                    context.addVariable(_, VariableOwner.Global())
+                    context.addOwned("$observer", _)
                 )
             }
-            case KeywordToken("turtles-own") => {
-                getVariablesGroup().map(
-                    context.addVariable(_, VariableOwner.TurtlesOwned())
-                )
-            }
-            case KeywordToken("patches-own") => {
-                getVariablesGroup().map(
-                    context.addVariable(_, VariableOwner.PatchesOwned())
-                )
+
+            case IdentifierToken(iden) => {
+                if (iden.endsWith("-own")){
+                    val breed = iden.dropRight(4)
+                    getVariablesGroup().map(
+                        context.addOwned(breed, _)
+                    )
+                }
+                else{
+                    throw new UnexpectedTokenException(c, IdentifierToken("_-own"))
+                }
             }
         }
         if (text.hasNext()){
@@ -73,9 +103,50 @@ object Parser{
     def parseFunctionsBody()(implicit text: TokenBufferedIterator, context: Context):Tree = {
         val body = ListBuffer[Tree]()
         while(text.hasNext()){
-            body.addOne(parseCallOrVariable())
+            body.addOne(parseIntruction())
         }
         return Tree.Block(body.toList)
+    }
+
+
+    def parseIntruction()(implicit text: TokenBufferedIterator, context: Context): Tree = {
+        if (text.isKeyword("let")){
+            text.take()
+            val iden = text.getIdentifier()
+            val value = parseExpression()
+            ???
+        }
+        else if (text.isKeyword("set")){
+            val iden = text.getIdentifier()
+            val vari = context.getVariable(iden)
+            val value = parseExpression()
+            Tree.Assignment(vari, value)
+        }
+        else if (text.isIdentifier()){
+            val iden = text.getIdentifier()
+            if (context.hasFunction(iden)){
+                parseCall(iden)
+            }
+            else{
+                throw new Exception(f"Unknown function: ${iden}")
+            }
+        }
+        else{
+            ???
+        }
+    }
+
+    /**
+     * Parse function call with or without args
+     */
+    def parseCall(iden: String)(implicit text: TokenBufferedIterator, context: Context): Expression = {
+        val fun = context.getFunction(iden)
+        val args = ArrayBuffer[Tree]()
+        var i = 0
+        for( i <- 0 to fun.argsNames.length){
+            args.addOne(parseExpression())
+        }
+        Tree.Call(iden, args.toList)
     }
 
     /**
@@ -84,18 +155,10 @@ object Parser{
     def parseCallOrVariable()(implicit text: TokenBufferedIterator, context: Context): Expression = {
         val iden = text.getIdentifier()
         if (context.hasFunction(iden)){
-            val fun = context.getFunction(iden)
-            val args = ArrayBuffer[Tree]()
-            var i = 0
-            for( i <- 0 to fun.argsNames.length){
-                args.addOne(parseExpression())
-            }
-
-            Tree.Call(iden, args.toList)
+            parseCall(iden)
         }
         else if (context.hasVariable(iden)){
-            val var_ = context.getVariable(iden)
-            Tree.Variable(iden, var_.getOwner())
+            context.getVariable(iden)
         }
         else{
             ???
@@ -157,7 +220,7 @@ object Parser{
     /**
      * Return unparsed body of a function
      */
-    def getBody()(implicit text: TokenBufferedIterator, context: Context): List[Token] = {
+    def getFunctionBody()(implicit text: TokenBufferedIterator, context: Context): List[Token] = {
         text.setStart()
         text.takeWhile(x => x match {
             case KeywordToken("end") => false

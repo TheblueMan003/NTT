@@ -21,3 +21,6 @@ object Tokens{
   final case class ErrorToken(content: String) extends Token
   final case class EOFToken() extends Token
 }
+
+case class UnexpectedTokenException(val actual: Token, val expected: Token) extends Exception(actual.toString() + "!=" + expected.toString())
+case class UnexpectedEOFException() extends Exception
