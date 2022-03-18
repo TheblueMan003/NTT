@@ -30,11 +30,13 @@ class Context(){
     breeds.addOne(("patches", _patches))
     breeds.addOne(("linkes", _links))
 
+    functions.addAll(FunctionLoader.getAll("turtles"))
+
     val _ownedBuffer = new ListBuffer[(String, String)]()
 
 
     def addFunction(name: String, args: List[String], body: List[Token]) = {
-        functions.addOne((name, new Function(name, args, body)))
+        functions.addOne((name, new CompiledFunction(name, args, body)))
     }
     def hasFunction(name: String): Boolean = functions.contains(name)
     def getFunction(name: String): Function = functions.get(name).get
@@ -111,9 +113,16 @@ class Context(){
     }
 }
 
-case class Function(name: String, argsNames: List[String], tokenBody: List[Token]){
+class Function(_name: String, _argsNames: List[String]){
+    val name = _name
+    val argsNames = _argsNames
+}
+case class CompiledFunction(_name: String, _argsNames: List[String], tokenBody: List[Token]) extends Function(_name, _argsNames){
     var body: Tree = null
     override def toString(): String = {
         s"${body} (${argsNames}){${body}}"
     }
+
+    val possibleBreed = Set[Breed]()
 }
+case class BaseFunction(_name: String, _argsNames: List[String]) extends Function(_name, _argsNames)

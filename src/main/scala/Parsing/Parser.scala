@@ -3,6 +3,7 @@ package parsing
 import ast.Tree
 import Tokens._
 import utils.Context
+import utils.CompiledFunction
 import utils.VariableOwner
 import utils.TokenBufferedIterator
 import scala.collection.mutable.ArrayBuffer
@@ -11,7 +12,7 @@ import scala.collection.mutable.ListBuffer
 import ast.BreedType._
 
 object Parser{
-
+    
     private var operatorsPriority = List(List("<", ">", "<=", ">=" ,"=","!="), List("^"), List("*", "/", "and"), List("+", "-", "or", "xor")).reverse
 
     def parse(text: TokenBufferedIterator): Context = {
@@ -39,7 +40,7 @@ object Parser{
                 val argName = getArgsName()
                 val body = getFunctionBody()
             
-                context.addFunction(name, List(), body)
+                context.addFunction(name, argName, body)
             }
 
             case KeywordToken("to-report") => {
@@ -47,7 +48,7 @@ object Parser{
                 val argName = getArgsName()
                 val body = getFunctionBody()
             
-                context.addFunction(name, List(), body)
+                context.addFunction(name, argName, body)
             }
 
             case KeywordToken("breed") => {
@@ -93,7 +94,12 @@ object Parser{
     
     def parseAllFuncitonsBody()(context: Context) = {
         context.functions.values.map( f =>
-            f.body = parseFunctionsBody()(new TokenBufferedIterator(f.tokenBody), context)
+            f match {
+                case cf: CompiledFunction => {
+                    cf.body = parseFunctionsBody()(new TokenBufferedIterator(cf.tokenBody), context)
+                }
+                case _ => 
+            }
         )
     }
 
@@ -109,6 +115,9 @@ object Parser{
     }
 
 
+    /**
+     * Parse an instruction
+     */ 
     def parseIntruction()(implicit text: TokenBufferedIterator, context: Context): Tree = {
         if (text.isKeyword("let")){
             text.take()
@@ -188,8 +197,13 @@ object Parser{
             val cmds = parseInstructionBlock()
             Tree.While(cond, cmds)
         }
+        else if (text.isKeyword("ask")){
+            text.take()
+            val cmds = parseInstructionBlock()
+            Tree.Ask(cmds)
+        }
         else{
-            ???
+            throw new UnexpectedTokenException(text.take(), EOFToken())
         }
     }
 
@@ -215,7 +229,7 @@ object Parser{
         val fun = context.getFunction(iden)
         val args = ArrayBuffer[Tree]()
         var i = 0
-        for( i <- 0 to fun.argsNames.length){
+        for( i <- 0 to fun.argsNames.length - 1){
             args.addOne(parseExpression())
         }
         Tree.Call(iden, args.toList)
@@ -231,12 +245,14 @@ object Parser{
                 if (context.hasFunction(iden)){
                     parseCall(iden)
                 }
-                else if (context.hasVariable(iden)){
-                    context.getVariable(iden)
+                else {
+                    Tree.UnlinkedVariable(iden)
                 }
-                else{
-                    throw new Exception("Unknown Identifier")
-                }
+            }
+            case DelimiterToken("(") => {
+                val expr = parseExpression()
+                text.requierToken(DelimiterToken(")"))
+                expr
             }
             case IntLitToken(value)    => Tree.IntValue(value)
             case BoolLitToken(value)   => Tree.BooleanValue(value)

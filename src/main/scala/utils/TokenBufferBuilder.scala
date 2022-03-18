@@ -16,6 +16,12 @@ class TokenBufferBuilder{
     }
 
     def toIterator(): TokenBufferedIterator = {
-        new TokenBufferedIterator(list.asScala.filter(_ != Tokens.SpaceToken()).toList)
+        new TokenBufferedIterator(list.asScala.filter(
+            _ match {
+                case Tokens.CommentToken(_) => false
+                case Tokens.SpaceToken() => false
+                case _ => true  
+            }
+        ).toList)
     }
 }
