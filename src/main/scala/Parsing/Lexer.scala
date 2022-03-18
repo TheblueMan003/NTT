@@ -2,16 +2,20 @@ package parsing
 
 import java.io.File
 import Tokens._
+import utils.{TokenBufferBuilder,StringBufferedIterator}
 
 object Lexer{
     val delimiter = List('[', ']')
     val operator = List('+', '-', '*', '/', '<', '=', '>', '!')
+    val operatorString = List("and", "or", "xor")
     val identifier = List('-', '?')
     val keyword = List("breed", "directed-link-breed", "end", "extensions", "globals", 
-                        "__includes", "links-own", "patches-own", "to", "to-report", 
-                        "turtles-own", "undirected-link-breed")
+                        "__includes", "to", "to-report", 
+                        "undirected-link-breed", 
+                        
+                        "if", "ifelse", "ifelse-value")
     
-    def parse(text: StringBufferedIterator, acc: TokenBuffer):TokenBuffer = {
+    def parse(text: StringBufferedIterator, acc: TokenBufferBuilder):TokenBufferBuilder = {
         text.setStart()
         if (text.hasNext){
             val c: Char = text.take()
@@ -33,6 +37,9 @@ object Lexer{
                 val value = text.cut()
                 if (keyword.contains(value)){
                     parse(text, acc.add(KeywordToken(value), text))
+                }
+                else if (operatorString.contains(value)){
+                    parse(text, acc.add(OperatorToken(value), text))
                 }
                 else{
                     parse(text, acc.add(IdentifierToken(value), text))
