@@ -6,7 +6,7 @@ import utils.Context
 import scala.io.Source
 
 object Main extends App {
-  val text = Source.fromResource("example1.logo").getLines.reduce((x,y) => x + "\n" +y)
+  val text = Source.fromResource("example1.nlogo").getLines.reduce((x,y) => x + "\n" +y)
   val r1 = Lexer.parse(new StringBufferedIterator(text), new TokenBuffer())
   println(r1.list)
 
