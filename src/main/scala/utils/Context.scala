@@ -3,7 +3,6 @@ package utils
 import ast.Tree._
 import scala.collection.mutable.Map
 import scala.collection.mutable.Stack
-import scala.collection.mutable.Set
 import parsing.Token
 import javax.swing.text.StyledEditorKit.BoldAction
 import ast.Tree
@@ -19,7 +18,7 @@ class Context(){
     val functions = Map[String, Function]()
     val breeds = Map[String, Breed]()
 
-    var _targetBreeds: Stack[Set[Breed]] = Stack[Set[Breed]]()
+    val _targetBreeds: Stack[Set[Breed]] = Stack[Set[Breed]]()
     val _observer =  new Breed.Observer()
     var _turtles = new Breed.TurtleBreed("turtle", "turtles", _observer)
     var _patches = new Breed.PatchBreed("patch", "patches", _observer)
@@ -63,6 +62,9 @@ class Context(){
         else{
             throw new Exception(f"Unknown breed ${name}")
         }
+    }
+    def getBreeds(): Set[Breed] = {
+        breeds.values.toSet
     }
     def getObserverBreed(): Breed = {
         _observer
@@ -116,6 +118,14 @@ class Context(){
 class Function(_name: String, _argsNames: List[String]){
     val name = _name
     val argsNames = _argsNames
+    var breeds = Set[Breed]()
+
+    def initConstraints(constraints: Set[Breed]){
+        breeds = constraints
+    }
+    def addBreedConstraints(constraints: Set[Breed]){
+        breeds = breeds.intersect(constraints)
+    }
 }
 case class CompiledFunction(_name: String, _argsNames: List[String], tokenBody: List[Token]) extends Function(_name, _argsNames){
     var body: Tree = null

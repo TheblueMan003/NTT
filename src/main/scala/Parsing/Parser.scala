@@ -214,7 +214,7 @@ object Parser{
         text.requierToken(DelimiterToken("["))
 
         val buffer = ListBuffer[Tree]()
-        while(text.isDelimiter("]")){
+        while(!text.isDelimiter("]")){
             buffer.addOne(parseIntruction())
         }
 
