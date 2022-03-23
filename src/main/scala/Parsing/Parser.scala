@@ -3,7 +3,7 @@ package parsing
 import ast.Tree
 import Tokens._
 import utils.Context
-import utils.CompiledFunction
+import ast.CompiledFunction
 import utils.VariableOwner
 import utils.TokenBufferedIterator
 import scala.collection.mutable.ArrayBuffer
@@ -128,9 +128,8 @@ object Parser{
         else if (text.isKeyword("set")){
             text.take()
             val iden = text.getIdentifier()
-            val vari = context.getVariable(iden)
             val value = parseExpression()
-            Tree.Assignment(vari, value)
+            Tree.Assignment(Tree.VariableValue(iden), value)
         }
         else if (text.isIdentifier()){
             val iden = text.getIdentifier()
@@ -246,7 +245,7 @@ object Parser{
                     parseCall(iden)
                 }
                 else {
-                    Tree.UnlinkedVariable(iden)
+                    Tree.VariableValue(iden)
                 }
             }
             case DelimiterToken("(") => {

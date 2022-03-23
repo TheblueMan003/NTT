@@ -1,7 +1,7 @@
 package utils
 
 import scala.io.Source
-import utils.Function
+import ast.{ Function, BaseFunction }
 import ast.Breed
 
 object FunctionLoader{

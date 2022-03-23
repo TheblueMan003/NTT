@@ -9,16 +9,17 @@ class Tree extends Positionable{
 class Expression extends Tree{
 
 }
+
 object Tree{
     case class BooleanValue(value: Boolean) extends Expression
     case class IntValue(value: Int) extends Expression
     case class FloatValue(value: Float) extends Expression
     case class StringValue(value: String) extends Expression
+    case class VariableValue(value: String) extends Expression
 
     case class Call(name: String, arg: List[Tree]) extends Expression
-    case class Variable(name: String, owner: Breed) extends Expression
-    case class UnlinkedVariable(name: String) extends Expression
-    case class Assignment(name: Variable, value: Expression) extends Tree
+    case class Assignment(name: VariableValue, value: Expression) extends Tree
+    case class Declaration(name: VariableValue, value: Expression) extends Tree
     case class BinarayExpr(op: String, lh: Expression, rh: Expression) extends Expression
     case class Block(body: List[Tree]) extends Tree
 
@@ -34,10 +35,10 @@ object Tree{
 
 
 class Breed(parent: Breed){
-    val owned: Map[String, Tree.Variable] = Map[String, Tree.Variable]()
+    val owned: Map[String, Variable] = Map[String, Variable]()
 
     def addVariable(name: String) = {
-        owned.addOne((name, Tree.Variable(name, this)))
+        owned.addOne((name, Variable(name)))
     }
     def hasVariable(name: String): Boolean = {
         if (owned.contains(name)){
@@ -50,7 +51,7 @@ class Breed(parent: Breed){
             false
         }
     }
-    def getVariable(name: String): Tree.Variable = {
+    def getVariable(name: String): Variable = {
         if (owned.contains(name)){
             owned.get(name).get
         }

@@ -6,9 +6,10 @@ import scala.collection.mutable.Stack
 import parsing.Token
 import javax.swing.text.StyledEditorKit.BoldAction
 import ast.Tree
-import ast.Tree.Variable
+import ast.Variable
 import ast.Breed
 import ast.BreedType
+import ast.{ Function, CompiledFunction }
 import scala.collection.mutable.ListBuffer
 
 trait VariableOwner{
@@ -63,9 +64,25 @@ class Context(){
             throw new Exception(f"Unknown breed ${name}")
         }
     }
+    /**
+      * Return the set of breed that contains the variable name
+      *
+      * @param name: Name of the variable needed
+      * @return breed that contains the variables
+      */
+    def getBreedsWithVariable(name: String): Set[Breed] = {
+        breeds.map(_._2).filter(_.hasVariable(name)).toSet
+    }
+
+    /**
+      * @return Set of all breed
+      */
     def getBreeds(): Set[Breed] = {
         breeds.values.toSet
     }
+    /**
+      * @return Return the observer Breed
+      */
     def getObserverBreed(): Breed = {
         _observer
     }
@@ -114,25 +131,3 @@ class Context(){
         }
     }
 }
-
-class Function(_name: String, _argsNames: List[String]){
-    val name = _name
-    val argsNames = _argsNames
-    var breeds = Set[Breed]()
-
-    def initConstraints(constraints: Set[Breed]){
-        breeds = constraints
-    }
-    def addBreedConstraints(constraints: Set[Breed]){
-        breeds = breeds.intersect(constraints)
-    }
-}
-case class CompiledFunction(_name: String, _argsNames: List[String], tokenBody: List[Token]) extends Function(_name, _argsNames){
-    var body: Tree = null
-    override def toString(): String = {
-        s"${body} (${argsNames}){${body}}"
-    }
-
-    val possibleBreed = Set[Breed]()
-}
-case class BaseFunction(_name: String, _argsNames: List[String]) extends Function(_name, _argsNames)

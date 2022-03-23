@@ -1,5 +1,6 @@
 import parsing.Lexer
 import utils._
+import ast.{CompiledFunction, BaseFunction}
 import parsing.Parser
 import scala.io.Source
 
