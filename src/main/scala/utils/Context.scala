@@ -30,7 +30,7 @@ class Context(){
     breeds.addOne(("patches", _patches))
     breeds.addOne(("linkes", _links))
 
-    functions.addAll(FunctionLoader.getAll("turtles"))
+    functions.addAll(FunctionLoader.getAll(this, "turtles"))
 
     val _ownedBuffer = new ListBuffer[(String, String)]()
 

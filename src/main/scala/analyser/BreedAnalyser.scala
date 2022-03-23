@@ -8,15 +8,25 @@ import ast._
 
 object BreedAnalyser{
     def analyse(context: Context) = {
-        initConstraints()(context)
+        initConstraints(context)
+        val constraints = generateConstraints(context)
+        resolveConstraits(constraints)
     }
-    def initConstraints()(implicit context: Context) = {
+    def initConstraints(context: Context) = {
         context.functions.values.map(
             _ match {
                 case cf: CompiledFunction => cf.initConstraints(context.getBreeds()) 
                 case _ =>
             }
         )
+    }
+    def generateConstraints(context: Context): List[BreedConstraint] = {
+        context.functions.values.map(
+            _ match {
+                case cf: CompiledFunction => analyse(cf.body)(context, BreedOwn(cf))
+                case _ => List()
+            }
+        ).reduce(_ ::: _)
     }
     def analyse(tree: Tree)(implicit context: Context, found: BreedConstrainer): (List[BreedConstraint]) = {
         tree match{
@@ -50,18 +60,54 @@ object BreedAnalyser{
                 analyse(block)
             }
             case Block(content) => {
-                content.map(analyse(_)).reduce(_ ::: _)
+                if (content.isEmpty){
+                    Nil
+                } else {
+                    content.map(analyse(_)).reduce(_ ::: _)
+                }
             }
         }
     }
 
-    def resolveConstraits(constraints: List[BreedConstrainer]){
+    def resolveConstraits(constraints: List[BreedConstraint]) = {
         var changed = true
         while(changed){
+            changed = false
             constraints.map(it =>
-                
-
-
+                it.expected match{
+                    // Expect Breed Set
+                    case BreedSet(expSet) => {
+                        it.found match{
+                            case BreedSet(foundSet) => {
+                                if (!(foundSet subsetOf expSet)){
+                                    throw new BreedException()
+                                }
+                            }
+                            case BreedOwn(owner) => {
+                                if (owner.canBeRestrainTo(expSet)){
+                                    changed |= owner.restrainTo(expSet)
+                                }
+                                else{
+                                    throw new BreedException()
+                                }
+                            }
+                        }
+                    }
+                    // Expect Breed Owner
+                    case BreedOwn(ownerExp) => {
+                        it.found match{
+                            case BreedSet(foundSet) => ???
+                            case BreedOwn(owner) => {
+                                if (owner.canBeRestrainTo(ownerExp)){
+                                    changed |= owner.restrainTo(ownerExp)
+                                }
+                                else{
+                                    throw new BreedException()
+                                }
+                            }
+                        }
+                    }
+                }
             )
         }
     }

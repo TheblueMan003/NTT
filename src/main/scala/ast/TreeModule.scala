@@ -4,11 +4,8 @@ import utils._
 import parsing.Token
 import scala.collection.mutable.{Map, Set}
 
-class Tree extends Positionable{
-}
-class Expression extends Tree{
-
-}
+trait Tree extends Positionable
+trait Expression extends Tree
 
 object Tree{
     case class BooleanValue(value: Boolean) extends Expression
@@ -34,47 +31,3 @@ object Tree{
 }
 
 
-class Breed(parent: Breed){
-    val owned: Map[String, Variable] = Map[String, Variable]()
-
-    def addVariable(name: String) = {
-        owned.addOne((name, Variable(name)))
-    }
-    def hasVariable(name: String): Boolean = {
-        if (owned.contains(name)){
-            true
-        }
-        else if (parent != null){
-            parent.hasVariable(name)
-        }
-        else{
-            false
-        }
-    }
-    def getVariable(name: String): Variable = {
-        if (owned.contains(name)){
-            owned.get(name).get
-        }
-        else if (parent != null){
-            parent.getVariable(name)
-        }
-        else{
-            throw new Exception(f"Unknown Variable: ${name}")
-        }
-    }
-}
-
-object Breed{
-    case class TurtleBreed(singularName: String, pluralName: String, parent: Breed) extends Breed(parent)
-    case class LinkBreed(singularName: String, pluralName: String, directed: Boolean, parent: Breed) extends Breed(parent)
-    case class PatchBreed(singularName: String, pluralName: String, parent: Breed) extends Breed(parent)
-    case class Observer() extends Breed(null)
-}
-
-class BreedType
-object BreedType{
-    case class TurtleBreed() extends BreedType
-    case class LinkBreed(directed: Boolean) extends BreedType
-    case class PatchBreed() extends BreedType
-    case class Observer() extends BreedType
-}

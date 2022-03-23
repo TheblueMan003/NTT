@@ -22,11 +22,15 @@ object Constraints{
     case class TypeConstraint(found: Type, expected: Type) extends Constraint
 }
 
+
+
 abstract class BreedConstrainer{
 }
 object BreedConstrainer{
     case class BreedSet(set: Set[Breed]) extends BreedConstrainer
     case class BreedOwn(breedOwned: BreedOwned) extends BreedConstrainer
-    case class BreedVariable() extends BreedConstrainer
 }
-case class BreedConstraint(owner: BreedConstrainer, expected: BreedConstrainer)
+case class BreedConstraint(found: BreedConstrainer, expected: BreedConstrainer)
+
+class BreedException extends Exception{
+}

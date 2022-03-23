@@ -1,10 +1,10 @@
 package analyser
 
 object TypeChecker{
-    def check(){
+    def check() = {
 
     }
-    def genConstraints(){
+    def genConstraints() = {
         
     }
 }
