@@ -123,7 +123,7 @@ object Parser{
             text.take()
             val iden = text.getIdentifier()
             val value = parseExpression()
-            ???
+            Tree.Declaration(Tree.VariableValue(iden), value)
         }
         else if (text.isKeyword("set")){
             text.take()

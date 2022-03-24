@@ -12,7 +12,7 @@ object Tree{
     case class IntValue(value: Int) extends Expression
     case class FloatValue(value: Float) extends Expression
     case class StringValue(value: String) extends Expression
-    case class VariableValue(value: String) extends Expression
+    case class VariableValue(name: String) extends Expression
 
     case class Call(name: String, arg: List[Tree]) extends Expression
     case class Assignment(name: VariableValue, value: Expression) extends Tree

@@ -20,7 +20,7 @@ end
 
 to argtest [ value ]
     ifelse-value test [
-        argtest test + index * index  + (test - index)
+        argtest test + index * index  + (test - index) + value
     ]
     test = 2
     [
@@ -32,6 +32,8 @@ to argtest [ value ]
 end
 
 to noarg
-    right 1
+    let m 5
+    set m 5
+    right m
     fw 1
 end

@@ -1,6 +1,7 @@
 package analyser
 
 import utils.Context
+import utils.ContextMap
 import ast.CompiledFunction
 import ast.Tree._
 import analyser.BreedConstrainer._
@@ -23,12 +24,16 @@ object BreedAnalyser{
     def generateConstraints(context: Context): List[BreedConstraint] = {
         context.functions.values.map(
             _ match {
-                case cf: CompiledFunction => analyse(cf.body)(context, BreedOwn(cf))
+                case cf: CompiledFunction => {
+                    val vars = ContextMap[VariableValue]()
+                    cf.argsNames.map(x => vars.add(x, VariableValue(x)))
+                    analyse(cf.body)(context, BreedOwn(cf), vars)
+                }
                 case _ => List()
             }
         ).reduce(_ ::: _)
     }
-    def analyse(tree: Tree)(implicit context: Context, found: BreedConstrainer): (List[BreedConstraint]) = {
+    def analyse(tree: Tree)(implicit context: Context, found: BreedConstrainer, localVar: ContextMap[VariableValue]): (List[BreedConstraint]) = {
         tree match{
             case BooleanValue(_) => Nil
             case IntValue(_) => Nil
@@ -36,7 +41,22 @@ object BreedAnalyser{
             case StringValue(_) => Nil
 
             case Call(name, args) => List(BreedConstraint(found, BreedOwn(context.getFunction(name))))
-            case VariableValue(name) => List(BreedConstraint(found, BreedSet(context.getBreedsWithVariable(name))))
+            case VariableValue(name) => {
+                if (localVar.contains(name)){
+                    Nil
+                }
+                else{
+                    List(BreedConstraint(found, BreedSet(context.getBreedsWithVariable(name))))
+                }
+            }
+
+            case Declaration(vari, expr) => {
+                localVar.add(vari.name, vari)
+                analyse(vari) ::: analyse(expr)
+            }
+            case Assignment(vari, expr) => {
+                analyse(vari) ::: analyse(expr)
+            }
             
             case BinarayExpr(op, lf, rt) => {
                 analyse(lf) ::: analyse(rt)
@@ -60,11 +80,14 @@ object BreedAnalyser{
                 analyse(block)
             }
             case Block(content) => {
-                if (content.isEmpty){
+                localVar.push()
+                val ret = if (content.isEmpty){
                     Nil
                 } else {
                     content.map(analyse(_)).reduce(_ ::: _)
                 }
+                localVar.pop()
+                ret
             }
         }
     }
