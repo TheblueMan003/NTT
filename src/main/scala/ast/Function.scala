@@ -8,7 +8,7 @@ class Function(_name: String, _argsNames: List[String]) extends BreedOwned{
     val argsNames = _argsNames
 }
 case class CompiledFunction(_name: String, _argsNames: List[String], tokenBody: List[Token]) extends Function(_name, _argsNames){
-    var body: Tree = null
+    var body: AST = null
     override def toString(): String = {
         s"${body} (${argsNames}){${body}}"
     }

@@ -4,10 +4,11 @@ import utils._
 import parsing.Token
 import scala.collection.mutable.{Map, Set}
 
-trait Tree extends Positionable
-trait Expression extends Tree
+trait AST extends Positionable
 
-object Tree{
+object AST{
+    trait Expression extends AST
+
     case class BooleanValue(value: Boolean) extends Expression
     case class IntValue(value: Int) extends Expression
     case class FloatValue(value: Float) extends Expression
@@ -16,18 +17,18 @@ object Tree{
     case class ListValue(lst: List[Expression]) extends Expression
     case class OfValue(expr: Expression, from: String) extends Expression
 
-    case class Call(name: String, arg: List[Tree]) extends Expression
-    case class Assignment(name: VariableValue, value: Expression) extends Tree
-    case class Declaration(name: VariableValue, value: Expression) extends Tree
+    case class Call(name: String, arg: List[Expression]) extends Expression
+    case class Assignment(name: VariableValue, value: Expression) extends AST
+    case class Declaration(name: VariableValue, value: Expression) extends AST
     case class BinarayExpr(op: String, lh: Expression, rh: Expression) extends Expression
-    case class Block(body: List[Tree]) extends Tree
+    case class Block(body: List[AST]) extends AST
 
-    case class IfBlock(cond: Expression, block: Tree) extends Tree
-    case class IfElseBlock(blocks: List[(Expression, Tree)], elseBlock: Tree) extends Tree
-    case class IfElseBlockExpression(blocks: List[(Expression, Tree)], elseBlock: Tree) extends Expression
+    case class IfBlock(cond: Expression, block: AST) extends AST
+    case class IfElseBlock(blocks: List[(Expression, AST)], elseBlock: AST) extends AST
+    case class IfElseBlockExpression(blocks: List[(Expression, Expression)], elseBlock: Expression) extends Expression
 
-    case class Loop(block: Tree) extends Tree
-    case class Repeat(number: Expression, block: Tree) extends Tree
-    case class While(cond: Expression, block: Tree) extends Tree
-    case class Ask(block: Tree) extends Tree
+    case class Loop(block: AST) extends AST
+    case class Repeat(number: Expression, block: AST) extends AST
+    case class While(cond: Expression, block: AST) extends AST
+    case class Ask(block: AST) extends AST
 }

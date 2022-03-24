@@ -18,7 +18,7 @@ object Lexer{
     def parse(text: StringBufferedIterator, acc: TokenBufferBuilder):TokenBufferBuilder = {
         text.setStart()
         if (text.hasNext){
-            val c: Char = text.take().toLower
+            val c: Char = text.take().toLower // Net-Logo is case insensitive
             
             // Number
             if (c.isDigit){

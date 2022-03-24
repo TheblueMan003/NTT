@@ -1,13 +1,13 @@
 package parsing
 
-import ast.Tree
+import ast.AST
+import ast.AST.Expression
 import Tokens._
 import utils.Context
 import ast.CompiledFunction
 import utils.VariableOwner
 import utils.TokenBufferedIterator
 import scala.collection.mutable.ArrayBuffer
-import ast.Expression
 import scala.collection.mutable.ListBuffer
 import ast.BreedType._
 
@@ -106,30 +106,30 @@ object Parser{
     /**
      * Parse inside of Function Body
      */
-    def parseFunctionsBody()(implicit text: TokenBufferedIterator, context: Context):Tree = {
-        val body = ListBuffer[Tree]()
+    def parseFunctionsBody()(implicit text: TokenBufferedIterator, context: Context):AST = {
+        val body = ListBuffer[AST]()
         while(text.hasNext()){
             body.addOne(parseIntruction())
         }
-        return Tree.Block(body.toList)
+        return AST.Block(body.toList)
     }
 
 
     /**
      * Parse an instruction
      */ 
-    def parseIntruction()(implicit text: TokenBufferedIterator, context: Context): Tree = {
+    def parseIntruction()(implicit text: TokenBufferedIterator, context: Context): AST = {
         if (text.isKeyword("let")){
             text.take()
             val iden = text.getIdentifier()
             val value = parseExpression()
-            Tree.Declaration(Tree.VariableValue(iden), value)
+            AST.Declaration(AST.VariableValue(iden), value)
         }
         else if (text.isKeyword("set")){
             text.take()
             val iden = text.getIdentifier()
             val value = parseExpression()
-            Tree.Assignment(Tree.VariableValue(iden), value)
+            AST.Assignment(AST.VariableValue(iden), value)
         }
         else if (text.isIdentifier()){
             val iden = text.getIdentifier()
@@ -145,11 +145,11 @@ object Parser{
             val cond = parseExpression()
             val cmds = parseInstructionBlock()
 
-            Tree.IfBlock(cond, cmds)
+            AST.IfBlock(cond, cmds)
         }
         else if (text.isKeyword("ifelse")){
             text.take()
-            val buffer = ListBuffer[(Expression, Tree)]()
+            val buffer = ListBuffer[(Expression, AST)]()
 
             while(!text.isDelimiter("[")){
                 val cond = parseExpression()
@@ -159,7 +159,7 @@ object Parser{
 
             val cmds = parseInstructionBlock()
 
-            Tree.IfElseBlock(buffer.toList, cmds)
+            AST.IfElseBlock(buffer.toList, cmds)
         }
         else if (text.isKeyword("ifelse-value")){
             text.take()
@@ -177,33 +177,33 @@ object Parser{
             val value = parseExpression()
             text.requierToken(DelimiterToken("]"))
 
-            Tree.IfElseBlockExpression(buffer.toList, value)
+            AST.IfElseBlockExpression(buffer.toList, value)
         }
         else if (text.isKeyword("loop")){
             text.take()
             val cmds = parseInstructionBlock()
-            Tree.Loop(cmds)
+            AST.Loop(cmds)
         }
         else if (text.isKeyword("repeat")){
             text.take()
             val cond = parseExpression()
             val cmds = parseInstructionBlock()
-            Tree.Repeat(cond, cmds)
+            AST.Repeat(cond, cmds)
         }
         else if (text.isKeyword("while")){
             text.take()
             val cond = parseExpression()
             val cmds = parseInstructionBlock()
-            Tree.While(cond, cmds)
+            AST.While(cond, cmds)
         }
         else if (text.isKeyword("ask")){
             text.take()
             val cmds = parseInstructionBlock()
-            Tree.Ask(cmds)
+            AST.Ask(cmds)
         }
         else if (text.isKeyword("list")){
             text.take()
-            Tree.ListValue(List(parseExpression(), parseExpression()))
+            AST.ListValue(List(parseExpression(), parseExpression()))
         }
         else if (text.isDelimiter("[")){
             text.take()
@@ -211,7 +211,7 @@ object Parser{
             text.requierToken(DelimiterToken("]"))
             text.requierToken(DelimiterToken("of"))
             val from = text.getIdentifier()
-            Tree.OfValue(reporter, from)
+            AST.OfValue(reporter, from)
         }
         else if (text.isDelimiter("(")){
             text.take()
@@ -221,7 +221,7 @@ object Parser{
                 buffer.addOne(parseExpression())
             }
             text.requierToken(DelimiterToken(")"))
-            Tree.ListValue(buffer.toList)
+            AST.ListValue(buffer.toList)
         }
         else{
             throw new UnexpectedTokenException(text.take(), EOFToken())
@@ -231,16 +231,16 @@ object Parser{
     /**
      * Parse an instruction block delimited by [ ]
      */ 
-    def parseInstructionBlock()(implicit text: TokenBufferedIterator, context: Context): Tree = {
+    def parseInstructionBlock()(implicit text: TokenBufferedIterator, context: Context): AST = {
         text.requierToken(DelimiterToken("["))
 
-        val buffer = ListBuffer[Tree]()
+        val buffer = ListBuffer[AST]()
         while(!text.isDelimiter("]")){
             buffer.addOne(parseIntruction())
         }
 
         text.requierToken(DelimiterToken("]"))
-        Tree.Block(buffer.toList)
+        AST.Block(buffer.toList)
     }
 
     /**
@@ -248,12 +248,12 @@ object Parser{
      */
     def parseCall(iden: String)(implicit text: TokenBufferedIterator, context: Context): Expression = {
         val fun = context.getFunction(iden)
-        val args = ArrayBuffer[Tree]()
+        val args = ArrayBuffer[Expression]()
         var i = 0
         for( i <- 0 to fun.argsNames.length - 1){
             args.addOne(parseExpression())
         }
-        Tree.Call(iden, args.toList)
+        AST.Call(iden, args.toList)
     }
 
     /**
@@ -267,7 +267,7 @@ object Parser{
                     parseCall(iden)
                 }
                 else {
-                    Tree.VariableValue(iden)
+                    AST.VariableValue(iden)
                 }
             }
             case DelimiterToken("(") => {
@@ -275,10 +275,10 @@ object Parser{
                 text.requierToken(DelimiterToken(")"))
                 expr
             }
-            case IntLitToken(value)    => Tree.IntValue(value)
-            case BoolLitToken(value)   => Tree.BooleanValue(value)
-            case StringLitToken(value) => Tree.StringValue(value)
-            case FloatLitToken(value)  => Tree.FloatValue(value)
+            case IntLitToken(value)    => AST.IntValue(value)
+            case BoolLitToken(value)   => AST.BooleanValue(value)
+            case StringLitToken(value) => AST.StringValue(value)
+            case FloatLitToken(value)  => AST.FloatValue(value)
         }
     }
     
@@ -299,7 +299,7 @@ object Parser{
         val ops = operatorsPriority(opIndex)
         var op = text.getOperator(ops)
         while(op.nonEmpty){
-            left = Tree.BinarayExpr(op.get, left, rec())
+            left = AST.BinarayExpr(op.get, left, rec())
             op = text.getOperator(ops)
         }
         return left

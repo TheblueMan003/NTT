@@ -15,7 +15,7 @@ wolves-own [
 ]
 
 to go
-
+    argtest test2 + test4
 end
 
 to argtest [ value ]

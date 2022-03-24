@@ -3,7 +3,7 @@ package analyser
 import utils.Context
 import utils.ContextMap
 import ast.CompiledFunction
-import ast.Tree._
+import ast.AST._
 import analyser.BreedConstrainer._
 import ast._
 
@@ -54,7 +54,7 @@ object BreedAnalyser{
     /** 
      * Get All Breed Constraint from a function
      */ 
-    private def analyse(tree: Tree)(implicit context: Context, found: BreedConstrainer, localVar: ContextMap[VariableValue]): (List[BreedConstraint]) = {
+    private def analyse(tree: AST)(implicit context: Context, found: BreedConstrainer, localVar: ContextMap[VariableValue]): (List[BreedConstraint]) = {
         tree match{
             case BooleanValue(_) => Nil
             case IntValue(_) => Nil
@@ -161,14 +161,14 @@ object BreedAnalyser{
     }
 
     /**
-     * Force all function to belong to the highest breed(s) in the breed tree.
+     * Force all function to belong to the highest breed(s) in the breed AST.
      */
     private def removeDuplicatedBreed(context: Context):Unit = {
         context.functions.values.map(removeDuplicatedBreed(_))
     }
 
     /**
-     * Force the function to belong to the highest breed(s) in the breed tree.
+     * Force the function to belong to the highest breed(s) in the breed AST.
      * For Instance if the function belong to Turtle and something that inherite turtle. It will only belong to turtle
      */ 
     private def removeDuplicatedBreed(function: BreedOwned):Unit = {

@@ -1,11 +1,11 @@
 package utils
 
-import ast.Tree._
+import ast.AST._
 import scala.collection.mutable.Map
 import scala.collection.mutable.Stack
 import parsing.Token
 import javax.swing.text.StyledEditorKit.BoldAction
-import ast.Tree
+import ast.AST
 import ast.Variable
 import ast.Breed
 import ast.BreedType
