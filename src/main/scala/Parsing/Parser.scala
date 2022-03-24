@@ -201,6 +201,28 @@ object Parser{
             val cmds = parseInstructionBlock()
             Tree.Ask(cmds)
         }
+        else if (text.isKeyword("list")){
+            text.take()
+            Tree.ListValue(List(parseExpression(), parseExpression()))
+        }
+        else if (text.isDelimiter("[")){
+            text.take()
+            val reporter = parseExpression()
+            text.requierToken(DelimiterToken("]"))
+            text.requierToken(DelimiterToken("of"))
+            val from = text.getIdentifier()
+            Tree.OfValue(reporter, from)
+        }
+        else if (text.isDelimiter("(")){
+            text.take()
+            val buffer = ArrayBuffer[Expression]()
+            text.requierToken(KeywordToken("list"))
+            while(!text.isDelimiter(")")){
+                buffer.addOne(parseExpression())
+            }
+            text.requierToken(DelimiterToken(")"))
+            Tree.ListValue(buffer.toList)
+        }
         else{
             throw new UnexpectedTokenException(text.take(), EOFToken())
         }

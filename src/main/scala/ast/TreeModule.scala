@@ -13,6 +13,8 @@ object Tree{
     case class FloatValue(value: Float) extends Expression
     case class StringValue(value: String) extends Expression
     case class VariableValue(name: String) extends Expression
+    case class ListValue(lst: List[Expression]) extends Expression
+    case class OfValue(expr: Expression, from: String) extends Expression
 
     case class Call(name: String, arg: List[Tree]) extends Expression
     case class Assignment(name: VariableValue, value: Expression) extends Tree
@@ -29,5 +31,3 @@ object Tree{
     case class While(cond: Expression, block: Tree) extends Tree
     case class Ask(block: Tree) extends Tree
 }
-
-

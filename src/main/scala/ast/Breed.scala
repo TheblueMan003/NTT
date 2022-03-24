@@ -2,14 +2,16 @@ package ast
 
 import scala.collection.mutable.Map
 
-class Breed(parent: Breed){
-    val owned: Map[String, Variable] = Map[String, Variable]()
+class Breed(_parent: Breed){
+    val parent = _parent
+    val ownedVars: Map[String, Variable] = Map[String, Variable]()
+    val ownedFuns: Map[String, Function] = Map[String, Function]()
 
     def addVariable(name: String) = {
-        owned.addOne((name, Variable(name)))
+        ownedVars.addOne((name, Variable(name)))
     }
     def hasVariable(name: String): Boolean = {
-        if (owned.contains(name)){
+        if (ownedVars.contains(name)){
             true
         }
         else if (parent != null){
@@ -20,8 +22,8 @@ class Breed(parent: Breed){
         }
     }
     def getVariable(name: String): Variable = {
-        if (owned.contains(name)){
-            owned.get(name).get
+        if (ownedVars.contains(name)){
+            ownedVars.get(name).get
         }
         else if (parent != null){
             parent.getVariable(name)
@@ -30,13 +32,41 @@ class Breed(parent: Breed){
             throw new Exception(f"Unknown Variable: ${name}")
         }
     }
+
+
+    def addFunction(fun: Function) = {
+        ownedFuns.addOne((fun.name, fun))
+    }
+    def hasFunction(name: String): Boolean = {
+        if (ownedFuns.contains(name)){
+            true
+        }
+        else if (parent != null){
+            parent.hasFunction(name)
+        }
+        else{
+            false
+        }
+    }
+    def getFunction(name: String): Function = {
+        if (ownedFuns.contains(name)){
+            ownedFuns.get(name).get
+        }
+        else if (parent != null){
+            parent.getFunction(name)
+        }
+        else{
+            throw new Exception(f"Unknown Function: ${name}")
+        }
+    }
 }
 
 object Breed{
-    case class TurtleBreed(singularName: String, pluralName: String, parent: Breed) extends Breed(parent)
-    case class LinkBreed(singularName: String, pluralName: String, directed: Boolean, parent: Breed) extends Breed(parent)
-    case class PatchBreed(singularName: String, pluralName: String, parent: Breed) extends Breed(parent)
-    case class Observer() extends Breed(null)
+    case class TurtleBreed(singularName: String, pluralName: String, _parent: Breed) extends Breed(_parent)
+    case class LinkBreed(singularName: String, pluralName: String, directed: Boolean, _parent: Breed) extends Breed(_parent)
+    case class PatchBreed(singularName: String, pluralName: String, _parent: Breed) extends Breed(_parent)
+    case class ObserverBreed(_parent: Breed) extends Breed(_parent)
+    case class AgentBreed() extends Breed(null)
 }
 
 trait BreedType

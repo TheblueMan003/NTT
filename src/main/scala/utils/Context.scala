@@ -20,11 +20,13 @@ class Context(){
     val breeds = Map[String, Breed]()
 
     val _targetBreeds: Stack[Set[Breed]] = Stack[Set[Breed]]()
-    val _observer =  new Breed.Observer()
-    var _turtles = new Breed.TurtleBreed("turtle", "turtles", _observer)
-    var _patches = new Breed.PatchBreed("patch", "patches", _observer)
-    var _links = new Breed.LinkBreed("link", "linkes", true, _observer)
+    val _agent =  new Breed.AgentBreed()
+    val _observer =  new Breed.ObserverBreed(_agent)
+    var _turtles = new Breed.TurtleBreed("turtle", "turtles", _agent)
+    var _patches = new Breed.PatchBreed("patch", "patches", _agent)
+    var _links = new Breed.LinkBreed("link", "linkes", true, _agent)
 
+    breeds.addOne(("$agent", _agent))
     breeds.addOne(("$observer", _observer))
     breeds.addOne(("turtles", _turtles))
     breeds.addOne(("patches", _patches))

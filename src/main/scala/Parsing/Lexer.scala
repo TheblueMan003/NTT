@@ -9,8 +9,8 @@ object Lexer{
     val operator = List('+', '-', '*', '/', '<', '=', '>', '!')
     val operatorString = List("and", "or", "xor")
     val identifier = List('-', '?')
-    val keyword = List("breed", "directed-link-breed", "end", "extensions", "globals", 
-                        "__includes", "to", "to-report", 
+    val keyword = Set("breed", "directed-link-breed", "end", "extensions", "globals", 
+                        "__includes", "to", "to-report", "of", "list",
                         "undirected-link-breed", 
                         "let", "set",
                         "if", "ifelse", "ifelse-value")
@@ -18,7 +18,7 @@ object Lexer{
     def parse(text: StringBufferedIterator, acc: TokenBufferBuilder):TokenBufferBuilder = {
         text.setStart()
         if (text.hasNext){
-            val c: Char = text.take()
+            val c: Char = text.take().toLower
             
             // Number
             if (c.isDigit){

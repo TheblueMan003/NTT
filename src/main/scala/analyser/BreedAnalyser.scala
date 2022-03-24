@@ -8,12 +8,24 @@ import analyser.BreedConstrainer._
 import ast._
 
 object BreedAnalyser{
+
+    /**
+    *  Analyse breeds contraint and force function to belong to a breed.
+    */ 
     def analyse(context: Context) = {
         initConstraints(context)
+
         val constraints = generateConstraints(context)
+
         resolveConstraits(constraints)
+
+        removeDuplicatedBreed(context)
     }
-    def initConstraints(context: Context) = {
+
+    /**
+     * Set All Function to belong to all breed
+     */ 
+    private def initConstraints(context: Context) = {
         context.functions.values.map(
             _ match {
                 case cf: CompiledFunction => cf.initConstraints(context.getBreeds()) 
@@ -21,7 +33,11 @@ object BreedAnalyser{
             }
         )
     }
-    def generateConstraints(context: Context): List[BreedConstraint] = {
+
+    /**
+     * Get All Breed Constraint from all the code
+     */ 
+    private def generateConstraints(context: Context): List[BreedConstraint] = {
         context.functions.values.map(
             _ match {
                 case cf: CompiledFunction => {
@@ -33,7 +49,12 @@ object BreedAnalyser{
             }
         ).reduce(_ ::: _)
     }
-    def analyse(tree: Tree)(implicit context: Context, found: BreedConstrainer, localVar: ContextMap[VariableValue]): (List[BreedConstraint]) = {
+
+
+    /** 
+     * Get All Breed Constraint from a function
+     */ 
+    private def analyse(tree: Tree)(implicit context: Context, found: BreedConstrainer, localVar: ContextMap[VariableValue]): (List[BreedConstraint]) = {
         tree match{
             case BooleanValue(_) => Nil
             case IntValue(_) => Nil
@@ -92,7 +113,11 @@ object BreedAnalyser{
         }
     }
 
-    def resolveConstraits(constraints: List[BreedConstraint]) = {
+
+    /**
+     * Check that All Breed Constraint matches and restrain function to breeds
+     */ 
+    private def resolveConstraits(constraints: List[BreedConstraint]) = {
         var changed = true
         while(changed){
             changed = false
@@ -133,5 +158,20 @@ object BreedAnalyser{
                 }
             )
         }
+    }
+
+    /**
+     * Force all function to belong to the highest breed(s) in the breed tree.
+     */
+    private def removeDuplicatedBreed(context: Context):Unit = {
+        context.functions.values.map(removeDuplicatedBreed(_))
+    }
+
+    /**
+     * Force the function to belong to the highest breed(s) in the breed tree.
+     * For Instance if the function belong to Turtle and something that inherite turtle. It will only belong to turtle
+     */ 
+    private def removeDuplicatedBreed(function: BreedOwned):Unit = {
+        function.breeds = function.breeds.filter(breed => !function.breeds.contains(breed.parent))
     }
 }
