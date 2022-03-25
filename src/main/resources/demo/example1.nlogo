@@ -3,19 +3,20 @@ globals [
     index
 ]
 
-breed [ wolf wolves ]
+breed [ wolves wolf ]
 
-turtle-own [
-    test2
+turtles-own [
+    test
     test3-test?
-]
-wolf-own [
     test4
+]
+wolves-own [
+    test
     test5-test?
 ]
 
 to go
-    let m 5
+    let m test
     ask turtles [
         right m
         log test4
