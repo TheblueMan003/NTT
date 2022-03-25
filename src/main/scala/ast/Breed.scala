@@ -89,6 +89,18 @@ trait BreedOwned{
      * 
      * @return true if breed set changed
      */
+    def extendTo(constraints: Set[Breed]):Boolean={
+        val newb = breeds.union(constraints)
+        val ret = newb != breeds
+        breeds = newb
+        ret
+    }
+
+    /**
+     * Restraint the object to the breeds
+     * 
+     * @return true if breed set changed
+     */
     def restrainTo(constraints: Set[Breed]):Boolean={
         val newb = breeds.intersect(constraints)
         val ret = newb != breeds

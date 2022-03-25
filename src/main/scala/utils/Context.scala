@@ -17,7 +17,8 @@ trait VariableOwner{
 
 class Context(){
     val functions = Map[String, Function]()
-    val breeds = Map[String, Breed]()
+    val breedsPlur = Map[String, Breed]()
+    val breedsSing = Map[String, Breed]()
 
     val _targetBreeds: Stack[Set[Breed]] = Stack[Set[Breed]]()
     val _agent =  new Breed.AgentBreed()
@@ -26,13 +27,14 @@ class Context(){
     var _patches = new Breed.PatchBreed("patch", "patches", _agent)
     var _links = new Breed.LinkBreed("link", "linkes", true, _agent)
 
-    breeds.addOne(("$agent", _agent))
-    breeds.addOne(("$observer", _observer))
-    breeds.addOne(("turtles", _turtles))
-    breeds.addOne(("patches", _patches))
-    breeds.addOne(("linkes", _links))
 
-    functions.addAll(FunctionLoader.getAll(this, "turtles"))
+    addBreed(_agent)
+    addBreed(_observer)
+    addBreed(_turtles)
+    addBreed(_turtles)
+    addBreed(_patches)
+    addBreed(_links)
+
 
     val _ownedBuffer = new ListBuffer[(String, String)]()
 
@@ -47,25 +49,74 @@ class Context(){
      * Add a bread of Type typ
      */ 
     def addBreed(singular: String, plural: String, typ: BreedType) = {
-        if (breeds.contains(plural)){
+        if (breedsPlur.contains(plural)){
             throw new Exception(f"Duplicated bread: ${singular}, ${plural}")
         }
         typ match{
-            case BreedType.TurtleBreed() => breeds.addOne((plural, new Breed.TurtleBreed(singular, plural, _turtles)))
-            case BreedType.LinkBreed(directed) => breeds.addOne((plural, new Breed.LinkBreed(singular, plural, directed, _links)))
+            case BreedType.TurtleBreed() => {
+                val breed = new Breed.TurtleBreed(singular, plural, _turtles)
+                breedsPlur.addOne((plural, breed))
+                breedsSing.addOne((singular, breed))
+            }
+            case BreedType.LinkBreed(directed) => {
+                val breed = new Breed.LinkBreed(singular, plural, directed, _links)
+                breedsPlur.addOne((plural, breed))
+                breedsSing.addOne((singular, breed))
+            }
         }
     }
-    def hasBreed(name: String): Boolean = {
-        breeds.contains(name)
+    def addBreed(breed: Breed) = {
+        breed match{
+            case Breed.TurtleBreed(s, p, _) => {
+                breedsPlur.addOne((p, breed))
+                breedsSing.addOne((s, breed))
+                functions.addAll(FunctionLoader.getAll(p, breed))
+            }
+            case Breed.LinkBreed(s, p, _, _) => {
+                breedsPlur.addOne((p, breed))
+                breedsSing.addOne((s, breed))
+                functions.addAll(FunctionLoader.getAll(p, breed))
+            }
+            case Breed.PatchBreed(s, p, _) => {
+                breedsPlur.addOne((p, breed))
+                breedsSing.addOne((s, breed))
+                functions.addAll(FunctionLoader.getAll(p, breed))
+            }
+            case Breed.ObserverBreed(_) => {
+                breedsPlur.addOne(("$observer", breed))
+                breedsSing.addOne(("$observer", breed))
+                functions.addAll(FunctionLoader.getAll("observer", breed))
+            }
+            case Breed.AgentBreed() => {
+                breedsPlur.addOne(("$agent", breed))
+                breedsSing.addOne(("$agent", breed))
+                functions.addAll(FunctionLoader.getAll("agents", breed))
+            }
+        }
     }
-    def getBreed(name: String): Breed = {
-        if (breeds.contains(name)){
-            breeds.get(name).get
+    def hasBreedPlural(name: String): Boolean = {
+        breedsPlur.contains(name)
+    }
+    def hasBreedSingular(name: String): Boolean = {
+        breedsSing.contains(name)
+    }
+    def getBreedPlural(name: String): Breed = {
+        if (breedsPlur.contains(name)){
+            breedsPlur.get(name).get
         }
         else{
             throw new Exception(f"Unknown breed ${name}")
         }
     }
+    def getBreedSingular(name: String): Breed = {
+        if (breedsSing.contains(name)){
+            breedsSing.get(name).get
+        }
+        else{
+            throw new Exception(f"Unknown breed ${name}")
+        }
+    }
+
     /**
       * Return the set of breed that contains the variable name
       *
@@ -73,14 +124,14 @@ class Context(){
       * @return breed that contains the variables
       */
     def getBreedsWithVariable(name: String): Set[Breed] = {
-        breeds.map(_._2).filter(_.hasVariable(name)).toSet
+        breedsPlur.map(_._2).filter(_.hasVariable(name)).toSet
     }
 
     /**
       * @return Set of all breed
       */
     def getBreeds(): Set[Breed] = {
-        breeds.values.toSet
+        breedsPlur.values.toSet
     }
     /**
       * @return Return the observer Breed
@@ -95,11 +146,40 @@ class Context(){
     def addOwned(breed: String, vari: String) = {
         _ownedBuffer.addOne((breed, vari))
     }
+
     /** 
      * Add all variables to their breed
      */ 
-    def breadVariableOwnSetup() = {
-        _ownedBuffer.map{ case (k, v)=> getBreed(k).addVariable(v) }
+    def breedVariableOwnSetup() = {
+        _ownedBuffer.map{ case (k, v) => {
+                if (hasBreedPlural(k)){
+                    getBreedPlural(k).addVariable(v)
+                } else {
+                    throw new Exception(f"Unknown Breed: ${k}")
+                }
+            }
+        }
+
+        // Add Base functions to child
+        getBreeds().map(b => {
+            val parents = listAllBreedParents(b)
+            functions.values.filter(_.breeds.exists(parents.contains(_))).map{ f=> 
+                f.extendTo(Set(b))
+            }
+        }
+        )
+    }
+
+    /**
+     * List all parent of a breed. Breed itself not included.
+     */ 
+    def listAllBreedParents(breed: Breed):List[Breed] = {
+        if (breed.parent != null){
+            breed.parent :: listAllBreedParents(breed.parent)
+        }
+        else{
+            Nil
+        }
     }
 
 
@@ -111,7 +191,7 @@ class Context(){
     }
     def hasVariable(name: String): Boolean = {
         if (_targetBreeds.isEmpty){
-            breeds.values.exists(_.hasVariable(name))
+            breedsPlur.values.exists(_.hasVariable(name))
         }
         else{
             _targetBreeds.top.exists(_.hasVariable(name))
@@ -119,7 +199,7 @@ class Context(){
     }
     def getVariable(name: String): Variable = {
         if (_targetBreeds.isEmpty){
-            breeds.values
+            breedsPlur.values
                 .filter(_.hasVariable(name))
                 .map(_.getVariable(name))
                 .head

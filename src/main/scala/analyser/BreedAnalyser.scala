@@ -128,7 +128,7 @@ object BreedAnalyser{
                         it.found match{
                             case BreedSet(foundSet) => {
                                 if (!(foundSet subsetOf expSet)){
-                                    throw new BreedException()
+                                    throw BreedException(it.found, it.expected)
                                 }
                             }
                             case BreedOwn(owner) => {
@@ -136,7 +136,7 @@ object BreedAnalyser{
                                     changed |= owner.restrainTo(expSet)
                                 }
                                 else{
-                                    throw new BreedException()
+                                    throw BreedException(it.found, it.expected)
                                 }
                             }
                         }
@@ -150,7 +150,7 @@ object BreedAnalyser{
                                     changed |= owner.restrainTo(ownerExp)
                                 }
                                 else{
-                                    throw new BreedException()
+                                    throw BreedException(it.found, it.expected)
                                 }
                             }
                         }

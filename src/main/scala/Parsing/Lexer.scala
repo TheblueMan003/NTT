@@ -7,7 +7,7 @@ import utils.{TokenBufferBuilder,StringBufferedIterator}
 object Lexer{
     val delimiter = List('[', ']', '(', ')')
     val operator = List('+', '-', '*', '/', '<', '=', '>', '!')
-    val operatorString = List("and", "or", "xor")
+    val operatorString = List("and", "or", "xor", "mod")
     val identifier = List('-', '?')
     val keyword = Set("breed", "directed-link-breed", "end", "extensions", "globals", 
                         "__includes", "to", "to-report", "of", "list",

@@ -13,7 +13,7 @@ import ast.BreedType._
 
 object Parser{
     
-    private var operatorsPriority = List(List("<", ">", "<=", ">=" ,"=","!="), List("^"), List("*", "/", "and"), List("+", "-", "or", "xor")).reverse
+    private var operatorsPriority = List(List("<", ">", "<=", ">=" ,"=","!="), List("^"), List("*", "/", "and", "mod"), List("+", "-", "or", "xor")).reverse
 
     def parse(text: TokenBufferedIterator): Context = {
         val con = new Context()
@@ -22,7 +22,7 @@ object Parser{
         functionDiscovery()(text, con)
 
         // Phase 1.5 - Add All owned variable to their breed
-        con.breadVariableOwnSetup()
+        con.breedVariableOwnSetup()
 
         // Phase 2 - Parse Inside of Function
         parseAllFuncitonsBody()(con)

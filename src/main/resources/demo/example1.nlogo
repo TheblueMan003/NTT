@@ -36,4 +36,5 @@ to noarg
     set m 5
     right m
     fw 1
+    log 5
 end
