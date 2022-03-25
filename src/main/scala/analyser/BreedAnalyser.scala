@@ -60,8 +60,10 @@ object BreedAnalyser{
             case IntValue(_) => Nil
             case FloatValue(_) => Nil
             case StringValue(_) => Nil
+            case BreedValue(_) => Nil
 
-            case Call(name, args) => List(BreedConstraint(found, BreedOwn(context.getFunction(name))))
+            case Call(name, args) => 
+                List(BreedConstraint(found, BreedOwn(context.getFunction(name)))) ::: args.map(analyse(_)).reduce(_ ::: _)
             case VariableValue(name) => {
                 if (localVar.contains(name)){
                     Nil
@@ -97,8 +99,8 @@ object BreedAnalyser{
             case While(expr, block) => {
                 analyse(expr) ::: analyse(block)
             }
-            case Ask(block) => {
-                analyse(block)
+            case Ask(expr, block) => {
+                analyse(expr) ::: analyse(block)(context, getBreedFrom(expr), localVar)
             }
             case Block(content) => {
                 localVar.push()
@@ -110,6 +112,13 @@ object BreedAnalyser{
                 localVar.pop()
                 ret
             }
+        }
+    }
+
+    private def getBreedFrom(expr: Expression): BreedConstrainer = {
+        expr match{
+            case BreedValue(b) => BreedSet(Set(b))
+            case v: VariableValue => BreedOwn(v)
         }
     }
 
@@ -144,7 +153,14 @@ object BreedAnalyser{
                     // Expect Breed Owner
                     case BreedOwn(ownerExp) => {
                         it.found match{
-                            case BreedSet(foundSet) => ???
+                            case BreedSet(foundSet) => {
+                                if (ownerExp.canBeRestrainTo(foundSet)){
+                                    changed |= ownerExp.restrainTo(foundSet)
+                                }
+                                else{
+                                    throw BreedException(it.found, it.expected)
+                                }
+                            }
                             case BreedOwn(owner) => {
                                 if (owner.canBeRestrainTo(ownerExp)){
                                     changed |= owner.restrainTo(ownerExp)

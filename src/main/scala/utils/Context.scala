@@ -152,8 +152,8 @@ class Context(){
      */ 
     def breedVariableOwnSetup() = {
         _ownedBuffer.map{ case (k, v) => {
-                if (hasBreedPlural(k)){
-                    getBreedPlural(k).addVariable(v)
+                if (hasBreedSingular(k)){
+                    getBreedSingular(k).addVariable(v)
                 } else {
                     throw new Exception(f"Unknown Breed: ${k}")
                 }

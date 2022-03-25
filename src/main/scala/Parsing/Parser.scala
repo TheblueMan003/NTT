@@ -198,8 +198,9 @@ object Parser{
         }
         else if (text.isKeyword("ask")){
             text.take()
+            val agent = parseExpression()
             val cmds = parseInstructionBlock()
-            AST.Ask(cmds)
+            AST.Ask(agent, cmds)
         }
         else if (text.isKeyword("list")){
             text.take()
@@ -263,7 +264,10 @@ object Parser{
         val token = text.take() 
         token match{
             case IdentifierToken(iden) => {
-                if (context.hasFunction(iden)){
+                if (context.hasBreedPlural(iden)){
+                    AST.BreedValue(context.getBreedPlural(iden))
+                }
+                else if (context.hasFunction(iden)){
                     parseCall(iden)
                 }
                 else {

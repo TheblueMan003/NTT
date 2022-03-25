@@ -18,7 +18,7 @@ mean;x
 median;x
 min;x
 modes;x
-new-seed;;
+new-seed;
 precision;x,y
 random;x
 random-exponential;x

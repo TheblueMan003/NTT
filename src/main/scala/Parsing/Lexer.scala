@@ -12,7 +12,7 @@ object Lexer{
     val keyword = Set("breed", "directed-link-breed", "end", "extensions", "globals", 
                         "__includes", "to", "to-report", "of", "list",
                         "undirected-link-breed", 
-                        "let", "set",
+                        "let", "set", "ask",
                         "if", "ifelse", "ifelse-value")
     
     def parse(text: StringBufferedIterator, acc: TokenBufferBuilder):TokenBufferBuilder = {

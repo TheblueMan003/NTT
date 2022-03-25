@@ -5,17 +5,21 @@ globals [
 
 breed [ wolf wolves ]
 
-turtles-own [
+turtle-own [
     test2
     test3-test?
 ]
-wolves-own [
+wolf-own [
     test4
     test5-test?
 ]
 
 to go
-    argtest test2 + test4
+    let m 5
+    ask turtles [
+        right m
+        log test4
+    ]
 end
 
 to argtest [ value ]

@@ -18,7 +18,7 @@ object Main extends App {
   println(context.functions.map(f => 
     f._2 match {
       case c: CompiledFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.body}\n"
-      case c: BaseFunction =>"\n" + c.name + "(" + c.argsNames+")\n"
+      case c: BaseFunction =>""
     }
   ))
 }

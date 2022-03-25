@@ -1,7 +1,7 @@
 package analyser
 
 import utils._
-import ast.{Variable, Function}
+import ast.{Variable, Function, Breed}
 import scala.collection.mutable.{Map, Set}
 
 trait SymTree extends Positionable
@@ -14,6 +14,7 @@ object SymTree{
     case class FloatValue(value: Float) extends Expression
     case class StringValue(value: String) extends Expression
     case class VariableValue(name: Variable) extends Expression
+    case class BreedValue(name: Breed) extends Expression
     case class ListValue(lst: List[Expression]) extends Expression
     case class OfValue(expr: Expression, from: VariableValue) extends Expression
 
@@ -30,5 +31,5 @@ object SymTree{
     case class Loop(block: SymTree) extends SymTree
     case class Repeat(number: Expression, block: SymTree) extends SymTree
     case class While(cond: Expression, block: SymTree) extends SymTree
-    case class Ask(block: SymTree) extends SymTree
+    case class Ask(cond: Expression, block: SymTree) extends SymTree
 }
