@@ -57,6 +57,11 @@ object NameAnalyser{
     }
 
     private def getVariable(name: String)(implicit breed: Breed): SymTree.VariableValue = {
-        ???
+        if (breed.hasVariable(name)){
+            SymTree.VariableValue(breed.getVariable(name))
+        }
+        else{
+            ???
+        }
     }
 }
