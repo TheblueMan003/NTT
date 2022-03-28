@@ -40,7 +40,7 @@ object Parser{
                 val argName = getArgsName()
                 val body = getFunctionBody()
             
-                context.addFunction(name, argName, body)
+                context.addFunction(name, argName, body, false)
             }
 
             case KeywordToken("to-report") => {
@@ -48,7 +48,7 @@ object Parser{
                 val argName = getArgsName()
                 val body = getFunctionBody()
             
-                context.addFunction(name, argName, body)
+                context.addFunction(name, argName, body, true)
             }
 
             case KeywordToken("breed") => {
@@ -134,7 +134,7 @@ object Parser{
         else if (text.isIdentifier()){
             val iden = text.getIdentifier()
             if (context.hasFunction(iden)){
-                parseCall(iden)
+                parseCall(iden, false)
             }
             else{
                 throw new Exception(f"Unknown function: ${iden}")
@@ -247,7 +247,7 @@ object Parser{
     /**
      * Parse function call with or without args
      */
-    def parseCall(iden: String)(implicit text: TokenBufferedIterator, context: Context): Expression = {
+    def parseCall(iden: String, isExpr: Boolean)(implicit text: TokenBufferedIterator, context: Context): Expression = {
         val fun = context.getFunction(iden)
         val args = ArrayBuffer[Expression]()
         var i = 0
@@ -268,7 +268,7 @@ object Parser{
                     AST.BreedValue(context.getBreedPlural(iden))
                 }
                 else if (context.hasFunction(iden)){
-                    parseCall(iden)
+                    parseCall(iden, true)
                 }
                 else {
                     AST.VariableValue(iden)

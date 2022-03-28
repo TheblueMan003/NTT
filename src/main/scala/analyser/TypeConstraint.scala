@@ -10,7 +10,7 @@ object Types{
     case class BoolType() extends Type
     case class StringType() extends Type
     case class TurtleType(breed: Breed) extends Type
-
+    case class UnitType() extends Type
 
     case class VariableType(id: Int) extends Type
 }

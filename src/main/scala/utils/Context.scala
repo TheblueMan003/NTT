@@ -38,8 +38,8 @@ class Context(){
     val _ownedBuffer = new ListBuffer[(String, String)]()
 
 
-    def addFunction(name: String, args: List[String], body: List[Token]) = {
-        functions.addOne((name, new CompiledFunction(name, args, body)))
+    def addFunction(name: String, args: List[String], body: List[Token], hasReturnValue: Boolean) = {
+        functions.addOne((name, new CompiledFunction(name, args, body, hasReturnValue)))
     }
     def hasFunction(name: String): Boolean = functions.contains(name)
     def getFunction(name: String): Function = functions.get(name).get

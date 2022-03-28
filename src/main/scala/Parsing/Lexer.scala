@@ -2,7 +2,7 @@ package parsing
 
 import java.io.File
 import Tokens._
-import utils.{TokenBufferBuilder,StringBufferedIterator}
+import utils.{TokenBufferBuilder,StringBufferedIterator,Reporter}
 
 object Lexer{
     val delimiter = List('[', ']', '(', ')')
@@ -67,6 +67,7 @@ object Lexer{
             }
             else{
                 val cut = text.cut()
+                Reporter.error(f"Unknown Token ${cut._2.positionString()}")
                 tokenize(text, acc.add(ErrorToken(cut._1).pos(cut._2), text))
             }
         }

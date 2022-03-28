@@ -29,7 +29,7 @@ to argtest [ value ]
     ]
     test = 2
     [
-        argtest test
+        argtest log 5
     ]
     [
         argtest test

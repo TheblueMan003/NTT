@@ -68,6 +68,9 @@ object BreedAnalyser{
                 if (localVar.contains(name)){
                     Nil
                 }
+                else if (context.getObserverBreed().hasVariable(name)){
+                    Nil
+                }
                 else{
                     List(BreedConstraint(found, BreedSet(context.getBreedsWithVariable(name))))
                 }
@@ -115,9 +118,15 @@ object BreedAnalyser{
         }
     }
 
-    private def getBreedFrom(expr: Expression): BreedConstrainer = {
+    private def getBreedFrom(expr: Expression)(implicit context: Context): BreedConstrainer = {
         expr match{
             case BreedValue(b) => BreedSet(Set(b))
+            case Call(name, args) => {
+                context.getFunction(name) match{
+                    case cf: CompiledFunction => BreedOwn(cf.returnValue)
+                    case bf: BaseFunction => ???  
+                }
+            }
             case v: VariableValue => BreedOwn(v)
         }
     }
