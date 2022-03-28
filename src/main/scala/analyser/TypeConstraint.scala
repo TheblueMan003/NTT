@@ -1,5 +1,7 @@
 package analyser
 
+import ast.Breed
+
 trait Type{
 }
 object Types{
@@ -13,8 +15,4 @@ object Types{
     case class VariableType(id: Int) extends Type
 }
 
-trait TypeConstraint{
-}
-object TypeConstraints{
-    case class TypeConstraint(found: Type, expected: Type) extends Constraint
-}
+case class TypeConstraint(found: Type, expected: Type)
