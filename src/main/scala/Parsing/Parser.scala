@@ -13,7 +13,7 @@ import ast.BreedType._
 
 object Parser{
     
-    private var operatorsPriority = List(List("<", ">", "<=", ">=" ,"=","!="), List("^"), List("*", "/", "and", "mod"), List("+", "-", "or", "xor")).reverse
+    private var operatorsPriority = List(List("^"), List("*", "/", "mod"), List("+", "-"), List("<", ">", "<=", ">="), List("=", "!="), List("and","or", "xor")).reverse
 
     def parse(text: TokenBufferedIterator): Context = {
         val con = new Context()
@@ -54,7 +54,7 @@ object Parser{
             case KeywordToken("breed") => {
                 val names = getVariablesGroup()
                 if (names.size != 2) throw new Exception("Wrong Number of names for breed")
-                context.addBreed(names(0), names(1), TurtleBreed())
+                context.addBreed(names(1), names(0), TurtleBreed())
             }
 
             case KeywordToken("undirected-link-breed") => {
@@ -71,7 +71,7 @@ object Parser{
 
             case KeywordToken("globals") => {
                 getVariablesGroup().map(
-                    context.addOwned("$observer", _)
+                    context.addOwned("observer", _)
                 )
             }
 
@@ -119,13 +119,13 @@ object Parser{
      * Parse an instruction
      */ 
     def parseIntruction()(implicit text: TokenBufferedIterator, context: Context): AST = {
-        if (text.isKeyword("let")){
+        if (text.isKeyword("let")){ //let <var> <expr>
             text.take()
             val iden = text.getIdentifier()
             val value = parseExpression()
             AST.Declaration(AST.VariableValue(iden), value)
         }
-        else if (text.isKeyword("set")){
+        else if (text.isKeyword("set")){ //set <var> <expr>
             text.take()
             val iden = text.getIdentifier()
             val value = parseExpression()
@@ -140,14 +140,14 @@ object Parser{
                 throw new Exception(f"Unknown function: ${iden}")
             }
         }
-        else if (text.isKeyword("if")){
+        else if (text.isKeyword("if")){ //if <expr> [block]
             text.take()
             val cond = parseExpression()
             val cmds = parseInstructionBlock()
 
             AST.IfBlock(cond, cmds)
         }
-        else if (text.isKeyword("ifelse")){
+        else if (text.isKeyword("ifelse")){ //ifelse (<expr> [block])* <block>
             text.take()
             val buffer = ListBuffer[(Expression, AST)]()
 
@@ -161,7 +161,7 @@ object Parser{
 
             AST.IfElseBlock(buffer.toList, cmds)
         }
-        else if (text.isKeyword("ifelse-value")){
+        else if (text.isKeyword("ifelse-value")){ //ifelse (<expr> [expr])* <expr>
             text.take()
             val buffer = ListBuffer[(Expression, Expression)]()
 
@@ -179,34 +179,34 @@ object Parser{
 
             AST.IfElseBlockExpression(buffer.toList, value)
         }
-        else if (text.isKeyword("loop")){
+        else if (text.isKeyword("loop")){ //loop [block]
             text.take()
             val cmds = parseInstructionBlock()
             AST.Loop(cmds)
         }
-        else if (text.isKeyword("repeat")){
+        else if (text.isKeyword("repeat")){ //repeat <expr> [block]
             text.take()
             val cond = parseExpression()
             val cmds = parseInstructionBlock()
             AST.Repeat(cond, cmds)
         }
-        else if (text.isKeyword("while")){
+        else if (text.isKeyword("while")){ //while <expr> [block]
             text.take()
             val cond = parseExpression()
             val cmds = parseInstructionBlock()
             AST.While(cond, cmds)
         }
-        else if (text.isKeyword("ask")){
+        else if (text.isKeyword("ask")){ //while <expr> [block]
             text.take()
             val agent = parseExpression()
             val cmds = parseInstructionBlock()
             AST.Ask(agent, cmds)
         }
-        else if (text.isKeyword("list")){
+        else if (text.isKeyword("list")){ //list <expr> <expr>
             text.take()
             AST.ListValue(List(parseExpression(), parseExpression()))
         }
-        else if (text.isDelimiter("[")){
+        else if (text.isDelimiter("[")){ //[expr] of <identifier>
             text.take()
             val reporter = parseExpression()
             text.requierToken(DelimiterToken("]"))
@@ -214,7 +214,7 @@ object Parser{
             val from = text.getIdentifier()
             AST.OfValue(reporter, from)
         }
-        else if (text.isDelimiter("(")){
+        else if (text.isDelimiter("(")){ //(list expr*)
             text.take()
             val buffer = ArrayBuffer[Expression]()
             text.requierToken(KeywordToken("list"))
@@ -283,6 +283,7 @@ object Parser{
             case BoolLitToken(value)   => AST.BooleanValue(value)
             case StringLitToken(value) => AST.StringValue(value)
             case FloatLitToken(value)  => AST.FloatValue(value)
+            case other => throw new UnexpectedTokenException(other, "Any Expression Token")
         }
     }
     

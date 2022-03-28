@@ -3,14 +3,15 @@ globals [
     index
 ]
 
-breed [ wolf wolves ]
+breed [ wolves wolf ]
 
-turtle-own [
-    test2
+turtles-own [
+    test
     test3-test?
-]
-wolf-own [
     test4
+]
+wolves-own [
+    test
     test5-test?
 ]
 

@@ -3,6 +3,10 @@ package parsing
 import utils._
 
 class Token extends Positionable{
+  def pos(position: Positionable):Token = {
+    setPosition(position)
+    this
+  }
 }
 
 object Tokens{
@@ -22,5 +26,5 @@ object Tokens{
   final case class EOFToken() extends Token
 }
 
-case class UnexpectedTokenException(val actual: Token, val expected: Token) extends Exception(actual.toString() + "!=" + expected.toString())
+case class UnexpectedTokenException(val actual: Token, val expected: Object) extends Exception(f"found: ${actual.positionString()} ${actual} expected: ${expected}")
 case class UnexpectedEOFException() extends Exception

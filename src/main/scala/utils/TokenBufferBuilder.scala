@@ -10,7 +10,6 @@ class TokenBufferBuilder{
     val list = new ArrayList[Token]()
     
     def add(token: Token, buffer: StringBufferedIterator): TokenBufferBuilder = {
-        token.setPosition(buffer)
         list.add(token)
         this
     }

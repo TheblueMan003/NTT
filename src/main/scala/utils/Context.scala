@@ -15,12 +15,12 @@ import scala.collection.mutable.ListBuffer
 trait VariableOwner{
 }
 
+// TODO Rename to a more fitting name
 class Context(){
     val functions = Map[String, Function]()
     val breedsPlur = Map[String, Breed]()
     val breedsSing = Map[String, Breed]()
 
-    val _targetBreeds: Stack[Set[Breed]] = Stack[Set[Breed]]()
     val _agent =  new Breed.AgentBreed()
     val _observer =  new Breed.ObserverBreed(_agent)
     var _turtles = new Breed.TurtleBreed("turtle", "turtles", _agent)
@@ -30,7 +30,6 @@ class Context(){
 
     addBreed(_agent)
     addBreed(_observer)
-    addBreed(_turtles)
     addBreed(_turtles)
     addBreed(_patches)
     addBreed(_links)
@@ -65,6 +64,7 @@ class Context(){
             }
         }
     }
+    // TODO Add Base Variable
     def addBreed(breed: Breed) = {
         breed match{
             case Breed.TurtleBreed(s, p, _) => {
@@ -83,13 +83,13 @@ class Context(){
                 functions.addAll(FunctionLoader.getAll(p, breed))
             }
             case Breed.ObserverBreed(_) => {
-                breedsPlur.addOne(("$observer", breed))
-                breedsSing.addOne(("$observer", breed))
+                breedsPlur.addOne(("observer", breed))
+                breedsSing.addOne(("observer", breed))
                 functions.addAll(FunctionLoader.getAll("observer", breed))
             }
             case Breed.AgentBreed() => {
-                breedsPlur.addOne(("$agent", breed))
-                breedsSing.addOne(("$agent", breed))
+                breedsPlur.addOne(("agent", breed))
+                breedsSing.addOne(("agent", breed))
                 functions.addAll(FunctionLoader.getAll("agents", breed))
             }
         }
@@ -152,8 +152,8 @@ class Context(){
      */ 
     def breedVariableOwnSetup() = {
         _ownedBuffer.map{ case (k, v) => {
-                if (hasBreedSingular(k)){
-                    getBreedSingular(k).addVariable(v)
+                if (hasBreedPlural(k)){
+                    getBreedPlural(k).addVariable(v)
                 } else {
                     throw new Exception(f"Unknown Breed: ${k}")
                 }
@@ -190,26 +190,12 @@ class Context(){
         ???
     }
     def hasVariable(name: String): Boolean = {
-        if (_targetBreeds.isEmpty){
-            breedsPlur.values.exists(_.hasVariable(name))
-        }
-        else{
-            _targetBreeds.top.exists(_.hasVariable(name))
-        }
+        breedsPlur.values.exists(_.hasVariable(name))
     }
     def getVariable(name: String): Variable = {
-        if (_targetBreeds.isEmpty){
-            breedsPlur.values
+        breedsPlur.values
                 .filter(_.hasVariable(name))
                 .map(_.getVariable(name))
                 .head
-        }
-        else{
-            _targetBreeds
-                .top
-                .filter(_.hasVariable(name))
-                .map(_.getVariable(name))
-                .head
-        }
     }
 }
