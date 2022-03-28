@@ -16,7 +16,7 @@ wolves-own [
 ]
 
 to go
-    let m test
+    let m 5
     ask turtles [
         right m
         log test4

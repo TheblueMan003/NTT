@@ -283,6 +283,7 @@ object Parser{
             case BoolLitToken(value)   => AST.BooleanValue(value)
             case StringLitToken(value) => AST.StringValue(value)
             case FloatLitToken(value)  => AST.FloatValue(value)
+            case other => throw new UnexpectedTokenException(other, "Any Expression Token")
         }
     }
     
