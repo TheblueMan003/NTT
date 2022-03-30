@@ -4,12 +4,12 @@ import ast.AST
 import ast.AST.Expression
 import Tokens._
 import utils.Context
-import ast.CompiledFunction
+import ast.UnlinkedFunction
 import utils.VariableOwner
 import utils.TokenBufferedIterator
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ListBuffer
-import ast.BreedType._
+import ast.BreedClass._
 
 object Parser{
     
@@ -95,7 +95,7 @@ object Parser{
     def parseAllFuncitonsBody()(context: Context) = {
         context.functions.values.map( f =>
             f match {
-                case cf: CompiledFunction => {
+                case cf: UnlinkedFunction => {
                     cf.body = parseFunctionsBody()(new TokenBufferedIterator(cf.tokenBody), context)
                 }
                 case _ => 

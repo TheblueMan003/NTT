@@ -1,6 +1,6 @@
 import parsing.Lexer
 import utils._
-import ast.{CompiledFunction, BaseFunction}
+import ast.{UnlinkedFunction, BaseFunction}
 import parsing.Parser
 import analyser.BreedAnalyser
 import scala.io.Source
@@ -17,7 +17,7 @@ object Main extends App {
 
   println(context.functions.map(f => 
     f._2 match {
-      case c: CompiledFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.body}\n"
+      case c: UnlinkedFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.body}\n"
       case c: BaseFunction =>""
     }
   ))

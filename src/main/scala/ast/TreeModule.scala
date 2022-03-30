@@ -31,5 +31,5 @@ object AST{
     case class Loop(block: AST) extends AST
     case class Repeat(number: Expression, block: AST) extends AST
     case class While(cond: Expression, block: AST) extends AST
-    case class Ask(cond: Expression, block: AST) extends AST
+    case class Ask(turtles: Expression, block: AST) extends AST
 }

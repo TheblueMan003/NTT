@@ -8,8 +8,8 @@ import javax.swing.text.StyledEditorKit.BoldAction
 import ast.AST
 import ast.Variable
 import ast.Breed
-import ast.BreedType
-import ast.{ Function, CompiledFunction }
+import ast.BreedClass
+import ast.{ Function, UnlinkedFunction }
 import scala.collection.mutable.ListBuffer
 
 trait VariableOwner{
@@ -39,7 +39,7 @@ class Context(){
 
 
     def addFunction(name: String, args: List[String], body: List[Token], hasReturnValue: Boolean) = {
-        functions.addOne((name, new CompiledFunction(name, args, body, hasReturnValue)))
+        functions.addOne((name, new UnlinkedFunction(name, args, body, hasReturnValue)))
     }
     def hasFunction(name: String): Boolean = functions.contains(name)
     def getFunction(name: String): Function = functions.get(name).get
@@ -47,17 +47,17 @@ class Context(){
     /** 
      * Add a bread of Type typ
      */ 
-    def addBreed(singular: String, plural: String, typ: BreedType) = {
+    def addBreed(singular: String, plural: String, typ: BreedClass) = {
         if (breedsPlur.contains(plural)){
             throw new Exception(f"Duplicated bread: ${singular}, ${plural}")
         }
         typ match{
-            case BreedType.TurtleBreed() => {
+            case BreedClass.TurtleBreed() => {
                 val breed = new Breed.TurtleBreed(singular, plural, _turtles)
                 breedsPlur.addOne((plural, breed))
                 breedsSing.addOne((singular, breed))
             }
-            case BreedType.LinkBreed(directed) => {
+            case BreedClass.LinkBreed(directed) => {
                 val breed = new Breed.LinkBreed(singular, plural, directed, _links)
                 breedsPlur.addOne((plural, breed))
                 breedsSing.addOne((singular, breed))

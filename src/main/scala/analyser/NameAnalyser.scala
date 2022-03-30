@@ -1,26 +1,33 @@
 package analyser
 
 import ast._
-import utils.Context
+import utils.{Context, ContextMap}
+import utils.Reporter
 
 object NameAnalyser{
     def analyse(context: Context) = {
     }
 
-    private def toSymTree(tree: AST)(implicit breed: Breed): SymTree = {
+    private def toSymTree(tree: AST)(implicit context: Context, breed: Breed, function: LinkedASTFunction, localVar: ContextMap[Variable]): SymTree = {
         tree match{
             case expr: AST.Expression => toSymTreeExpr(expr)
-
             case AST.Assignment(vari, expr) => 
                 SymTree.Assignment(
                     getVariable(vari.name), 
                     toSymTreeExpr(expr)
                 )
 
-            case AST.Declaration(vari, expr) => ???
+            case AST.Declaration(variExp, expr) => {
+                val vari = function.breed.addVariable(f"${function.name}_${variExp.name}")
+                SymTree.Declaration(SymTree.VariableValue(vari), toSymTreeExpr(expr))
+            }
 
-            case AST.Block(block) => SymTree.Block(block.map(toSymTree(_)))
-
+            case AST.Block(block) => {
+                localVar.push()
+                val ret = SymTree.Block(block.map(toSymTree(_)))
+                localVar.pop()
+                ret
+            }
             case AST.IfBlock(cond, block) => SymTree.IfBlock(toSymTreeExpr(cond), toSymTree(block))
             case AST.IfElseBlock(blocks, elseBlocks) => 
                 SymTree.IfElseBlock(
@@ -31,10 +38,11 @@ object NameAnalyser{
             case AST.Loop(block) => SymTree.Loop(toSymTree(block))
             case AST.Repeat(number, block) => SymTree.Repeat(toSymTreeExpr(number).asInstanceOf[SymTree.Expression], toSymTree(block))
             case AST.While(expr, block) => SymTree.While(toSymTreeExpr(expr), toSymTree(block))
+            case AST.Ask(expr, block) => ???
         }
     }
 
-    private def toSymTreeExpr(tree: AST.Expression)(implicit breed: Breed): SymTree.Expression = {
+    private def toSymTreeExpr(tree: AST.Expression)(implicit context: Context, breed: Breed, function: LinkedASTFunction, localVar: ContextMap[Variable]): SymTree.Expression = {
         tree match{
             case AST.Call(fct, args) => SymTree.Call(breed.getFunction(fct), args.map(toSymTreeExpr(_)))
 
@@ -56,12 +64,18 @@ object NameAnalyser{
         }
     }
 
-    private def getVariable(name: String)(implicit breed: Breed): SymTree.VariableValue = {
-        if (breed.hasVariable(name)){
+    private def getVariable(name: String)(implicit context: Context, breed: Breed, function: LinkedASTFunction, localVar: ContextMap[Variable]): SymTree.VariableValue = {
+        if (localVar.contains(name)){
+            SymTree.VariableValue(localVar.get(name))
+        }
+        else if (breed.hasVariable(name)){
             SymTree.VariableValue(breed.getVariable(name))
         }
+        else if (context.getObserverBreed().hasVariable(name)){
+            SymTree.VariableValue(context.getObserverBreed().getVariable(name))
+        }
         else{
-            ???
+            throw new Exception(f"Unknown Variable: ${name}")
         }
     }
 }

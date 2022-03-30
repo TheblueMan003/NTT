@@ -2,10 +2,11 @@ package analyser
 
 import utils.Context
 import utils.ContextMap
-import ast.CompiledFunction
+import ast.{UnlinkedFunction, LinkedASTFunction, Variable}
 import ast.AST._
 import analyser.BreedConstrainer._
 import ast._
+import analyser.Types.{BreedType, ListType}
 
 object BreedAnalyser{
 
@@ -28,7 +29,7 @@ object BreedAnalyser{
     private def initConstraints(context: Context) = {
         context.functions.values.map(
             _ match {
-                case cf: CompiledFunction => cf.initConstraints(context.getBreeds()) 
+                case cf: UnlinkedFunction => cf.initConstraints(context.getBreeds()) 
                 case _ =>
             }
         )
@@ -40,7 +41,7 @@ object BreedAnalyser{
     private def generateConstraints(context: Context): List[BreedConstraint] = {
         context.functions.values.map(
             _ match {
-                case cf: CompiledFunction => {
+                case cf: UnlinkedFunction => {
                     val vars = ContextMap[VariableValue]()
                     cf.argsNames.map(x => vars.add(x, VariableValue(x)))
                     analyse(cf.body)(context, BreedOwn(cf), vars)
@@ -123,8 +124,14 @@ object BreedAnalyser{
             case BreedValue(b) => BreedSet(Set(b))
             case Call(name, args) => {
                 context.getFunction(name) match{
-                    case cf: CompiledFunction => BreedOwn(cf.returnValue)
-                    case bf: BaseFunction => ???  
+                    case cf: UnlinkedFunction => BreedOwn(cf.returnValue)
+                    case bf: BaseFunction => {
+                        bf.returnType match{
+                            case BreedType(t) => BreedSet(Set(t))
+                            case ListType(BreedType(t)) => BreedSet(Set(t))
+                            case _ => throw new Exception(f"Function ${bf._name} does not return a breeds.")
+                        }
+                    }  
                 }
             }
             case v: VariableValue => BreedOwn(v)
@@ -198,5 +205,18 @@ object BreedAnalyser{
      */ 
     private def removeDuplicatedBreed(function: BreedOwned):Unit = {
         function.breeds = function.breeds.filter(breed => !function.breeds.contains(breed.parent))
+    }
+
+    private def assignBreedToFunction(context: Context):Unit = {
+        context.functions.values.map(f =>
+            f match {
+                case bf: BaseFunction =>
+                case cf: UnlinkedFunction => cf.breeds.map( breed => 
+                    breed.addFunction(
+                        LinkedASTFunction(cf._name, cf.argsNames.map(Variable(_)), cf.body, breed, cf.hasReturnValue)
+                    )
+                )
+            }
+        )
     }
 }

@@ -1,16 +1,21 @@
 package ast
 
 import scala.collection.mutable.Map
+import analyser.SymTree
+import ast.LinkedSymFunction
 
-class Breed(_parent: Breed){
+class Breed(_parent: Breed) extends VariableOwner{
     val parent = _parent
-    val ownedVars: Map[String, Variable] = Map[String, Variable]()
     val ownedFuns: Map[String, Function] = Map[String, Function]()
 
-    def addVariable(name: String) = {
-        ownedVars.addOne((name, Variable(name)))
+    private var lambdaCounter = -1
+
+    override def addVariable(name: String) = {
+        val vari = Variable(name)
+        ownedVars.addOne((name, vari))
+        vari
     }
-    def hasVariable(name: String): Boolean = {
+    override def hasVariable(name: String): Boolean = {
         if (ownedVars.contains(name)){
             true
         }
@@ -21,7 +26,7 @@ class Breed(_parent: Breed){
             false
         }
     }
-    def getVariable(name: String): Variable = {
+    override def getVariable(name: String): Variable = {
         if (ownedVars.contains(name)){
             ownedVars.get(name).get
         }
@@ -33,8 +38,7 @@ class Breed(_parent: Breed){
         }
     }
 
-
-    def addFunction(fun: Function) = {
+    def addFunction(fun: Function):Unit = {
         ownedFuns.addOne((fun.name, fun))
     }
     def hasFunction(name: String): Boolean = {
@@ -59,6 +63,13 @@ class Breed(_parent: Breed){
             throw new Exception(f"Unknown Function: ${name}")
         }
     }
+    def addLambda(tree: SymTree):Function = {
+        lambdaCounter += 1
+        val name = f"lambda_${lambdaCounter}"
+        val func = LinkedSymFunction(name, List(), tree, this, false)
+        addFunction(func)
+        func
+    }
 }
 
 object Breed{
@@ -69,12 +80,12 @@ object Breed{
     case class AgentBreed() extends Breed(null)
 }
 
-trait BreedType
-object BreedType{
-    case class TurtleBreed() extends BreedType
-    case class LinkBreed(directed: Boolean) extends BreedType
-    case class PatchBreed() extends BreedType
-    case class Observer() extends BreedType
+trait BreedClass
+object BreedClass{
+    case class TurtleBreed() extends BreedClass
+    case class LinkBreed(directed: Boolean) extends BreedClass
+    case class PatchBreed() extends BreedClass
+    case class Observer() extends BreedClass
 }
 
 trait BreedOwned{
