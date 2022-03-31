@@ -1,14 +1,29 @@
 package analyser
 
 import ast._
+import analyser.Types.{BreedType, ListType}
 import utils.{Context, ContextMap}
 import utils.Reporter
 
 object NameAnalyser{
-    def analyse(context: Context) = {
+    def analyse(context: Context):Unit = {
+        context.getBreeds().map(b => b.getAllFunctions().map(f => analyse(context, b, f)))
     }
 
-    private def toSymTree(tree: AST)(implicit context: Context, breed: Breed, function: LinkedASTFunction, localVar: ContextMap[Variable]): SymTree = {
+    def analyse(context: Context, breed: Breed, function: Function):Unit = {
+        function match{
+            case cf: LinkedFunction => {
+                if (cf.symTree == null){ // Avoid Computing Lambda twice
+                    val localVar = ContextMap[Variable]()
+                    cf._argsNames.map(v => localVar.add(v._name, v))
+                    cf.symTree = toSymTree(cf.body)(context, breed, cf, localVar)
+                }
+            }
+            case bf: BaseFunction => 
+        }
+    }
+
+    private def toSymTree(tree: AST)(implicit context: Context, breed: Breed, function: LinkedFunction, localVar: ContextMap[Variable]): SymTree = {
         tree match{
             case expr: AST.Expression => toSymTreeExpr(expr)
             case AST.Assignment(vari, expr) => 
@@ -19,6 +34,7 @@ object NameAnalyser{
 
             case AST.Declaration(variExp, expr) => {
                 val vari = function.breed.addVariable(f"${function.name}_${variExp.name}")
+                localVar.add(variExp.name, vari)
                 SymTree.Declaration(SymTree.VariableValue(vari), toSymTreeExpr(expr))
             }
 
@@ -38,11 +54,53 @@ object NameAnalyser{
             case AST.Loop(block) => SymTree.Loop(toSymTree(block))
             case AST.Repeat(number, block) => SymTree.Repeat(toSymTreeExpr(number).asInstanceOf[SymTree.Expression], toSymTree(block))
             case AST.While(expr, block) => SymTree.While(toSymTreeExpr(expr), toSymTree(block))
-            case AST.Ask(expr, block) => ???
+            case AST.Ask(expr, block) => {
+                val breeds = getBreedFrom(expr)
+                if (breeds.size > 1){
+                    Reporter.warning("Ambiguous breed for ask not supported.")
+                }
+
+                val b = breeds.head
+                
+                val variOwner = Variable(f"__myself_${localVar.getAskIndex()}") // is myself variable in NetLogo
+                variOwner.initConstraints(Set(breed))
+                val upperCaller = localVar.getAskVariables()
+                localVar.push()
+                localVar.add("myself", variOwner)
+                localVar.pushAsk(variOwner)
+
+                val lambda = b.addLambda(block, localVar.getAskVariables()) // Create Inner function
+                lambda.symTree = toSymTree(block)(context, b, lambda, localVar) // Analyse Inner function
+
+
+                localVar.popAsk()
+                localVar.pop()
+
+                SymTree.Ask(upperCaller, toSymTreeExpr(expr), lambda)
+            }
         }
     }
 
-    private def toSymTreeExpr(tree: AST.Expression)(implicit context: Context, breed: Breed, function: LinkedASTFunction, localVar: ContextMap[Variable]): SymTree.Expression = {
+    private def getBreedFrom(expr: AST.Expression)(implicit context: Context): Set[Breed] = {
+        expr match{
+            case AST.BreedValue(b) => Set(b)
+            case AST.Call(name, args) => {
+                context.getFunction(name) match{
+                    case cf: UnlinkedFunction => cf.returnValue.breeds
+                    case bf: BaseFunction => {
+                        bf.returnType match{
+                            case BreedType(t) => Set(t)
+                            case ListType(BreedType(t)) => Set(t)
+                            case _ => throw new Exception(f"Function ${bf._name} does not return a breeds.")
+                        }
+                    }  
+                }
+            }
+            case v: AST.VariableValue => v.breeds
+        }
+    }
+
+    private def toSymTreeExpr(tree: AST.Expression)(implicit context: Context, breed: Breed, function: LinkedFunction, localVar: ContextMap[Variable]): SymTree.Expression = {
         tree match{
             case AST.Call(fct, args) => SymTree.Call(breed.getFunction(fct), args.map(toSymTreeExpr(_)))
 
@@ -60,13 +118,36 @@ object NameAnalyser{
             case AST.StringValue(v) => SymTree.StringValue(v)
             case AST.ListValue(v) => SymTree.ListValue(v.map(toSymTreeExpr(_)))
             case AST.VariableValue(v) => getVariable(v)
-            case AST.OfValue(e, v) => SymTree.OfValue(toSymTreeExpr(e), getVariable(v))
+            case AST.BreedValue(v) => SymTree.BreedValue(v)
+            case AST.OfValue(e, v) => SymTree.OfValue(toSymTreeExpr(e), getVariableStrict(v)(context, getBreedFrom(e).head, localVar))
         }
     }
 
-    private def getVariable(name: String)(implicit context: Context, breed: Breed, function: LinkedASTFunction, localVar: ContextMap[Variable]): SymTree.VariableValue = {
+    private def getVariableStrict(name: String)(implicit context: Context, breed: Breed, localVar: ContextMap[Variable]): SymTree.VariableValue = {
         if (localVar.contains(name)){
             SymTree.VariableValue(localVar.get(name))
+        }
+        else if (breed.hasVariable(name)){
+            SymTree.VariableValue(breed.getVariable(name))
+        }
+        else if (context.getObserverBreed().hasVariable(name)){
+            SymTree.VariableValue(context.getObserverBreed().getVariable(name))
+        }
+        else{
+            throw new Exception(f"Unknown Variable: ${name}")
+        }
+    }
+    private def getVariable(name: String)(implicit context: Context, breed: Breed, localVar: ContextMap[Variable]): SymTree.VariableLike = {
+        if (localVar.contains(name)){
+            val ret = localVar.getWithOwner(name)
+            val origin = ret._1
+            val vari_ = ret._2
+            if (origin == null){
+                SymTree.VariableValue(vari_)
+            }
+            else{
+                SymTree.OfValue(SymTree.VariableValue(origin), SymTree.VariableValue(vari_))
+            }
         }
         else if (breed.hasVariable(name)){
             SymTree.VariableValue(breed.getVariable(name))

@@ -1,24 +1,26 @@
 import parsing.Lexer
 import utils._
-import ast.{UnlinkedFunction, BaseFunction}
+import ast.{LinkedFunction, BaseFunction}
 import parsing.Parser
-import analyser.BreedAnalyser
+import analyser.{BreedAnalyser, NameAnalyser}
 import scala.io.Source
 
 object Main extends App {
+  Reporter.debugEnabled = true
+
   val text = Source.fromResource("demo/example1.nlogo").getLines.reduce((x,y) => x + "\n" +y)
-  val r1 = Lexer.tokenize(new StringBufferedIterator(text, "example"), new TokenBufferBuilder())
-  println(r1.list)
+  val buffer = new StringBufferedIterator(text, "example")
+  val tokens = Lexer.tokenize(buffer)
+  Reporter.debug(tokens.list.toString())
 
-  println
-
-  val context = Parser.parse(r1.toIterator())
+  val context = Parser.parse(tokens.toIterator())
   BreedAnalyser.analyse(context)
+  NameAnalyser.analyse(context)
 
-  println(context.functions.map(f => 
-    f._2 match {
-      case c: UnlinkedFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.body}\n"
-      case c: BaseFunction =>""
+  Reporter.debug(context.getBreeds().map(_.getAllFunctions().map(f => 
+    f match {
+      case c: LinkedFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.body}\n"
+      case c: BaseFunction => ""
     }
-  ))
+  )))
 }

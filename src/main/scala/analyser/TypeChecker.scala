@@ -1,7 +1,7 @@
 package analyser
 
 object TypeChecker{
-    def check() = {
+    def analyse() = {
 
     }
     def genConstraints() = {

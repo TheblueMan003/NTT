@@ -27,13 +27,9 @@ case class UnlinkedFunction(_name: String, _argsNames: List[String], tokenBody: 
 /**
  * Code defined Function Before the Name Analysis
  */
-case class LinkedASTFunction(_name: String, _argsNames: List[Variable], body: AST, breed: Breed, _hasReturnValue: Boolean) extends Function(_name, _argsNames.map(_._name), _hasReturnValue)
-
-/**
- * Code defined Function After the Name Analysis
- */
-case class LinkedSymFunction(_name: String, _argsNames: List[Variable], body: SymTree, breed: Breed, _hasReturnValue: Boolean) extends Function(_name, _argsNames.map(_._name), _hasReturnValue)
-
+case class LinkedFunction(_name: String, _argsNames: List[Variable], body: AST, breed: Breed, _hasReturnValue: Boolean) extends Function(_name, _argsNames.map(_._name), _hasReturnValue){
+    var symTree: SymTree = null
+}
 
 /**
  * Language predefined Function

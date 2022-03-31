@@ -2,14 +2,13 @@ package analyser
 
 import utils.Context
 import utils.ContextMap
-import ast.{UnlinkedFunction, LinkedASTFunction, Variable}
+import ast.{UnlinkedFunction, LinkedFunction, Variable}
 import ast.AST._
 import analyser.BreedConstrainer._
 import ast._
 import analyser.Types.{BreedType, ListType}
 
 object BreedAnalyser{
-
     /**
     *  Analyse breeds contraint and force function to belong to a breed.
     */ 
@@ -21,6 +20,8 @@ object BreedAnalyser{
         resolveConstraits(constraints)
 
         removeDuplicatedBreed(context)
+
+        assignBreedToFunction(context)
     }
 
     /**
@@ -78,6 +79,7 @@ object BreedAnalyser{
             }
 
             case Declaration(vari, expr) => {
+                vari.initConstraints(context.getBreeds())
                 localVar.add(vari.name, vari)
                 analyse(vari) ::: analyse(expr)
             }
@@ -104,7 +106,18 @@ object BreedAnalyser{
                 analyse(expr) ::: analyse(block)
             }
             case Ask(expr, block) => {
-                analyse(expr) ::: analyse(block)(context, getBreedFrom(expr), localVar)
+                localVar.push()
+
+                val vari = VariableValue("myself")
+                vari.initConstraints(context.getBreeds())
+                localVar.add("myself", vari)
+
+                val ret = List(BreedConstraint(found, BreedOwn(vari))) :::
+                          analyse(block)(context, getBreedFrom(expr), localVar)
+
+                localVar.pop()
+
+                ret
             }
             case Block(content) => {
                 localVar.push()
@@ -134,7 +147,10 @@ object BreedAnalyser{
                     }  
                 }
             }
-            case v: VariableValue => BreedOwn(v)
+            case v: VariableValue => {
+                v.initConstraints(context.getBreeds())
+                BreedOwn(v)
+            }
         }
     }
 
@@ -197,23 +213,25 @@ object BreedAnalyser{
      */
     private def removeDuplicatedBreed(context: Context):Unit = {
         context.functions.values.map(removeDuplicatedBreed(_))
+        context.getBreeds().flatMap(_.getAllVariables()).map(removeDuplicatedBreed(_))
     }
 
     /**
      * Force the function to belong to the highest breed(s) in the breed AST.
      * For Instance if the function belong to Turtle and something that inherite turtle. It will only belong to turtle
      */ 
-    private def removeDuplicatedBreed(function: BreedOwned):Unit = {
-        function.breeds = function.breeds.filter(breed => !function.breeds.contains(breed.parent))
+    private def removeDuplicatedBreed(owned: BreedOwned):Unit = {
+        owned.breeds = owned.breeds.filter(breed => !owned.breeds.contains(breed.parent))
     }
+
 
     private def assignBreedToFunction(context: Context):Unit = {
         context.functions.values.map(f =>
             f match {
-                case bf: BaseFunction =>
+                case bf: BaseFunction => bf._breed.addFunction(bf)
                 case cf: UnlinkedFunction => cf.breeds.map( breed => 
                     breed.addFunction(
-                        LinkedASTFunction(cf._name, cf.argsNames.map(Variable(_)), cf.body, breed, cf.hasReturnValue)
+                        LinkedFunction(cf._name, cf.argsNames.map(Variable(_)), cf.body, breed, cf.hasReturnValue)
                     )
                 )
             }

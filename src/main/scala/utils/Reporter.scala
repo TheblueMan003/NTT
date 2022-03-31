@@ -4,12 +4,13 @@ import Console._
 
 object Reporter{
     var debugEnabled = false
+
     def ok(value: String) = {
         println(f"[${Console.GREEN}success${Console.WHITE}] ${value}")
     }
-    def debug(value: String) = {
+    def debug(value: Object) = {
         if (debugEnabled){
-            println(f"[${Console.MAGENTA}info${Console.WHITE}] ${value}")
+            println(f"[${Console.MAGENTA}debug${Console.WHITE}] ${value}")
         }
     }
     def info(value: String) = {

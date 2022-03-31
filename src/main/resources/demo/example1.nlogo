@@ -9,6 +9,7 @@ turtles-own [
     test
     test3-test?
     test4
+    other
 ]
 wolves-own [
     test
@@ -18,6 +19,9 @@ wolves-own [
 to go
     let m 5
     ask turtles [
+        ask myself [
+            right m
+        ]
         right m
         log test4
     ]

@@ -15,7 +15,7 @@ object Lexer{
                         "if", "ifelse", "ifelse-value")
     
     // TODO add position to token for errors
-    def tokenize(text: StringBufferedIterator, acc: TokenBufferBuilder):TokenBufferBuilder = {
+    def tokenize(text: StringBufferedIterator, acc: TokenBufferBuilder = new TokenBufferBuilder()):TokenBufferBuilder = {
         text.setStart()
         if (text.hasNext){
             val c: Char = text.take().toLower // Net-Logo is case insensitive

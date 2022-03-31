@@ -2,7 +2,7 @@ package ast
 
 import scala.collection.mutable.Map
 import analyser.SymTree
-import ast.LinkedSymFunction
+import ast.LinkedFunction
 
 class Breed(_parent: Breed) extends VariableOwner{
     val parent = _parent
@@ -63,10 +63,12 @@ class Breed(_parent: Breed) extends VariableOwner{
             throw new Exception(f"Unknown Function: ${name}")
         }
     }
-    def addLambda(tree: SymTree):Function = {
+    def getAllFunctions() = ownedFuns.values
+
+    def addLambda(tree: AST, parentCall: List[Variable]): LinkedFunction = {
         lambdaCounter += 1
         val name = f"lambda_${lambdaCounter}"
-        val func = LinkedSymFunction(name, List(), tree, this, false)
+        val func = LinkedFunction(name, parentCall, tree, this, false)
         addFunction(func)
         func
     }
