@@ -29,7 +29,9 @@ object FunctionLoader{
             val name = fields(0)
             val args = fields(1).split(",").toList
             val ret = getType(fields(2))
-            (name, BaseFunction(name, args, breed, ret))
+            val func = BaseFunction(name, args, breed, ret)
+            breed.addFunction(func)
+            (name, func)
         }
         else{
             (null,null)

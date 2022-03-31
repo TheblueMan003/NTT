@@ -43,6 +43,16 @@ class Context(){
     }
     def hasFunction(name: String): Boolean = functions.contains(name)
     def getFunction(name: String): Function = functions.get(name).get
+    
+    /**
+      * Return the set of breed that contains the function name
+      *
+      * @param name: Name of the function needed
+      * @return breed that contains the function
+      */
+    def getBreedsWithFunction(name: String): Set[Breed] = {
+        breedsPlur.map(_._2).filter(_.hasFunction(name)).toSet
+    }
 
     /** 
      * Add a bread of Type typ

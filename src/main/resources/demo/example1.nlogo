@@ -12,7 +12,7 @@ turtles-own [
     other
 ]
 wolves-own [
-    test
+    test2
     test5-test?
 ]
 
@@ -43,7 +43,7 @@ end
 to noarg
     let m 5
     set m 5
-    right m
+    right test2
     fw 1
     log 5
 end

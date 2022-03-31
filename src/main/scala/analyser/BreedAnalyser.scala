@@ -65,7 +65,7 @@ object BreedAnalyser{
             case BreedValue(_) => Nil
 
             case Call(name, args) => 
-                List(BreedConstraint(found, BreedOwn(context.getFunction(name)))) ::: args.map(analyse(_)).reduce(_ ::: _)
+                List(BreedConstraint(found, getFunctionBreeds(name))) ::: args.map(analyse(_)).reduce(_ ::: _)
             case VariableValue(name) => {
                 if (localVar.contains(name)){
                     Nil
@@ -132,6 +132,15 @@ object BreedAnalyser{
         }
     }
 
+    private def getFunctionBreeds(name: String)(implicit context: Context):BreedConstrainer = {
+        val baseFuncsBreed = context.getBreedsWithFunction(name)
+        if (baseFuncsBreed.isEmpty){
+            BreedOwn(context.getFunction(name))
+        }
+        else{
+            BreedSet(baseFuncsBreed)
+        }
+    }
     private def getBreedFrom(expr: Expression)(implicit context: Context): BreedConstrainer = {
         expr match{
             case BreedValue(b) => BreedSet(Set(b))
@@ -228,7 +237,7 @@ object BreedAnalyser{
     private def assignBreedToFunction(context: Context):Unit = {
         context.functions.values.map(f =>
             f match {
-                case bf: BaseFunction => bf._breed.addFunction(bf)
+                case bf: BaseFunction =>
                 case cf: UnlinkedFunction => cf.breeds.map( breed => 
                     breed.addFunction(
                         LinkedFunction(cf._name, cf.argsNames.map(Variable(_)), cf.body, breed, cf.hasReturnValue)

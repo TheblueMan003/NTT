@@ -17,9 +17,19 @@ object Main extends App {
   BreedAnalyser.analyse(context)
   NameAnalyser.analyse(context)
 
+  Reporter.debug(context.getBreeds().map(b => b.getAllFunctions().filter(f =>
+    f match {
+      case c: LinkedFunction => true
+      case _ => false
+    }).map(f => 
+    f match {
+      case c: LinkedFunction => f"${b} -> ${c.name}\n"
+    }
+  )))
+
   Reporter.debug(context.getBreeds().map(_.getAllFunctions().map(f => 
     f match {
-      case c: LinkedFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.body}\n"
+      case c: LinkedFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.symTree}\n"
       case c: BaseFunction => ""
     }
   )))
