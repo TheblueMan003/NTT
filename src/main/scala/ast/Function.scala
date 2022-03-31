@@ -5,8 +5,9 @@ import analyser.Type
 import analyser.Types.UnitType
 import scala.collection.mutable.Map
 import analyser.SymTree
+import analyser.Typed
 
-class Function(_name: String, _argsNames: List[String], _hasReturnValue: Boolean) extends BreedOwned{
+class Function(_name: String, _argsNames: List[String], _hasReturnValue: Boolean) extends BreedOwned with Typed{
     val name = _name
     val argsNames = _argsNames
     val hasReturnValue = _hasReturnValue
@@ -25,7 +26,7 @@ case class UnlinkedFunction(_name: String, _argsNames: List[String], tokenBody: 
 }
 
 /**
- * Code defined Function Before the Name Analysis
+ * Code defined Function
  */
 case class LinkedFunction(_name: String, _argsNames: List[Variable], body: AST, breed: Breed, _hasReturnValue: Boolean) extends Function(_name, _argsNames.map(_._name), _hasReturnValue){
     var symTree: SymTree = null

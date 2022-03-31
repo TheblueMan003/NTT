@@ -146,4 +146,12 @@ trait BreedOwned{
     def canBeRestrainTo(constraints: BreedOwned): Boolean = {
         !(breeds.intersect(constraints.breeds).isEmpty)
     }
+
+    /**
+     * Force the function to belong to the highest breed(s) in the breed AST.
+     * For Instance if the function belong to Turtle and something that inherite turtle. It will only belong to turtle
+     */ 
+    def removeDuplicatedBreed():Unit = {
+        breeds = breeds.filter(breed => !breeds.contains(breed.parent))
+    }
 }

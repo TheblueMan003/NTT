@@ -1,6 +1,7 @@
 package ast
 
 import scala.collection.mutable.Map
+import analyser.Typed
 
 trait VariableOwner{
     val ownedVars: Map[String, Variable] = Map[String, Variable]()
@@ -11,5 +12,5 @@ trait VariableOwner{
     def getAllVariables(): Iterable[Variable] = ownedVars.values
 }
 
-case class Variable(_name: String) extends BreedOwned{
+case class Variable(_name: String) extends BreedOwned with Typed{
 }

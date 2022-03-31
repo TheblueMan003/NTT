@@ -10,7 +10,7 @@ import analyser.Types.{BreedType, ListType}
 
 object BreedAnalyser{
     /**
-    *  Analyse breeds contraint and force function to belong to a breed.
+    *  generateConstraints breeds contraint and force function to belong to a breed.
     */ 
     def analyse(context: Context) = {
         initConstraints(context)
@@ -45,7 +45,7 @@ object BreedAnalyser{
                 case cf: UnlinkedFunction => {
                     val vars = ContextMap[VariableValue]()
                     cf.argsNames.map(x => vars.add(x, VariableValue(x)))
-                    analyse(cf.body)(context, BreedOwn(cf), vars)
+                    generateConstraints(cf.body)(context, BreedOwn(cf), vars)
                 }
                 case _ => List()
             }
@@ -56,7 +56,7 @@ object BreedAnalyser{
     /** 
      * Get All Breed Constraint from a function
      */ 
-    private def analyse(tree: AST)(implicit context: Context, found: BreedConstrainer, localVar: ContextMap[VariableValue]): (List[BreedConstraint]) = {
+    private def generateConstraints(tree: AST)(implicit context: Context, found: BreedConstrainer, localVar: ContextMap[VariableValue]): (List[BreedConstraint]) = {
         tree match{
             case BooleanValue(_) => Nil
             case IntValue(_) => Nil
@@ -65,7 +65,7 @@ object BreedAnalyser{
             case BreedValue(_) => Nil
 
             case Call(name, args) => 
-                List(BreedConstraint(found, getFunctionBreeds(name))) ::: args.map(analyse(_)).reduce(_ ::: _)
+                List(BreedConstraint(found, getFunctionBreeds(name))) ::: args.map(generateConstraints(_)).reduce(_ ::: _)
             case VariableValue(name) => {
                 if (localVar.contains(name)){
                     Nil
@@ -81,29 +81,29 @@ object BreedAnalyser{
             case Declaration(vari, expr) => {
                 vari.initConstraints(context.getBreeds())
                 localVar.add(vari.name, vari)
-                analyse(vari) ::: analyse(expr)
+                generateConstraints(vari) ::: generateConstraints(expr)
             }
             case Assignment(vari, expr) => {
-                analyse(vari) ::: analyse(expr)
+                generateConstraints(vari) ::: generateConstraints(expr)
             }
             
             case BinarayExpr(op, lf, rt) => {
-                analyse(lf) ::: analyse(rt)
+                generateConstraints(lf) ::: generateConstraints(rt)
             }
             case IfElseBlockExpression(ifs, elze) => {
-                ifs.map(b => analyse(b._1):::analyse(b._2)).reduce(_ ::: _) ::: analyse(elze)
+                ifs.map(b => generateConstraints(b._1):::generateConstraints(b._2)).reduce(_ ::: _) ::: generateConstraints(elze)
             }
             case IfElseBlock(ifs, elze) => {
-                ifs.map(b => analyse(b._1):::analyse(b._2)).reduce(_ ::: _) ::: analyse(elze)
+                ifs.map(b => generateConstraints(b._1):::generateConstraints(b._2)).reduce(_ ::: _) ::: generateConstraints(elze)
             }
             case IfBlock(expr, block) => {
-                analyse(expr) ::: analyse(block)
+                generateConstraints(expr) ::: generateConstraints(block)
             }
             case Repeat(expr, block) => {
-                analyse(expr) ::: analyse(block)
+                generateConstraints(expr) ::: generateConstraints(block)
             }
             case While(expr, block) => {
-                analyse(expr) ::: analyse(block)
+                generateConstraints(expr) ::: generateConstraints(block)
             }
             case Ask(expr, block) => {
                 localVar.push()
@@ -113,7 +113,7 @@ object BreedAnalyser{
                 localVar.add("myself", vari)
 
                 val ret = List(BreedConstraint(found, BreedOwn(vari))) :::
-                          analyse(block)(context, getBreedFrom(expr), localVar)
+                          generateConstraints(block)(context, getBreedFrom(expr), localVar)
 
                 localVar.pop()
 
@@ -124,7 +124,7 @@ object BreedAnalyser{
                 val ret = if (content.isEmpty){
                     Nil
                 } else {
-                    content.map(analyse(_)).reduce(_ ::: _)
+                    content.map(generateConstraints(_)).reduce(_ ::: _)
                 }
                 localVar.pop()
                 ret
@@ -132,6 +132,9 @@ object BreedAnalyser{
         }
     }
 
+    /**
+     * Return BreedConstrainer from a function
+     */ 
     private def getFunctionBreeds(name: String)(implicit context: Context):BreedConstrainer = {
         val baseFuncsBreed = context.getBreedsWithFunction(name)
         if (baseFuncsBreed.isEmpty){
@@ -141,6 +144,10 @@ object BreedAnalyser{
             BreedSet(baseFuncsBreed)
         }
     }
+
+    /**
+     * Return BreedConstrainer from an expression value
+     */ 
     private def getBreedFrom(expr: Expression)(implicit context: Context): BreedConstrainer = {
         expr match{
             case BreedValue(b) => BreedSet(Set(b))
@@ -233,7 +240,9 @@ object BreedAnalyser{
         owned.breeds = owned.breeds.filter(breed => !owned.breeds.contains(breed.parent))
     }
 
-
+    /**
+     * Put the function inside the breeds it belong. Duplicate the function if belong to more than one breed.
+     */ 
     private def assignBreedToFunction(context: Context):Unit = {
         context.functions.values.map(f =>
             f match {

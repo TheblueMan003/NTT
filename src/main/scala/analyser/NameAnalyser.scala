@@ -23,6 +23,9 @@ object NameAnalyser{
         }
     }
 
+    /**
+     * Transform a AST into a SymTree
+     */ 
     private def toSymTree(tree: AST)(implicit context: Context, breed: Breed, function: LinkedFunction, localVar: ContextMap[Variable]): SymTree = {
         tree match{
             case expr: AST.Expression => toSymTreeExpr(expr)
@@ -61,7 +64,7 @@ object NameAnalyser{
                 }
 
                 val b = breeds.head
-                
+
                 val variOwner = Variable(f"__myself_${localVar.getAskIndex()}") // is myself variable in NetLogo
                 variOwner.initConstraints(Set(breed))
                 val upperCaller = localVar.getAskVariables()
@@ -81,6 +84,9 @@ object NameAnalyser{
         }
     }
 
+    /**
+     * Get the breed from an expression
+     */ 
     private def getBreedFrom(expr: AST.Expression)(implicit context: Context): Set[Breed] = {
         expr match{
             case AST.BreedValue(b) => Set(b)
@@ -96,10 +102,15 @@ object NameAnalyser{
                     }  
                 }
             }
-            case v: AST.VariableValue => v.breeds
+            case v: AST.VariableValue => v.removeDuplicatedBreed();v.breeds
         }
     }
 
+
+
+    /**
+     * Transform AST.Expression into SymTree.Expression
+     */ 
     private def toSymTreeExpr(tree: AST.Expression)(implicit context: Context, breed: Breed, function: LinkedFunction, localVar: ContextMap[Variable]): SymTree.Expression = {
         tree match{
             case AST.Call(fct, args) => SymTree.Call(breed.getFunction(fct), args.map(toSymTreeExpr(_)))
@@ -123,20 +134,17 @@ object NameAnalyser{
         }
     }
 
+    /**
+     * Return a variable from a breed. (Used for [value of turtles])
+     */ 
     private def getVariableStrict(name: String)(implicit context: Context, breed: Breed, localVar: ContextMap[Variable]): SymTree.VariableValue = {
-        if (localVar.contains(name)){
-            SymTree.VariableValue(localVar.get(name))
-        }
-        else if (breed.hasVariable(name)){
-            SymTree.VariableValue(breed.getVariable(name))
-        }
-        else if (context.getObserverBreed().hasVariable(name)){
-            SymTree.VariableValue(context.getObserverBreed().getVariable(name))
-        }
-        else{
-            throw new Exception(f"Unknown Variable: ${name}")
-        }
+        SymTree.VariableValue(breed.getVariable(name))
     }
+
+    /**
+     * If the variable is available in the current breed return a SymTree.VariableValue
+     * Otherwise return a SymTree.OfValue (Getter for external variable)
+     */ 
     private def getVariable(name: String)(implicit context: Context, breed: Breed, localVar: ContextMap[Variable]): SymTree.VariableLike = {
         if (localVar.contains(name)){
             val ret = localVar.getWithOwner(name)
