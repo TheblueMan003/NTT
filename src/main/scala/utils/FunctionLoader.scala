@@ -1,7 +1,7 @@
 package utils
 
 import scala.io.Source
-import ast.{ Function, BaseFunction }
+import ast.{ Function, BaseFunction, Variable }
 import ast.Breed
 import analyser.Type
 import scala.annotation.switch
@@ -27,7 +27,7 @@ object FunctionLoader{
         val fields = line.split(";")
         if (fields.size > 2){
             val name = fields(0)
-            val args = fields(1).split(",").toList
+            val args = fields(1).split(",").filter(_ != "").map(getArgument(_)).toList
             val ret = getType(fields(2))
             val func = BaseFunction(name, args, breed, ret)
             breed.addFunction(func)
@@ -37,13 +37,30 @@ object FunctionLoader{
             (null,null)
         }
     }
+    def getArgument(line: String):Variable = {
+        val fields = line.split(":")
+        val vari = Variable(fields(0))
+        vari.setType(getType(fields(1)))
+        vari
+    }
     def getType(string: String): Type = {
-        string match {
+        string.toLowerCase match {
             case "int" => Types.IntType()
             case "float" => Types.FloatType()
             case "string" => Types.StringType()
             case "boolean" => Types.BoolType()
             case "unit" => Types.UnitType()
+            case other => {
+                if (other.startsWith("list[")){
+                    Types.ListType(getType(other.substring(5, other.size-1)))
+                }
+                else if (other.startsWith("breed[")){
+                    ???
+                }
+                else{
+                    ???
+                }
+            }
         }
     }
 }

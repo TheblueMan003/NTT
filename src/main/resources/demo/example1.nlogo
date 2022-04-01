@@ -23,27 +23,26 @@ to go
             right m
         ]
         right m
-        log test4
     ]
 end
 
+
 to argtest [ value ]
-    ifelse-value test [
-        argtest test + index * index  + (test - index) + value
+    ifelse value = 0 [
+        right 5
     ]
-    test = 2
+    value > 2
     [
-        argtest log 5
+        left 5
     ]
     [
-        argtest test
+        fw 5
     ]
 end
 
 to noarg
     let m 5
-    set m 5
-    right test2
+    set m 0
+    right 0
     fw 1
-    log 5
 end

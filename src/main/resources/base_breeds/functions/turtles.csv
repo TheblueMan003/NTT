@@ -1,5 +1,5 @@
 name;arguments;returnType
-forward;x;unit
-fw;x;unit
-left;x;unit
-right;x;unit
+forward;x:Float;Unit
+fw;x:Float;Unit
+left;x:Float;Unit
+right;x:Float;Unit

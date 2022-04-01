@@ -14,14 +14,14 @@ object SymTree{
     case class IntValue(value: Int) extends Expression
     case class FloatValue(value: Float) extends Expression
     case class StringValue(value: String) extends Expression
-    case class VariableValue(name: Variable) extends VariableLike
+    case class VariableValue(vari: Variable) extends VariableLike
     case class BreedValue(name: Breed) extends Expression
     case class ListValue(lst: List[Expression]) extends Expression
     case class OfValue(expr: Expression, from: VariableValue) extends VariableLike
 
     case class Call(fct: Function, arg: List[Expression]) extends Expression
-    case class Assignment(name: VariableLike, value: Expression) extends SymTree
-    case class Declaration(name: VariableLike, value: Expression) extends SymTree
+    case class Assignment(vari: VariableLike, value: Expression) extends SymTree
+    case class Declaration(vari: VariableLike, value: Expression) extends SymTree
     case class BinarayExpr(op: String, lh: Expression, rh: Expression) extends Expression
     case class Block(body: List[SymTree]) extends SymTree
 
@@ -32,5 +32,5 @@ object SymTree{
     case class Loop(block: SymTree) extends SymTree
     case class Repeat(number: Expression, block: SymTree) extends SymTree
     case class While(cond: Expression, block: SymTree) extends SymTree
-    case class Ask(upperCaller: List[Variable], cond: Expression, block: Function) extends SymTree
+    case class Ask(upperCaller: List[Variable], turtles: Expression, block: Function) extends SymTree
 }

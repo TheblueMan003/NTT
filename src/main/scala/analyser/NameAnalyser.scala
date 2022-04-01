@@ -15,7 +15,7 @@ object NameAnalyser{
             case cf: LinkedFunction => {
                 if (cf.symTree == null){ // Avoid Computing Lambda twice
                     val localVar = ContextMap[Variable]()
-                    cf._argsNames.map(v => localVar.add(v._name, v))
+                    cf._args.map(v => localVar.add(v._name, v))
                     cf.symTree = toSymTree(cf.body)(context, breed, cf, localVar)
                 }
             }

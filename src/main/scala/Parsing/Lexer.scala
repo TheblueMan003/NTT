@@ -24,6 +24,7 @@ object Lexer{
             if (c.isDigit){
                 text.takeWhile( x => x.isDigit)
                 if (text.peek() == '.'){
+                    text.take()
                     text.takeWhile(x => x.isDigit)
                     val cut = text.cut()
                     tokenize(text, acc.add(FloatLitToken(cut._1.toFloat).pos(cut._2), text))

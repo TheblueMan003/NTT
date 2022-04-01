@@ -114,7 +114,7 @@ trait BreedOwned{
      * 
      * @return true if breed set changed
      */
-    def restrainTo(constraints: Set[Breed]):Boolean={
+    def restrainBreedTo(constraints: Set[Breed]):Boolean={
         val newb = breeds.intersect(constraints)
         val ret = newb != breeds
         breeds = newb
@@ -126,7 +126,7 @@ trait BreedOwned{
      * 
      * @return true if breed set changed
      */
-    def restrainTo(constraints: BreedOwned)={
+    def restrainBreedTo(constraints: BreedOwned):Boolean={
         val newb = breeds.intersect(constraints.breeds)
         val ret = newb != breeds
         breeds = newb
@@ -136,14 +136,14 @@ trait BreedOwned{
     /**
      * Return if the object can be specialized for the set
      */ 
-    def canBeRestrainTo(constraints: Set[Breed]): Boolean = {
+    def canBreedBeRestrainTo(constraints: Set[Breed]): Boolean = {
         !(breeds.intersect(constraints).isEmpty)
     }
 
     /**
      * Return if the object can be specialized for the set
      */ 
-    def canBeRestrainTo(constraints: BreedOwned): Boolean = {
+    def canBreedBeRestrainTo(constraints: BreedOwned): Boolean = {
         !(breeds.intersect(constraints.breeds).isEmpty)
     }
 

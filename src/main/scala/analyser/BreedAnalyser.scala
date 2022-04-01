@@ -189,8 +189,8 @@ object BreedAnalyser{
                                 }
                             }
                             case BreedOwn(owner) => {
-                                if (owner.canBeRestrainTo(expSet)){
-                                    changed |= owner.restrainTo(expSet)
+                                if (owner.canBreedBeRestrainTo(expSet)){
+                                    changed |= owner.restrainBreedTo(expSet)
                                 }
                                 else{
                                     throw BreedException(it.found, it.expected)
@@ -202,16 +202,16 @@ object BreedAnalyser{
                     case BreedOwn(ownerExp) => {
                         it.found match{
                             case BreedSet(foundSet) => {
-                                if (ownerExp.canBeRestrainTo(foundSet)){
-                                    changed |= ownerExp.restrainTo(foundSet)
+                                if (ownerExp.canBreedBeRestrainTo(foundSet)){
+                                    changed |= ownerExp.restrainBreedTo(foundSet)
                                 }
                                 else{
                                     throw BreedException(it.found, it.expected)
                                 }
                             }
                             case BreedOwn(owner) => {
-                                if (owner.canBeRestrainTo(ownerExp)){
-                                    changed |= owner.restrainTo(ownerExp)
+                                if (owner.canBreedBeRestrainTo(ownerExp)){
+                                    changed |= owner.restrainBreedTo(ownerExp)
                                 }
                                 else{
                                     throw BreedException(it.found, it.expected)
@@ -228,16 +228,8 @@ object BreedAnalyser{
      * Force all function to belong to the highest breed(s) in the breed AST.
      */
     private def removeDuplicatedBreed(context: Context):Unit = {
-        context.functions.values.map(removeDuplicatedBreed(_))
-        context.getBreeds().flatMap(_.getAllVariables()).map(removeDuplicatedBreed(_))
-    }
-
-    /**
-     * Force the function to belong to the highest breed(s) in the breed AST.
-     * For Instance if the function belong to Turtle and something that inherite turtle. It will only belong to turtle
-     */ 
-    private def removeDuplicatedBreed(owned: BreedOwned):Unit = {
-        owned.breeds = owned.breeds.filter(breed => !owned.breeds.contains(breed.parent))
+        context.functions.values.map(_.removeDuplicatedBreed())
+        context.getBreeds().flatMap(_.getAllVariables()).map(_.removeDuplicatedBreed())
     }
 
     /**

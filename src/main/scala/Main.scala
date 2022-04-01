@@ -2,7 +2,7 @@ import parsing.Lexer
 import utils._
 import ast.{LinkedFunction, BaseFunction}
 import parsing.Parser
-import analyser.{BreedAnalyser, NameAnalyser}
+import analyser.{BreedAnalyser, NameAnalyser, TypeChecker}
 import scala.io.Source
 
 object Main extends App {
@@ -16,6 +16,7 @@ object Main extends App {
   val context = Parser.parse(tokens.toIterator())
   BreedAnalyser.analyse(context)
   NameAnalyser.analyse(context)
+  TypeChecker.analyse(context)
 
   Reporter.debug(context.getBreeds().map(b => b.getAllFunctions().filter(f =>
     f match {
@@ -27,10 +28,14 @@ object Main extends App {
     }
   )))
 
-  Reporter.debug(context.getBreeds().map(_.getAllFunctions().map(f => 
+  Reporter.debug(context.getBreeds().flatMap(_.getAllFunctions().map(f => 
     f match {
-      case c: LinkedFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.symTree}\n"
+      case c: LinkedFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.symTree}"
       case c: BaseFunction => ""
     }
+  )))
+
+  Reporter.debug(context.getBreeds().flatMap(_.getAllVariables().map(v => 
+    f"\n${v._name}: ${v.getType()}"
   )))
 }
