@@ -13,4 +13,5 @@ trait VariableOwner{
 }
 
 case class Variable(_name: String) extends BreedOwned with Typed{
+    val name = _name
 }

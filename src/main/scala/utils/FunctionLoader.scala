@@ -39,8 +39,8 @@ object FunctionLoader{
     }
     def getArgument(line: String):Variable = {
         val fields = line.split(":")
-        val vari = Variable(fields(0))
-        vari.setType(getType(fields(1)))
+        val vari = new Variable(fields(0))
+        vari.setType(getType(fields(1)), true)
         vari
     }
     def getType(string: String): Type = {

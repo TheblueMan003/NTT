@@ -4,17 +4,19 @@ import ast.Breed
 
 trait Typed{
     private var typ: Type = null
-    def setType(typ: Type) = {
+    var typeFixed: Boolean = false
+
+    def setType(typ: Type, fixed: Boolean = false) = {
         this.typ = typ
+        typeFixed = fixed
     }
     def getType() = typ
 
     /**
-     * Restraint the object to the type
+     * Change for the type for ntyp. Return true if different from current one.
      * 
-     * @return true if type set changed
-     */
-    def restrainTypeTo(ntyp: Type):Boolean={
+     */ 
+    def changeTypeFor(ntyp: Type):Boolean = {
         val ret = typ != ntyp
         typ = ntyp
         ret
@@ -23,46 +25,79 @@ trait Typed{
     /**
      * Restraint the object to the type
      * 
-     * @return true if type changed
+     * @return true if type set changed
      */
-    def restrainTypeTo(other: Typed):Boolean={
-        if (other.typ == null){
+    def putIn(ntyp: Type):Boolean={
+        if (ntyp == null){
             false
         }
+        else if (typ == null){
+            changeTypeFor(ntyp)
+        }
+        else if (typ.isParentOf(ntyp)){
+            false
+        }
+        else if (!typeFixed && ntyp.isParentOf(this.typ)){
+            changeTypeFor(ntyp)
+        }
         else{
-            val ret = typ != other.typ
-            typ = other.typ
-            ret
+            throw new IllegalStateException("Object Type Cannot be change.")
+        }
+    }
+
+    /**
+     * Restraint the object to the type
+     * 
+     * @return true if type changed
+     */
+    def putIn(other: Typed):Boolean={
+        putIn(other.typ)
+    }
+
+    /**
+     * Return if the object can be specialized for the type
+     */ 
+    def canPutIn(ntyp: Type): Boolean = {
+        if (typ == null){
+            true
+        }
+        else if (typ.isParentOf(ntyp)){
+            true
+        }
+        else if (!typeFixed && ntyp.isParentOf(this.typ)){
+            true
+        }
+        else{
+            false
         }
     }
 
     /**
      * Return if the object can be specialized for the type
      */ 
-    def canTypeBeRestrainTo(ntyp: Type): Boolean = {
-        if (typ == null){
-            true
-        }
-        else{
-            typ.canBeRestrainTo(ntyp)
-        }
-    }
-
-    /**
-     * Return if the object can be specialized for the type
-     */ 
-    def canTypeBeRestrainTo(other: Typed): Boolean = {
-        if (typ == null){
-            true
-        }
-        else{
-            typ.canBeRestrainTo(other.typ)
-        }
+    def canPutIn(other: Typed): Boolean = {
+        canPutIn(other.typ)
     }
 }
 abstract class Type(_parent: Type){
     val parent = _parent
-    def canBeRestrainTo(other: Type): Boolean = {
+
+    def hasAsParent(other: Type): Boolean = {
+        if (other == null){
+            true
+        }
+        else if (other == this){
+            true
+        }
+        else if (parent != null){
+            parent.hasAsParent(other)
+        }
+        else{
+            false
+        }
+    }
+
+    def isParentOf(other: Type): Boolean = {
         if (other == null){
             true
         }
@@ -70,13 +105,12 @@ abstract class Type(_parent: Type){
             true
         }
         else if (other.parent != null){
-            this.canBeRestrainTo(other.parent)
+            isParentOf(other.parent)
         }
         else{
             false
         }
     }
-
 }
 object Types{
     case class IntType() extends Type(FloatType())

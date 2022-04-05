@@ -30,12 +30,22 @@ object Main extends App {
 
   Reporter.debug(context.getBreeds().flatMap(_.getAllFunctions().map(f => 
     f match {
-      case c: LinkedFunction => f"\n${c.name}[${c.breeds}](${c.argsNames})->${c.symTree}"
+      case c: LinkedFunction => f"\n\n${c.name}[${c.breeds}](${c.argsNames})->${c.symTree}"
       case c: BaseFunction => ""
     }
   )))
 
   Reporter.debug(context.getBreeds().flatMap(_.getAllVariables().map(v => 
-    f"\n${v._name}: ${v.getType()}"
+    f"\n${v.name}: ${v.getType()}"
   )))
+  Reporter.debug(context.getBreeds().flatMap(_.getAllFunctions()
+  .filter(
+    _ match {
+      case l: LinkedFunction => true
+      case _ => false
+    }
+  )
+  .map(f => f.getArguments().map(v => 
+    f"${f.name} ${v.name}: ${v.getType()}\n"
+  ))))
 }

@@ -241,7 +241,7 @@ object BreedAnalyser{
                 case bf: BaseFunction =>
                 case cf: UnlinkedFunction => cf.breeds.map( breed => 
                     breed.addFunction(
-                        LinkedFunction(cf._name, cf.argsNames.map(Variable(_)), cf.body, breed, cf.hasReturnValue)
+                        LinkedFunction(cf._name, cf.argsNames.map(new Variable(_)), cf.body, breed, cf.hasReturnValue)
                     )
                 )
             }

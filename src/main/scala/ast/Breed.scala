@@ -11,7 +11,7 @@ class Breed(_parent: Breed) extends VariableOwner{
     private var lambdaCounter = -1
 
     override def addVariable(name: String) = {
-        val vari = Variable(name)
+        val vari = new Variable(name)
         ownedVars.addOne((name, vari))
         vari
     }

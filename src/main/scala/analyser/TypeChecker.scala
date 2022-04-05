@@ -36,7 +36,7 @@ object TypeChecker{
             }
             case IfElseBlock(conds, block) => {
                 conds.flatMap(c => 
-                    genConstraintsExpr(c._1)(context,DirectType(BoolType())) :::
+                    genConstraintsExpr(c._1)(context, DirectType(BoolType())) :::
                     genConstraints(c._2)
                 ) ::: genConstraints(block)
             }
@@ -108,13 +108,13 @@ object TypeChecker{
                     case DirectType(exp) => {
                         it.found match{
                             case DirectType(found) => {
-                                if (exp != found){
+                                if (!found.hasAsParent(exp)){
                                     throw TypeException(it.found, it.expected)
                                 }
                             }
                             case TypeOwn(owner) => {
-                                if (owner.canTypeBeRestrainTo(exp)){
-                                    changed |= owner.restrainTypeTo(exp)
+                                if (owner.canPutIn(exp)){
+                                    changed |= owner.putIn(exp)
                                 }
                                 else{
                                     throw TypeException(it.found, it.expected)
@@ -126,16 +126,16 @@ object TypeChecker{
                     case TypeOwn(ownerExp) => {
                         it.found match{
                             case DirectType(found) => {
-                                if (ownerExp.canTypeBeRestrainTo(found)){
-                                    changed |= ownerExp.restrainTypeTo(found)
+                                if (ownerExp.canPutIn(found)){
+                                    changed |= ownerExp.putIn(found)
                                 }
                                 else{
                                     throw TypeException(it.found, it.expected)
                                 }
                             }
                             case TypeOwn(owner) => {
-                                if (owner.canTypeBeRestrainTo(ownerExp)){
-                                    changed |= owner.restrainTypeTo(ownerExp)
+                                if (owner.canPutIn(ownerExp)){
+                                    changed |= owner.putIn(ownerExp)
                                 }
                                 else{
                                     throw TypeException(it.found, it.expected)

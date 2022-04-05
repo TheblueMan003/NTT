@@ -17,21 +17,23 @@ wolves-own [
 ]
 
 to go
-    let m 5
+    let m2 5
+    let m 2.0
     ask turtles [
         ask myself [
-            right m
+            right m2
         ]
-        right m
+        right m2
     ]
 end
 
-
 to argtest [ value ]
-    ifelse value = 0 [
+    let m 5
+    set m 0.0
+    ifelse value = 0.0 [
         right 5
     ]
-    value > 2
+    value > 2.0
     [
         left 5
     ]
@@ -40,9 +42,12 @@ to argtest [ value ]
     ]
 end
 
-to noarg
-    let m 5
+to arg
+    let m 5.0
     set m 0
     right 0
     fw 1
+    argtest 5.0
+    argtest 5
+    show "test"
 end

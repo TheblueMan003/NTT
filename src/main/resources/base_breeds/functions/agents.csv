@@ -35,3 +35,4 @@ subtract-headings;x:Float,y:Float;Float
 sum;x:List[Float];Float
 tan;x:Float;Float
 variance;x:List[Float];Float
+show;x:String;Unit

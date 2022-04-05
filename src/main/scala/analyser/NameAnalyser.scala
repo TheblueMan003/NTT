@@ -15,7 +15,7 @@ object NameAnalyser{
             case cf: LinkedFunction => {
                 if (cf.symTree == null){ // Avoid Computing Lambda twice
                     val localVar = ContextMap[Variable]()
-                    cf._args.map(v => localVar.add(v._name, v))
+                    cf._args.map(v => localVar.add(v.name, v))
                     cf.symTree = toSymTree(cf.body)(context, breed, cf, localVar)
                 }
             }
@@ -65,7 +65,7 @@ object NameAnalyser{
 
                 val b = breeds.head
 
-                val variOwner = Variable(f"__myself_${localVar.getAskIndex()}") // is myself variable in NetLogo
+                val variOwner = new Variable(f"__myself_${localVar.getAskIndex()}") // is myself variable in NetLogo
                 variOwner.initConstraints(Set(breed))
                 val upperCaller = localVar.getAskVariables()
                 localVar.push()

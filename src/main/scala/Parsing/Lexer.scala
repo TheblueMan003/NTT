@@ -34,6 +34,12 @@ object Lexer{
                     tokenize(text, acc.add(IntLitToken(cut._1.toInt).pos(cut._2), text))
                 }
             }
+            else if (c == '"'){
+                text.takeWhile(x => x != '"')
+                text.take()
+                val cut = text.cut()
+                tokenize(text, acc.add(StringLitToken(cut._1.substring(1, cut._1.length()-1)).pos(cut._2), text))
+            }
             // Delimiter
             else if (delimiter.contains(c)){
                 val cut = text.cut()
