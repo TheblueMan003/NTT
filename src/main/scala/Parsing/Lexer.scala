@@ -10,8 +10,8 @@ object Lexer{
     val identifier = ".?=*!<>:#+/%$_^'&-".toCharArray
     val keyword = Set("breed", "directed-link-breed", "end", "extensions", "globals", 
                         "__includes", "to", "to-report", "of", "list",
-                        "undirected-link-breed", 
-                        "let", "set", "ask",
+                        "undirected-link-breed", "with",
+                        "let", "set", "ask", "tick",
                         "if", "ifelse", "ifelse-value")
     
     // TODO add position to token for errors

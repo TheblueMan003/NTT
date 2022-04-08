@@ -80,27 +80,22 @@ class Context(){
             case Breed.TurtleBreed(s, p, _) => {
                 breedsPlur.addOne((p, breed))
                 breedsSing.addOne((s, breed))
-                functions.addAll(FunctionLoader.getAll(p, breed))
             }
             case Breed.LinkBreed(s, p, _, _) => {
                 breedsPlur.addOne((p, breed))
                 breedsSing.addOne((s, breed))
-                functions.addAll(FunctionLoader.getAll(p, breed))
             }
             case Breed.PatchBreed(s, p, _) => {
                 breedsPlur.addOne((p, breed))
                 breedsSing.addOne((s, breed))
-                functions.addAll(FunctionLoader.getAll(p, breed))
             }
             case Breed.ObserverBreed(_) => {
                 breedsPlur.addOne(("observer", breed))
                 breedsSing.addOne(("observer", breed))
-                functions.addAll(FunctionLoader.getAll("observer", breed))
             }
             case Breed.AgentBreed() => {
-                breedsPlur.addOne(("agent", breed))
+                breedsPlur.addOne(("agents", breed))
                 breedsSing.addOne(("agent", breed))
-                functions.addAll(FunctionLoader.getAll("agents", breed))
             }
         }
     }
@@ -169,6 +164,8 @@ class Context(){
                 }
             }
         }
+
+        getBreeds().map(b => functions.addAll(FunctionLoader.getAll(b.pluralName, b)(this)))
 
         // Add Base functions to child
         getBreeds().map(b => {

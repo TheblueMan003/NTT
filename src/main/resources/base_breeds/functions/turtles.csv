@@ -1,5 +1,7 @@
 name;arguments;returnType
 forward;x:Float;Unit
 fw;x:Float;Unit
+fd;x:Float;Unit
 left;x:Float;Unit
 right;x:Float;Unit
+rt;x:Float;Unit

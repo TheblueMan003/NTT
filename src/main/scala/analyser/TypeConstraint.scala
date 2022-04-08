@@ -79,6 +79,29 @@ trait Typed{
         canPutIn(other.typ)
     }
 }
+object Type{
+    def toString(typ: Type):String = {
+        typ match {
+            case Types.BoolType => "Boolean"
+            case Types.FloatType => "Float"
+            case Types.IntType => "Int"
+            case Types.ListType(inner) => f"List[${toString(inner)}]"
+            case Types.StringType => "String"
+            case Types.UnitType => "Unit"
+            case null => "Int"
+        }
+    }
+    def defaultValue(typ: Type):String = {
+        typ match {
+            case Types.BoolType => "false"
+            case Types.FloatType => "0"
+            case Types.IntType => "0"
+            case Types.ListType(inner) => f"Nil"
+            case Types.StringType => "null"
+            case null => "0"
+        }
+    }
+}
 abstract class Type(_parent: Type){
     val parent = _parent
 
@@ -113,14 +136,14 @@ abstract class Type(_parent: Type){
     }
 }
 object Types{
-    case class IntType() extends Type(FloatType())
-    case class FloatType() extends Type(UnitType())
-    case class BoolType() extends Type(UnitType())
-    case class StringType() extends Type(UnitType())
-    case class BreedType(breed: Breed) extends Type(UnitType())
-    case class BreedSetType(breed: Breed) extends Type(UnitType())
-    case class ListType(inner: Type) extends Type(UnitType())
-    case class UnitType() extends Type(null)
+    case object IntType extends Type(FloatType)
+    case object FloatType extends Type(UnitType)
+    case object BoolType extends Type(UnitType)
+    case object StringType extends Type(UnitType)
+    case class BreedType(breed: Breed) extends Type(UnitType)
+    case class BreedSetType(breed: Breed) extends Type(UnitType)
+    case class ListType(inner: Type) extends Type(UnitType)
+    case object UnitType extends Type(null)
 }
 
 trait TypeConstrainer{

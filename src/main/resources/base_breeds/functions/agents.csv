@@ -21,7 +21,7 @@ new-seed;;Float
 precision;x:Float,y:Float;Float
 random;x:Float;Float
 random-exponential;x:Float;Float
-random-Float;x:Float;Float
+random-float;x:Float;Float
 random-gamma;x:Float,y:Float;Float
 random-normal;x:Float,y:Float;Float
 random-poisson;x:Float;Float
@@ -36,3 +36,8 @@ sum;x:List[Float];Float
 tan;x:Float;Float
 variance;x:List[Float];Float
 show;x:String;Unit
+
+any?;x:breedset[agents];Boolean
+other;x:breedset[agents];breedset[agents]
+count;x:breedset[agents];Int
+not;x:Boolean;Boolean

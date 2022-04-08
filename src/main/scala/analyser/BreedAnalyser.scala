@@ -52,7 +52,6 @@ object BreedAnalyser{
         ).reduce(_ ::: _)
     }
 
-
     /** 
      * Get All Breed Constraint from a function
      */ 
@@ -63,6 +62,12 @@ object BreedAnalyser{
             case FloatValue(_) => Nil
             case StringValue(_) => Nil
             case BreedValue(_) => Nil
+            case WithValue(value, predicate) => {
+                generateConstraints(predicate)(context, getBreedFrom(value), localVar)
+            }
+            case OfValue(expr, from) => {
+                generateConstraints(expr)(context, getBreedFrom(from), localVar)
+            }
 
             case Call(name, args) => 
                 List(BreedConstraint(found, getFunctionBreeds(name))) ::: args.map(generateConstraints(_)).reduce(_ ::: _)
@@ -129,6 +134,7 @@ object BreedAnalyser{
                 localVar.pop()
                 ret
             }
+            case Tick => List(BreedConstraint(found, BreedSet(Set(context.getObserverBreed()))))
         }
     }
 

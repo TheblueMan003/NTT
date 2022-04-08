@@ -32,34 +32,36 @@ object TypeChecker{
             case Block(block) => block.map(genConstraints(_)).foldLeft(List[TypeConstraint]())(_ ::: _)
 
             case IfBlock(cond, block) => {
-                genConstraintsExpr(cond)(context,DirectType(BoolType())) ::: genConstraints(block)
+                genConstraintsExpr(cond)(context,DirectType(BoolType)) ::: genConstraints(block)
             }
             case IfElseBlock(conds, block) => {
                 conds.flatMap(c => 
-                    genConstraintsExpr(c._1)(context, DirectType(BoolType())) :::
+                    genConstraintsExpr(c._1)(context, DirectType(BoolType)) :::
                     genConstraints(c._2)
                 ) ::: genConstraints(block)
             }
             case Loop(block) => genConstraints(block)
-            case Repeat(expr, block) => genConstraintsExpr(expr)(context,DirectType(IntType())) ::: genConstraints(block)
-            case While(expr, block) => genConstraintsExpr(expr)(context,DirectType(BoolType())) ::: genConstraints(block)
+            case Repeat(expr, block) => genConstraintsExpr(expr)(context,DirectType(IntType)) ::: genConstraints(block)
+            case While(expr, block) => genConstraintsExpr(expr)(context,DirectType(BoolType)) ::: genConstraints(block)
             case Ask(_, turtles, block) => Nil
+            case Tick => Nil
             case expr: Expression => throw new Exception(f"Lonely expression: ${expr}")
         }
     }
     def genConstraintsExpr(expr: Expression)(implicit context: Context, found: TypeConstrainer): List[TypeConstraint] = {
         expr match{
             case vl: VariableLike => List(TypeConstraint(found, getVariableConstraint(vl)))
-            case BooleanValue(_) => List(TypeConstraint(found, DirectType(BoolType())))
-            case IntValue(_) => List(TypeConstraint(found, DirectType(IntType())))
-            case FloatValue(_) => List(TypeConstraint(found, DirectType(FloatType())))
-            case StringValue(_) => List(TypeConstraint(found, DirectType(StringType())))
+            case BooleanValue(_) => List(TypeConstraint(found, DirectType(BoolType)))
+            case IntValue(_) => List(TypeConstraint(found, DirectType(IntType)))
+            case FloatValue(_) => List(TypeConstraint(found, DirectType(FloatType)))
+            case StringValue(_) => List(TypeConstraint(found, DirectType(StringType)))
             case BreedValue(breed) => List(TypeConstraint(found, DirectType(BreedSetType(breed))))
+            case WithValue(value, predicate) => genConstraintsExpr(predicate)(context, DirectType(BoolType))
             case ListValue(lst) => ???
 
             case IfElseBlockExpression(conds, block) => {
                 conds.flatMap(c => 
-                    genConstraintsExpr(c._1)(context, DirectType(BoolType())) :::
+                    genConstraintsExpr(c._1)(context, DirectType(BoolType)) :::
                     genConstraintsExpr(c._2)
                 ) ::: genConstraintsExpr(block)
             }
@@ -90,7 +92,7 @@ object TypeChecker{
                 TypeOwn(varT)
             }
             case "<" | "<=" | ">" | ">=" | "=" | "!=" =>{
-                DirectType(BoolType())
+                DirectType(BoolType)
             }
         }
     }

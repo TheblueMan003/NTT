@@ -206,14 +206,6 @@ object Parser{
             text.take()
             AST.ListValue(List(parseExpression(), parseExpression()))
         }
-        else if (text.isDelimiter("[")){ //[expr] of <identifier>
-            text.take()
-            val reporter = parseExpression()
-            text.requierToken(DelimiterToken("]"))
-            text.requierToken(DelimiterToken("of"))
-            val from = text.getIdentifier()
-            AST.OfValue(reporter, from)
-        }
         else if (text.isDelimiter("(")){ //(list expr*)
             text.take()
             val buffer = ArrayBuffer[Expression]()
@@ -223,6 +215,9 @@ object Parser{
             }
             text.requierToken(DelimiterToken(")"))
             AST.ListValue(buffer.toList)
+        }
+        else if (text.isKeyword("tick")){
+            AST.Tick
         }
         else{
             throw new UnexpectedTokenException(text.take(), EOFToken())
@@ -270,9 +265,12 @@ object Parser{
                 else if (context.hasFunction(iden)){
                     parseCall(iden, true)
                 }
-                else {
+                else{
                     AST.VariableValue(iden)
-                }
+                }/*
+                else{
+                    throw new Exception(f"Unknow identifier: $iden " + token.positionString())
+                }*/
             }
             case DelimiterToken("(") => {
                 val expr = parseExpression()
@@ -283,6 +281,14 @@ object Parser{
             case BoolLitToken(value)   => AST.BooleanValue(value)
             case StringLitToken(value) => AST.StringValue(value)
             case FloatLitToken(value)  => AST.FloatValue(value)
+            case DelimiterToken("[") => { //[expr] of <identifier>
+                text.take()
+                val reporter = parseExpression()
+                text.requierToken(DelimiterToken("]"))
+                text.requierToken(KeywordToken("of"))
+                val from = parseExpression()
+                AST.OfValue(reporter, from)
+            }
             case other => throw new UnexpectedTokenException(other, "Any Expression Token")
         }
     }
@@ -306,6 +312,13 @@ object Parser{
         while(op.nonEmpty){
             left = AST.BinarayExpr(op.get, left, rec())
             op = text.getOperator(ops)
+        }
+        if (text.hasNext && text.peek() == KeywordToken("with")){
+            text.take()
+            text.requierToken(DelimiterToken("["))
+            val predicate = parseExpression(0)
+            text.requierToken(DelimiterToken("]"))
+            left = AST.WithValue(left, predicate)
         }
         return left
     }

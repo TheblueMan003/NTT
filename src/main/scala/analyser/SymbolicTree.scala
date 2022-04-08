@@ -18,6 +18,7 @@ object SymTree{
     case class BreedValue(name: Breed) extends Expression
     case class ListValue(lst: List[Expression]) extends Expression
     case class OfValue(expr: Expression, from: VariableValue) extends VariableLike
+    case class WithValue(value: Expression, predicate: Expression) extends Expression
 
     case class Call(fct: Function, arg: List[Expression]) extends Expression
     case class Assignment(vari: VariableLike, value: Expression) extends SymTree
@@ -33,4 +34,6 @@ object SymTree{
     case class Repeat(number: Expression, block: SymTree) extends SymTree
     case class While(cond: Expression, block: SymTree) extends SymTree
     case class Ask(upperCaller: List[Variable], turtles: Expression, block: Function) extends SymTree
+    
+    case object Tick extends SymTree
 }

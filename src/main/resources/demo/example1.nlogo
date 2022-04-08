@@ -19,19 +19,16 @@ wolves-own [
 to go
     let m2 5
     let m 2.0
-    ask turtles [
-        ask myself [
-            right m2
-        ]
-        right m2
-    ]
 end
 
 to argtest [ value ]
     let m 5
     set m 0.0
+    ;; let k turtles with [ test = 0 ]
     ifelse value = 0.0 [
-        right 5
+        if m = 0 [
+            right 5
+        ]
     ]
     value > 2.0
     [

@@ -35,6 +35,15 @@ case class UnlinkedFunction(_name: String, _argsNames: List[String], tokenBody: 
  */
 case class LinkedFunction(_name: String, _args: List[Variable], body: AST, breed: Breed, _hasReturnValue: Boolean) extends Function(_name, _args.map(_.name), _hasReturnValue){
     var symTree: SymTree = null
+    
+    override def getType():Type = {
+        if (hasReturnValue){
+            returnVariable.getType()
+        }
+        else{
+            UnitType
+        }
+    }
 
     def getArguments() = _args
 }
@@ -42,7 +51,7 @@ case class LinkedFunction(_name: String, _args: List[Variable], body: AST, breed
 /**
  * Language predefined Function
  */ 
-case class BaseFunction(_name: String, _args: List[Variable], _breed: Breed, returnType: Type) extends Function(_name, _args.map(_.name), returnType != UnitType()){
+case class BaseFunction(_name: String, _args: List[Variable], _breed: Breed, returnType: Type) extends Function(_name, _args.map(_.name), returnType != UnitType){
     initConstraints(Set(_breed))
 
     def getArguments() = _args

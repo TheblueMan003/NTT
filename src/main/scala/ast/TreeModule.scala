@@ -16,7 +16,8 @@ object AST{
     case class VariableValue(name: String) extends Expression with BreedOwned
     case class BreedValue(name: Breed) extends Expression
     case class ListValue(lst: List[Expression]) extends Expression
-    case class OfValue(expr: Expression, from: String) extends Expression
+    case class OfValue(expr: Expression, from: Expression) extends Expression
+    case class WithValue(value: Expression, predicate: Expression) extends Expression
 
     case class Call(name: String, arg: List[Expression]) extends Expression
     case class Assignment(name: VariableValue, value: Expression) extends AST
@@ -32,4 +33,6 @@ object AST{
     case class Repeat(number: Expression, block: AST) extends AST
     case class While(cond: Expression, block: AST) extends AST
     case class Ask(turtles: Expression, block: AST) extends AST
+
+    case object Tick extends AST
 }

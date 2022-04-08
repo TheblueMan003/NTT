@@ -4,6 +4,7 @@ import ast.{LinkedFunction, BaseFunction}
 import parsing.Parser
 import analyser.{BreedAnalyser, NameAnalyser, TypeChecker}
 import scala.io.Source
+import codegen.CodeGen
 
 object Main extends App {
   Reporter.debugEnabled = true
@@ -17,6 +18,9 @@ object Main extends App {
   BreedAnalyser.analyse(context)
   NameAnalyser.analyse(context)
   TypeChecker.analyse(context)
+  
+  val code = CodeGen.generate(context)
+  code.map(c => c.writeToFile(f"./src/main/resources/output/${c.name}.scala"))
 
   Reporter.debug(context.getBreeds().map(b => b.getAllFunctions().filter(f =>
     f match {

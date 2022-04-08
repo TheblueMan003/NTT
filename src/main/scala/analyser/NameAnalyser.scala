@@ -81,6 +81,8 @@ object NameAnalyser{
 
                 SymTree.Ask(upperCaller, toSymTreeExpr(expr), lambda)
             }
+
+            case AST.Tick => SymTree.Tick
         }
     }
 
@@ -130,7 +132,8 @@ object NameAnalyser{
             case AST.ListValue(v) => SymTree.ListValue(v.map(toSymTreeExpr(_)))
             case AST.VariableValue(v) => getVariable(v)
             case AST.BreedValue(v) => SymTree.BreedValue(v)
-            case AST.OfValue(e, v) => SymTree.OfValue(toSymTreeExpr(e), getVariableStrict(v)(context, getBreedFrom(e).head, localVar))
+            case AST.OfValue(e, v) => SymTree.OfValue(toSymTreeExpr(e), toSymTreeExpr(v)(context, getBreedFrom(e).head, function, localVar).asInstanceOf[SymTree.VariableValue])
+            case AST.WithValue(e, v) => SymTree.WithValue(toSymTreeExpr(e), toSymTreeExpr(v)(context, getBreedFrom(e).head, function, localVar))
         }
     }
 

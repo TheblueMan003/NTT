@@ -4,8 +4,8 @@ import scala.collection.mutable.Map
 import analyser.SymTree
 import ast.LinkedFunction
 
-class Breed(_parent: Breed) extends VariableOwner{
-    val parent = _parent
+class Breed(val parent: Breed, val singularName: String, val pluralName: String) extends VariableOwner{
+
     val ownedFuns: Map[String, Function] = Map[String, Function]()
 
     private var lambdaCounter = -1
@@ -75,11 +75,11 @@ class Breed(_parent: Breed) extends VariableOwner{
 }
 
 object Breed{
-    case class TurtleBreed(singularName: String, pluralName: String, _parent: Breed) extends Breed(_parent)
-    case class LinkBreed(singularName: String, pluralName: String, directed: Boolean, _parent: Breed) extends Breed(_parent)
-    case class PatchBreed(singularName: String, pluralName: String, _parent: Breed) extends Breed(_parent)
-    case class ObserverBreed(_parent: Breed) extends Breed(_parent)
-    case class AgentBreed() extends Breed(null)
+    case class TurtleBreed(_singularName: String, _pluralName: String, _parent: Breed) extends Breed(_parent, _singularName, _pluralName)
+    case class LinkBreed(_singularName: String, _pluralName: String, directed: Boolean, _parent: Breed) extends Breed(_parent, _singularName, _pluralName)
+    case class PatchBreed(_singularName: String, _pluralName: String, _parent: Breed) extends Breed(_parent, _singularName, _pluralName)
+    case class ObserverBreed(_parent: Breed) extends Breed(_parent, "observer", "observers")
+    case class AgentBreed() extends Breed(null, "agent", "agents")
 }
 
 trait BreedClass
