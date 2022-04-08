@@ -38,6 +38,7 @@ object Main extends App {
   Reporter.debug(context.getBreeds().flatMap(_.getAllVariables().map(v => 
     f"\n${v.name}: ${v.getType()}"
   )))
+  
   Reporter.debug(context.getBreeds().flatMap(_.getAllFunctions()
   .filter(
     _ match {
