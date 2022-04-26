@@ -6,7 +6,7 @@ import utils.{TokenBufferBuilder,StringBufferedIterator,Reporter}
 
 object Lexer{
     val delimiter = List('[', ']', '(', ')')
-    val operator = Set("+", "-", "*", "/", "<", "=", ">", "!", "and", "or", "xor", "mod")
+    val operators = Set("+", "-", "*", "/", "<", "=", ">", "!", "and", "or", "xor", "mod")
     val identifier = ".?=*!<>:#+/%$_^'&-".toCharArray
     val keyword = Set("breed", "directed-link-breed", "end", "extensions", "globals", 
                         "__includes", "to", "to-report", "of", "list",
@@ -23,7 +23,7 @@ object Lexer{
             // Number
             if (c.isDigit){
                 text.takeWhile( x => x.isDigit)
-                if (text.peek() == '.'){
+                if (text.hasNext && text.peek() == '.'){
                     text.take()
                     text.takeWhile(x => x.isDigit)
                     val cut = text.cut()
@@ -52,8 +52,11 @@ object Lexer{
                 if (keyword.contains(cut._1)){
                     tokenize(text, acc.add(KeywordToken(cut._1).pos(cut._2), text))
                 }
-                else if (operator.contains(cut._1)){
+                else if (operators.contains(cut._1)){
                     tokenize(text, acc.add(OperatorToken(cut._1).pos(cut._2), text))
+                }
+                else if (cut._1 == "true" || cut._1 == "false"){
+                    tokenize(text, acc.add(BoolLitToken(cut._1 == "true").pos(cut._2), text))
                 }
                 else{
                     tokenize(text, acc.add(IdentifierToken(cut._1).pos(cut._2), text))

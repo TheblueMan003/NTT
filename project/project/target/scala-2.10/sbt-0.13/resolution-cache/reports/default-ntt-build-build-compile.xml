@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="default"
+		module="ntt-build-build"
+		revision="0.1-SNAPSHOT"
+		extra-scalaVersion="2.10"
+		extra-sbtVersion="0.13"
+		conf="compile"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20220426090550"/>
+	<dependencies>
+		<module organisation="ch.epfl.scala" name="sbt-bloop">
+			<revision name="1.4.6" status="release" pubdate="20201203092243" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/scalacenter/bloop" extra-scalaVersion="2.10" extra-sbtVersion="0.13" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="0">
+				<license name="Apache-2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2992" time="0" location="C:\Users\chris\.ivy2\cache\scala_2.10\sbt_0.13\ch.epfl.scala\sbt-bloop\ivy-1.4.6.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/ch/epfl/scala/sbt-bloop_2.10_0.13/1.4.6/sbt-bloop-1.4.6.pom"/>
+				<caller organisation="default" name="ntt-build-build" conf="compile" rev="1.4.6" rev-constraint-default="1.4.6" rev-constraint-dynamic="1.4.6" callerrev="0.1-SNAPSHOT" extra-scalaVersion="2.10" extra-sbtVersion="0.13"/>
+				<artifacts>
+					<artifact name="sbt-bloop" type="jar" ext="jar" status="no" details="" size="14154375" time="0" location="C:\Users\chris\.ivy2\cache\scala_2.10\sbt_0.13\ch.epfl.scala\sbt-bloop\jars\sbt-bloop-1.4.6.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/ch/epfl/scala/sbt-bloop_2.10_0.13/1.4.6/sbt-bloop-1.4.6.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>
