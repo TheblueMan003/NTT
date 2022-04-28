@@ -21,6 +21,7 @@ object SymTree{
     case class WithValue(value: Expression, predicate: Expression) extends Expression
 
     case class Call(fct: Function, arg: List[Expression]) extends Expression
+    case class CreateBreed(breed: BreedValue, nb: Expression, fct: Function) extends SymTree
     case class Assignment(vari: VariableLike, value: Expression) extends SymTree
     case class Declaration(vari: VariableLike, value: Expression) extends SymTree
     case class BinarayExpr(op: String, lh: Expression, rh: Expression) extends Expression

@@ -20,6 +20,7 @@ object AST{
     case class WithValue(value: Expression, predicate: Expression) extends Expression
 
     case class Call(name: String, arg: List[Expression]) extends Expression
+    case class CreateBreed(breed: BreedValue, nb: Expression, arg: Block) extends AST
     case class Assignment(name: VariableValue, value: Expression) extends AST
     case class Declaration(name: VariableValue, value: Expression) extends AST
     case class BinarayExpr(op: String, lh: Expression, rh: Expression) extends Expression

@@ -79,7 +79,13 @@ object BreedAnalyser{
                     Nil
                 }
                 else{
-                    List(BreedConstraint(found, BreedSet(context.getBreedsWithVariable(name))))
+                    val breeds = context.getBreedsWithVariable(name)
+                    if (breeds.isEmpty){
+                        throw new Exception(f"Unknown variable: $name")
+                    }
+                    else{
+                        List(BreedConstraint(found, BreedSet(context.getBreedsWithVariable(name))))
+                    }
                 }
             }
 
@@ -119,6 +125,16 @@ object BreedAnalyser{
 
                 val ret = List(BreedConstraint(found, BreedOwn(vari))) :::
                           generateConstraints(block)(context, getBreedFrom(expr), localVar)
+
+                localVar.pop()
+
+                ret
+            }
+            case CreateBreed(breed, nb, block) => {
+                localVar.push()
+
+                val ret = List(BreedConstraint(found, BreedSet(Set(context.getObserverBreed())))) :::
+                          generateConstraints(block)(context, getBreedFrom(breed), localVar)
 
                 localVar.pop()
 

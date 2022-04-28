@@ -27,6 +27,7 @@ object TypeChecker{
                     genConstraintsExpr(e)(context, TypeOwn(v))
                 }
             }
+            case CreateBreed(breed, nb, block) => genConstraintsExpr(nb)(context,DirectType(IntType))
             case Assignment(vari, value) => genConstraintsExpr(value)(context, getVariableConstraint(vari))
             case Declaration(vari, value) => genConstraintsExpr(value)(context, getVariableConstraint(vari))
             case Block(block) => block.map(genConstraints(_)).foldLeft(List[TypeConstraint]())(_ ::: _)

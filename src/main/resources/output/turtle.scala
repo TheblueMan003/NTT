@@ -1,10 +1,21 @@
+@lift
 class turtle{
-	var test4 : Int = 0
-	var other : Int = 0
-	var test : Int = 0
+	var color : Int = 0
+	var ycor : Float = 0
+	var xcor : Float = 0
 	var arg_m : Float = 0
-	var test3-test? : Int = 0
 	var argtest_m : Float = 0
+	var speed : Int = 0
+	def main():Unit = {
+		while(true){
+			handleMessages()
+			waitLabel(Turn, 1)
+		}
+	}
+	def lambda_0():Unit = {
+		speed = 0
+		xcor = 0
+	}
 	def arg():Unit = {
 		arg_m = 5.0
 		arg_m = 0

@@ -6,18 +6,14 @@ globals [
 breed [ wolves wolf ]
 
 turtles-own [
-    test
-    test3-test?
-    test4
-    other
+    speed
+    color
 ]
 wolves-own [
     test2
     test5-test?
 ]
-sheeps-own [
-    wool
-]
+
 to go
     let m2 5
     let m 2.0
@@ -41,14 +37,6 @@ to argtest [ value ]
     ]
 end
 
-to go 
-    fct value
-end
-
-to fct [ arg ]
-    ???
-end
-
 to arg
     let m 5.0
     set m 0
@@ -57,4 +45,19 @@ to arg
     argtest 5.0
     argtest 5
     show "test"
+end
+
+to setup
+    create-turtles 10 [
+        set speed 0
+        set xcor 0
+    ]
+end
+
+to go
+    let m 1
+    ;;aask turtles [
+    ;;a    forward m
+    ;;a    set m m + 1
+    ;;a]
 end

@@ -132,12 +132,19 @@ object Parser{
             AST.Assignment(AST.VariableValue(iden), value)
         }
         else if (text.isIdentifier()){
+            val token = text.peek()
             val iden = text.getIdentifier()
-            if (context.hasFunction(iden)){
+            if (iden.startsWith("create-")){
+                val breed = context.getBreedPlural(iden.drop("create-".length()))
+                val nb = parseExpression()
+                val block = parseInstructionBlock()
+                AST.CreateBreed(AST.BreedValue(breed), nb, block)
+            }
+            else if (context.hasFunction(iden)){
                 parseCall(iden, false)
             }
             else{
-                throw new Exception(f"Unknown function: ${iden}")
+                throw new Exception(f"Unknown function: ${iden} at ${}")
             }
         }
         else if (text.isKeyword("if")){ //if <expr> [block]
@@ -227,7 +234,7 @@ object Parser{
     /**
      * Parse an instruction block delimited by [ ]
      */ 
-    def parseInstructionBlock()(implicit text: TokenBufferedIterator, context: Context): AST = {
+    def parseInstructionBlock()(implicit text: TokenBufferedIterator, context: Context): AST.Block = {
         text.requierToken(DelimiterToken("["))
 
         val buffer = ListBuffer[AST]()

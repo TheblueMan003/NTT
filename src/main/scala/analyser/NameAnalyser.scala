@@ -81,6 +81,16 @@ object NameAnalyser{
 
                 SymTree.Ask(upperCaller, toSymTreeExpr(expr), lambda)
             }
+            case AST.CreateBreed(b, nb, block) => {
+                localVar.push()
+
+                val lambda = b.name.addLambda(block, localVar.getAskVariables()) // Create Inner function
+                lambda.symTree = toSymTree(block)(context, b.name, lambda, localVar) // Analyse Inner function
+
+                localVar.pop()
+
+                SymTree.CreateBreed(SymTree.BreedValue(b.name), toSymTreeExpr(nb), lambda)
+            }
 
             case AST.Tick => SymTree.Tick
         }

@@ -24,6 +24,7 @@ object CodeGen{
         )
     }
     private def generateFunctions(function: Iterable[Function], breed: Breed): List[FunctionGen] = {
+        generateMainFunction()::
         function.map{
             _ match {
                 case lc: LinkedFunction => generate(lc, breed)
@@ -52,6 +53,9 @@ object CodeGen{
             case Call(fct, args) => {
                 val argsInstr = args.map(generateExpr(_)).reduce(_ + ", "+ _)
                 InstructionGen(f"${fct.name}($argsInstr)")
+            }
+            case CreateBreed(b, nb, fct) => {
+                InstructionGen(f"val __tmp__ = new ${b.name.singularName}()")
             }
 
             case IfBlock(cond, block) => InstructionCompose(f"if(${generateExpr(cond)})", generate(block))
@@ -108,5 +112,18 @@ object CodeGen{
             case "=" => "=="
             case _ => op
         }
+    }
+
+    private def generateMainFunction(): FunctionGen = {
+        FunctionGen("main", "Unit", 
+            InstructionBlock(List(
+                InstructionCompose(f"while(true)", 
+                InstructionBlock(List(
+                    InstructionGen("handleMessages()"),
+                    InstructionGen("waitLabel(Turn, 1)")
+                ))
+                )  
+            ))
+        )
     }
 }

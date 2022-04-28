@@ -1,8 +1,13 @@
+@lift
 class agent{
-	var go_m2 : Int = 0
-	var go_m : Float = 0
+	var go_m : Int = 0
+	def main():Unit = {
+		while(true){
+			handleMessages()
+			waitLabel(Turn, 1)
+		}
+	}
 	def go():Unit = {
-		go_m2 = 5
-		go_m = 2.0
+		go_m = 1
 	}
 }

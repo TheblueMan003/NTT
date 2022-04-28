@@ -1,4 +1,4 @@
- import org.scalatest.funsuite.AnyFunSuite
+import org.scalatest.funsuite.AnyFunSuite
 import utils.StringBufferedIterator
 import parsing.Lexer
 import parsing.Tokens

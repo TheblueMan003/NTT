@@ -1,6 +1,7 @@
 package analyser
 
 import ast.Breed
+import utils.Context
 
 trait Typed{
     private var typ: Type = null
@@ -101,6 +102,29 @@ object Type{
             case null => "0"
         }
     }
+    def fromString(string: String)(implicit context: Context): Type = {
+        string.toLowerCase match {
+            case "int" => Types.IntType
+            case "float" => Types.FloatType
+            case "string" => Types.StringType
+            case "boolean" => Types.BoolType
+            case "unit" => Types.UnitType
+            case other => {
+                if (other.startsWith("list[")){
+                    Types.ListType(fromString(other.substring(5, other.size-1)))
+                }
+                else if (other.startsWith("breedset[")){
+                    Types.BreedSetType(context.getBreedPlural(other.substring(9, other.size-1)))
+                }
+                else if (other.startsWith("breed[")){
+                    Types.BreedType(context.getBreedSingular(other.substring(6, other.size-1)))
+                }
+                else{
+                    ???
+                }
+            }
+        }
+    }
 }
 abstract class Type(_parent: Type){
     val parent = _parent
@@ -135,6 +159,7 @@ abstract class Type(_parent: Type){
         }
     }
 }
+
 object Types{
     case object IntType extends Type(FloatType)
     case object FloatType extends Type(UnitType)

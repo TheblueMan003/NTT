@@ -166,6 +166,7 @@ class Context(){
         }
 
         getBreeds().map(b => functions.addAll(FunctionLoader.getAll(b.pluralName, b)(this)))
+        getBreeds().map(b => VariableLoader.getAll(b.pluralName, b)(this))
 
         // Add Base functions to child
         getBreeds().map(b => {

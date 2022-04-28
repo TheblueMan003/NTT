@@ -15,6 +15,10 @@ class Breed(val parent: Breed, val singularName: String, val pluralName: String)
         ownedVars.addOne((name, vari))
         vari
     }
+    override def addVariable(vari: Variable) = {
+        ownedVars.addOne((vari.name, vari))
+        vari
+    }
     override def hasVariable(name: String): Boolean = {
         if (ownedVars.contains(name)){
             true

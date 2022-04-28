@@ -11,7 +11,7 @@ trait Generator{
 case class ClassFile(val name: String, val fields: List[InstructionGen], val functions: List[FunctionGen], val parent: List[String], val imports: List[String]) extends Generator{
     def generate(indentation: Int): String = {
         val content = InstructionBlock(fields ::: functions)
-        InstructionCompose(f"class $name", content).generate(indentation)
+        InstructionCompose(f"@lift\nclass $name", content).generate(indentation)
     }
     def writeToFile(path: String) = {
         val file = new File(path)
