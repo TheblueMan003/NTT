@@ -15,7 +15,9 @@ wolves-own [
     test2
     test5-test?
 ]
-
+sheeps-own [
+    wool
+]
 to go
     let m2 5
     let m 2.0
@@ -37,6 +39,14 @@ to argtest [ value ]
     [
         fw 5
     ]
+end
+
+to go 
+    fct value
+end
+
+to fct [ arg ]
+    ???
 end
 
 to arg

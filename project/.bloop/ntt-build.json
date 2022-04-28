@@ -2,6 +2,7 @@
     "version": "1.4.0",
     "project": {
         "name": "ntt-build",
+<<<<<<< HEAD
         "directory": "D:\\git\\NTT\\project",
         "workspaceDir": "D:\\git\\NTT\\project",
         "sources": [
@@ -11,6 +12,17 @@
             "D:\\git\\NTT\\project\\src\\main\\java",
             "D:\\git\\NTT\\project\\src\\main\\scala-sbt-1.0",
             "D:\\git\\NTT\\project\\target\\scala-2.12\\sbt-1.0\\src_managed\\main"
+=======
+        "directory": "C:\\Users\\chris\\NTT\\project",
+        "workspaceDir": "C:\\Users\\chris\\NTT\\project",
+        "sources": [
+            "C:\\Users\\chris\\NTT\\project\\src\\main\\scala",
+            "C:\\Users\\chris\\NTT\\project\\src\\main\\scala-2.12",
+            "C:\\Users\\chris\\NTT\\project\\src\\main\\scala-2",
+            "C:\\Users\\chris\\NTT\\project\\src\\main\\java",
+            "C:\\Users\\chris\\NTT\\project\\src\\main\\scala-sbt-1.0",
+            "C:\\Users\\chris\\NTT\\project\\target\\scala-2.12\\sbt-1.0\\src_managed\\main"
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
         ],
         "dependencies": [
             
@@ -19,12 +31,23 @@
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\sbt\\1.6.2\\sbt-1.6.2.jar",
             "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\scala-library.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\ch\\epfl\\scala\\sbt-bloop_2.12_1.0\\1.4.13\\sbt-bloop-1.4.13.jar",
+<<<<<<< HEAD
+=======
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo.scala-sbt.org\\scalasbt\\sbt-plugin-releases\\com.github.sbt\\sbt-jacoco\\scala_2.12\\sbt_1.0\\3.0.3\\jars\\sbt-jacoco.jar",
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\main_2.12\\1.6.2\\main_2.12-1.6.2.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\io_2.12\\1.6.0\\io_2.12-1.6.0.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\net\\java\\dev\\jna\\jna\\5.8.0\\jna-5.8.0.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\net\\java\\dev\\jna\\jna-platform\\5.8.0\\jna-platform-5.8.0.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\google\\code\\gson\\gson\\2.7\\gson-2.7.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\google\\code\\findbugs\\jsr305\\3.0.2\\jsr305-3.0.2.jar",
+<<<<<<< HEAD
+=======
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\lightbend\\paradox\\paradox-theme-generic\\0.3.1\\paradox-theme-generic-0.3.1.jar",
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jacoco\\org.jacoco.core\\0.7.9\\org.jacoco.core-0.7.9.jar",
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jacoco\\org.jacoco.report\\0.7.9\\org.jacoco.report-0.7.9.jar",
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\jsuereth\\scala-arm_2.12\\2.0\\scala-arm_2.12-2.0.jar",
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\logic_2.12\\1.6.2\\logic_2.12-1.6.2.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\actions_2.12\\1.6.2\\actions_2.12-1.6.2.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\main-settings_2.12\\1.6.2\\main-settings_2.12-1.6.2.jar",
@@ -46,6 +69,10 @@
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\compiler-interface\\1.6.0\\compiler-interface-1.6.0.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\zinc-compile_2.12\\1.6.0\\zinc-compile_2.12-1.6.0.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\swoval\\file-tree-views\\2.1.7\\file-tree-views-2.1.7.jar",
+<<<<<<< HEAD
+=======
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-debug-all\\5.2\\asm-debug-all-5.2.jar",
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\util-relation_2.12\\1.6.2\\util-relation_2.12-1.6.2.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\completion_2.12\\1.6.2\\completion_2.12-1.6.2.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\task-system_2.12\\1.6.2\\task-system_2.12-1.6.2.jar",
@@ -105,11 +132,19 @@
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\squareup\\okio\\okio\\1.17.2\\okio-1.17.2.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\typesafe\\config\\1.3.3\\config-1.3.3.jar"
         ],
+<<<<<<< HEAD
         "out": "D:\\git\\NTT\\project\\.bloop\\ntt-build",
         "classesDir": "D:\\git\\NTT\\project\\.bloop\\ntt-build\\scala-2.12\\sbt-1.0\\classes",
         "resources": [
             "D:\\git\\NTT\\project\\src\\main\\resources",
             "D:\\git\\NTT\\project\\target\\scala-2.12\\sbt-1.0\\resource_managed\\main"
+=======
+        "out": "C:\\Users\\chris\\NTT\\project\\.bloop\\ntt-build",
+        "classesDir": "C:\\Users\\chris\\NTT\\project\\.bloop\\ntt-build\\scala-2.12\\sbt-1.0\\classes",
+        "resources": [
+            "C:\\Users\\chris\\NTT\\project\\src\\main\\resources",
+            "C:\\Users\\chris\\NTT\\project\\target\\scala-2.12\\sbt-1.0\\resource_managed\\main"
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
         ],
         "scala": {
             "organization": "org.scala-lang",
@@ -123,9 +158,16 @@
             ],
             "jars": [
                 "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\scala-library.jar",
+<<<<<<< HEAD
                 "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\scala-compiler.jar",
                 "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\scala-reflect.jar",
                 "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\scala-xml_2.12-1.0.6.jar"
+=======
+                "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\jline.jar",
+                "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\scala-compiler.jar",
+                "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\scala-reflect.jar",
+                "C:\\Users\\chris\\.sbt\\boot\\scala-2.12.15\\lib\\scala-xml_2.12.jar"
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
             ],
             "setup": {
                 "order": "mixed",
@@ -148,8 +190,13 @@
                 "import _root_.sbt._",
                 "import _root_.sbt.Keys._",
                 "import _root_.sbt.nio.Keys._",
+<<<<<<< HEAD
                 "import _root_.sbt.ScriptedPlugin.autoImport._, _root_.sbt.plugins.JUnitXmlReportPlugin.autoImport._, _root_.sbt.plugins.MiniDependencyTreePlugin.autoImport._, _root_.bloop.integrations.sbt.BloopPlugin.autoImport._",
                 "import _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.SemanticdbPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.sbt.plugins.MiniDependencyTreePlugin, _root_.bloop.integrations.sbt.BloopPlugin"
+=======
+                "import _root_.sbt.ScriptedPlugin.autoImport._, _root_.sbt.plugins.JUnitXmlReportPlugin.autoImport._, _root_.sbt.plugins.MiniDependencyTreePlugin.autoImport._, _root_.bloop.integrations.sbt.BloopPlugin.autoImport._, _root_.com.github.sbt.jacoco.JacocoItPlugin.autoImport._, _root_.com.github.sbt.jacoco.JacocoPlugin.autoImport._",
+                "import _root_.sbt.plugins.IvyPlugin, _root_.sbt.plugins.JvmPlugin, _root_.sbt.plugins.CorePlugin, _root_.sbt.ScriptedPlugin, _root_.sbt.plugins.SbtPlugin, _root_.sbt.plugins.SemanticdbPlugin, _root_.sbt.plugins.JUnitXmlReportPlugin, _root_.sbt.plugins.Giter8TemplatePlugin, _root_.sbt.plugins.MiniDependencyTreePlugin, _root_.bloop.integrations.sbt.BloopPlugin, _root_.com.github.sbt.jacoco.JacocoItPlugin, _root_.com.github.sbt.jacoco.JacocoPlugin"
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
             ]
         },
         "test": {
@@ -199,9 +246,15 @@
         "platform": {
             "name": "jvm",
             "config": {
+<<<<<<< HEAD
                 "home": "C:\\Program Files\\Java\\jre1.8.0_321",
                 "options": [
                     "-Duser.dir=D:\\git\\NTT\\project"
+=======
+                "home": "C:\\Program Files\\Java\\jdk-17",
+                "options": [
+                    "-Duser.dir=C:\\Users\\chris\\NTT\\project"
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
                 ]
             },
             "mainClass": [
@@ -228,6 +281,35 @@
                     ]
                 },
                 {
+<<<<<<< HEAD
+=======
+                    "organization": "com.github.sbt",
+                    "name": "sbt-jacoco",
+                    "version": "3.0.3",
+                    "configurations": "compile",
+                    "artifacts": [
+                        {
+                            "name": "sbt-jacoco",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo.scala-sbt.org\\scalasbt\\sbt-plugin-releases\\com.github.sbt\\sbt-jacoco\\scala_2.12\\sbt_1.0\\3.0.3\\jars\\sbt-jacoco.jar"
+                        },
+                        {
+                            "name": "sbt-jacoco",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo.scala-sbt.org\\scalasbt\\sbt-plugin-releases\\com.github.sbt\\sbt-jacoco\\scala_2.12\\sbt_1.0\\3.0.3\\srcs\\sbt-jacoco-sources.jar"
+                        },
+                        {
+                            "name": "sbt-jacoco",
+                            "classifier": "javadoc",
+                            "checksum": {
+                                "type": "sha1",
+                                "digest": "f906e30eab9e42bb34ef18d206b6fe29f55184c4"
+                            },
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo.scala-sbt.org\\scalasbt\\sbt-plugin-releases\\com.github.sbt\\sbt-jacoco\\scala_2.12\\sbt_1.0\\3.0.3\\docs\\sbt-jacoco-javadoc.jar"
+                        }
+                    ]
+                },
+                {
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
                     "organization": "com.google.code.gson",
                     "name": "gson",
                     "version": "2.7",
@@ -262,6 +344,7 @@
                     ]
                 },
                 {
+<<<<<<< HEAD
                     "organization": "org.scala-sbt",
                     "name": "sbt",
                     "version": "1.6.2",
@@ -275,6 +358,89 @@
                             "name": "sbt",
                             "classifier": "sources",
                             "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\sbt\\1.6.2\\sbt-1.6.2-sources.jar"
+=======
+                    "organization": "com.lightbend.paradox",
+                    "name": "paradox-theme-generic",
+                    "version": "0.3.1",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "paradox-theme-generic",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\lightbend\\paradox\\paradox-theme-generic\\0.3.1\\paradox-theme-generic-0.3.1.jar"
+                        },
+                        {
+                            "name": "paradox-theme-generic",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\lightbend\\paradox\\paradox-theme-generic\\0.3.1\\paradox-theme-generic-0.3.1-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.jacoco",
+                    "name": "org.jacoco.core",
+                    "version": "0.7.9",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "org.jacoco.core",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jacoco\\org.jacoco.core\\0.7.9\\org.jacoco.core-0.7.9.jar"
+                        },
+                        {
+                            "name": "org.jacoco.core",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jacoco\\org.jacoco.core\\0.7.9\\org.jacoco.core-0.7.9-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.jacoco",
+                    "name": "org.jacoco.report",
+                    "version": "0.7.9",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "org.jacoco.report",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jacoco\\org.jacoco.report\\0.7.9\\org.jacoco.report-0.7.9.jar"
+                        },
+                        {
+                            "name": "org.jacoco.report",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\jacoco\\org.jacoco.report\\0.7.9\\org.jacoco.report-0.7.9-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.jsuereth",
+                    "name": "scala-arm_2.12",
+                    "version": "2.0",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scala-arm_2.12",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\jsuereth\\scala-arm_2.12\\2.0\\scala-arm_2.12-2.0.jar"
+                        },
+                        {
+                            "name": "scala-arm_2.12",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\jsuereth\\scala-arm_2.12\\2.0\\scala-arm_2.12-2.0-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.ow2.asm",
+                    "name": "asm-debug-all",
+                    "version": "5.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "asm-debug-all",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-debug-all\\5.2\\asm-debug-all-5.2.jar"
+                        },
+                        {
+                            "name": "asm-debug-all",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\ow2\\asm\\asm-debug-all\\5.2\\asm-debug-all-5.2-sources.jar"
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
                         }
                     ]
                 },
@@ -297,6 +463,26 @@
                 },
                 {
                     "organization": "org.scala-sbt",
+<<<<<<< HEAD
+=======
+                    "name": "sbt",
+                    "version": "1.6.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "sbt",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\sbt\\1.6.2\\sbt-1.6.2.jar"
+                        },
+                        {
+                            "name": "sbt",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-sbt\\sbt\\1.6.2\\sbt-1.6.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scala-sbt",
+>>>>>>> 84c513dd470e4f3ded87a5d6eef200dbb67d69fa
                     "name": "main_2.12",
                     "version": "1.6.2",
                     "configurations": "default",
