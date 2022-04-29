@@ -9,6 +9,7 @@ import ast._
 import analyser.Types.{BreedType, ListType}
 
 object BreedAnalyser{
+    private val observersFunctions = Set("go", "setup")
     /**
     *  generateConstraints breeds contraint and force function to belong to a breed.
     */ 
@@ -30,7 +31,14 @@ object BreedAnalyser{
     private def initConstraints(context: Context) = {
         context.functions.values.map(
             _ match {
-                case cf: UnlinkedFunction => cf.initConstraints(context.getBreeds()) 
+                case cf: UnlinkedFunction => {
+                    if (observersFunctions.contains(cf.name)){
+                        cf.initConstraints(Set(context.getObserverBreed()))
+                    }
+                    else{
+                        cf.initConstraints(context.getBreeds())
+                    }
+                }
                 case _ =>
             }
         )
