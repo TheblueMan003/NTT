@@ -1,6 +1,7 @@
-@lift
-class patch{
+@Lift
+class Patch{
 	def main():Unit = {
+		
 		while(true){
 			handleMessages()
 			waitLabel(Turn, 1)

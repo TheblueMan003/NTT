@@ -8,10 +8,15 @@ import java.net.URL
 trait Generator{
     def generate(indentation: Int): String
 }
-case class ClassFile(val name: String, val fields: List[InstructionGen], val functions: List[FunctionGen], val parent: List[String], val imports: List[String]) extends Generator{
+
+case class ClassFile(val imports: List[String], val anotation: String, val prefix: String, val name: String, val parent: List[String], val fields: List[Instruction], val functions: List[FunctionGen]) extends Generator{
     def generate(indentation: Int): String = {
         val content = InstructionBlock(fields ::: functions)
-        InstructionCompose(f"@lift\nclass $name", content).generate(indentation)
+        var classLine = f"$prefix $name"
+        if (parent.nonEmpty){
+            classLine = classLine + " extends "+parent.reduce(_ + " " + _)
+        }
+        InstructionCompose(f"$anotation\n"+classLine, content).generate(indentation)
     }
     def writeToFile(path: String) = {
         val file = new File(path)

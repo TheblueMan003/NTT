@@ -11,20 +11,91 @@ import analyser.Type
 import utils.Reporter
 
 object CodeGen{
-    def generate(context: Context): Set[ClassFile] = {
-        context.getBreeds().map(generate(_))
+    def generate(context: Context): List[ClassFile] = {
+        generateMainClass(context) ::
+            List(generateMainInit(context)):::
+            context.getBreeds().map(generate(_, context)).toList
     }
-    private def generate(breed: Breed): ClassFile = {
+    private def generate(breed: Breed, context: Context): ClassFile = {
+        if (breed == context.getObserverBreed()){
+            ClassFile(
+                List(),
+                "@Lift",
+                "class",
+                breed.singularName,
+                List(),
+                generateObserverSets(context):::
+                    generateVariables(breed.getAllVariables()), 
+                generateFunctions(breed.getAllFunctions(), breed, context)
+            )
+        }
+        else{
+            ClassFile(
+                List(),
+                "@Lift",
+                "class",
+                Renamer.toClassName(breed.singularName),
+                List(),
+                generateVariables(breed.getAllVariables()), 
+                generateFunctions(breed.getAllFunctions(), breed, context)
+            )
+        }
+    }
+    private def generateMainInit(context: Context): ClassFile = {
         ClassFile(
-            breed.singularName,
-            generateVariables(breed.getAllVariables()), 
-            generateFunctions(breed.getAllFunctions(), breed),
             List(),
-            List()
+            "",
+            "object",
+            "MainInit",
+            List(""),
+            generateMainInitContent(context), 
+            List(),
         )
     }
-    private def generateFunctions(function: Iterable[Function], breed: Breed): List[FunctionGen] = {
-        generateMainFunction()::
+    private def generateMainInitContent(context: Context):List[Instruction] = {
+        val observer = context.getObserverBreed().singularName
+        List(
+        InstructionCompose("val liftedMain = meta.classLifting.liteLift",
+        InstructionBlock(List(
+            InstructionCompose("def apply(): List[Actor] = ", InstructionBlock(List(
+                InstructionGen(f"List(new ${observer}())")
+            )))
+        ))))
+    }
+
+    private def generateMainClass(context: Context): ClassFile = {
+        ClassFile(
+            List(),
+            "",
+            "object",
+            "Simulation",
+            List("App"),
+            generateMainClassContent(context: Context), 
+            List(),
+        )
+    }
+    private def generateMainClassContent(context: Context):List[Instruction] = {
+        InstructionGen("val mainClass = MainInit.liftedMain")::
+            context.getBreeds().map(generateClassWithObject(_)).toList :::
+            List(generateMainClassStart(context))
+    }
+    private def generateMainClassStart(context: Context):Instruction = {
+        val breeds = context.getBreeds()
+        val lst = if (breeds.size > 0) {breeds.map(b => Renamer.toClassName(b.singularName)).reduce(_ + ", "+_)} else {""}
+        InstructionGen(f"compileSims(List($lst), Some(mainClass))")
+    }
+    private def generateClassWithObject(breed: Breed):Instruction = {
+        InstructionGen(f"val ${breed.singularName} : ClassWithObject[${Renamer.toClassName(breed.singularName)}] = Reader.reflect(IR)")
+    }
+    private def generateObserverSets(context: Context): List[Instruction] = {
+        context.getBreeds().map(b =>
+            InstructionGen(f"val ${b.pluralName} = Mutable.Set[${Renamer.toClassName(b.singularName)}]()")
+        ).toList
+    }
+
+
+    private def generateFunctions(function: Iterable[Function], breed: Breed, context: Context): List[FunctionGen] = {
+        generateMainFunction(breed, context)::
         function.map{
             _ match {
                 case lc: LinkedFunction => generate(lc, breed)
@@ -35,13 +106,26 @@ object CodeGen{
     private def generate(function: LinkedFunction, breed: Breed): FunctionGen = {
         FunctionGen(function.name, Type.toString(function.getType()), generate(function.symTree)(function, breed))
     }
-    private def generateVariables(variables: Iterable[Variable]): List[InstructionGen] = {
-        variables.map(generate(_)).toList
+    private def generateVariables(variables: Iterable[Variable]): List[Instruction] = {
+        val exported = variables.filter(_.exported)
+        exported.map(generate(_)).toList ::: exported.map(generateGetterSetter(_)).toList.flatten
     }
-    private def generate(variable: Variable): InstructionGen = {
+    private def generate(variable: Variable): Instruction = {
         val typ = variable.getType()
-        InstructionGen(f"var ${variable.name} : ${Type.toString(typ)} = ${Type.defaultValue(typ)}")
+        InstructionGen(f"var ${Renamer.toValidName(variable.name)} : ${Type.toString(typ)} = ${Type.defaultValue(typ)}")
     }
+    private def generateGetterSetter(variable: Variable): List[Instruction] = {
+        val typ = Type.toString(variable.getType())
+        val name = Renamer.toValidName(variable.name)
+        List(
+        InstructionGen(f"def get_${name}(): ${typ} = ${name}"),
+        InstructionCompose(f"def set_${name}(__value__ : ${typ}): Unit = ", 
+            InstructionBlock(List(
+                InstructionGen(f"${name} = __value__"))
+            ))
+        )
+    }
+    
     private def generate(instr: SymTree)(implicit function: Function, breed: Breed): Instruction = {
         instr match{
             case Block(body) => {
@@ -84,7 +168,7 @@ object CodeGen{
     }
     private def generateExpr(expr: Expression): String = {
         expr match{
-            case VariableValue(v) => v.name
+            case VariableValue(v) => Renamer.toValidName(v.name)
             case BooleanValue(v) => v.toString()
             case IntValue(v) => v.toString()
             case FloatValue(v) => v.toString()
@@ -114,9 +198,16 @@ object CodeGen{
         }
     }
 
-    private def generateMainFunction(): FunctionGen = {
+    private def generateMainFunction(breed: Breed, context: Context): FunctionGen = {
+        val init = if (breed == context.getObserverBreed()){
+            InstructionGen("setup()")
+        }
+        else{
+            InstructionGen("")
+        }
         FunctionGen("main", "Unit", 
             InstructionBlock(List(
+                init,
                 InstructionCompose(f"while(true)", 
                 InstructionBlock(List(
                     InstructionGen("handleMessages()"),

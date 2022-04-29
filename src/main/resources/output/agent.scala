@@ -1,7 +1,12 @@
-@lift
-class agent{
+@Lift
+class Agent{
 	var go_m : Int = 0
+	def get_go_m(): Int = go_m
+	def set_go_m(__value__ : Int): Unit = {
+		go_m = __value__
+	}
 	def main():Unit = {
+		
 		while(true){
 			handleMessages()
 			waitLabel(Turn, 1)

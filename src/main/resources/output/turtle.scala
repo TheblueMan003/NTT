@@ -1,12 +1,22 @@
-@lift
-class turtle{
-	var color : Int = 0
-	var ycor : Float = 0
-	var xcor : Float = 0
+@Lift
+class Turtle{
 	var arg_m : Float = 0
 	var argtest_m : Float = 0
 	var speed : Int = 0
+	def get_arg_m(): Float = arg_m
+	def set_arg_m(__value__ : Float): Unit = {
+		arg_m = __value__
+	}
+	def get_argtest_m(): Float = argtest_m
+	def set_argtest_m(__value__ : Float): Unit = {
+		argtest_m = __value__
+	}
+	def get_speed(): Int = speed
+	def set_speed(__value__ : Int): Unit = {
+		speed = __value__
+	}
 	def main():Unit = {
+		
 		while(true){
 			handleMessages()
 			waitLabel(Turn, 1)
