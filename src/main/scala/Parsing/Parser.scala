@@ -144,7 +144,7 @@ object Parser{
                 parseCall(iden, false)
             }
             else{
-                throw new Exception(f"Unknown function: ${iden} at ${}")
+                throw new Exception(f"Unknown function: ${iden} at ${token.positionString()}")
             }
         }
         else if (text.isKeyword("if")){ //if <expr> [block]
