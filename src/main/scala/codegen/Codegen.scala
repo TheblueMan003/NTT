@@ -89,7 +89,7 @@ object CodeGen{
     }
     private def generateObserverSets(context: Context): List[Instruction] = {
         context.getBreeds().map(b =>
-            InstructionGen(f"val ${b.pluralName} = Mutable.Set[${Renamer.toClassName(b.singularName)}]()")
+            InstructionGen(f"val ${Renamer.toValidName(b.pluralName)} = Mutable.Set[${Renamer.toClassName(b.singularName)}]()")
         ).toList
     }
 
@@ -104,7 +104,7 @@ object CodeGen{
         }.filter(_ != null).toList
     }
     private def generate(function: LinkedFunction, breed: Breed): FunctionGen = {
-        FunctionGen(function.name, Type.toString(function.getType()), generate(function.symTree)(function, breed))
+        FunctionGen(function.name, function._args, Type.toString(function.getType()), generate(function.symTree)(function, breed))
     }
     private def generateVariables(variables: Iterable[Variable]): List[Instruction] = {
         val exported = variables.filter(_.exported)
@@ -164,6 +164,16 @@ object CodeGen{
                 }
                 InstructionGen("waitLabel(Turn, 1)")
             }
+            case Ask(upperCaller, turtles, block) => {
+                val set = generateExpr(turtles)
+                val fct = block.name
+                InstructionList(List(
+                    InstructionGen(f"val tmp = $set.map(s => asyncMessage(() => s.$fct(this)))"),
+                    InstructionCompose("while(tmp.any(!_.isCompleted))", InstructionBlock(List(
+                        InstructionGen("waitAndReply(1)"))
+                    ))
+                ))
+            }
         }
     }
     private def generateExpr(expr: Expression): String = {
@@ -173,7 +183,7 @@ object CodeGen{
             case IntValue(v) => v.toString()
             case FloatValue(v) => v.toString()
             case StringValue(v) => "\"" + v.toString() + "\""
-            case BreedValue(breed) => ???
+            case BreedValue(breed) => Renamer.toValidName(breed.pluralName)
             case ListValue(lst) => ???
 
             case IfElseBlockExpression(conds, block) => {
@@ -205,7 +215,7 @@ object CodeGen{
         else{
             InstructionGen("")
         }
-        FunctionGen("main", "Unit", 
+        FunctionGen("main", List(), "Unit", 
             InstructionBlock(List(
                 init,
                 InstructionCompose(f"while(true)", 

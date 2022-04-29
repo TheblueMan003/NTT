@@ -22,9 +22,12 @@ class Turtle{
 			waitLabel(Turn, 1)
 		}
 	}
-	def lambda_0():Unit = {
+	def lambda_1():Unit = {
 		speed = 0
 		xcor = 0
+	}
+	def lambda_0(__myself_0 : null):Unit = {
+		forward(1)
 	}
 	def arg():Unit = {
 		arg_m = 5.0
@@ -35,7 +38,7 @@ class Turtle{
 		argtest(5)
 		show("test")
 	}
-	def argtest():Unit = {
+	def argtest(value : Float):Unit = {
 		argtest_m = 5
 		argtest_m = 0.0
 

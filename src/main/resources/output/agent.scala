@@ -14,5 +14,10 @@ class Agent{
 	}
 	def go():Unit = {
 		go_m = 1
+
+		val tmp = turtles.map(s => asyncMessage(() => s.lambda_0(this)))
+		while(tmp.any(!_.isCompleted)){
+			waitAndReply(1)
+		}
 	}
 }

@@ -25,9 +25,10 @@ case class ClassFile(val imports: List[String], val anotation: String, val prefi
         pw.close
     }
 }
-case class FunctionGen(val name: String, val returnType: String, val content: Instruction) extends Generator{
+case class FunctionGen(val name: String, val args: List[Variable], val returnType: String, val content: Instruction) extends Generator{
     def generate(indentation: Int): String = {
-        InstructionCompose(f"def ${name}():$returnType = ", content).generate(indentation)
+        val argsStr = if (args.size > 0){args.map(v => Renamer.toValidName(v.name)+f" : ${v.getType()}").reduce(_ + ", " + _)}else {""}
+        InstructionCompose(f"def $name($argsStr):$returnType = ", content).generate(indentation)
     }
 }
 trait Instruction extends Generator

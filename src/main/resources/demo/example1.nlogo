@@ -56,8 +56,7 @@ end
 
 to go
     let m 1
-    ;;aask turtles [
-    ;;a    forward m
-    ;;a    set m m + 1
-    ;;a]
+    ask turtles [
+        forward 1
+    ]
 end

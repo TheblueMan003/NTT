@@ -158,6 +158,10 @@ abstract class Type(_parent: Type){
             false
         }
     }
+
+    override def toString(): String = {
+        Type.toString(this)
+    }
 }
 
 object Types{
