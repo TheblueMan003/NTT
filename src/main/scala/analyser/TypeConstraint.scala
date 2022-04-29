@@ -4,7 +4,7 @@ import ast.Breed
 import utils.Context
 
 trait Typed{
-    private var typ: Type = null
+    private var typ: Type = Types.NoType
     var typeFixed: Boolean = false
 
     def setType(typ: Type, fixed: Boolean = false) = {
@@ -29,10 +29,10 @@ trait Typed{
      * @return true if type set changed
      */
     def putIn(ntyp: Type):Boolean={
-        if (ntyp == null){
+        if (ntyp == Types.NoType){
             false
         }
-        else if (typ == null){
+        else if (typ == Types.NoType){
             changeTypeFor(ntyp)
         }
         else if (typ.isParentOf(ntyp)){
@@ -59,7 +59,7 @@ trait Typed{
      * Return if the object can be specialized for the type
      */ 
     def canPutIn(ntyp: Type): Boolean = {
-        if (typ == null){
+        if (typ == Types.NoType){
             true
         }
         else if (typ.isParentOf(ntyp)){
@@ -89,6 +89,8 @@ object Type{
             case Types.ListType(inner) => f"List[${toString(inner)}]"
             case Types.StringType => "String"
             case Types.UnitType => "Unit"
+            case Types.AnyType => "Any"
+            case Types.NoType => "Any"
             case null => "Int"
         }
     }
@@ -99,6 +101,7 @@ object Type{
             case Types.IntType => "0"
             case Types.ListType(inner) => f"Nil"
             case Types.StringType => "null"
+            case Types.NoType => "0"
             case null => "0"
         }
     }
@@ -130,13 +133,13 @@ abstract class Type(_parent: Type){
     val parent = _parent
 
     def hasAsParent(other: Type): Boolean = {
-        if (other == null){
+        if (other == Types.NoType){
             true
         }
         else if (other == this){
             true
         }
-        else if (parent != null){
+        else if (parent != Types.NoType){
             parent.hasAsParent(other)
         }
         else{
@@ -145,13 +148,13 @@ abstract class Type(_parent: Type){
     }
 
     def isParentOf(other: Type): Boolean = {
-        if (other == null){
+        if (other == Types.NoType){
             true
         }
         else if (other == this){
             true
         }
-        else if (other.parent != null){
+        else if (other.parent != Types.NoType){
             isParentOf(other.parent)
         }
         else{
@@ -166,13 +169,15 @@ abstract class Type(_parent: Type){
 
 object Types{
     case object IntType extends Type(FloatType)
-    case object FloatType extends Type(UnitType)
-    case object BoolType extends Type(UnitType)
-    case object StringType extends Type(UnitType)
-    case class BreedType(breed: Breed) extends Type(UnitType)
-    case class BreedSetType(breed: Breed) extends Type(UnitType)
-    case class ListType(inner: Type) extends Type(UnitType)
-    case object UnitType extends Type(null)
+    case object FloatType extends Type(AnyType)
+    case object BoolType extends Type(AnyType)
+    case object StringType extends Type(AnyType)
+    case class BreedType(breed: Breed) extends Type(AnyType)
+    case class BreedSetType(breed: Breed) extends Type(AnyType)
+    case class ListType(inner: Type) extends Type(AnyType)
+    case object AnyType extends Type(UnitType)
+    case object NoType extends Type(null)
+    case object UnitType extends Type(NoType)
 }
 
 trait TypeConstrainer{

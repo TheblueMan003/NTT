@@ -6,14 +6,14 @@ class observer{
 	val patches = Mutable.Set[Patch]()
 	val linkes = Mutable.Set[Link]()
 	val observers = Mutable.Set[Observer]()
-	var test : Int = 0
-	var index : Int = 0
-	def get_test(): Int = test
-	def set_test(__value__ : Int): Unit = {
+	var test : Any = 0
+	var index : Any = 0
+	def get_test(): Any = test
+	def set_test(__value__ : Any): Unit = {
 		test = __value__
 	}
-	def get_index(): Int = index
-	def set_index(__value__ : Int): Unit = {
+	def get_index(): Any = index
+	def set_index(__value__ : Any): Unit = {
 		index = __value__
 	}
 	def main():Unit = {

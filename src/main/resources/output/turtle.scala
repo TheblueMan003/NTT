@@ -26,7 +26,7 @@ class Turtle{
 		speed = 0
 		xcor = 0
 	}
-	def lambda_0(__myself_0 : null):Unit = {
+	def lambda_0(__myself_0 : Any):Unit = {
 		forward(1)
 	}
 	def arg():Unit = {
