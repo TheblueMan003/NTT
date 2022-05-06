@@ -26,6 +26,7 @@ object SymTree{
     case class Declaration(vari: VariableLike, value: Expression) extends SymTree
     case class BinarayExpr(op: String, lh: Expression, rh: Expression) extends Expression
     case class Block(body: List[SymTree]) extends SymTree
+    case class Report(expr: Expression) extends SymTree
 
     case class IfBlock(cond: Expression, block: SymTree) extends SymTree
     case class IfElseBlock(blocks: List[(Expression, SymTree)], elseBlock: SymTree) extends SymTree

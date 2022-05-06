@@ -9,7 +9,8 @@ import codegen.CodeGen
 object Main extends App {
   Reporter.debugEnabled = true
 
-  val text = Source.fromResource("demo/example1.nlogo").getLines.reduce((x,y) => x + "\n" +y)
+  val text = Source.fromResource("base_breeds/logo/std.nlogo").getLines.reduce((x,y) => x + "\n" +y) + "\n"+
+             Source.fromResource("demo/example1.nlogo").getLines.reduce((x,y) => x + "\n" +y) + "\n"
   val buffer = new StringBufferedIterator(text, "example")
   val tokens = Lexer.tokenize(buffer)
   Reporter.debug(tokens.list.toString())

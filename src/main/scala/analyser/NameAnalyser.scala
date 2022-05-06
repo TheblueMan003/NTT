@@ -47,6 +47,9 @@ object NameAnalyser{
                 localVar.pop()
                 ret
             }
+            case AST.Report(expr) => {
+                SymTree.Report(toSymTreeExpr(expr))
+            }
             case AST.IfBlock(cond, block) => SymTree.IfBlock(toSymTreeExpr(cond), toSymTree(block))
             case AST.IfElseBlock(blocks, elseBlocks) => 
                 SymTree.IfElseBlock(

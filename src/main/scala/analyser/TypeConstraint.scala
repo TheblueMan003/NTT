@@ -84,7 +84,7 @@ object Type{
     def toString(typ: Type):String = {
         typ match {
             case Types.BoolType => "Boolean"
-            case Types.FloatType => "Float"
+            case Types.FloatType => "Double"
             case Types.IntType => "Int"
             case Types.ListType(inner) => f"List[${toString(inner)}]"
             case Types.StringType => "String"

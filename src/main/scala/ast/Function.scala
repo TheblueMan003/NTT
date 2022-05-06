@@ -51,8 +51,16 @@ case class LinkedFunction(_name: String, _args: List[Variable], body: AST, breed
 /**
  * Language predefined Function
  */ 
-case class BaseFunction(_name: String, _args: List[Variable], _breed: Breed, returnType: Type) extends Function(_name, _args.map(_.name), returnType != UnitType){
+case class BaseFunction(_name: String, _args: List[Variable], _breed: Breed, returnType: Type, scalaCall: String) extends Function(_name, _args.map(_.name), returnType != UnitType){
     initConstraints(Set(_breed))
 
+    returnVariable.setType(returnType,true)
+
     def getArguments() = _args
+
+    def call(arg: List[String]): String = {
+        var text = scalaCall
+        _args.zip(arg).map{case (a, v) => {text = text.replace("$"+a.name, v)}}
+        text
+    }
 }

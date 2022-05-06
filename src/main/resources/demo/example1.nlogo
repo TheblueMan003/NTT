@@ -3,15 +3,9 @@ globals [
     index
 ]
 
-breed [ wolves wolf ]
-
 turtles-own [
     speed
     color
-]
-wolves-own [
-    test2
-    test5-test?
 ]
 
 to go
@@ -44,19 +38,26 @@ to arg
     fw 1
     argtest 5.0
     argtest 5
-    show "test"
 end
 
 to setup
     create-turtles 10 [
         set speed 0
-        set xcor 0
+        set xcord 0
     ]
 end
 
 to go
     let m 1
+    show("start of tick")
     ask turtles [
-        forward 1
+        forward 1.0
+        show("walk")
     ]
+    show("middle of tick")
+    ask turtles [
+        left 90.0
+        show("turn")
+    ]
+    show("end of tick")
 end

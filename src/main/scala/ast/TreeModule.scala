@@ -25,6 +25,7 @@ object AST{
     case class Declaration(name: VariableValue, value: Expression) extends AST
     case class BinarayExpr(op: String, lh: Expression, rh: Expression) extends Expression
     case class Block(body: List[AST]) extends AST
+    case class Report(expr: Expression) extends AST
 
     case class IfBlock(cond: Expression, block: AST) extends AST
     case class IfElseBlock(blocks: List[(Expression, AST)], elseBlock: AST) extends AST

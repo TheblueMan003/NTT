@@ -4,7 +4,7 @@ import SymTree._
 import Types._
 import TypeConstrainer._
 import utils.Context
-import ast.{Variable, LinkedFunction}
+import ast.{Variable, LinkedFunction, Function}
 
 object TypeChecker{
     def analyse(context: Context) = {
@@ -15,12 +15,12 @@ object TypeChecker{
     def genConstraints(context: Context): List[TypeConstraint] = {
         context.getBreeds().flatMap(_.getAllFunctions().flatMap(
             _ match{
-                case lf: LinkedFunction => genConstraints(lf.symTree)(context)
+                case lf: LinkedFunction => genConstraints(lf.symTree)(context, lf)
                 case _ => Nil
             }
         )).toList
     }
-    def genConstraints(tree: SymTree)(implicit context: Context): List[TypeConstraint] = {
+    def genConstraints(tree: SymTree)(implicit context: Context, function: Function): List[TypeConstraint] = {
         tree match{
             case Call(fct, args) => {
                 fct.getArguments().zip(args).flatMap{case (v, e) =>
@@ -31,6 +31,7 @@ object TypeChecker{
             case Assignment(vari, value) => genConstraintsExpr(value)(context, getVariableConstraint(vari))
             case Declaration(vari, value) => genConstraintsExpr(value)(context, getVariableConstraint(vari))
             case Block(block) => block.map(genConstraints(_)).foldLeft(List[TypeConstraint]())(_ ::: _)
+            case Report(expr) => genConstraintsExpr(expr)(context, TypeOwn(function.returnVariable))
 
             case IfBlock(cond, block) => {
                 genConstraintsExpr(cond)(context,DirectType(BoolType)) ::: genConstraints(block)

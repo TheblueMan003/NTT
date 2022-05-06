@@ -1,11 +1,10 @@
 
 object Simulation extends App{
 	val mainClass = MainInit.liftedMain
-	val turtle : ClassWithObject[Turtle] = Reader.reflect(IR)
-	val patch : ClassWithObject[Patch] = Reader.reflect(IR)
-	val observer : ClassWithObject[Observer] = Reader.reflect(IR)
-	val agent : ClassWithObject[Agent] = Reader.reflect(IR)
-	val link : ClassWithObject[Link] = Reader.reflect(IR)
-	val wolf : ClassWithObject[Wolf] = Reader.reflect(IR)
-	compileSims(List(Patch, Agent, Turtle, Link, Observer, Wolf), Some(mainClass))
+	val observer : ClassWithObject[Observer] = Observer.reflect(IR)
+	val agent : ClassWithObject[Agent] = Agent.reflect(IR)
+	val turtle : ClassWithObject[Turtle] = Turtle.reflect(IR)
+	val link : ClassWithObject[Link] = Link.reflect(IR)
+	val patch : ClassWithObject[Patch] = Patch.reflect(IR)
+	compileSims(List(turtle, observer, agent, link, patch), Some(mainClass))
 }

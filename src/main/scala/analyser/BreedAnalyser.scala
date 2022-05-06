@@ -105,6 +105,9 @@ object BreedAnalyser{
             case Assignment(vari, expr) => {
                 generateConstraints(vari) ::: generateConstraints(expr)
             }
+            case Report(expr) => {
+                generateConstraints(expr)
+            }
             
             case BinarayExpr(op, lf, rt) => {
                 generateConstraints(lf) ::: generateConstraints(rt)

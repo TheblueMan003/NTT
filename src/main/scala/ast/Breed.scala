@@ -3,12 +3,15 @@ package ast
 import scala.collection.mutable.Map
 import analyser.SymTree
 import ast.LinkedFunction
+import codegen.Renamer
 
 class Breed(val parent: Breed, val singularName: String, val pluralName: String) extends VariableOwner{
 
     val ownedFuns: Map[String, Function] = Map[String, Function]()
 
     private var lambdaCounter = -1
+
+    def className = Renamer.toClassName(singularName)
 
     override def addVariable(name: String) = {
         val vari = new Variable(name)

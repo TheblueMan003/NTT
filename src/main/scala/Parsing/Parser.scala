@@ -147,6 +147,12 @@ object Parser{
                 throw new Exception(f"Unknown function: ${iden} at ${token.positionString()}")
             }
         }
+        else if (text.isKeyword("report")){ //if <expr> [block]
+            text.take()
+            val expr = parseExpression()
+
+            AST.Report(expr)
+        }
         else if (text.isKeyword("if")){ //if <expr> [block]
             text.take()
             val cond = parseExpression()
