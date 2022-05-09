@@ -13,6 +13,6 @@ trait VariableOwner{
     def getAllVariables(): Iterable[Variable] = ownedVars.values
 }
 
-case class Variable(_name: String, val exported: Boolean = true) extends BreedOwned with Typed{
+class Variable(_name: String, val exported: Boolean = true) extends BreedOwned with Typed{
     val name = _name
 }

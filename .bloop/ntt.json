@@ -2,14 +2,14 @@
     "version": "1.4.0",
     "project": {
         "name": "ntt",
-        "directory": "D:\\git\\NTT",
-        "workspaceDir": "D:\\git\\NTT",
+        "directory": "C:\\Users\\chris\\NTT",
+        "workspaceDir": "C:\\Users\\chris\\NTT",
         "sources": [
-            "D:\\git\\NTT\\src\\main\\scala",
-            "D:\\git\\NTT\\src\\main\\scala-2.13",
-            "D:\\git\\NTT\\src\\main\\scala-2",
-            "D:\\git\\NTT\\src\\main\\java",
-            "D:\\git\\NTT\\target\\scala-2.13\\src_managed\\main"
+            "C:\\Users\\chris\\NTT\\src\\main\\scala",
+            "C:\\Users\\chris\\NTT\\src\\main\\scala-2.13",
+            "C:\\Users\\chris\\NTT\\src\\main\\scala-2",
+            "C:\\Users\\chris\\NTT\\src\\main\\java",
+            "C:\\Users\\chris\\NTT\\target\\scala-2.13\\src_managed\\main"
         ],
         "dependencies": [
             
@@ -18,11 +18,11 @@
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3.jar",
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-parser-combinators_2.13\\1.1.2\\scala-parser-combinators_2.13-1.1.2.jar"
         ],
-        "out": "D:\\git\\NTT\\.bloop\\ntt",
-        "classesDir": "D:\\git\\NTT\\.bloop\\ntt\\scala-2.13\\classes",
+        "out": "C:\\Users\\chris\\NTT\\.bloop\\ntt",
+        "classesDir": "C:\\Users\\chris\\NTT\\.bloop\\ntt\\scala-2.13\\classes",
         "resources": [
-            "D:\\git\\NTT\\src\\main\\resources",
-            "D:\\git\\NTT\\target\\scala-2.13\\resource_managed\\main"
+            "C:\\Users\\chris\\NTT\\src\\main\\resources",
+            "C:\\Users\\chris\\NTT\\target\\scala-2.13\\resource_managed\\main"
         ],
         "scala": {
             "organization": "org.scala-lang",
@@ -99,9 +99,9 @@
         "platform": {
             "name": "jvm",
             "config": {
-                "home": "C:\\Program Files\\Java\\jre1.8.0_321",
+                "home": "C:\\Program Files (x86)\\Java\\jdk1.8.0_331\\jre",
                 "options": [
-                    "-Duser.dir=D:\\git\\NTT"
+                    "-Duser.dir=C:\\Users\\chris\\NTT"
                 ]
             },
             "mainClass": [

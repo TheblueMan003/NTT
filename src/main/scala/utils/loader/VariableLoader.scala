@@ -26,7 +26,7 @@ object VariableLoader{
         if (fields.size > 1){
             val name = fields(0)
             val ret = Type.fromString(fields(1))
-            val vari = Variable(name, false)
+            val vari = new Variable(name, false)
             vari.setType(ret, true)
             breed.addVariable(vari)
             (name, vari)

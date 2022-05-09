@@ -48,7 +48,7 @@ class Turtle extends Actor{
 			waitLabel(Turn, 1)
 		}
 	}
-	def forward(value : Any):Unit = {
+	def forward(value : Double):Unit = {
 		forward_m = (value * Math.cos(angle))
 		xcord = (xcord + forward_m)
 		forward_m = (value * Math.sin(angle))
@@ -61,7 +61,7 @@ class Turtle extends Actor{
 	def right(value : Int):Unit = {
 		angle = (angle - value)
 	}
-	def argtest(value : Any):Unit = {
+	def argtest(value : Double):Unit = {
 		argtest_m = 5
 		argtest_m = 0.0
 
@@ -81,7 +81,7 @@ class Turtle extends Actor{
 		xcord = 0.0
 		ycord = 0.0
 	}
-	def fw(value : Any):Unit = {
+	def fw(value : Int):Unit = {
 		forward(value)
 	}
 	def lambda_2():Unit = {
