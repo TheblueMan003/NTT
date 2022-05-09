@@ -29,13 +29,4 @@ class BreedTest extends AnyFunSuite {
 
         assert(context.getBreedSingular("wolf").hasFunction("fct") === true)
     }
-    test("Function call for other force function breed") {
-        val text =  Source.fromURL(getClass.getResource("/Analyser/Breeds/recTest.nlogo")).getLines.reduce((x,y) => x + "\n" +y) + "\n"
-        val buffer = new StringBufferedIterator(text, "example")
-        val tokens = Lexer.tokenize(buffer)
-        val context = Parser.parse(tokens.toIterator())
-        BreedAnalyser.analyse(context)
-
-        assert(context.getBreedSingular("wolf").hasFunction("fct") === true)
-    }
 }
