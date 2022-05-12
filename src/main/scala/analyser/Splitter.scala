@@ -97,7 +97,7 @@ object Splitter{
                 AST.CreateBreed(AST.BreedValue(b.name), toSplittedExpr(nb), lambda)
             }
 
-            case AST.Tick => AST.Tick
+            case _ => tree
         }
     }
 
@@ -113,21 +113,20 @@ object Splitter{
                     toSplittedExpr(elseBlocks)
                 )
 
-            case AST.BooleanValue(v) => AST.BooleanValue(v)
-            case AST.IntValue(v) => AST.IntValue(v)
-            case AST.FloatValue(v) => AST.FloatValue(v)
-            case AST.StringValue(v) => AST.StringValue(v)
-            case AST.ListValue(v) => AST.ListValue(v.map(toSplittedExpr(_)))
-            case AST.VariableValue(v) => AST.VariableValue(v)
-            case AST.BreedValue(v) => AST.BreedValue(v)
-            case AST.OfValue(v, b) => (AST.Declaration(), tree)
-            case AST.WithValue(e, v) => (AST.Empty, tree)
+            case AST.ListValue(v) => ???
+            case AST.OfValue(v, b) => {
+                val name = getVariableName()
+                val vari = AST.VariableValue(name)
+                (AST.Declaration(vari, tree), vari),
+            }
+            case AST.WithValue(e, v) => ???
+            case _ => (AST.Empty, tree)
         }
     }
 
     private def getVariableName()={
         val id = counter
         counter += 1
-        
+        return "DEFAULT_POLLING_$i"
     }
 }
