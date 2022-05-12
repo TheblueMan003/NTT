@@ -17,7 +17,7 @@ object SymTree{
     case class VariableValue(vari: Variable) extends VariableLike
     case class BreedValue(name: Breed) extends Expression
     case class ListValue(lst: List[Expression]) extends Expression
-    case class OfValue(expr: Expression, from: VariableValue) extends VariableLike
+    case class OfValue(expr: VariableValue, from: Expression) extends VariableLike
     case class WithValue(value: Expression, predicate: Expression) extends Expression
 
     case class Call(fct: Function, arg: List[Expression]) extends Expression

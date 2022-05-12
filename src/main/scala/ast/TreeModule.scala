@@ -5,7 +5,6 @@ import parsing.Token
 import scala.collection.mutable.{Map, Set}
 
 trait AST extends Positionable
-
 object AST{
     trait Expression extends AST
 

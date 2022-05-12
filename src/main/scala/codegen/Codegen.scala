@@ -14,48 +14,70 @@ object CodeGen{
     var varCounter = 0
 
     def generate(context: Context): List[ClassFile] = {
-        varCounter = 0
-        generateMainClass(context) ::
-            List(generateMainInit(context)):::
-            context.getBreeds().map(generate(_, context)).toList
+        generateAllClass()(context)
     }
-    private def generate(breed: Breed, context: Context): ClassFile = {
+    def generateAllClass()(implicit context: Context) = {
+        generateMainClass() ::
+            List(generateMainInit()):::
+            context.getBreeds().map(generateBreed(_)).toList
+    }
+
+    /**
+     * Generate Breed Class.
+     *
+     * @param	breed	
+     * @return	ClassFile
+     */
+    private def generateBreed(breed: Breed)(implicit context: Context): ClassFile = {
+        ClassFile(
+            List(),
+            "@lift",
+            "class",
+            breed.className,
+            getParents
+            (breed),
+            generateBreedFields(breed), 
+            generateBreedFunctions(breed)
+        )
+    }
+
+    /**
+     * Generate Field for breed Class.
+     *
+     * @param	breed	
+     * @return	List[Instruction] 
+     */
+    private def generateBreedFields(breed: Breed)(implicit context: Context):List[Instruction] = {
         if (breed == context.getObserverBreed()){
-            ClassFile(
-                List(),
-                "@lift",
-                "class",
-                breed.className,
-                List("Actor"),
-                generateObserverSets(context):::
-                    generateVariables(breed.getAllVariables()), 
-                generateFunctions(breed.getAllFunctions(), breed, context)
-            )
-        }
-        else{
-            ClassFile(
-                List(),
-                "@lift",
-                "class",
-                breed.className,
-                List("Actor"),
-                generateVariables(breed.getAllVariables()), 
-                generateFunctions(breed.getAllFunctions(), breed, context)
-            )
+            generateObserverSets():::generateVariables(breed.getAllVariables())
+        } else {
+            generateVariables(breed.getAllVariables())
         }
     }
-    private def generateMainInit(context: Context): ClassFile = {
+
+    /**
+     * Generate MainInit Class.
+     *
+     * @return	ClassFile
+     */
+    private def generateMainInit()(implicit context: Context): ClassFile = {
         ClassFile(
             List(),
             "",
             "object",
             "MainInit",
             List(""),
-            generateMainInitContent(context), 
+            generateMainInitContent(), 
             List(),
         )
     }
-    private def generateMainInitContent(context: Context):List[Instruction] = {
+
+    /**
+     * Generate MainInit Class Content.
+     *
+     * @return	Instruction
+     */
+    private def generateMainInitContent()(implicit context: Context):List[Instruction] = {
         val observer = context.getObserverBreed().className
         List(
         InstructionCompose("val liftedMain = meta.classLifting.liteLift",
@@ -66,87 +88,156 @@ object CodeGen{
         ))))
     }
 
-    private def generateMainClass(context: Context): ClassFile = {
+    /**
+     * Generate Main Class.
+     *
+     * @return	ClassFile
+     */
+    private def generateMainClass()(implicit context: Context): ClassFile = {
         ClassFile(
             List(),
             "",
             "object",
             "Simulation",
             List("App"),
-            generateMainClassContent(context: Context), 
+            generateMainClassContent(), 
             List(),
         )
     }
-    private def generateMainClassContent(context: Context):List[Instruction] = {
+
+    /**
+     * Generate Main Class Content.
+     *
+     * @return	List[Instruction]
+     */
+    private def generateMainClassContent()(implicit context: Context):List[Instruction] = {
         InstructionGen("val mainClass = MainInit.liftedMain")::
             context.getBreeds().map(generateClassWithObject(_)).toList :::
-            List(generateMainClassStart(context))
+            List(generateMainClassStart())
     }
-    private def generateMainClassStart(context: Context):Instruction = {
+
+    /**
+     * Generate MainInit Class Content.
+     *
+     * @return	Instruction
+     */
+    private def generateMainClassStart()(implicit context: Context):Instruction = {
         val breeds = context.getBreeds()
         val lst = if (breeds.size > 0) {breeds.map(b => b.singularName).reduce(_ + ", "+_)} else {""}
         InstructionGen(f"compileSims(List($lst), Some(mainClass))")
     }
+
+    /**
+     * Generate Reflect for a breed.
+     *
+     * @param	breed	
+     * @return	Instruction
+     */
     private def generateClassWithObject(breed: Breed):Instruction = {
         InstructionGen(f"val ${breed.singularName} : ClassWithObject[${breed.className}] = ${breed.className}.reflect(IR)")
     }
-    private def generateObserverSets(context: Context): List[Instruction] = {
+
+    /**
+     * Generate Observer sets.
+     *
+     * @return	List[Instruction]
+     */
+    private def generateObserverSets()(implicit context: Context): List[Instruction] = {
         context.getBreeds().map(b =>
             InstructionGen(f"val ${Renamer.toValidName(b.pluralName)} = mutable.Set[${b.className}]()")
         ).toList
     }
 
 
-    private def generateFunctions(function: Iterable[Function], breed: Breed, context: Context): List[FunctionGen] = {
-        generateMainFunction(breed, context)::
-        function.filter(_.name != "go").map{
+    /**
+     * Generate Functions for a Breed.
+     *
+     * @param	breed	
+     * @return	List[FunctionGen]
+     */
+    private def generateBreedFunctions(breed: Breed)(implicit context: Context): List[FunctionGen] = {
+        generateMainFunction(breed)::
+        breed.getAllFunctions().filter(_.name != "go").map{
             _ match {
                 case lc: LinkedFunction => generate(lc, breed)
                 case _ => null
             }
         }.filter(_ != null).toList
     }
-    private def generate(function: LinkedFunction, breed: Breed): FunctionGen = {
+
+    /**
+     * Generate Function Content.
+     *
+     * @param	function
+     * @param   breed
+     * @return	FunctionGen
+     */
+    private def generate(function: LinkedFunction, breed: Breed)(implicit context: Context): FunctionGen = {
         FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), generate(function.symTree)(function, breed))
     }
-    private def generateVariables(variables: Iterable[Variable]): List[Instruction] = {
+
+    /**
+     * Generate Variables.
+     *
+     * @param	variables	
+     * @return	List[Instruction]
+     */
+    private def generateVariables(variables: Iterable[Variable])(implicit context: Context): List[Instruction] = {
         val exported = variables.filter(_.exported)
         exported.map(generate(_)).toList ::: exported.map(generateGetterSetter(_)).toList.flatten
     }
-    private def generate(variable: Variable): Instruction = {
+
+    /**
+     * Generate Variable.
+     *
+     * @param	variable
+     * @return	Instruction
+     */
+    private def generate(variable: Variable)(implicit context: Context): Instruction = {
         val typ = variable.getType()
         InstructionGen(f"var ${Renamer.toValidName(variable.name)} : ${Type.toString(typ)} = ${Type.defaultValue(typ)}")
     }
-    private def generateGetterSetter(variable: Variable): List[Instruction] = {
+
+    /**
+     * Generate Getter and Setter for variable.
+     *
+     * @param	variable: Variable for which to generate the setter
+     * @return	List[Instruction] containing setter and getter
+     */
+    private def generateGetterSetter(variable: Variable)(implicit context: Context): List[Instruction] = {
         val typ = Type.toString(variable.getType())
-        val name = Renamer.toValidName(variable.name)
         List(
-        InstructionGen(f"def get_${name}(): ${typ} = ${name}"),
-        InstructionCompose(f"def set_${name}(__value : ${typ}): Unit = ", 
+        InstructionGen(f"def ${variable.getGetterName()}(): ${typ} = ${variable.getName()}"),
+        InstructionCompose(f"def ${variable.getSetterName()}(__value : ${typ}): Unit = ", 
             InstructionBlock(List(
-                InstructionGen(f"${name} = __value"))
+                InstructionGen(f"${variable.getName()} = __value"))
             ))
         )
     }
     
+    /**
+     * Convert SymTree Instruction to Scala Instruction
+     *
+     * @param	mixed	inst: SymTree	
+     * @return	Instruction
+     */
     private def generate(instr: SymTree)(implicit function: Function, breed: Breed): Instruction = {
         instr match{
             case Block(body) => {
                 val content = body.map(generate(_))
                 InstructionBlock(content)
             }
-            case Declaration(VariableValue(v), value) => InstructionGen(f"${v.name} = ${generateExpr(value)}")
-            case Assignment(VariableValue(v), value) => InstructionGen(f"${v.name} = ${generateExpr(value)}")
+            case Declaration(VariableValue(v), value) => {
+                val expr = generateExpr(value)
+                InstructionList(List(expr._1, InstructionGen(f"${v.name} = ${expr._2}")))
+            }
+            case Assignment(VariableValue(v), value) => {
+                val expr = generateExpr(value)
+                InstructionList(List(expr._1, InstructionGen(f"${v.name} = ${expr._2}")))
+            }
             case Call(fct, args) => {
-                fct match{
-                    case fct: LinkedFunction => {
-                        val argsInstr = args.map(generateExpr(_)).reduce(_ + ", "+ _)
-                        InstructionGen(f"${fct.name}($argsInstr)")
-                    }
-                    case fct: BaseFunction =>{
-                        InstructionGen(fct.call(args.map(generateExpr(_))))
-                    }
-                }
+                val (prefix, content) = generateExpr(instr.asInstanceOf[SymTree.Expression])
+                InstructionList(List(prefix, InstructionGen(content)))
             }
             case CreateBreed(b, nb, fct) => {
                 InstructionList(List(
@@ -168,61 +259,135 @@ object CodeGen{
 
             case Loop(block) => InstructionCompose("while(true)", generate(block))
             case Repeat(number, block) => ???
-            case While(cond, block) => InstructionCompose(f"while(${generateExpr(cond)})", generate(block))
+            case While(cond, block) => {
+                val expr = generateExpr(cond)
+                InstructionList(List(
+                    expr._1,
+                    InstructionCompose(f"while(${expr._2})", generate(block))
+                ))
+            }
 
-            case Report(expr) => InstructionGen(f"return ${generateExpr(expr)}")
+            case Report(expr) => {
+                val expr2 = generateExpr(expr)
+                InstructionList(List(
+                    expr2._1,
+                    InstructionGen(f"${expr2._2}")
+                ))
+            }
 
             case Tick => {
                 if (function.name != "go"){
-                 Reporter.warning("Tick command not supported outside of go method")
+                    Reporter.warning("Tick command not supported outside of go method")
                 }
                 InstructionGen("waitLabel(Turn, 1)")
             }
             case Ask(upperCaller, turtles, block) => {
                 val set = generateExpr(turtles)
                 val fct = block.name
-                varCounter += 1
+                val vari = getUniqueVariableName()
                 InstructionList(List(
-                    InstructionGen(f"val tmp$varCounter = $set.toList.map(s => asyncMessage(() => s.$fct(this)))"),
-                    InstructionCompose(f"while(!tmp$varCounter.forall(_.isCompleted))", InstructionBlock(List(
+                    set._1,
+                    InstructionGen(f"val $vari = ${set._2}.toList.map(s => asyncMessage(() => s.$fct(this)))"),
+                    InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(List(
                         InstructionGen("waitAndReply(1)"))
                     ))
                 ))
             }
         }
     }
-    private def generateExpr(expr: Expression): String = {
-        expr match{
-            case VariableValue(v) => Renamer.toValidName(v.name)
-            case BooleanValue(v) => v.toString()
-            case IntValue(v) => v.toString()
-            case FloatValue(v) => v.toString()
-            case StringValue(v) => "\"" + v.toString() + "\""
-            case BreedValue(breed) => Renamer.toValidName(breed.pluralName)
-            case ListValue(lst) => ???
 
-            case IfElseBlockExpression(conds, block) => {
-                (conds.map(c => f"if (${generateExpr(c._1)})${generateExpr(c._2)}")
-                     ::: List(generateExpr(block)))
-                     .foldLeft("")((x,y) => f"${x} else ${y}")
+    /**
+     * Convert Sym.Tree Expression to Scala String Expression
+     *
+     * @param	exp: Expression
+     * @return	Scala expression as a string
+     */
+    private def generateExpr(expr: Expression): (Instruction, String) = {
+        expr match{
+            case VariableValue(v) => (EmptyInstruction, Renamer.toValidName(v.name))
+            case BooleanValue(v) => (EmptyInstruction, v.toString())
+            case IntValue(v) => (EmptyInstruction, v.toString())
+            case FloatValue(v) => (EmptyInstruction, v.toString())
+            case StringValue(v) => (EmptyInstruction, "\"" + v.toString() + "\"")
+            case BreedValue(breed) => (EmptyInstruction, Renamer.toValidName(breed.pluralName))
+            case ListValue(lst) => ???
+            case OfValue(expr, from) => {
+                val from2 = generateExpr(from)
+                val ret = generateOfValue(from2._2, expr.vari)
+                (
+                    InstructionList(List(from2._1, ret._1)),
+                    ret._2
+                )
             }
 
-            case BinarayExpr(op, lf, rt) => f"(${generateExpr(lf)} ${getOperator(op)} ${generateExpr(rt)})"
+            case IfElseBlockExpression(conds, block) => {
+                (
+                    EmptyInstruction,
+                    (conds.map(c => f"if (${generateExpr(c._1)})${generateExpr(c._2)}")
+                        ::: List(generateExpr(block)))
+                        .foldLeft("")((x,y) => f"${x} else ${y}")
+                )
+            }
+
+            case BinarayExpr(op, lf, rt) => {
+                val left = generateExpr(lf)
+                val right = generateExpr(rt)
+                (
+                    InstructionList(List(left._1, right._1)),
+                    f"(${left._2} ${getOperator(op)} ${right._2})"
+                )
+            }
 
             case Call(fct, args) => {
                 fct match{
                     case fct: LinkedFunction => {
-                        val argsInstr = args.map(generateExpr(_)).reduce(_ + ", "+ _)
-                        InstructionGen(f"${fct.name}($argsInstr)").generate(0)
+                        val argsPro = args.map(generateExpr(_))
+                        val argsCall = argsPro.map(_._2).reduce(_ + ", "+ _)
+                        val argsInstr = argsPro.map(_._1)
+                        (
+                            InstructionList(argsInstr),
+                            InstructionGen(f"${fct.name}($argsCall)").generate(0)
+                        )
                     }
                     case fct: BaseFunction =>{
-                        InstructionGen(fct.call(args.map(generateExpr(_)))).generate(0)
+                        val argsPro = args.map(generateExpr(_))
+                        val argsCall = argsPro.map(_._2)
+                        val argsInstr = argsPro.map(_._1)
+                        (
+                            InstructionList(argsInstr),
+                            InstructionGen(fct.call(argsCall)).generate(0)
+                        )
                     }
                 }
             }
         }
     }
 
+    private def generateOfValue(set: String, variable: Variable): (Instruction, String) = {
+        val vari = getUniqueVariableName()
+        val vari2 = getUniqueVariableName()
+        val typ = Type.toString(variable.getType())
+
+        (
+            InstructionList(List(
+                InstructionGen(f"val $vari = $set.toList.map(a => asyncMessage(() => a.${variable.getGetterName()}))"),
+                InstructionCompose(f"while (!($vari.nonEmpty && $vari.forall(x => x.isCompleted)))",
+                    InstructionBlock(List(
+                        InstructionGen("waitAndReply(1)"))
+                    )
+                ),
+                InstructionGen(f"val $vari2: List[$typ] = $vari.map(o => o.popValue.get).asInstanceOf[List[$typ]]")
+            )),
+            vari2
+        )
+    }
+
+    /**
+     * Convert NetLogo Operator to Scala Operator
+     *
+     * @param	op: String	
+     * @return	Scala operator
+     */
     private def getOperator(op: String): String = {
         op match {
             case "=" => "=="
@@ -230,7 +395,11 @@ object CodeGen{
         }
     }
 
-    private def generateMainFunction(breed: Breed, context: Context): FunctionGen = {
+    /**
+     * @param	breed	
+     * @return	FunctionGenerator for the main function of the breed
+     */
+    private def generateMainFunction(breed: Breed)(implicit context: Context): FunctionGen = {
         val init = if (breed == context.getObserverBreed()){
             InstructionGen("setup()")
         }
@@ -245,7 +414,7 @@ object CodeGen{
             InstructionGen("")
         }
 
-        FunctionGen("main", List(), "Unit", 
+        FunctionGen(getMainFunctionName(breed), List(), "Unit", 
             InstructionBlock(List(
                 init,
                 InstructionCompose(f"while(true)", 
@@ -257,5 +426,43 @@ object CodeGen{
                 )  
             ))
         )
+    }
+
+    /**
+     * @param	breed
+     * @return	List of parents for the breed class
+     */
+    private def getParents(breed: Breed)(implicit context: Context): List[String] = {
+        if (breed.parent == null){
+            List()
+        }
+        else if (breed.parent == context.getBreedSingular("agent")){
+            List("Actor")
+        }
+        else{
+            List(breed.parent.className)
+        }
+    }
+
+    /**
+     * @param	breed
+     * @return	Name of the main function for the breed class
+     */
+    private def getMainFunctionName(breed: Breed)(implicit context: Context): String = {
+        if (breed.parent == null){
+            "main"
+        }
+        else if (breed.parent == context.getBreedSingular("agent")){
+            "main"
+        }
+        else{
+            "override_main"
+        }
+    }
+
+    private def getUniqueVariableName():String={
+        val id = varCounter
+        varCounter += 1
+        f"tmp_$id"
     }
 }

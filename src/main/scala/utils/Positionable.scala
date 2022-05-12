@@ -12,6 +12,7 @@ trait Positionable{
     def setPosition(other: Positionable) = {
         this.index = other.index
         this.line = other.line
+        this.file = other.file
     }
     def positionString():String = {
         f"in file ${file} at line ${line} at index ${index}"

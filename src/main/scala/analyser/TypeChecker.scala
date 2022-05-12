@@ -52,6 +52,11 @@ object TypeChecker{
     }
     def genConstraintsExpr(expr: Expression)(implicit context: Context, found: TypeConstrainer): List[TypeConstraint] = {
         expr match{
+            case OfValue(expr, from) => {
+                val varT = new TypedVariable()
+                genConstraintsExpr(expr)(context, TypeOwn(varT)) ::: 
+                List(TypeConstraint(found, ListOf(varT)))
+            }
             case vl: VariableLike => List(TypeConstraint(found, getVariableConstraint(vl)))
             case BooleanValue(_) => List(TypeConstraint(found, DirectType(BoolType)))
             case IntValue(_) => List(TypeConstraint(found, DirectType(IntType)))
@@ -59,6 +64,7 @@ object TypeChecker{
             case StringValue(_) => List(TypeConstraint(found, DirectType(StringType)))
             case BreedValue(breed) => List(TypeConstraint(found, DirectType(BreedSetType(breed))))
             case WithValue(value, predicate) => genConstraintsExpr(predicate)(context, DirectType(BoolType))
+
             case ListValue(lst) => ???
 
             case IfElseBlockExpression(conds, block) => {
@@ -85,9 +91,10 @@ object TypeChecker{
     def getVariableConstraint(variLike: VariableLike) = {
         variLike match{
             case VariableValue(vari) => TypeOwn(vari)
-            case OfValue(_, VariableValue(vari)) => TypeOwn(vari)
+            case OfValue(VariableValue(vari), _) => TypeOwn(vari)
         }
     }
+    
     def getBinaryOperationReturn(op: String, varT: TypedVariable) = {
         op match{
             case "+" | "-" | "/" | "*" | "mod" | "and" | "or" | "xor" =>{
@@ -140,6 +147,28 @@ object TypeChecker{
                             case TypeOwn(owner) => {
                                 if (owner.canPutIn(ownerExp)){
                                     changed |= owner.putIn(ownerExp)
+                                }
+                                else{
+                                    throw TypeException(it.found, it.expected)
+                                }
+                            }
+                        }
+                    }
+                    // Expect Type Owner
+                    case ListOf(ownerExp) => {
+                        it.found match{
+                            case DirectType(found) => {
+                                found match{
+                                    case Types.ListType(inner) =>{
+                                        changed |= ownerExp.putIn(inner)
+                                        throw TypeException(it.found, it.expected)
+                                    }
+                                    case _ => throw TypeException(it.found, it.expected)
+                                }
+                            }
+                            case TypeOwn(owner) => {
+                                if (owner.canPutIn(Types.ListType(ownerExp.getType()))){
+                                    changed |= owner.putIn(Types.ListType(ownerExp.getType()))
                                 }
                                 else{
                                     throw TypeException(it.found, it.expected)

@@ -29,20 +29,27 @@ trait Typed{
      * @return true if type set changed
      */
     def putIn(ntyp: Type):Boolean={
-        if (ntyp == Types.NoType){
-            false
-        }
-        else if (typ == Types.NoType){
-            changeTypeFor(ntyp)
-        }
-        else if (typ.isParentOf(ntyp)){
-            false
-        }
-        else if (!typeFixed && ntyp.isParentOf(this.typ)){
-            changeTypeFor(ntyp)
-        }
-        else{
-            throw new IllegalStateException("Object Type Cannot be change.")
+        ntyp match{
+            case Types.ListType(inner) => {
+                changeTypeFor(ntyp)
+            }
+            case _ =>{
+                if (ntyp == Types.NoType){
+                    false
+                }
+                else if (typ == Types.NoType){
+                    changeTypeFor(ntyp)
+                }
+                else if (typ.isParentOf(ntyp)){
+                    false
+                }
+                else if (!typeFixed && ntyp.isParentOf(this.typ)){
+                    changeTypeFor(ntyp)
+                }
+                else{
+                    throw new IllegalStateException("Object Type Cannot be change.")
+                }
+            }
         }
     }
 
@@ -59,17 +66,24 @@ trait Typed{
      * Return if the object can be specialized for the type
      */ 
     def canPutIn(ntyp: Type): Boolean = {
-        if (typ == Types.NoType){
-            true
-        }
-        else if (typ.isParentOf(ntyp)){
-            true
-        }
-        else if (!typeFixed && ntyp.isParentOf(this.typ)){
-            true
-        }
-        else{
-            false
+        ntyp match{
+            case Types.ListType(inner) =>{
+                true
+            }
+            case _ =>{
+                if (typ == Types.NoType){
+                    true
+                }
+                else if (typ.isParentOf(ntyp)){
+                    true
+                }
+                else if (!typeFixed && ntyp.isParentOf(this.typ)){
+                    true
+                }
+                else{
+                    false
+                }
+            }
         }
     }
 
@@ -189,6 +203,9 @@ object TypeConstrainer{
     }
     case class TypeOwn(typed: Typed) extends TypeConstrainer{
         override def getType() = typed.getType()
+    }
+    case class ListOf(typed: Typed) extends TypeConstrainer{
+        override def getType() = Types.ListType(typed.getType())
     }
 }
 class TypedVariable() extends Typed

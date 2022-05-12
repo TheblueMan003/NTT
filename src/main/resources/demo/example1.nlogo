@@ -8,6 +8,8 @@ turtles-own [
     color
 ]
 
+breed [ wolves wolf ]
+
 to go
     let m2 5
     let m 2.0
@@ -38,6 +40,7 @@ to arg
     fw 1
     argtest 5.0
     argtest 5
+    set speed 0.5
 end
 
 to setup
@@ -60,4 +63,6 @@ to go
         show("turn")
     ]
     show("end of tick")
+
+    let c [ speed ] of turtles
 end

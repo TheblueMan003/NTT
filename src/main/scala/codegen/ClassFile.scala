@@ -37,6 +37,11 @@ case class InstructionGen(val value: String) extends Instruction{
         "\t"*indentation + value
     }
 }
+object EmptyInstruction extends Instruction{
+    def generate(indentation: Int): String = {
+        ""
+    }
+}
 case class InstructionCompose(val prefix: String, val postfix: Generator) extends Instruction{
     def generate(indentation: Int): String = {
         val sCont = postfix.generate(indentation)
@@ -45,13 +50,13 @@ case class InstructionCompose(val prefix: String, val postfix: Generator) extend
 }
 case class InstructionBlock(val content: List[Generator]) extends Instruction{
     def generate(indentation: Int): String = {
-        val sCont = content.map(_.generate(indentation + 1)).foldLeft("")(_ + "\n" + _)
+        val sCont = content.filter(_!=EmptyInstruction).map(_.generate(indentation + 1)).foldLeft("")(_ + "\n" + _)
         "{" + sCont + "\n" + "\t" * indentation + "}"
     }
 }
 case class InstructionList(val content: List[Generator]) extends Instruction{
     def generate(indentation: Int): String = {
-        val sCont = content.map(_.generate(indentation)).foldLeft("")(_ + "\n" + _)
+        val sCont = content.filter(_!=EmptyInstruction).map(_.generate(indentation)).foldLeft("")(_ + "\n" + _)
         sCont
     }
 }

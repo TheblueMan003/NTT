@@ -1,5 +1,5 @@
 @lift
-class Agent extends Actor{
+class Agent{
 	def main():Unit = {
 		
 		while(true){

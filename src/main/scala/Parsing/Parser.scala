@@ -295,7 +295,6 @@ object Parser{
             case StringLitToken(value) => AST.StringValue(value)
             case FloatLitToken(value)  => AST.FloatValue(value)
             case DelimiterToken("[") => { //[expr] of <identifier>
-                text.take()
                 val reporter = parseExpression()
                 text.requierToken(DelimiterToken("]"))
                 text.requierToken(KeywordToken("of"))
