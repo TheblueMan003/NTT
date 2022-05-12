@@ -31,6 +31,7 @@ object TypeChecker{
             case Assignment(vari, value) => genConstraintsExpr(value)(context, getVariableConstraint(vari))
             case Declaration(vari, value) => genConstraintsExpr(value)(context, getVariableConstraint(vari))
             case Block(block) => block.map(genConstraints(_)).foldLeft(List[TypeConstraint]())(_ ::: _)
+            case List(block) => block.map(genConstraints(_)).foldLeft(List[TypeConstraint]())(_ ::: _)
             case Report(expr) => genConstraintsExpr(expr)(context, TypeOwn(function.returnVariable))
 
             case IfBlock(cond, block) => {

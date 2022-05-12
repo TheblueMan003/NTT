@@ -47,6 +47,7 @@ object NameAnalyser{
                 localVar.pop()
                 ret
             }
+            case AST.List(block) => SymTree.List(block.map(toSymTree(_)))
             case AST.Report(expr) => {
                 SymTree.Report(toSymTreeExpr(expr))
             }
@@ -96,6 +97,7 @@ object NameAnalyser{
             }
 
             case AST.Tick => SymTree.Tick
+            case AST.Empty => SymTree.Empty
         }
     }
 
