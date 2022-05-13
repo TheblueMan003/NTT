@@ -76,6 +76,7 @@ class Breed(val parent: Breed, val singularName: String, val pluralName: String)
         lambdaCounter += 1
         val name = f"lambda_${lambdaCounter}"
         val func = LinkedFunction(name, parentCall, tree, this, false)
+        func.isAsked = true
         addFunction(func)
         func
     }

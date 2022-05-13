@@ -421,11 +421,24 @@ object CodeGen{
                 InstructionBlock(List(
                     go,
                     InstructionGen("handleMessages()"),
+                    generateMainFunctionSwitch(breed),
                     InstructionGen("waitLabel(Turn, 1)")
                 ))
                 )  
             ))
         )
+    }
+
+    private def generateMainFunctionSwitch(breed: Breed)(implicit context: Context): Instruction = {
+        InstructionCompose(f"DEFAULT_ASK match", InstructionBlock(
+            breed.getAllFunctions()
+                .filter(_.isAsked)
+                .map(_.asInstanceOf[LinkedFunction])
+                .map(f => generate(f.symTree)(f, breed))
+                .zipWithIndex
+                .map(f => InstructionCompose(f"case ${f._2} => ", f._1))
+                .toList
+        ))
     }
 
     /**

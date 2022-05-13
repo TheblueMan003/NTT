@@ -13,6 +13,7 @@ abstract class Function(_name: String, _argsNames: List[String], _hasReturnValue
     val hasReturnValue = _hasReturnValue
     val returnValue = AST.VariableValue("return") // Used to capture return type breed constraints
     val returnVariable = new Variable("return") // Used to capture return type constraints
+    var isAsked = false
 
     def getArguments():List[Variable]
 }

@@ -41,130 +41,89 @@ class Turtle extends Actor{
 		xcord = __value
 	}
 	def main():Unit = {
-		
 		while(true){
-			
 			handleMessages()
+			DEFAULT_ASK match{
+				case 0 => {
+					speed = 0
+					xcord = 0
+				}
+				case 1 => {
+					left(90.0)
+					println("turn")
+				}
+				case 2 => {
+					forward(1.0)
+					println("walk")
+				}
+			}
 			waitLabel(Turn, 1)
 		}
 	}
 	def forward(value : Double):Unit = {
-
-
-
 		forward_m = (value * Math.cos(angle))
-
-
 		xcord = (xcord + forward_m)
-
-
-
 		forward_m = (value * Math.sin(angle))
-
-
 		ycord = (ycord + forward_m)
 	}
 	def setxy(x : Any, y : Any):Unit = {
-
 		xcord = x
-
 		ycord = y
 	}
 	def right(value : Int):Unit = {
-
-
 		angle = (angle - value)
 	}
 	def argtest(value : Double):Unit = {
-
 		argtest_m = 5
-
 		argtest_m = 0.0
-
-		if((InstructionList(List(codegen.EmptyInstruction$@4eec7712, codegen.EmptyInstruction$@4eec7712)),(value == 0.0))){
-			if((InstructionList(List(codegen.EmptyInstruction$@4eec7712, codegen.EmptyInstruction$@4eec7712)),(argtest_m == 0))){
-
-
+		if((InstructionList(List(codegen.EmptyInstruction$@c070f7b, codegen.EmptyInstruction$@c070f7b)),(value == 0.0))){
+			if((InstructionList(List(codegen.EmptyInstruction$@c070f7b, codegen.EmptyInstruction$@c070f7b)),(argtest_m == 0))){
 				right(5)
 			}
 		}
-		else if((InstructionList(List(codegen.EmptyInstruction$@4eec7712, codegen.EmptyInstruction$@4eec7712)),(value > 2.0))){
-
-
+		else if((InstructionList(List(codegen.EmptyInstruction$@c070f7b, codegen.EmptyInstruction$@c070f7b)),(value > 2.0))){
 			left(5)
 		}
 		else{
-
-
 			fw(5)
 		}
 	}
 	def home():Unit = {
-
 		xcord = 0.0
-
 		ycord = 0.0
 	}
 	def fw(value : Int):Unit = {
-
-
 		forward(value)
 	}
 	def lambda_2():Unit = {
-
 		speed = 0
-
 		xcord = 0
 	}
 	def left(value : Double):Unit = {
-
-
 		angle = (angle + value)
 	}
 	def lambda_1(__myself_0 : Any):Unit = {
-
-
 		left(90.0)
-
-
 		println("turn")
 	}
 	def lambda_0(__myself_0 : Any):Unit = {
-
-
 		forward(1.0)
-
-
 		println("walk")
 	}
 	def arg():Unit = {
-
 		arg_m = 5.0
-
 		arg_m = 0
-
-
 		right(0)
-
-
 		fw(1)
-
-
 		argtest(5.0)
-
-
 		argtest(5)
-
 		speed = 0.5
 	}
 	def __init__():Unit = {
-
 		angle = 0.0
 	}
 	def can_move():Boolean = {
-
 		angle = angle
-
 		true
 	}
 }

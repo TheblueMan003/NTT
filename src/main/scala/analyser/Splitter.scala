@@ -1,3 +1,4 @@
+/*
 package analyser
 
 import ast._
@@ -86,16 +87,6 @@ object Splitter{
 
                 AST.Ask(upperCaller, toSplittedExpr(expr), lambda)
             }
-            case AST.CreateBreed(b, nb, block) => {
-                localVar.push()
-
-                val lambda = b.name.addLambda(block, localVar.getAskVariables()) // Create Inner function
-                lambda.AST = toAST(block)(context, b.name, lambda, localVar) // Analyse Inner function
-
-                localVar.pop()
-
-                AST.CreateBreed(AST.BreedValue(b.name), toSplittedExpr(nb), lambda)
-            }
 
             case _ => tree
         }
@@ -103,15 +94,26 @@ object Splitter{
 
     private def toSplittedExpr(tree: AST.Expression)(implicit context: Context, breed: Breed, function: LinkedFunction): (AST, AST.Expression) = {
         tree match{
-            case AST.Call(fct, args) => AST.Call(breed.getFunction(fct), args.map(toSplittedExpr(_)))
+            case AST.Call(fct, args) => {
+                val args2 = args.map(toSplittedExpr(_))
+                val argsAST = asts2.map(_._2)
+                val argsPre = AST.List(ast2.map(_._1))
+                (argsPre, AST.Call(breed.getFunction(fct), args2))
+            }
 
-            case AST.BinarayExpr(op, lf, rt) => AST.BinarayExpr(op, toSplittedExpr(lf), toSplittedExpr(rt))
+            case AST.BinarayExpr(op, lf, rt) => {
+                val left = toSplittedExpr(lf)
+                val right = toSplittedExpr(rt)
+                val argsPre = AST.List(List(left._1, right._1))
+                (argsPre, AST.BinarayExpr(op, toSplittedExpr(left._2), toSplittedExpr(right._2)))
+            }
 
-            case AST.IfElseBlockExpression(blocks, elseBlocks) => 
+            case AST.IfElseBlockExpression(blocks, elseBlocks) => {
                 AST.IfElseBlockExpression(
                     blocks.map(x => (toSplittedExpr(x._1), toSplittedExpr(x._2))),
                     toSplittedExpr(elseBlocks)
                 )
+            }
 
             case AST.ListValue(v) => ???
             case AST.OfValue(v, b) => {
@@ -129,4 +131,4 @@ object Splitter{
         counter += 1
         return "DEFAULT_POLLING_$i"
     }
-}
+}*/
