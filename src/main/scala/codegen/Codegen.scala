@@ -16,7 +16,7 @@ object CodeGen{
     def generate(context: Context): List[ClassFile] = {
         generateAllClass()(context)
     }
-    def generateAllClass()(implicit context: Context) = {
+    private def generateAllClass()(implicit context: Context) = {
         generateMainClass() ::
             List(generateMainInit()):::
             context.getBreeds().map(generateBreed(_)).toList
@@ -157,6 +157,7 @@ object CodeGen{
      */
     private def generateBreedFunctions(breed: Breed)(implicit context: Context): List[FunctionGen] = {
         generateMainFunction(breed)::
+            List(generateUpdater(breed)):::
         breed.getAllFunctions().filter(_.name != "go").map{
             _ match {
                 case lc: LinkedFunction => generate(lc, breed)
@@ -455,6 +456,17 @@ object CodeGen{
         else{
             List(breed.parent.className)
         }
+    }
+
+    private def generateUpdater(breed: Breed)(implicit context: Context): FunctionGen = {
+        val p = "\""
+        FunctionGen("DEFAULT_Update", List(new Variable("dic")), "Unit",
+        InstructionBlock(List(
+            InstructionCompose("dic.map((k,v) => k match",
+            InstructionBlock(
+                breed.getAllVariables().map(x => InstructionGen(f"case $p${x.name}$p => ${x.name} = v.asInstanceOf[${Type.toString(x.getType())}]")).toList
+            ),")"
+        ))))
     }
 
     /**

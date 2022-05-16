@@ -9,4 +9,9 @@ class Patch extends Actor{
 			waitLabel(Turn, 1)
 		}
 	}
+	def DEFAULT_Update(dic : Any):Unit = {
+		dic.map((k,v) => k match{
+
+		})
+	}
 }

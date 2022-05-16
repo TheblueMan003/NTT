@@ -42,10 +42,10 @@ object EmptyInstruction extends Instruction{
         ""
     }
 }
-case class InstructionCompose(val prefix: String, val postfix: Generator) extends Instruction{
+case class InstructionCompose(val prefix: String, val middle: Generator, val postfix: String = "") extends Instruction{
     def generate(indentation: Int): String = {
-        val sCont = postfix.generate(indentation)
-        "\t" * indentation + prefix + sCont
+        val sCont = middle.generate(indentation)
+        "\t" * indentation + prefix + sCont + postfix
     }
 }
 case class InstructionBlock(val content: List[Generator]) extends Instruction{

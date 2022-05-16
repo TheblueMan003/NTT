@@ -54,6 +54,14 @@ class Observer extends Actor{
 			waitLabel(Turn, 1)
 		}
 	}
+	def DEFAULT_Update(dic : Any):Unit = {
+		dic.map((k,v) => k match{
+			case "test" => test = v.asInstanceOf[Any]
+			case "go_m" => go_m = v.asInstanceOf[Int]
+			case "index" => index = v.asInstanceOf[Any]
+			case "go_c" => go_c = v.asInstanceOf[List[Double]]
+		})
+	}
 	def setup():Unit = {
 		turtles.add(new Turtle())
 	}

@@ -60,6 +60,18 @@ class Turtle extends Actor{
 			waitLabel(Turn, 1)
 		}
 	}
+	def DEFAULT_Update(dic : Any):Unit = {
+		dic.map((k,v) => k match{
+			case "ycord" => ycord = v.asInstanceOf[Double]
+			case "color" => color = v.asInstanceOf[Any]
+			case "arg_m" => arg_m = v.asInstanceOf[Double]
+			case "angle" => angle = v.asInstanceOf[Double]
+			case "forward_m" => forward_m = v.asInstanceOf[Double]
+			case "argtest_m" => argtest_m = v.asInstanceOf[Double]
+			case "speed" => speed = v.asInstanceOf[Double]
+			case "xcord" => xcord = v.asInstanceOf[Double]
+		})
+	}
 	def forward(value : Double):Unit = {
 		forward_m = (value * Math.cos(angle))
 		xcord = (xcord + forward_m)
@@ -76,12 +88,12 @@ class Turtle extends Actor{
 	def argtest(value : Double):Unit = {
 		argtest_m = 5
 		argtest_m = 0.0
-		if((InstructionList(List(codegen.EmptyInstruction$@c070f7b, codegen.EmptyInstruction$@c070f7b)),(value == 0.0))){
-			if((InstructionList(List(codegen.EmptyInstruction$@c070f7b, codegen.EmptyInstruction$@c070f7b)),(argtest_m == 0))){
+		if((InstructionList(List(codegen.EmptyInstruction$@1b2750e, codegen.EmptyInstruction$@1b2750e)),(value == 0.0))){
+			if((InstructionList(List(codegen.EmptyInstruction$@1b2750e, codegen.EmptyInstruction$@1b2750e)),(argtest_m == 0))){
 				right(5)
 			}
 		}
-		else if((InstructionList(List(codegen.EmptyInstruction$@c070f7b, codegen.EmptyInstruction$@c070f7b)),(value > 2.0))){
+		else if((InstructionList(List(codegen.EmptyInstruction$@1b2750e, codegen.EmptyInstruction$@1b2750e)),(value > 2.0))){
 			left(5)
 		}
 		else{
