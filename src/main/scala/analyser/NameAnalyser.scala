@@ -75,7 +75,7 @@ object NameAnalyser{
                 localVar.add("myself", variOwner)
                 localVar.pushAsk(variOwner)
 
-                val lambda = b.addLambda(block, localVar.getAskVariables()) // Create Inner function
+                val lambda = b.addLambda(block, localVar.getAskVariables(), FunctionType.Ask) // Create Inner function
                 lambda.symTree = toSymTree(block)(context, b, lambda, localVar) // Analyse Inner function
 
 
@@ -87,7 +87,7 @@ object NameAnalyser{
             case AST.CreateBreed(b, nb, block) => {
                 localVar.push()
 
-                val lambda = b.name.addLambda(block, localVar.getAskVariables()) // Create Inner function
+                val lambda = b.name.addLambda(block, localVar.getAskVariables(), FunctionType.Create) // Create Inner function
                 lambda.symTree = toSymTree(block)(context, b.name, lambda, localVar) // Analyse Inner function
 
                 localVar.pop()

@@ -1,5 +1,5 @@
 @lift
-class Turtle extends Actor{
+class Turtle(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: Int, val DEFAULT_INITER: Int) extends Actor{
 	var ycord : Double = 0
 	var color : Any = 0
 	var arg_m : Double = 0
@@ -41,18 +41,20 @@ class Turtle extends Actor{
 		xcord = __value
 	}
 	def main():Unit = {
+		DEFAULT_INITER match{
+			case 2 => {
+				speed = 0
+				xcord = 0
+			}
+		}
 		while(true){
 			handleMessages()
 			DEFAULT_ASK match{
-				case 0 => {
-					speed = 0
-					xcord = 0
-				}
 				case 1 => {
 					left(90.0)
 					println("turn")
 				}
-				case 2 => {
+				case 0 => {
 					forward(1.0)
 					println("walk")
 				}
@@ -88,12 +90,12 @@ class Turtle extends Actor{
 	def argtest(value : Double):Unit = {
 		argtest_m = 5
 		argtest_m = 0.0
-		if((InstructionList(List(codegen.EmptyInstruction$@1b2750e, codegen.EmptyInstruction$@1b2750e)),(value == 0.0))){
-			if((InstructionList(List(codegen.EmptyInstruction$@1b2750e, codegen.EmptyInstruction$@1b2750e)),(argtest_m == 0))){
+		if((InstructionList(List(codegen.EmptyInstruction$@4a363c, codegen.EmptyInstruction$@4a363c)),(value == 0.0))){
+			if((InstructionList(List(codegen.EmptyInstruction$@4a363c, codegen.EmptyInstruction$@4a363c)),(argtest_m == 0))){
 				right(5)
 			}
 		}
-		else if((InstructionList(List(codegen.EmptyInstruction$@1b2750e, codegen.EmptyInstruction$@1b2750e)),(value > 2.0))){
+		else if((InstructionList(List(codegen.EmptyInstruction$@4a363c, codegen.EmptyInstruction$@4a363c)),(value > 2.0))){
 			left(5)
 		}
 		else{

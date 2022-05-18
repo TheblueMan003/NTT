@@ -10,6 +10,7 @@ import analyser.Types.{BreedType, ListType}
 
 object BreedAnalyser{
     private val observersFunctions = Set("go", "setup")
+    private val emptyConst = List[BreedConstraint]()
     /**
     *  generateConstraints breeds contraint and force function to belong to a breed.
     */ 
@@ -57,7 +58,7 @@ object BreedAnalyser{
                 }
                 case _ => List()
             }
-        ).reduce(_ ::: _)
+        ).foldLeft(emptyConst)(_ ::: _)
     }
 
     /** 
@@ -78,7 +79,7 @@ object BreedAnalyser{
             }
 
             case Call(name, args) => 
-                List(BreedConstraint(found, getFunctionBreeds(name))) ::: args.map(generateConstraints(_)).reduce(_ ::: _)
+                List(BreedConstraint(found, getFunctionBreeds(name))) ::: args.map(generateConstraints(_)).foldLeft(emptyConst)(_ ::: _)
             case VariableValue(name) => {
                 if (localVar.contains(name)){
                     Nil
@@ -113,10 +114,10 @@ object BreedAnalyser{
                 generateConstraints(lf) ::: generateConstraints(rt)
             }
             case IfElseBlockExpression(ifs, elze) => {
-                ifs.map(b => generateConstraints(b._1):::generateConstraints(b._2)).reduce(_ ::: _) ::: generateConstraints(elze)
+                ifs.map(b => generateConstraints(b._1):::generateConstraints(b._2)).foldLeft(emptyConst)(_ ::: _) ::: generateConstraints(elze)
             }
             case IfElseBlock(ifs, elze) => {
-                ifs.map(b => generateConstraints(b._1):::generateConstraints(b._2)).reduce(_ ::: _) ::: generateConstraints(elze)
+                ifs.map(b => generateConstraints(b._1):::generateConstraints(b._2)).foldLeft(emptyConst)(_ ::: _) ::: generateConstraints(elze)
             }
             case IfBlock(expr, block) => {
                 generateConstraints(expr) ::: generateConstraints(block)
@@ -156,7 +157,7 @@ object BreedAnalyser{
                 val ret = if (content.isEmpty){
                     Nil
                 } else {
-                    content.map(generateConstraints(_)).reduce(_ ::: _)
+                    content.map(generateConstraints(_)).foldLeft(emptyConst)(_ ::: _)
                 }
                 localVar.pop()
                 ret

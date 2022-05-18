@@ -1,5 +1,5 @@
 @lift
-class Observer extends Actor{
+class Observer(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int) extends Actor{
 	val wolves = mutable.Set[Wolf]()
 	val patches = mutable.Set[Patch]()
 	val observers = mutable.Set[Observer]()
@@ -48,14 +48,13 @@ class Observer extends Actor{
 			val tmp_3: List[Double] = tmp_2.map(o => o.popValue.get).asInstanceOf[List[Double]]
 			go_c = tmp_3
 			handleMessages()
-			DEFAULT_ASK match{
-
-			}
 			waitLabel(Turn, 1)
 		}
 	}
 	def DEFAULT_Update(dic : Any):Unit = {
 		dic.map((k,v) => k match{
+			case "DEFAULT_BOARD_Y" => DEFAULT_BOARD_Y = v.asInstanceOf[Int]
+			case "DEFAULT_BOARD_X" => DEFAULT_BOARD_X = v.asInstanceOf[Int]
 			case "test" => test = v.asInstanceOf[Any]
 			case "go_m" => go_m = v.asInstanceOf[Int]
 			case "index" => index = v.asInstanceOf[Any]
@@ -63,6 +62,8 @@ class Observer extends Actor{
 		})
 	}
 	def setup():Unit = {
-		turtles.add(new Turtle())
+		(1 to 10).map(_ =>{
+			turtles.add(new Turtle(this, 0, 0, 2))
+		})
 	}
 }

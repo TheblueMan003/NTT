@@ -2,6 +2,10 @@ turtles-own [
     xcord ycord angle
 ]
 
+patches-own [
+    pxcord pycord
+]
+
 to __init__ 
     set angle 0.0
 end

@@ -9,10 +9,10 @@ trait Generator{
     def generate(indentation: Int): String
 }
 
-case class ClassFile(val imports: List[String], val anotation: String, val prefix: String, val name: String, val parent: List[String], val fields: List[Instruction], val functions: List[FunctionGen]) extends Generator{
+case class ClassFile(val imports: List[String], val anotation: String, val prefix: String, val name: String, val classArg: String, val parent: List[String], val fields: List[Instruction], val functions: List[FunctionGen]) extends Generator{
     def generate(indentation: Int): String = {
         val content = InstructionBlock(fields ::: functions)
-        var classLine = f"$prefix $name"
+        var classLine = f"$prefix $name$classArg"
         if (parent.nonEmpty){
             classLine = classLine + " extends "+parent.reduce(_ + " " + _)
         }

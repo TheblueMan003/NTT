@@ -12,6 +12,10 @@ import utils.Reporter
 
 object CodeGen{
     var varCounter = 0
+    private val observerVariableName = "observer"
+    private val patchVariableName = "patches"
+    private val initerVariableName = "DEFAULT_INITER"
+    private val askVaraibleName = "DEFAULT_ASK"
 
     def generate(context: Context): List[ClassFile] = {
         generateAllClass()(context)
@@ -34,6 +38,7 @@ object CodeGen{
             "@lift",
             "class",
             breed.className,
+            getClassArguments(breed),
             getParents
             (breed),
             generateBreedFields(breed), 
@@ -66,6 +71,7 @@ object CodeGen{
             "",
             "object",
             "MainInit",
+            "",
             List(""),
             generateMainInitContent(), 
             List(),
@@ -82,10 +88,25 @@ object CodeGen{
         List(
         InstructionCompose("val liftedMain = meta.classLifting.liteLift",
         InstructionBlock(List(
-            InstructionCompose("def apply(): List[Actor] = ", InstructionBlock(List(
-                InstructionGen(f"List(new ${observer}())")
+            InstructionCompose("def apply(size_x: Int, size_y: Int): List[Actor] = ", InstructionBlock(List(
+                InstructionGen(f"val $observerVariableName = new ${observer}()"),
+                generateGrid(),
+                InstructionGen(f"$observerVariableName :: $patchVariableName")
             )))
         ))))
+    }
+
+    
+    /**
+     * Generate the code to generate the patch grid.
+     *
+     * @return	Instruction
+     */
+    private def generateGrid()(implicit context: Context):Instruction = {
+        InstructionCompose(f"val $patchVariableName = (1 to size_x).map(x => (1 to size_y).map(y =>",
+        InstructionBlock(List(
+                InstructionGen(f"new Patch($observerVariableName, x, y)")
+        )), ")).flatten")
     }
 
     /**
@@ -99,6 +120,7 @@ object CodeGen{
             "",
             "object",
             "Simulation",
+            "",
             List("App"),
             generateMainClassContent(), 
             List(),
@@ -241,9 +263,9 @@ object CodeGen{
                 InstructionList(List(prefix, InstructionGen(content)))
             }
             case CreateBreed(b, nb, fct) => {
-                InstructionList(List(
-                    InstructionGen(f"${Renamer.toValidName(b.name.pluralName)}.add(new ${b.name.className}())")
-                ))
+                generateRepeat(nb, InstructionBlock(List(
+                        InstructionGen(f"${Renamer.toValidName(b.name.pluralName)}.add(new ${b.name.className}(this, 0, 0, ${fct.lambdaIndex}))")
+                )))
             }
 
             case IfBlock(cond, block) => InstructionCompose(f"if(${generateExpr(cond)})", generate(block))
@@ -259,7 +281,9 @@ object CodeGen{
             }
 
             case Loop(block) => InstructionCompose("while(true)", generate(block))
-            case Repeat(number, block) => ???
+            case Repeat(number, block) => {
+                generateRepeat(number, generate(block))
+            }
             case While(cond, block) => {
                 val expr = generateExpr(cond)
                 InstructionList(List(
@@ -295,6 +319,14 @@ object CodeGen{
                 ))
             }
         }
+    }
+
+    private def generateRepeat(number: Expression, content: Instruction):Instruction = {
+        val expr = generateExpr(number)
+        InstructionList(List(
+            expr._1,
+            InstructionCompose(f"(1 to ${expr._2}).map(_ =>", content, ")")
+        ))
     }
 
     /**
@@ -405,7 +437,7 @@ object CodeGen{
             InstructionGen("setup()")
         }
         else{
-            InstructionGen("")
+            generateSettupFunctionSwitch(breed)
         }
         val go = if (breed == context.getObserverBreed()){
             val fct = breed.getFunction("go").asInstanceOf[LinkedFunction]
@@ -431,15 +463,33 @@ object CodeGen{
     }
 
     private def generateMainFunctionSwitch(breed: Breed)(implicit context: Context): Instruction = {
-        InstructionCompose(f"DEFAULT_ASK match", InstructionBlock(
-            breed.getAllFunctions()
-                .filter(_.isAsked)
-                .map(_.asInstanceOf[LinkedFunction])
-                .map(f => generate(f.symTree)(f, breed))
-                .zipWithIndex
-                .map(f => InstructionCompose(f"case ${f._2} => ", f._1))
-                .toList
-        ))
+        if (breed == context.getObserverBreed() || breed.getAllAskedFunctions().isEmpty){
+            EmptyInstruction
+        }
+        else{
+            generateSwitchInstruction(breed, askVaraibleName, breed.getAllAskedFunctions().map(_.asInstanceOf[LinkedFunction]))
+        }
+    }
+
+    private def generateSettupFunctionSwitch(breed: Breed)(implicit context: Context): Instruction = {
+        if (breed == context.getObserverBreed() || breed.getAllCreateFunctions().isEmpty){
+            EmptyInstruction
+        }
+        else{
+            generateSwitchInstruction(breed, initerVariableName, breed.getAllCreateFunctions().map(_.asInstanceOf[LinkedFunction]))
+        }
+    }
+
+
+    private def generateSwitchInstruction(breed: Breed, indexValue: String, functions: Iterable[LinkedFunction])(implicit context: Context):Instruction = {
+        if (functions.isEmpty){
+            EmptyInstruction
+        }
+        else {
+            InstructionCompose(f"$indexValue match", InstructionBlock(
+                functions.map(f => InstructionCompose(f"case ${f.lambdaIndex} => ",  generate(f.symTree)(f, breed))).toList
+            ))
+        }
     }
 
     /**
@@ -489,5 +539,17 @@ object CodeGen{
         val id = varCounter
         varCounter += 1
         f"tmp_$id"
+    }
+
+    /**
+     * Return the arguments for the class generacted by breed.
+     *
+     * @return	String of arguments
+     */
+    private def getClassArguments(breed: Breed): String = {
+        breed.className match {
+            case "Observer" => "(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int)"
+            case other => f"(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: Int, val $initerVariableName: Int)"
+        }
     }
 }

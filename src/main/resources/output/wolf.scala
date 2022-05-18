@@ -1,11 +1,8 @@
 @lift
-class Wolf extends Turtle{
+class Wolf(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: Int, val DEFAULT_INITER: Int) extends Turtle{
 	def override_main():Unit = {
 		while(true){
 			handleMessages()
-			DEFAULT_ASK match{
-
-			}
 			waitLabel(Turn, 1)
 		}
 	}

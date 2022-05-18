@@ -71,12 +71,15 @@ class Breed(val parent: Breed, val singularName: String, val pluralName: String)
         }
     }
     def getAllFunctions() = ownedFuns.values
+    def getAllAskedFunctions() = getAllFunctions().filter(_.functionType == FunctionType.Ask)
+    def getAllCreateFunctions() = getAllFunctions().filter(_.functionType == FunctionType.Create)
 
-    def addLambda(tree: AST, parentCall: List[Variable]): LinkedFunction = {
+    def addLambda(tree: AST, parentCall: List[Variable], functionType: FunctionType): LinkedFunction = {
         lambdaCounter += 1
         val name = f"lambda_${lambdaCounter}"
         val func = LinkedFunction(name, parentCall, tree, this, false)
-        func.isAsked = true
+        func.functionType = functionType
+        func.lambdaIndex = lambdaCounter
         addFunction(func)
         func
     }

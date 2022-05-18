@@ -11,7 +11,7 @@ object Lexer{
     val keyword = Set("breed", "directed-link-breed", "end", "extensions", "globals", 
                         "__includes", "to", "to-report", "of", "list",
                         "undirected-link-breed", "with",
-                        "let", "set", "ask", "tick",
+                        "let", "set", "ask", "tick", "repeat",
                         "if", "ifelse", "ifelse-value", "report")
     
     // TODO add position to token for errors

@@ -1,11 +1,8 @@
 @lift
-class Link extends Actor{
+class Link(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: Int, val DEFAULT_INITER: Int) extends Actor{
 	def main():Unit = {
 		while(true){
 			handleMessages()
-			DEFAULT_ASK match{
-
-			}
 			waitLabel(Turn, 1)
 		}
 	}
