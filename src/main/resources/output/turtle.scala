@@ -90,12 +90,12 @@ class Turtle(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: 
 	def argtest(value : Double):Unit = {
 		argtest_m = 5
 		argtest_m = 0.0
-		if((InstructionList(List(codegen.EmptyInstruction$@4a363c, codegen.EmptyInstruction$@4a363c)),(value == 0.0))){
-			if((InstructionList(List(codegen.EmptyInstruction$@4a363c, codegen.EmptyInstruction$@4a363c)),(argtest_m == 0))){
+		if((InstructionList(List(codegen.EmptyInstruction$@6b517e81, codegen.EmptyInstruction$@6b517e81)),(value == 0.0))){
+			if((InstructionList(List(codegen.EmptyInstruction$@6b517e81, codegen.EmptyInstruction$@6b517e81)),(argtest_m == 0))){
 				right(5)
 			}
 		}
-		else if((InstructionList(List(codegen.EmptyInstruction$@4a363c, codegen.EmptyInstruction$@4a363c)),(value > 2.0))){
+		else if((InstructionList(List(codegen.EmptyInstruction$@6b517e81, codegen.EmptyInstruction$@6b517e81)),(value > 2.0))){
 			left(5)
 		}
 		else{
