@@ -52,11 +52,13 @@ object TypeChecker{
         }
     }
     def genConstraintsExpr(expr: Expression)(implicit context: Context, found: TypeConstrainer): List[TypeConstraint] = {
+        List(TypeConstraint(found, TypeOwn(expr)))::: (
         expr match{
-            case OfValue(expr, from) => {
+            case OfValue(expr, from) => {/*
                 val varT = new TypedVariable()
                 genConstraintsExpr(expr)(context, TypeOwn(varT)) ::: 
-                List(TypeConstraint(found, ListOf(varT)))
+                List(TypeConstraint(found, ListOf(varT)))*/
+                List()
             }
             case vl: VariableLike => List(TypeConstraint(found, getVariableConstraint(vl)))
             case BooleanValue(_) => List(TypeConstraint(found, DirectType(BoolType)))
@@ -87,12 +89,12 @@ object TypeChecker{
                     genConstraintsExpr(e)(context, TypeOwn(v))
                 } ::: List(TypeConstraint(found, TypeOwn(fct.returnVariable)))
             }
-        }
+        })
     }
     def getVariableConstraint(variLike: VariableLike) = {
         variLike match{
             case VariableValue(vari) => TypeOwn(vari)
-            case OfValue(VariableValue(vari), _) => TypeOwn(vari)
+            case OfValue(vari, _) => TypeOwn(vari)
         }
     }
     

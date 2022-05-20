@@ -80,6 +80,7 @@ class Breed(val parent: Breed, val singularName: String, val pluralName: String)
         }
     }
     def getAllFunctions() = ownedFuns.values
+    def getAllNormalFunctions() = getAllFunctions().filter(_.functionType == FunctionType.Normal)
     def getAllAskedFunctions() = getAllFunctions().filter(_.functionType == FunctionType.Ask)
     def getAllCreateFunctions() = getAllFunctions().filter(_.functionType == FunctionType.Create)
 

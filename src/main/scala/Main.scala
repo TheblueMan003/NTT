@@ -18,11 +18,22 @@ object Main extends App {
   val context = Parser.parse(tokens.toIterator())
   BreedAnalyser.analyse(context)
   NameAnalyser.analyse(context)
+/*
+  Reporter.debug(context.getBreeds().map(b => b.getAllFunctions().filter(f =>
+    f match {
+      case c: LinkedFunction => true
+      case _ => false
+    }).map(f => 
+    f match {
+      case c: LinkedFunction => println(f"${c.name} -> ${c.symTree}\n\n")
+    }
+  )))*/
+
   TypeChecker.analyse(context)
   
   val code = CodeGen.generate(context)
   code.map(c => c.writeToFile(f"./src/main/resources/output/${c.name}.scala"))
-
+/*
   Reporter.debug(context.getBreeds().map(b => b.getAllFunctions().filter(f =>
     f match {
       case c: LinkedFunction => true
@@ -53,5 +64,5 @@ object Main extends App {
   )
   .map(f => f.getArguments().map(v => 
     f"${f.name} ${v.name}: ${v.getType()}\n"
-  ))))
+  ))))*/
 }

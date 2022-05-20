@@ -21,7 +21,7 @@ object MainGen{
      */
     def generateMainInit()(implicit context: Context): ClassFile = {
         ClassFile(
-            List(),
+            CodeGen.imports,
             "",
             "object",
             "MainInit",
@@ -43,7 +43,7 @@ object MainGen{
         InstructionCompose("val liftedMain = meta.classLifting.liteLift",
         InstructionBlock(
             InstructionCompose("def apply(size_x: Int, size_y: Int): List[Actor] = ", InstructionBlock(
-                InstructionGen(f"val $observerVariableName = new ${observer}()"),
+                InstructionGen(f"val $observerVariableName = new ${observer}(size_x, size_y)"),
                 generateGrid(),
                 InstructionGen(f"$observerVariableName :: $patchVariableName")
             ))
@@ -57,7 +57,7 @@ object MainGen{
      */
     def generateMainClass()(implicit context: Context): ClassFile = {
         ClassFile(
-            List(),
+            CodeGen.imports,
             "",
             "object",
             "Simulation",
@@ -108,7 +108,7 @@ object MainGen{
     def generateGrid()(implicit context: Context):Instruction = {
         InstructionCompose(f"val ${MainGen.patchVariableName} = (1 to size_x).map(x => (1 to size_y).map(y =>",
         InstructionBlock(
-                InstructionGen(f"new Patch($MainGen.observerVariableName, x, y)")
+                InstructionGen(f"new Patch(${MainGen.observerVariableName}, x, y, -1)")
         ), ")).flatten")
     }
 }

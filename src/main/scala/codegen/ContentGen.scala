@@ -21,8 +21,8 @@ object ContentGen{
      * @param   breed
      * @return	FunctionGen
      */
-    def generate(function: LinkedFunction, breed: Breed)(implicit context: Context): FunctionGen = {
-        FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), generate(function.symTree)(function, breed, context))
+    def generate(function: LinkedFunction, breed: Breed, flag: Flag)(implicit context: Context): FunctionGen = {
+        FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), generate(function.symTree)(function, breed, context, flag))
     }
 
     /**
@@ -54,6 +54,7 @@ object ContentGen{
     def generateGetterSetter(variable: Variable)(implicit context: Context): List[Instruction] = {
         val typ = Type.toString(variable.getType())
         val p = "\""
+        variable.hasGetterSetter = true
         List(
         InstructionGen(f"def ${variable.getGetterName()}(): ${typ} = ${variable.getName()}"),
         InstructionCompose(f"def ${variable.getSetterName()}(DEFAULT_value : ${typ}): Unit = ", 
@@ -81,7 +82,7 @@ object ContentGen{
      * @param	mixed	inst: SymTree	
      * @return	Instruction
      */
-    def generate(instr: SymTree)(implicit function: Function, breed: Breed, context: Context): Instruction = {
+    def generate(instr: SymTree)(implicit function: Function, breed: Breed, context: Context, flag: Flag): Instruction = {
         val isInMain = function.name == "go"
 
         instr match{
@@ -91,11 +92,22 @@ object ContentGen{
             }
             case Declaration(VariableValue(v), value) => {
                 val expr = generateExpr(value)
-                InstructionList(expr._1, InstructionGen(f"${v.getSetterName()}(${expr._2})"))
+                InstructionList(expr._1, InstructionGen(f"${v.getSetter(expr._2)}"))
             }
             case Assignment(VariableValue(v), value) => {
                 val expr = generateExpr(value)
-                InstructionList(expr._1, InstructionGen(f"${v.getSetterName()}(${expr._2})"))
+                InstructionList(expr._1, InstructionGen(f"${v.getSetter(expr._2)}"))
+            }
+            case Declaration(OfValue(v, b), value) => {
+                val expr = generateExpr(value)
+                val from = generateExpr(b)
+                InstructionList(expr._1, from._1, InstructionGen(f"${from._2}.${v.getSetter(expr._2)}"))
+            }
+            case Assignment(OfValue(v, b), value) => {
+                val expr = generateExpr(value)
+                val from = generateExpr(b)
+                println(instr)
+                InstructionList(expr._1, from._1, InstructionGen(f"${from._2}.${v.getSetter(expr._2)}"))
             }
             case Call(fct, args) => {
                 val (prefix, content) = generateExpr(instr.asInstanceOf[SymTree.Expression])
@@ -147,15 +159,37 @@ object ContentGen{
             }
             case Ask(upperCaller, turtles, block) => {
                 val set = generateExpr(turtles)
-                val fct = block.name
                 val vari = getUniqueVariableName()
-                InstructionList(
-                    set._1,
-                    InstructionGen(f"val $vari = ${set._2}.toList.map(s => asyncMessage(() => s.$fct(this)))"),
-                    InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(
-                        InstructionGen("waitAndReply(1)")
-                    ))
-                )
+
+                flag match{
+                    case Flag.ObserverMainFunctionFlag => {
+                        val fct = block.name
+                        InstructionList(
+                            set._1,
+                            InstructionGen(f"val $vari = ${set._2}.toList.map(s => asyncMessage(() => s.$fct(this)))"),
+                            InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(
+                                InstructionGen("waitAndReply(1)")
+                            ))
+                        )
+                    }
+                    case Flag.MainFunctionFlag => {
+                        val fct = block.lambdaIndex
+                        val vari2 = getUniqueVariableName()
+                        val vari3 = getUniqueVariableName()
+                        InstructionList(
+                            set._1,
+                            InstructionGen(f"val $vari = ${set._2}.toList.map(s => WORKER_Turtle(${BreedGen.observerVariable}, this, ${BreedGen.logName}, $fct))"),
+                            InstructionGen(f"var $vari3 = false"),
+                            InstructionCompose(f"while(!$vari3)", InstructionBlock(
+                                InstructionGen(f"val $vari2 = $vari.map(s => asyncMessage(() => s.get_default_is_done()))"),
+                                InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(
+                                    InstructionGen("waitAndReply(1)")
+                                )),
+                                InstructionGen(f"$vari3 = $vari2.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)")
+                            ))
+                        )
+                    }
+                }
             }
         }
     }
@@ -176,7 +210,7 @@ object ContentGen{
      */
     def generateExpr(expr: Expression)(implicit function: Function, breed: Breed, context: Context): (Instruction, String) = {
         expr match{
-            case VariableValue(v) => (EmptyInstruction, f"${v.getSetterName}()")
+            case VariableValue(v) => (EmptyInstruction, f"${v.getGetter()}")
             case BooleanValue(v) => (EmptyInstruction, v.toString())
             case IntValue(v) => (EmptyInstruction, v.toString())
             case FloatValue(v) => (EmptyInstruction, v.toString())
@@ -186,14 +220,14 @@ object ContentGen{
                     (EmptyInstruction, Renamer.toValidName(breed.pluralName))
                 }
                 else{
-                    (EmptyInstruction, Renamer.toGetterNane(breed.pluralName))
+                    (EmptyInstruction, f"${BreedGen.observerVariable}.${Renamer.toGetterNane(breed.pluralName)}()")
                 }
             }
                 
             case ListValue(lst) => ???
             case OfValue(expr, from) => {
                 val from2 = generateExpr(from)
-                val ret = generateOfValue(from2._2, expr.vari)
+                val ret = generateOfValue(from2._2, expr)
                 (
                     InstructionList(from2._1, ret._1),
                     ret._2

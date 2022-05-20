@@ -1,13 +1,13 @@
 package analyser
 
 import utils._
-import netlogo.{Variable, Function, Breed}
+import netlogo.{Variable, Function, Breed, Typed}
 import scala.collection.mutable.{Map, Set}
 
 trait SymTree extends Positionable
 
 object SymTree{
-    trait Expression extends SymTree
+    trait Expression extends SymTree with Typed
     trait VariableLike extends Expression
 
     case class BooleanValue(value: Boolean) extends Expression
@@ -17,7 +17,7 @@ object SymTree{
     case class VariableValue(vari: Variable) extends VariableLike
     case class BreedValue(name: Breed) extends Expression
     case class ListValue(lst: List[Expression]) extends Expression
-    case class OfValue(expr: VariableValue, from: Expression) extends VariableLike
+    case class OfValue(expr: Variable, from: Expression) extends VariableLike
     case class WithValue(value: Expression, predicate: Expression) extends Expression
 
     case class Call(fct: Function, arg: List[Expression]) extends Expression

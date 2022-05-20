@@ -1,3 +1,9 @@
+package example
+package netlogo
+import meta.classLifting.SpecialInstructions._
+import squid.quasi.lift
+import scala.collection.mutable
+import meta.runtime.Actor
 
 object Simulation extends App{
 	val mainClass = MainInit.liftedMain

@@ -16,7 +16,7 @@ object Renamer{
         "set_"+toValidName(string)
     }
 
-    def concatLine(x: String, y: String): String = {
+    def concatLine(x: String, y: String, join: String = "\n"): String = {
         if (isJustSpace(x)){
             y
         }

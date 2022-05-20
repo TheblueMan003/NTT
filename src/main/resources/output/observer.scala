@@ -1,5 +1,11 @@
+package example
+package netlogo
+import meta.classLifting.SpecialInstructions._
+import squid.quasi.lift
+import scala.collection.mutable
+import meta.runtime.Actor
 @lift
-class Observer(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int) extends Actor{
+class Observer(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int){
 	val wolves = mutable.Set[Wolf]()
 	val patches = mutable.Set[Patch]()
 	val observers = mutable.Set[Observer]()
@@ -11,7 +17,7 @@ class Observer(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int) extends Actor
 	var test : Any = 0
 	var go_m : Int = 0
 	var index : Any = 0
-	var go_c : List[Double] = Nil
+	var go_c : Any = 0
 	def get_test(): Any = test
 	def set_test(DEFAULT_value : Any): Unit = {
 		DEFAULT_LOG_Variables("test") = DEFAULT_value
@@ -27,8 +33,8 @@ class Observer(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int) extends Actor
 		DEFAULT_LOG_Variables("index") = DEFAULT_value
 		index = DEFAULT_value
 	}
-	def get_go_c(): List[Double] = go_c
-	def set_go_c(DEFAULT_value : List[Double]): Unit = {
+	def get_go_c(): Any = go_c
+	def set_go_c(DEFAULT_value : Any): Unit = {
 		DEFAULT_LOG_Variables("go_c") = DEFAULT_value
 		go_c = DEFAULT_value
 	}
@@ -37,45 +43,47 @@ class Observer(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int) extends Actor
 		while(true){
 			set_go_m(1)
 			println("start of tick")
-			val tmp_3 = get_turtles.toList.map(s => asyncMessage(() => s.lambda_0(this)))
-			while(!tmp_3.forall(_.isCompleted)){
+			val tmp_6 = DEFAULT_observer.get_turtles().toList.map(s => asyncMessage(() => s.lambda_0(this)))
+			while(!tmp_6.forall(_.isCompleted)){
 				waitAndReply(1)
 			}
 			println("middle of tick")
-			val tmp_4 = get_turtles.toList.map(s => asyncMessage(() => s.lambda_2(this)))
-			while(!tmp_4.forall(_.isCompleted)){
+			val tmp_7 = DEFAULT_observer.get_turtles().toList.map(s => asyncMessage(() => s.lambda_2(this)))
+			while(!tmp_7.forall(_.isCompleted)){
 				waitAndReply(1)
 			}
 			println("end of tick")
-			val tmp_5 = get_turtles.toList.map(a => asyncMessage(() => a.get_speed))
-			while (!(tmp_5.nonEmpty && tmp_5.forall(x => x.isCompleted))){
+			val tmp_8 = DEFAULT_observer.get_turtles().toList.map(a => asyncMessage(() => a.get_speed))
+			while (!(tmp_8.nonEmpty && tmp_8.forall(x => x.isCompleted))){
 				waitAndReply(1)
 			}
-			val tmp_6: List[Double] = tmp_5.map(o => o.popValue.get).asInstanceOf[List[Double]]
-			set_go_c(tmp_6)
+			val tmp_9: List[Int] = tmp_8.map(o => o.popValue.get).asInstanceOf[List[Int]]
+			set_go_c(tmp_9)
 			handleMessages()
 			waitLabel(Turn, 1)
 		}
 	}
 	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
-		dic.map((k,v) => k match{
+		dic.map{case (k, v) => k match{
 			case "DEFAULT_BOARD_Y" => DEFAULT_BOARD_Y = v.asInstanceOf[Int]
 			case "DEFAULT_BOARD_X" => DEFAULT_BOARD_X = v.asInstanceOf[Int]
 			case "test" => test = v.asInstanceOf[Any]
 			case "go_m" => go_m = v.asInstanceOf[Int]
 			case "index" => index = v.asInstanceOf[Any]
-			case "go_c" => go_c = v.asInstanceOf[List[Double]]
-		})
+			case "go_c" => go_c = v.asInstanceOf[Any]
+			case "default_is_done" => default_is_done = v.asInstanceOf[Any]
+		}}
 	}
 	def DEFAULT_UpdateFromWorker(dic : mutable.Map[String, Any]):Unit = {
-		dic.map((k,v) => k match{
+		dic.map{case (k, v) => k match{
 			case "DEFAULT_BOARD_Y" => set_DEFAULT_BOARD_Y(v.asInstanceOf[Int])
 			case "DEFAULT_BOARD_X" => set_DEFAULT_BOARD_X(v.asInstanceOf[Int])
 			case "test" => set_test(v.asInstanceOf[Any])
 			case "go_m" => set_go_m(v.asInstanceOf[Int])
 			case "index" => set_index(v.asInstanceOf[Any])
-			case "go_c" => set_go_c(v.asInstanceOf[List[Double]])
-		})
+			case "go_c" => set_go_c(v.asInstanceOf[Any])
+			case "default_is_done" => set_default_is_done(v.asInstanceOf[Any])
+		}}
 	}
 	def setup():Unit = {
 		(1 to 10).map(_ =>{

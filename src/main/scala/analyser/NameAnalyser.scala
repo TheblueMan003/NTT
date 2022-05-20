@@ -146,7 +146,7 @@ object NameAnalyser{
             case AST.ListValue(v) => SymTree.ListValue(v.map(toSymTreeExpr(_)))
             case AST.VariableValue(v) => getVariable(v)
             case AST.BreedValue(v) => SymTree.BreedValue(v)
-            case AST.OfValue(v, b) => SymTree.OfValue(toSymTreeExpr(v)(context, getBreedFrom(b).head, function, localVar).asInstanceOf[SymTree.VariableValue], toSymTreeExpr(b))
+            case AST.OfValue(AST.VariableValue(v), AST.BreedValue(b)) => SymTree.OfValue(getVariable(v)(context, b, localVar).asInstanceOf[SymTree.VariableValue].vari, SymTree.BreedValue(b))
             case AST.WithValue(e, v) => SymTree.WithValue(toSymTreeExpr(e), toSymTreeExpr(v)(context, getBreedFrom(e).head, function, localVar))
         }
     }
@@ -171,7 +171,7 @@ object NameAnalyser{
                 SymTree.VariableValue(vari_)
             }
             else{
-                SymTree.OfValue(SymTree.VariableValue(origin), SymTree.VariableValue(vari_))
+                SymTree.OfValue(origin, SymTree.VariableValue(vari_))
             }
         }
         else if (breed.hasVariable(name)){

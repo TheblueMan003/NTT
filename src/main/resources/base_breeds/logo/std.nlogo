@@ -6,7 +6,11 @@ patches-own [
     pxcord pycord
 ]
 
-to __init__ 
+agents-own[
+    default_is_done
+]
+
+to default_init 
     set angle 0.0
 end
 
