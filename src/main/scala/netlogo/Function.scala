@@ -1,11 +1,12 @@
-package ast
+package netlogo
 
 import parsing.Token
-import analyser.Type
-import analyser.Types.UnitType
+import netlogo.Type
+import netlogo.Types.UnitType
 import scala.collection.mutable.Map
 import analyser.SymTree
-import analyser.Typed
+import netlogo.Typed
+import ast.AST
 
 trait FunctionType
 object FunctionType{

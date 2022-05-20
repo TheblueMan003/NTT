@@ -1,7 +1,8 @@
 package analyser
 
 import ast._
-import analyser.Types.{BreedType, ListType}
+import netlogo.Types.{BreedType, ListType}
+import netlogo._
 import utils.{Context, ContextMap}
 import utils.Reporter
 

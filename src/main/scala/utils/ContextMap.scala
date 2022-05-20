@@ -1,6 +1,6 @@
 package  utils
 
-import ast.{Variable}
+import netlogo.{Variable}
 
 import scala.collection.mutable.Map
 import scala.collection.mutable.Stack

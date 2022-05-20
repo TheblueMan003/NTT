@@ -3,11 +3,11 @@ package codegen
 import analyser.SymTree._
 import analyser.SymTree
 import utils.Context
-import ast.Breed
-import ast.{LinkedFunction, Function, BaseFunction}
-import ast.Variable
-import analyser.Types._
-import analyser.Type
+import netlogo.Breed
+import netlogo.{LinkedFunction, Function, BaseFunction}
+import netlogo.Variable
+import netlogo.Types._
+import netlogo.Type
 import utils.Reporter
 
 object MainGen{
@@ -41,13 +41,13 @@ object MainGen{
         val observer = context.getObserverBreed().className
         List(
         InstructionCompose("val liftedMain = meta.classLifting.liteLift",
-        InstructionBlock(List(
-            InstructionCompose("def apply(size_x: Int, size_y: Int): List[Actor] = ", InstructionBlock(List(
+        InstructionBlock(
+            InstructionCompose("def apply(size_x: Int, size_y: Int): List[Actor] = ", InstructionBlock(
                 InstructionGen(f"val $observerVariableName = new ${observer}()"),
                 generateGrid(),
                 InstructionGen(f"$observerVariableName :: $patchVariableName")
-            )))
-        ))))
+            ))
+        )))
     }
 
     /**
@@ -107,8 +107,8 @@ object MainGen{
      */
     def generateGrid()(implicit context: Context):Instruction = {
         InstructionCompose(f"val ${MainGen.patchVariableName} = (1 to size_x).map(x => (1 to size_y).map(y =>",
-        InstructionBlock(List(
+        InstructionBlock(
                 InstructionGen(f"new Patch($MainGen.observerVariableName, x, y)")
-        )), ")).flatten")
+        ), ")).flatten")
     }
 }

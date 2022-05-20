@@ -1,6 +1,6 @@
 import parsing.Lexer
 import utils._
-import ast.{LinkedFunction, BaseFunction}
+import netlogo.{LinkedFunction, BaseFunction}
 import parsing.Parser
 import analyser.{BreedAnalyser, NameAnalyser, TypeChecker}
 import scala.io.Source

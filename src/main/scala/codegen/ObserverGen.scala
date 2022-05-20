@@ -3,11 +3,11 @@ package codegen
 import analyser.SymTree._
 import analyser.SymTree
 import utils.Context
-import ast.Breed
-import ast.{LinkedFunction, Function, BaseFunction}
-import ast.Variable
-import analyser.Types._
-import analyser.Type
+import netlogo.Breed
+import netlogo.{LinkedFunction, Function, BaseFunction}
+import netlogo.Variable
+import netlogo.Types._
+import netlogo.Type
 import utils.Reporter
 
 object ObserverGen{

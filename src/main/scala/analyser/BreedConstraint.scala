@@ -1,7 +1,7 @@
 package analyser
 
-import ast.Breed
-import ast.BreedOwned
+import netlogo.Breed
+import netlogo.BreedOwned
 
 
 trait BreedConstrainer{

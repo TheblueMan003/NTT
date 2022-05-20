@@ -3,15 +3,16 @@ package codegen
 import analyser.SymTree._
 import analyser.SymTree
 import utils.Context
-import ast.Breed
-import ast.{LinkedFunction, Function, BaseFunction}
-import ast.Variable
-import analyser.Types._
-import analyser.Type
+import netlogo.Breed
+import netlogo.{LinkedFunction, Function, BaseFunction}
+import netlogo.Variable
+import netlogo.Types._
+import netlogo.Type
 import utils.Reporter
 
 object ContentGen{
     var varCounter = 0
+    val logVariableMapName = "DEFAULT_LOG_Variables"
 
     /**
      * Generate Function Content.
@@ -21,7 +22,7 @@ object ContentGen{
      * @return	FunctionGen
      */
     def generate(function: LinkedFunction, breed: Breed)(implicit context: Context): FunctionGen = {
-        FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), generate(function.symTree)(function, breed))
+        FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), generate(function.symTree)(function, breed, context))
     }
 
     /**
@@ -32,7 +33,16 @@ object ContentGen{
      */
     def generateVariables(variables: Iterable[Variable])(implicit context: Context): List[Instruction] = {
         val exported = variables.filter(_.exported)
-        exported.map(generate(_)).toList ::: exported.map(generateGetterSetter(_)).toList.flatten
+        generateDefaultVariable() ::: 
+        exported.map(generate(_)).toList ::: 
+        exported.map(generateGetterSetter(_)).toList.flatten
+    }
+
+    def generateDefaultVariable(): List[Instruction] = {
+        List(
+            InstructionGen(f"val $logVariableMapName = mutable.Map[String, Any]()"),
+            InstructionGen(f"var ${BreedGen.askVaraibleName} = -1")
+        )
     }
 
     /**
@@ -43,12 +53,14 @@ object ContentGen{
      */
     def generateGetterSetter(variable: Variable)(implicit context: Context): List[Instruction] = {
         val typ = Type.toString(variable.getType())
+        val p = "\""
         List(
         InstructionGen(f"def ${variable.getGetterName()}(): ${typ} = ${variable.getName()}"),
-        InstructionCompose(f"def ${variable.getSetterName()}(__value : ${typ}): Unit = ", 
-            InstructionBlock(List(
-                InstructionGen(f"${variable.getName()} = __value"))
-            ))
+        InstructionCompose(f"def ${variable.getSetterName()}(DEFAULT_value : ${typ}): Unit = ", 
+            InstructionBlock(
+                InstructionGen(f"$logVariableMapName($p${variable.getName()}$p) = DEFAULT_value"),
+                InstructionGen(f"${variable.getName()} = DEFAULT_value"))
+            )
         )
     }
 
@@ -69,7 +81,9 @@ object ContentGen{
      * @param	mixed	inst: SymTree	
      * @return	Instruction
      */
-    def generate(instr: SymTree)(implicit function: Function, breed: Breed): Instruction = {
+    def generate(instr: SymTree)(implicit function: Function, breed: Breed, context: Context): Instruction = {
+        val isInMain = function.name == "go"
+
         instr match{
             case Block(body) => {
                 val content = body.map(generate(_))
@@ -77,20 +91,20 @@ object ContentGen{
             }
             case Declaration(VariableValue(v), value) => {
                 val expr = generateExpr(value)
-                InstructionList(List(expr._1, InstructionGen(f"${v.name} = ${expr._2}")))
+                InstructionList(expr._1, InstructionGen(f"${v.getSetterName()}(${expr._2})"))
             }
             case Assignment(VariableValue(v), value) => {
                 val expr = generateExpr(value)
-                InstructionList(List(expr._1, InstructionGen(f"${v.name} = ${expr._2}")))
+                InstructionList(expr._1, InstructionGen(f"${v.getSetterName()}(${expr._2})"))
             }
             case Call(fct, args) => {
                 val (prefix, content) = generateExpr(instr.asInstanceOf[SymTree.Expression])
-                InstructionList(List(prefix, InstructionGen(content)))
+                InstructionList(prefix, InstructionGen(content))
             }
             case CreateBreed(b, nb, fct) => {
-                generateRepeat(nb, InstructionBlock(List(
+                generateRepeat(nb, InstructionBlock(
                         InstructionGen(f"${Renamer.toValidName(b.name.pluralName)}.add(new ${b.name.className}(this, 0, 0, ${fct.lambdaIndex}))")
-                )))
+                ))
             }
 
             case IfBlock(cond, block) => InstructionCompose(f"if(${generateExpr(cond)})", generate(block))
@@ -111,18 +125,18 @@ object ContentGen{
             }
             case While(cond, block) => {
                 val expr = generateExpr(cond)
-                InstructionList(List(
+                InstructionList(
                     expr._1,
                     InstructionCompose(f"while(${expr._2})", generate(block))
-                ))
+                )
             }
 
             case Report(expr) => {
                 val expr2 = generateExpr(expr)
-                InstructionList(List(
+                InstructionList(
                     expr2._1,
                     InstructionGen(f"${expr2._2}")
-                ))
+                )
             }
 
             case Tick => {
@@ -135,23 +149,23 @@ object ContentGen{
                 val set = generateExpr(turtles)
                 val fct = block.name
                 val vari = getUniqueVariableName()
-                InstructionList(List(
+                InstructionList(
                     set._1,
                     InstructionGen(f"val $vari = ${set._2}.toList.map(s => asyncMessage(() => s.$fct(this)))"),
-                    InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(List(
-                        InstructionGen("waitAndReply(1)"))
+                    InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(
+                        InstructionGen("waitAndReply(1)")
                     ))
-                ))
+                )
             }
         }
     }
 
-    def generateRepeat(number: Expression, content: Instruction):Instruction = {
+    def generateRepeat(number: Expression, content: Instruction)(implicit function: Function, breed: Breed, context: Context):Instruction = {
         val expr = generateExpr(number)
-        InstructionList(List(
+        InstructionList(
             expr._1,
             InstructionCompose(f"(1 to ${expr._2}).map(_ =>", content, ")")
-        ))
+        )
     }
 
     /**
@@ -160,20 +174,28 @@ object ContentGen{
      * @param	exp: Expression
      * @return	Scala expression as a string
      */
-    def generateExpr(expr: Expression): (Instruction, String) = {
+    def generateExpr(expr: Expression)(implicit function: Function, breed: Breed, context: Context): (Instruction, String) = {
         expr match{
-            case VariableValue(v) => (EmptyInstruction, Renamer.toValidName(v.name))
+            case VariableValue(v) => (EmptyInstruction, f"${v.getSetterName}()")
             case BooleanValue(v) => (EmptyInstruction, v.toString())
             case IntValue(v) => (EmptyInstruction, v.toString())
             case FloatValue(v) => (EmptyInstruction, v.toString())
             case StringValue(v) => (EmptyInstruction, "\"" + v.toString() + "\"")
-            case BreedValue(breed) => (EmptyInstruction, Renamer.toValidName(breed.pluralName))
+            case BreedValue(breed) => {
+                if (breed == context.getObserverBreed()){
+                    (EmptyInstruction, Renamer.toValidName(breed.pluralName))
+                }
+                else{
+                    (EmptyInstruction, Renamer.toGetterNane(breed.pluralName))
+                }
+            }
+                
             case ListValue(lst) => ???
             case OfValue(expr, from) => {
                 val from2 = generateExpr(from)
                 val ret = generateOfValue(from2._2, expr.vari)
                 (
-                    InstructionList(List(from2._1, ret._1)),
+                    InstructionList(from2._1, ret._1),
                     ret._2
                 )
             }
@@ -191,7 +213,7 @@ object ContentGen{
                 val left = generateExpr(lf)
                 val right = generateExpr(rt)
                 (
-                    InstructionList(List(left._1, right._1)),
+                    InstructionList(left._1, right._1),
                     f"(${left._2} ${getOperator(op)} ${right._2})"
                 )
             }
@@ -227,15 +249,15 @@ object ContentGen{
         val typ = Type.toString(variable.getType())
 
         (
-            InstructionList(List(
+            InstructionList(
                 InstructionGen(f"val $vari = $set.toList.map(a => asyncMessage(() => a.${variable.getGetterName()}))"),
                 InstructionCompose(f"while (!($vari.nonEmpty && $vari.forall(x => x.isCompleted)))",
-                    InstructionBlock(List(
-                        InstructionGen("waitAndReply(1)"))
+                    InstructionBlock(
+                        InstructionGen("waitAndReply(1)")
                     )
                 ),
                 InstructionGen(f"val $vari2: List[$typ] = $vari.map(o => o.popValue.get).asInstanceOf[List[$typ]]")
-            )),
+            ),
             vari2
         )
     }

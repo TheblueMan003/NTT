@@ -4,12 +4,12 @@ import ast.AST
 import ast.AST.Expression
 import Tokens._
 import utils.Context
-import ast.UnlinkedFunction
+import netlogo.UnlinkedFunction
 import utils.VariableOwner
 import utils.TokenBufferedIterator
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ListBuffer
-import ast.BreedClass._
+import netlogo.BreedClass._
 
 object Parser{
     
@@ -280,10 +280,7 @@ object Parser{
                 }
                 else{
                     AST.VariableValue(iden)
-                }/*
-                else{
-                    throw new Exception(f"Unknow identifier: $iden " + token.positionString())
-                }*/
+                }
             }
             case DelimiterToken("(") => {
                 val expr = parseExpression()

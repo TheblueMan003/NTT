@@ -54,8 +54,10 @@ to go
     let m 1
     show("start of tick")
     ask turtles [
-        forward 1.0
-        show("walk")
+        ask turtles [
+            forward 1.0
+            show("walk")
+        ]
     ]
     show("middle of tick")
     ask turtles [

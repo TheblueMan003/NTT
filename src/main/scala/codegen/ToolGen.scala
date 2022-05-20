@@ -3,11 +3,11 @@ package codegen
 import analyser.SymTree._
 import analyser.SymTree
 import utils.Context
-import ast.Breed
-import ast.{LinkedFunction, Function, BaseFunction}
-import ast.Variable
-import analyser.Types._
-import analyser.Type
+import netlogo.Breed
+import netlogo.{LinkedFunction, Function, BaseFunction}
+import netlogo.Variable
+import netlogo.Types._
+import netlogo.Type
 import utils.Reporter
 
 object ToolGen{
@@ -17,7 +17,7 @@ object ToolGen{
         }
         else {
             InstructionCompose(f"$indexValue match", InstructionBlock(
-                functions.map(f => InstructionCompose(f"case ${f.lambdaIndex} => ",  ContentGen.generate(f.symTree)(f, breed))).toList
+                functions.map(f => InstructionCompose(f"case ${f.lambdaIndex} => ",  ContentGen.generate(f.symTree)(f, breed, context))).toList
             ))
         }
     }

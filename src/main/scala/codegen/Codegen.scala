@@ -3,11 +3,11 @@ package codegen
 import analyser.SymTree._
 import analyser.SymTree
 import utils.Context
-import ast.Breed
-import ast.{LinkedFunction, Function, BaseFunction}
-import ast.Variable
-import analyser.Types._
-import analyser.Type
+import netlogo.Breed
+import netlogo.{LinkedFunction, Function, BaseFunction}
+import netlogo.Variable
+import netlogo.Types._
+import netlogo.Type
 import utils.Reporter
 
 object CodeGen{
@@ -17,6 +17,6 @@ object CodeGen{
     private def generateAllClass()(implicit context: Context) = {
         MainGen.generateMainClass() ::
             List(MainGen.generateMainInit()):::
-            context.getBreeds().map(BreedGen.generateBreed(_)).toList
+            context.getBreeds().map(BreedGen.generateBreed(_)).toList.flatten
     }
 }

@@ -1,6 +1,6 @@
 package codegen
 
-import ast.Variable
+import netlogo.Variable
 import java.io.File
 import java.io.PrintWriter
 import java.net.URL
@@ -48,15 +48,27 @@ case class InstructionCompose(val prefix: String, val middle: Generator, val pos
         "\t" * indentation + prefix + sCont + postfix
     }
 }
+
+
 case class InstructionBlock(val content: List[Generator]) extends Instruction{
     def generate(indentation: Int): String = {
         val sCont = content.filter(_ != EmptyInstruction).map(_.generate(indentation + 1)).foldLeft("")(Renamer.concatLine(_, _))
         "{\n" + sCont + "\n" + "\t" * indentation + "}"
     }
 }
+object InstructionBlock {
+    def apply(content: Generator*): InstructionBlock = {
+        InstructionBlock(content.toList)
+    }
+}
 case class InstructionList(val content: List[Generator]) extends Instruction{
     def generate(indentation: Int): String = {
         val sCont = content.filter(_ != EmptyInstruction).map(_.generate(indentation)).foldLeft("")(Renamer.concatLine(_, _))
         sCont
+    }
+}
+object InstructionList {
+    def apply(content: Generator*): InstructionList = {
+        InstructionList(content.toList)
     }
 }

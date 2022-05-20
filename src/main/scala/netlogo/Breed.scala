@@ -1,9 +1,10 @@
-package ast
+package netlogo
 
 import scala.collection.mutable.Map
 import analyser.SymTree
-import ast.LinkedFunction
+import netlogo.LinkedFunction
 import codegen.Renamer
+import ast.AST
 
 class Breed(val parent: Breed, val singularName: String, val pluralName: String) extends VariableOwner{
 
@@ -42,6 +43,14 @@ class Breed(val parent: Breed, val singularName: String, val pluralName: String)
         }
         else{
             throw new Exception(f"Unknown Variable: ${name}")
+        }
+    }
+    def getAllVariablesFromTree(): List[Variable] = {
+        if (parent != null){
+            getAllVariables().toList ::: parent.getAllVariablesFromTree()
+        }
+        else{
+            getAllVariables().toList
         }
     }
 

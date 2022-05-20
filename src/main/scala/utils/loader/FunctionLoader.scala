@@ -1,10 +1,10 @@
 package utils
 
 import scala.io.Source
-import ast.{ Function, BaseFunction, Variable }
-import ast.Breed
-import analyser.Type
-import analyser.Types
+import netlogo.{ Function, BaseFunction, Variable }
+import netlogo.Breed
+import netlogo.Type
+import netlogo.Types
 
 object FunctionLoader{
     def getAll(breedName: String, breed: Breed)(implicit context: Context): List[(String, Function)] = {

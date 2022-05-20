@@ -10,6 +10,9 @@ object Renamer{
     }
 
     def toGetterNane(string: String) = {
+        "get_"+toValidName(string)
+    }
+    def toSetterNane(string: String) = {
         "set_"+toValidName(string)
     }
 

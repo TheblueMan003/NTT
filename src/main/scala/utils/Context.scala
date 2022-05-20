@@ -6,10 +6,10 @@ import scala.collection.mutable.Stack
 import parsing.Token
 import javax.swing.text.StyledEditorKit.BoldAction
 import ast.AST
-import ast.Variable
-import ast.Breed
-import ast.BreedClass
-import ast.{ Function, UnlinkedFunction }
+import netlogo.Variable
+import netlogo.Breed
+import netlogo.BreedClass
+import netlogo.{ Function, UnlinkedFunction }
 import scala.collection.mutable.ListBuffer
 
 trait VariableOwner{

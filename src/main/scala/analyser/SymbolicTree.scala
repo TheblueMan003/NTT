@@ -1,7 +1,7 @@
 package analyser
 
 import utils._
-import ast.{Variable, Function, Breed}
+import netlogo.{Variable, Function, Breed}
 import scala.collection.mutable.{Map, Set}
 
 trait SymTree extends Positionable

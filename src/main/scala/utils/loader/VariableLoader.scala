@@ -1,9 +1,9 @@
 package utils
 
 import scala.io.Source
-import ast.Variable
-import ast.Breed
-import analyser.Type
+import netlogo.Variable
+import netlogo.Breed
+import netlogo.Type
 
 object VariableLoader{
     def getAll(breedName: String, breed: Breed)(implicit context: Context): List[(String, Variable)] = {

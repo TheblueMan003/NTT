@@ -1,10 +1,11 @@
 package analyser
 
 import SymTree._
-import Types._
 import TypeConstrainer._
 import utils.Context
-import ast.{Variable, LinkedFunction, Function}
+import netlogo.{Variable, LinkedFunction, Function, Types}
+import netlogo.Types._
+import netlogo.Type
 
 object TypeChecker{
     def analyse(context: Context) = {

@@ -1,7 +1,7 @@
-package ast
+package netlogo
 
 import scala.collection.mutable.Map
-import analyser.Typed
+import netlogo.Typed
 import codegen.Renamer
 
 trait VariableOwner{

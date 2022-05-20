@@ -3,6 +3,7 @@ package ast
 import utils._
 import parsing.Token
 import scala.collection.mutable.{Map, Set}
+import netlogo._
 
 trait AST extends Positionable
 object AST{

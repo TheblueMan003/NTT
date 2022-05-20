@@ -3,16 +3,19 @@ package codegen
 import analyser.SymTree._
 import analyser.SymTree
 import utils.Context
-import ast.Breed
-import ast.{LinkedFunction, Function, BaseFunction}
-import ast.Variable
-import analyser.Types._
-import analyser.Type
+import netlogo.Breed
+import netlogo.{LinkedFunction, Function, BaseFunction}
+import netlogo.Variable
+import netlogo.Types._
+import netlogo.Type
 import utils.Reporter
 
 object BreedGen{
     val initerVariableName = "DEFAULT_INITER"
     val askVaraibleName = "DEFAULT_ASK"
+    val logsType = "mutable.Map[String, Any]"
+    val logName = "DEFAULT_logs"
+    val workerParentName = "DEFAULT_Parent"
 
     /**
      * Generate Breed Class.
@@ -20,17 +23,28 @@ object BreedGen{
      * @param	breed	
      * @return	ClassFile
      */
-    def generateBreed(breed: Breed)(implicit context: Context): ClassFile = {
-        ClassFile(
-            List(),
-            "@lift",
-            "class",
-            breed.className,
-            getClassArguments(breed),
-            getParents
-            (breed),
-            generateBreedFields(breed), 
-            generateBreedFunctions(breed)
+    def generateBreed(breed: Breed)(implicit context: Context): List[ClassFile] = {
+        List(
+            ClassFile(
+                List(),
+                "@lift",
+                "class",
+                breed.className,
+                getClassArguments(breed),
+                getParents(breed),
+                generateBreedFields(breed), 
+                generateBreedFunctions(breed)
+            ),
+            ClassFile(
+                List(),
+                "@lift",
+                "class",
+                "WORKER_"+breed.className,
+                getWorkerClassArguments(breed),
+                List(breed.className),
+                List(),
+                List(generateMainWorkerFunction(breed))
+            )
         )
     }
 
@@ -56,7 +70,7 @@ object BreedGen{
      */
     def generateBreedFunctions(breed: Breed)(implicit context: Context): List[FunctionGen] = {
         generateMainFunction(breed)::
-            List(generateUpdater(breed)):::
+            List(generateUpdaterFromParent(breed), generateUpdaterFromWorker(breed)):::
         breed.getAllFunctions().filter(_.name != "go").map{
             _ match {
                 case lc: LinkedFunction => ContentGen.generate(lc, breed)
@@ -78,24 +92,24 @@ object BreedGen{
         }
         val go = if (breed == context.getObserverBreed()){
             val fct = breed.getFunction("go").asInstanceOf[LinkedFunction]
-            InstructionList(ContentGen.generate(fct.symTree)(fct, breed).asInstanceOf[InstructionBlock].content)
+            InstructionList(ContentGen.generate(fct.symTree)(fct, breed, context).asInstanceOf[InstructionBlock].content)
         }
         else{
             InstructionGen("")
         }
 
         FunctionGen(getMainFunctionName(breed), List(), "Unit", 
-            InstructionBlock(List(
+            InstructionBlock(
                 init,
                 InstructionCompose(f"while(true)", 
-                InstructionBlock(List(
-                    go,
-                    InstructionGen("handleMessages()"),
-                    generateMainFunctionSwitch(breed),
-                    InstructionGen("waitLabel(Turn, 1)")
-                ))
-                )  
-            ))
+                    InstructionBlock(
+                        go,
+                        InstructionGen("handleMessages()"),
+                        generateMainFunctionSwitch(breed),
+                        InstructionGen("waitLabel(Turn, 1)")
+                    )
+                )
+            )  
         )
     }
 
@@ -133,15 +147,31 @@ object BreedGen{
         }
     }
 
-    def generateUpdater(breed: Breed)(implicit context: Context): FunctionGen = {
+    def generateUpdaterFromParent(breed: Breed)(implicit context: Context): FunctionGen = {
         val p = "\""
-        FunctionGen("DEFAULT_Update", List(new Variable("dic")), "Unit",
-        InstructionBlock(List(
+        val vari = new Variable("dic")
+        vari.setType(CodeGenType(logsType))
+
+        FunctionGen("DEFAULT_UpdateFromParent", List(vari), "Unit",
+        InstructionBlock(
             InstructionCompose("dic.map((k,v) => k match",
             InstructionBlock(
-                breed.getAllVariables().map(x => InstructionGen(f"case $p${x.name}$p => ${x.name} = v.asInstanceOf[${Type.toString(x.getType())}]")).toList
+                breed.getAllVariablesFromTree().map(x => InstructionGen(f"case $p${x.name}$p => ${x.name} = v.asInstanceOf[${Type.toString(x.getType())}]")).toList
             ),")"
-        ))))
+        )))
+    }
+    def generateUpdaterFromWorker(breed: Breed)(implicit context: Context): FunctionGen = {
+        val p = "\""
+        val vari = new Variable("dic")
+        vari.setType(CodeGenType(logsType))
+
+        FunctionGen("DEFAULT_UpdateFromWorker", List(vari), "Unit",
+        InstructionBlock(
+            InstructionCompose("dic.map((k,v) => k match",
+            InstructionBlock(
+                breed.getAllVariablesFromTree().map(x => InstructionGen(f"case $p${x.name}$p => ${x.getSetterName}(v.asInstanceOf[${Type.toString(x.getType())}])")).toList
+            ),")"
+        )))
     }
 
     /**
@@ -170,5 +200,33 @@ object BreedGen{
             case "Observer" => "(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int)"
             case other => f"(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: Int, val $initerVariableName: Int)"
         }
+    }
+
+    /**
+     * Return the arguments for the class generacted by breed.
+     *
+     * @return	String of arguments
+     */
+    def getWorkerClassArguments(breed: Breed): String = {
+        f"(val $workerParentName: ${breed.className}, val $logName: $logsType, val $askVaraibleName: Int)"
+    }
+
+    /**
+     * @param	breed	
+     * @return	FunctionGenerator for the main function of the breed
+     */
+    def generateMainWorkerFunction(breed: Breed)(implicit context: Context): FunctionGen = {
+        FunctionGen(getMainFunctionName(breed), List(), "Unit", 
+            InstructionBlock(
+                InstructionGen(f"DEFAULT_UpdateFromParent($logName)"),
+                InstructionCompose(f"while(true)", 
+                    InstructionBlock(
+                        InstructionGen("handleMessages()"),
+                        generateMainFunctionSwitch(breed),
+                        InstructionGen("waitLabel(Turn, 1)")
+                    )
+                )
+            )  
+        )
     }
 }

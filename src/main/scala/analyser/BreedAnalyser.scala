@@ -2,11 +2,11 @@ package analyser
 
 import utils.Context
 import utils.ContextMap
-import ast.{UnlinkedFunction, LinkedFunction, Variable}
 import ast.AST._
 import analyser.BreedConstrainer._
 import ast._
-import analyser.Types.{BreedType, ListType}
+import netlogo.Types.{BreedType, ListType}
+import netlogo._
 
 object BreedAnalyser{
     private val observersFunctions = Set("go", "setup")
