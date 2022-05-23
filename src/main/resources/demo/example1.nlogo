@@ -16,10 +16,9 @@ to setup
         set xcord 0
     ]
 end
-to fct [ value ]
-    ask turtles [
-        set value 0 
-    ]
+to-report fct [ value ]
+    set value 0
+    report 5
 end
 to go
     let p 1

@@ -144,10 +144,14 @@ object ContentGen{
             }
 
             case Report(expr) => {
+                if (!function.hasReturnValue)
+                    Reporter.warning(f"${function.name} is not marked as to-report but yet has a report instruction.")
                 val expr2 = generateExpr(expr)
+                val vari = getUniqueVariableName()
                 InstructionList(
                     expr2._1,
-                    InstructionGen(f"${expr2._2}")
+                    InstructionGen(f"val $vari = ${expr2._2}"),
+                    InstructionGen(vari)
                 )
             }
 

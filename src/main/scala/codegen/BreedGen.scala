@@ -71,6 +71,7 @@ object BreedGen{
      */
     def generateBreedFunctions(breed: Breed)(implicit context: Context): List[FunctionGen] = {
         generateMainFunction(breed)::
+            breed.getAllAskedFunctions().map(f => generateAskLambda(breed, f.asInstanceOf[LinkedFunction])).toList:::
             List(generateUpdaterFromParent(breed), generateUpdaterFromWorker(breed)):::
         breed.getAllNormalFunctions().filter(_.name != "go").map{
             _ match {
@@ -154,6 +155,7 @@ object BreedGen{
             List(breed.parent.className+f"($observerVariable, DEFAULT_X, DEFAULT_Y, $initerVariableName)")
         }
     }
+    
     def generateAskLambda(breed: Breed, function: LinkedFunction)(implicit context: Context): FunctionGen = {
         FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), 
                 InstructionBlock(

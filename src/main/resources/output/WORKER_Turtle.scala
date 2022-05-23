@@ -19,14 +19,14 @@ class WORKER_Turtle(val DEFAULT_observer: Observer, val DEFAULT_Parent: Turtle, 
 				println("walk")
 			}
 			if (DEFAULT_ASK == 0){
-				val tmp_3 = DEFAULT_observer.get_turtles().toList.map(s => WORKER_Turtle(DEFAULT_observer, this, DEFAULT_logs, 1))
-				var tmp_5 = false
-				while(!tmp_5){
-					val tmp_4 = tmp_3.map(s => asyncMessage(() => s.get_default_is_done()))
-					while(!tmp_3.forall(_.isCompleted)){
+				val tmp_5 = DEFAULT_observer.get_turtles().toList.map(s => WORKER_Turtle(DEFAULT_observer, this, DEFAULT_logs, 1))
+				var tmp_7 = false
+				while(!tmp_7){
+					val tmp_6 = tmp_5.map(s => asyncMessage(() => s.get_default_is_done()))
+					while(!tmp_5.forall(_.isCompleted)){
 						waitAndReply(1)
 					}
-					tmp_5 = tmp_4.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)
+					tmp_7 = tmp_6.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)
 				}
 			}
 			default_is_done = true

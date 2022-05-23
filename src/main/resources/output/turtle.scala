@@ -60,18 +60,27 @@ class Turtle(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: 
 				println("walk")
 			}
 			if (DEFAULT_ASK == 0){
-				val tmp_0 = DEFAULT_observer.get_turtles().toList.map(s => WORKER_Turtle(DEFAULT_observer, this, DEFAULT_logs, 1))
-				var tmp_2 = false
-				while(!tmp_2){
-					val tmp_1 = tmp_0.map(s => asyncMessage(() => s.get_default_is_done()))
-					while(!tmp_0.forall(_.isCompleted)){
+				val tmp_1 = DEFAULT_observer.get_turtles().toList.map(s => WORKER_Turtle(DEFAULT_observer, this, DEFAULT_logs, 1))
+				var tmp_3 = false
+				while(!tmp_3){
+					val tmp_2 = tmp_1.map(s => asyncMessage(() => s.get_default_is_done()))
+					while(!tmp_1.forall(_.isCompleted)){
 						waitAndReply(1)
 					}
-					tmp_2 = tmp_1.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)
+					tmp_3 = tmp_2.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)
 				}
 			}
 			waitLabel(Turn, 1)
 		}
+	}
+	def lambda_2(__myself_0 : Any):Unit = {
+		DEFAULT_ASK = 2
+	}
+	def lambda_1(__myself_1 : Any, __myself_0 : Any):Unit = {
+		DEFAULT_ASK = 1
+	}
+	def lambda_0(__myself_0 : Any):Unit = {
+		DEFAULT_ASK = 0
 	}
 	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
 		dic.map(kv => {
@@ -151,6 +160,7 @@ class Turtle(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: 
 	}
 	def can_move():Boolean = {
 		set_angle(get_angle())
-		true
+		val tmp_4 = true
+		tmp_4
 	}
 }
