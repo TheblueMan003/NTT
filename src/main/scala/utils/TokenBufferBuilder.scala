@@ -1,21 +1,19 @@
 package utils
 
+import scala.collection.mutable
+
 import parsing.Token
 import parsing.Tokens
 
-import java.util.ArrayList
-import scala.collection.JavaConverters._
-
-class TokenBufferBuilder{
-    val list = new ArrayList[Token]()
+class TokenBufferBuilder(val list: mutable.ArrayBuffer[Token] = new mutable.ArrayBuffer[Token]()){
     
     def add(token: Token, buffer: StringBufferedIterator): TokenBufferBuilder = {
-        list.add(token)
+        list.addOne(token)
         this
     }
 
     def toIterator(): TokenBufferedIterator = {
-        new TokenBufferedIterator(list.asScala.filter(
+        new TokenBufferedIterator(list.filter(
             _ match {
                 case Tokens.CommentToken(_) => false
                 case Tokens.SpaceToken() => false
@@ -23,4 +21,8 @@ class TokenBufferBuilder{
             }
         ).toList)
     }
+
+    def union(other: TokenBufferBuilder):TokenBufferBuilder = {
+        new TokenBufferBuilder(list ++ other.list)
+    } 
 }

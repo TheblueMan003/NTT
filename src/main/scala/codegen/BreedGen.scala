@@ -154,6 +154,13 @@ object BreedGen{
             List(breed.parent.className+f"($observerVariable, DEFAULT_X, DEFAULT_Y, $initerVariableName)")
         }
     }
+    def generateAskLambda(breed: Breed, function: LinkedFunction)(implicit context: Context): FunctionGen = {
+        FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), 
+                InstructionBlock(
+                    InstructionGen(f"${askVaraibleName} = ${function.lambdaIndex}")
+                )
+        )
+    }
 
     def generateUpdaterFromParent(breed: Breed)(implicit context: Context): FunctionGen = {
         val p = "\""
@@ -175,7 +182,7 @@ object BreedGen{
          FunctionGen("DEFAULT_UpdateFromParent", List(vari), "Unit",
         InstructionBlock(
             InstructionCompose("dic.map(kv => ",InstructionBlock(
-            breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(f"${x.getSetter(f"kv._2.asInstanceOf[${Type.toString(x.getType())}]")}")))).toList
+            breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(x.getSetter(f"kv._2.asInstanceOf[${Type.toString(x.getType())}]"))))).toList
             ),")"
         )))
     }

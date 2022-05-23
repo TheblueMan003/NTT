@@ -16,10 +16,15 @@ to setup
         set xcord 0
     ]
 end
-
+to fct [ value ]
+    ask turtles [
+        set value 0 
+    ]
+end
 to go
-    let m 1
+    let p 1
     show("start of tick")
+    let m [ p ] of turtles
     ask turtles [
         ask turtles [
             forward 1.0
