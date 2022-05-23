@@ -45,59 +45,83 @@ class Turtle(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: 
 		xcord = DEFAULT_value
 	}
 	def main():Unit = {
-		DEFAULT_INITER match{
-			case 3 => {
-				set_speed(0)
-				set_xcord(0)
-			}
+		if (DEFAULT_INITER == 3){
+			set_speed(0)
+			set_xcord(0)
 		}
 		while(true){
 			handleMessages()
-			DEFAULT_ASK match{
-				case 2 => {
-					left(90.0)
-					println("turn")
-				}
-				case 1 => {
-					forward(1.0)
-					println("walk")
-				}
-				case 0 => {
-					val tmp_0 = DEFAULT_observer.get_turtles().toList.map(s => WORKER_Turtle(DEFAULT_observer, this, DEFAULT_logs, 1))
-					var tmp_2 = false
-					while(!tmp_2){
-						val tmp_1 = tmp_0.map(s => asyncMessage(() => s.get_default_is_done()))
-						while(!tmp_0.forall(_.isCompleted)){
-							waitAndReply(1)
-						}
-						tmp_2 = tmp_1.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)
+			if (DEFAULT_ASK == 2){
+				left(90.0)
+				println("turn")
+			}
+			if (DEFAULT_ASK == 1){
+				forward(1.0)
+				println("walk")
+			}
+			if (DEFAULT_ASK == 0){
+				val tmp_0 = DEFAULT_observer.get_turtles().toList.map(s => WORKER_Turtle(DEFAULT_observer, this, DEFAULT_logs, 1))
+				var tmp_2 = false
+				while(!tmp_2){
+					val tmp_1 = tmp_0.map(s => asyncMessage(() => s.get_default_is_done()))
+					while(!tmp_0.forall(_.isCompleted)){
+						waitAndReply(1)
 					}
+					tmp_2 = tmp_1.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)
 				}
 			}
 			waitLabel(Turn, 1)
 		}
 	}
 	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
-		dic.map{case (k, v) => k match{
-			case "ycord" => ycord = v.asInstanceOf[Double]
-			case "color" => color = v.asInstanceOf[Any]
-			case "angle" => angle = v.asInstanceOf[Double]
-			case "forward_m" => forward_m = v.asInstanceOf[Double]
-			case "speed" => speed = v.asInstanceOf[Int]
-			case "xcord" => xcord = v.asInstanceOf[Double]
-			case "default_is_done" => default_is_done = v.asInstanceOf[Any]
-		}}
+		dic.map(kv => {
+			if(kv._1 == "ycord"){
+				ycord = kv._2.asInstanceOf[Double]
+			}
+			if(kv._1 == "color"){
+				color = kv._2.asInstanceOf[Any]
+			}
+			if(kv._1 == "angle"){
+				angle = kv._2.asInstanceOf[Double]
+			}
+			if(kv._1 == "forward_m"){
+				forward_m = kv._2.asInstanceOf[Double]
+			}
+			if(kv._1 == "speed"){
+				speed = kv._2.asInstanceOf[Int]
+			}
+			if(kv._1 == "xcord"){
+				xcord = kv._2.asInstanceOf[Double]
+			}
+			if(kv._1 == "default_is_done"){
+				default_is_done = kv._2.asInstanceOf[Any]
+			}
+		})
 	}
-	def DEFAULT_UpdateFromWorker(dic : mutable.Map[String, Any]):Unit = {
-		dic.map{case (k, v) => k match{
-			case "ycord" => set_ycord(v.asInstanceOf[Double])
-			case "color" => set_color(v.asInstanceOf[Any])
-			case "angle" => set_angle(v.asInstanceOf[Double])
-			case "forward_m" => set_forward_m(v.asInstanceOf[Double])
-			case "speed" => set_speed(v.asInstanceOf[Int])
-			case "xcord" => set_xcord(v.asInstanceOf[Double])
-			case "default_is_done" => set_default_is_done(v.asInstanceOf[Any])
-		}}
+	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
+		dic.map(kv => {
+			if(kv._1 == "ycord"){
+				set_ycord(kv._2.asInstanceOf[Double])
+			}
+			if(kv._1 == "color"){
+				set_color(kv._2.asInstanceOf[Any])
+			}
+			if(kv._1 == "angle"){
+				set_angle(kv._2.asInstanceOf[Double])
+			}
+			if(kv._1 == "forward_m"){
+				set_forward_m(kv._2.asInstanceOf[Double])
+			}
+			if(kv._1 == "speed"){
+				set_speed(kv._2.asInstanceOf[Int])
+			}
+			if(kv._1 == "xcord"){
+				set_xcord(kv._2.asInstanceOf[Double])
+			}
+			if(kv._1 == "default_is_done"){
+				set_default_is_done(kv._2.asInstanceOf[Any])
+			}
+		})
 	}
 	def forward(value : Double):Unit = {
 		set_forward_m((value * Math.cos(get_angle())))

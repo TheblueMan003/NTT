@@ -64,26 +64,42 @@ class Observer(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int){
 		}
 	}
 	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
-		dic.map{case (k, v) => k match{
-			case "DEFAULT_BOARD_Y" => DEFAULT_BOARD_Y = v.asInstanceOf[Int]
-			case "DEFAULT_BOARD_X" => DEFAULT_BOARD_X = v.asInstanceOf[Int]
-			case "test" => test = v.asInstanceOf[Any]
-			case "go_m" => go_m = v.asInstanceOf[Int]
-			case "index" => index = v.asInstanceOf[Any]
-			case "go_c" => go_c = v.asInstanceOf[Any]
-			case "default_is_done" => default_is_done = v.asInstanceOf[Any]
-		}}
+		dic.map(kv => {
+			if(kv._1 == "test"){
+				test = kv._2.asInstanceOf[Any]
+			}
+			if(kv._1 == "go_m"){
+				go_m = kv._2.asInstanceOf[Int]
+			}
+			if(kv._1 == "index"){
+				index = kv._2.asInstanceOf[Any]
+			}
+			if(kv._1 == "go_c"){
+				go_c = kv._2.asInstanceOf[Any]
+			}
+			if(kv._1 == "default_is_done"){
+				default_is_done = kv._2.asInstanceOf[Any]
+			}
+		})
 	}
-	def DEFAULT_UpdateFromWorker(dic : mutable.Map[String, Any]):Unit = {
-		dic.map{case (k, v) => k match{
-			case "DEFAULT_BOARD_Y" => set_DEFAULT_BOARD_Y(v.asInstanceOf[Int])
-			case "DEFAULT_BOARD_X" => set_DEFAULT_BOARD_X(v.asInstanceOf[Int])
-			case "test" => set_test(v.asInstanceOf[Any])
-			case "go_m" => set_go_m(v.asInstanceOf[Int])
-			case "index" => set_index(v.asInstanceOf[Any])
-			case "go_c" => set_go_c(v.asInstanceOf[Any])
-			case "default_is_done" => set_default_is_done(v.asInstanceOf[Any])
-		}}
+	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
+		dic.map(kv => {
+			if(kv._1 == "test"){
+				set_test(kv._2.asInstanceOf[Any])
+			}
+			if(kv._1 == "go_m"){
+				set_go_m(kv._2.asInstanceOf[Int])
+			}
+			if(kv._1 == "index"){
+				set_index(kv._2.asInstanceOf[Any])
+			}
+			if(kv._1 == "go_c"){
+				set_go_c(kv._2.asInstanceOf[Any])
+			}
+			if(kv._1 == "default_is_done"){
+				set_default_is_done(kv._2.asInstanceOf[Any])
+			}
+		})
 	}
 	def setup():Unit = {
 		(1 to 10).map(_ =>{

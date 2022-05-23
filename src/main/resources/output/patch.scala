@@ -27,17 +27,29 @@ class Patch(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: I
 		}
 	}
 	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
-		dic.map{case (k, v) => k match{
-			case "pycord" => pycord = v.asInstanceOf[Any]
-			case "pxcord" => pxcord = v.asInstanceOf[Any]
-			case "default_is_done" => default_is_done = v.asInstanceOf[Any]
-		}}
+		dic.map(kv => {
+			if(kv._1 == "pycord"){
+				pycord = kv._2.asInstanceOf[Any]
+			}
+			if(kv._1 == "pxcord"){
+				pxcord = kv._2.asInstanceOf[Any]
+			}
+			if(kv._1 == "default_is_done"){
+				default_is_done = kv._2.asInstanceOf[Any]
+			}
+		})
 	}
-	def DEFAULT_UpdateFromWorker(dic : mutable.Map[String, Any]):Unit = {
-		dic.map{case (k, v) => k match{
-			case "pycord" => set_pycord(v.asInstanceOf[Any])
-			case "pxcord" => set_pxcord(v.asInstanceOf[Any])
-			case "default_is_done" => set_default_is_done(v.asInstanceOf[Any])
-		}}
+	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
+		dic.map(kv => {
+			if(kv._1 == "pycord"){
+				set_pycord(kv._2.asInstanceOf[Any])
+			}
+			if(kv._1 == "pxcord"){
+				set_pxcord(kv._2.asInstanceOf[Any])
+			}
+			if(kv._1 == "default_is_done"){
+				set_default_is_done(kv._2.asInstanceOf[Any])
+			}
+		})
 	}
 }

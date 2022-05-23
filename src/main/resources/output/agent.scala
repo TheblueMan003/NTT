@@ -21,13 +21,17 @@ class Agent(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: I
 		}
 	}
 	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
-		dic.map{case (k, v) => k match{
-			case "default_is_done" => default_is_done = v.asInstanceOf[Any]
-		}}
+		dic.map(kv => {
+			if(kv._1 == "default_is_done"){
+				default_is_done = kv._2.asInstanceOf[Any]
+			}
+		})
 	}
-	def DEFAULT_UpdateFromWorker(dic : mutable.Map[String, Any]):Unit = {
-		dic.map{case (k, v) => k match{
-			case "default_is_done" => set_default_is_done(v.asInstanceOf[Any])
-		}}
+	def DEFAULT_UpdateFromParent(dic : mutable.Map[String, Any]):Unit = {
+		dic.map(kv => {
+			if(kv._1 == "default_is_done"){
+				set_default_is_done(kv._2.asInstanceOf[Any])
+			}
+		})
 	}
 }

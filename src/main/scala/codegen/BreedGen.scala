@@ -162,10 +162,9 @@ object BreedGen{
 
         FunctionGen("DEFAULT_UpdateFromParent", List(vari), "Unit",
         InstructionBlock(
-            InstructionCompose("dic.map{case (k, v) => k match",
-            InstructionBlock(
-                breed.getAllVariablesFromTree().map(x => InstructionGen(f"case $p${x.name}$p => ${x.name} = v.asInstanceOf[${Type.toString(x.getType())}]")).toList
-            ),"}"
+            InstructionCompose("dic.map(kv => ",InstructionBlock(
+            breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(f"${x.name} = kv._2.asInstanceOf[${Type.toString(x.getType())}]")))).toList
+            ),")"
         )))
     }
     def generateUpdaterFromWorker(breed: Breed)(implicit context: Context): FunctionGen = {
@@ -173,12 +172,11 @@ object BreedGen{
         val vari = new Variable("dic")
         vari.setType(CodeGenType(logsType))
 
-        FunctionGen("DEFAULT_UpdateFromWorker", List(vari), "Unit",
+         FunctionGen("DEFAULT_UpdateFromParent", List(vari), "Unit",
         InstructionBlock(
-            InstructionCompose("dic.map{case (k, v) => k match",
-            InstructionBlock(
-                breed.getAllVariablesFromTree().map(x => InstructionGen(f"case $p${x.name}$p => ${x.getSetterName}(v.asInstanceOf[${Type.toString(x.getType())}])")).toList
-            ),"}"
+            InstructionCompose("dic.map(kv => ",InstructionBlock(
+            breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(f"${x.getSetter(f"kv._2.asInstanceOf[${Type.toString(x.getType())}]")}")))).toList
+            ),")"
         )))
     }
 
