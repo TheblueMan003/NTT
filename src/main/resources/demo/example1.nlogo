@@ -17,11 +17,11 @@ to setup
     ]
 end
 to fct [ value ]
-    ifelse value = 0
-        [ set value 1 ]
+    set value ifelse-value value = 0
+        [ value + 1 ]
         value = 1
-        [ set value 2 ]
-        [ set value 3 ]
+        [ value + 2 ]
+        [ 3 ]
     set value 0
     report 5
 end

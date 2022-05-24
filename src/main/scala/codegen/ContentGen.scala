@@ -203,6 +203,17 @@ object ContentGen{
         )
     }
 
+    def generateIfElseExpr(cond: Expression, ifBlock: Expression, elseBlock: Expression)(implicit function: Function, breed: Breed, context: Context, flag: Flag): Instruction = {
+        val expr = generateExpr(cond)
+        val iff = generateExpr(ifBlock)
+        val elze = generateExpr(elseBlock)
+        InstructionList(
+            expr._1,
+            InstructionCompose(f"if(${expr._2})", InstructionBlock(iff._1, InstructionGen(iff._2))),
+            InstructionCompose(f"else", InstructionBlock(elze._1, InstructionGen(elze._2))),
+        )
+    }
+
     def generateRepeat(number: Expression, content: Instruction)(implicit function: Function, breed: Breed, context: Context):Instruction = {
         val expr = generateExpr(number)
         InstructionList(
@@ -244,12 +255,10 @@ object ContentGen{
             }
 
             case IfElseBlockExpression(conds, block) => {
-                (
-                    EmptyInstruction,
-                    (conds.map(c => f"if (${generateExpr(c._1)})${generateExpr(c._2)}")
-                        ::: List(generateExpr(block)))
-                        .foldLeft("")((x,y) => f"${x} else ${y}")
-                )
+                conds match {
+                    case head :: Nil => generateIfElseExpr(head._1, head._2, block)
+                    case head :: tail => generateIfElseExpr(head._1, head._2, IfElseBlockExpression(tail, block))
+                }
             }
 
             case BinarayExpr(op, lf, rt) => {
