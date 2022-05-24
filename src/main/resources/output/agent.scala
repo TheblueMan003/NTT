@@ -35,6 +35,15 @@ class Agent(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: I
 		})
 	}
 	def fct(value : Int):Unit = {
+		if((value == 0)){
+			value=1
+		}
+		else		if((value == 1)){
+			value=2
+		}
+		else{
+			value=3
+		}
 		value=0
 		val tmp_0 = 5
 		tmp_0

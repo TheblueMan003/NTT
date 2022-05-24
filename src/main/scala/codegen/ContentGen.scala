@@ -121,14 +121,10 @@ object ContentGen{
 
             case IfBlock(cond, block) => InstructionCompose(f"if(${generateExpr(cond)})", generate(block))
             case IfElseBlock(conds, block) => {
-                InstructionList(
-                    InstructionCompose(f"if(${generateExpr(conds.head._1)})", generate(conds.head._2)) ::
-                    conds.drop(1).map(c => 
-                        InstructionCompose(f"else if(${generateExpr(c._1)})", generate(c._2))
-                    ) ::: List(
-                        InstructionCompose("else", generate(block))
-                    )
-                )
+                conds match {
+                    case head :: Nil => generateIfElse(head._1, head._2, block)
+                    case head :: tail => generateIfElse(head._1, head._2, IfElseBlock(tail, block))
+                }
             }
 
             case Loop(block) => InstructionCompose("while(true)", generate(block))
@@ -196,6 +192,15 @@ object ContentGen{
                 }
             }
         }
+    }
+
+    def generateIfElse(cond: Expression, ifBlock: SymTree, elseBlock: SymTree)(implicit function: Function, breed: Breed, context: Context, flag: Flag): Instruction = {
+        val expr = generateExpr(cond)
+        InstructionList(
+            expr._1,
+            InstructionCompose(f"if(${expr._2})", generate(ifBlock)),
+            InstructionCompose(f"else", generate(elseBlock)),
+        )
     }
 
     def generateRepeat(number: Expression, content: Instruction)(implicit function: Function, breed: Breed, context: Context):Instruction = {

@@ -16,7 +16,12 @@ to setup
         set xcord 0
     ]
 end
-to-report fct [ value ]
+to fct [ value ]
+    ifelse value = 0
+        [ set value 1 ]
+        value = 1
+        [ set value 2 ]
+        [ set value 3 ]
     set value 0
     report 5
 end
