@@ -16,7 +16,11 @@
         ],
         "classpath": [
             "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\scala-library\\2.13.3\\scala-library-2.13.3.jar",
-            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-parser-combinators_2.13\\1.1.2\\scala-parser-combinators_2.13-1.1.2.jar"
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-parser-combinators_2.13\\1.1.2\\scala-parser-combinators_2.13-1.1.2.jar",
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalameta\\scalafmt-dynamic_2.13\\3.5.4\\scalafmt-dynamic_2.13-3.5.4.jar",
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalameta\\scalafmt-interfaces\\3.5.4\\scalafmt-interfaces-3.5.4.jar",
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\get-coursier\\interface\\0.0.17\\interface-0.0.17.jar",
+            "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\typesafe\\config\\1.4.2\\config-1.4.2.jar"
         ],
         "out": "C:\\Users\\chris\\NTT\\.bloop\\ntt",
         "classesDir": "C:\\Users\\chris\\NTT\\.bloop\\ntt\\scala-2.13\\classes",
@@ -141,6 +145,74 @@
                             "name": "scala-parser-combinators_2.13",
                             "classifier": "sources",
                             "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scala-lang\\modules\\scala-parser-combinators_2.13\\1.1.2\\scala-parser-combinators_2.13-1.1.2-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalameta",
+                    "name": "scalafmt-dynamic_2.13",
+                    "version": "3.5.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalafmt-dynamic_2.13",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalameta\\scalafmt-dynamic_2.13\\3.5.4\\scalafmt-dynamic_2.13-3.5.4.jar"
+                        },
+                        {
+                            "name": "scalafmt-dynamic_2.13",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalameta\\scalafmt-dynamic_2.13\\3.5.4\\scalafmt-dynamic_2.13-3.5.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "org.scalameta",
+                    "name": "scalafmt-interfaces",
+                    "version": "3.5.4",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "scalafmt-interfaces",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalameta\\scalafmt-interfaces\\3.5.4\\scalafmt-interfaces-3.5.4.jar"
+                        },
+                        {
+                            "name": "scalafmt-interfaces",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\org\\scalameta\\scalafmt-interfaces\\3.5.4\\scalafmt-interfaces-3.5.4-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "io.get-coursier",
+                    "name": "interface",
+                    "version": "0.0.17",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "interface",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\get-coursier\\interface\\0.0.17\\interface-0.0.17.jar"
+                        },
+                        {
+                            "name": "interface",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\io\\get-coursier\\interface\\0.0.17\\interface-0.0.17-sources.jar"
+                        }
+                    ]
+                },
+                {
+                    "organization": "com.typesafe",
+                    "name": "config",
+                    "version": "1.4.2",
+                    "configurations": "default",
+                    "artifacts": [
+                        {
+                            "name": "config",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\typesafe\\config\\1.4.2\\config-1.4.2.jar"
+                        },
+                        {
+                            "name": "config",
+                            "classifier": "sources",
+                            "path": "C:\\Users\\chris\\AppData\\Local\\Coursier\\Cache\\v1\\https\\repo1.maven.org\\maven2\\com\\typesafe\\config\\1.4.2\\config-1.4.2-sources.jar"
                         }
                     ]
                 },

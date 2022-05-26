@@ -203,14 +203,15 @@ object ContentGen{
         )
     }
 
-    def generateIfElseExpr(cond: Expression, ifBlock: Expression, elseBlock: Expression)(implicit function: Function, breed: Breed, context: Context, flag: Flag): Instruction = {
+    def generateIfElseExpr(cond: Expression, ifBlock: Expression, elseBlock: Expression)(implicit function: Function, breed: Breed, context: Context): (Instruction, String) = {
         val expr = generateExpr(cond)
         val iff = generateExpr(ifBlock)
         val elze = generateExpr(elseBlock)
-        InstructionList(
-            expr._1,
+        (expr._1,
+            InstructionList(
             InstructionCompose(f"if(${expr._2})", InstructionBlock(iff._1, InstructionGen(iff._2))),
-            InstructionCompose(f"else", InstructionBlock(elze._1, InstructionGen(elze._2))),
+            InstructionCompose(f"else", InstructionBlock(elze._1, InstructionGen(elze._2)))
+            ).generate(0),
         )
     }
 

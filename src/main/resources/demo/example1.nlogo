@@ -18,10 +18,10 @@ to setup
 end
 to fct [ value ]
     set value ifelse-value value = 0
-        [ value + 1 ]
+        [ value  + (((((((((1))))))))) ]
         value = 1
-        [ value + 2 ]
-        [ 3 ]
+        [ value ]
+        [ value ]
     set value 0
     report 5
 end

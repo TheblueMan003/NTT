@@ -33,6 +33,7 @@ object Main extends App {
   TypeChecker.analyse(context)
   
   val code = CodeGen.generate(context)
+
   code.map(c => c.writeToFile(f"./src/main/resources/output/${c.name}.scala"))
 /*
   Reporter.debug(context.getBreeds().map(b => b.getAllFunctions().filter(f =>
