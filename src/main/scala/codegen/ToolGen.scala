@@ -16,9 +16,12 @@ object ToolGen{
             EmptyInstruction
         }
         else {
-            InstructionCompose(f"$indexValue match", InstructionBlock(
-                functions.map(f => InstructionCompose(f"case ${f.lambdaIndex} => ",  ContentGen.generate(f.symTree)(f, breed, context, flag))).toList
-            ))
+            val lst = functions.map(f => 
+                InstructionCompose(f"if ($indexValue == ${f.lambdaIndex})", 
+                    ContentGen.generate(f.symTree)(f, breed, context, flag)
+                )
+            )
+            InstructionList(lst.toList)
         }
     }
 }

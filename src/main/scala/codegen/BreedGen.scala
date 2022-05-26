@@ -17,6 +17,7 @@ object BreedGen{
     val logName = "DEFAULT_logs"
     val workerParentName = "DEFAULT_Parent"
     val observerVariable = "DEFAULT_observer"
+    val mainFunctionName = "main"
 
     /**
      * Generate Breed Class.
@@ -106,7 +107,7 @@ object BreedGen{
             InstructionGen("")
         }
 
-        FunctionGen(getMainFunctionName(breed), List(), "Unit", 
+        FunctionGen(mainFunctionName, List(), "Unit", 
             InstructionBlock(
                 init,
                 InstructionCompose(f"while(true)", 
@@ -154,48 +155,59 @@ object BreedGen{
             List(breed.parent.className+f"($observerVariable, DEFAULT_X, DEFAULT_Y, $initerVariableName)")
         }
     }
+    def generateAskLambda(breed: Breed, function: LinkedFunction)(implicit context: Context): FunctionGen = {
+        FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), 
+                InstructionBlock(
+                    InstructionGen(f"${askVaraibleName} = ${function.lambdaIndex}")
+                )
+        )
+    }
 
+    /**
+     * Generate Field Updater that don't Updating the Map
+     * 
+      * @param	breed
+      *
+      * @param context
+      * @return FunctionGen
+      */
     def generateUpdaterFromParent(breed: Breed)(implicit context: Context): FunctionGen = {
         val p = "\""
         val vari = new Variable("dic")
         vari.setType(CodeGenType(logsType))
 
+        val isOverride = breed.parent != context.getAgentBreed()
+
         FunctionGen("DEFAULT_UpdateFromParent", List(vari), "Unit",
         InstructionBlock(
-            InstructionCompose("dic.map{case (k, v) => k match",
-            InstructionBlock(
-                breed.getAllVariablesFromTree().map(x => InstructionGen(f"case $p${x.name}$p => ${x.name} = v.asInstanceOf[${Type.toString(x.getType())}]")).toList
-            ),"}"
-        )))
+            InstructionCompose("dic.map(kv => ",InstructionBlock(
+            breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(f"${x.name} = kv._2.asInstanceOf[${Type.toString(x.getType())}]")))).toList
+            ),")"
+        )), 
+        isOverride)
     }
+
+    /**
+      * Generate Field Updater that also Update the Map
+      *
+      * @param breed
+      * @param context
+      * @return FunctionGen
+      */
     def generateUpdaterFromWorker(breed: Breed)(implicit context: Context): FunctionGen = {
         val p = "\""
         val vari = new Variable("dic")
         vari.setType(CodeGenType(logsType))
 
-        FunctionGen("DEFAULT_UpdateFromWorker", List(vari), "Unit",
-        InstructionBlock(
-            InstructionCompose("dic.map{case (k, v) => k match",
-            InstructionBlock(
-                breed.getAllVariablesFromTree().map(x => InstructionGen(f"case $p${x.name}$p => ${x.getSetterName}(v.asInstanceOf[${Type.toString(x.getType())}])")).toList
-            ),"}"
-        )))
-    }
+        val isOverride = breed.parent != context.getAgentBreed()
 
-    /**
-     * @param	breed
-     * @return	Name of the main function for the breed class
-     */
-    def getMainFunctionName(breed: Breed)(implicit context: Context): String = {
-        if (breed.parent == null){
-            "main"
-        }
-        else if (breed.parent == context.getBreedSingular("agent")){
-            "main"
-        }
-        else{
-            "override_main"
-        }
+        FunctionGen("DEFAULT_UpdateFromParent", List(vari), "Unit",
+        InstructionBlock(
+            InstructionCompose("dic.map(kv => ",InstructionBlock(
+            breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(x.getSetter(f"kv._2.asInstanceOf[${Type.toString(x.getType())}]"))))).toList
+            ),")"
+        ))
+        , isOverride)
     }
 
     /**
@@ -224,7 +236,7 @@ object BreedGen{
      * @return	FunctionGenerator for the main function of the breed
      */
     def generateMainWorkerFunction(breed: Breed)(implicit context: Context): FunctionGen = {
-        FunctionGen(getMainFunctionName(breed), List(), "Unit", 
+        FunctionGen(mainFunctionName, List(), "Unit", 
             InstructionBlock(
                 InstructionGen(f"DEFAULT_UpdateFromParent($logName)"),
                 InstructionCompose(f"while(true)", 

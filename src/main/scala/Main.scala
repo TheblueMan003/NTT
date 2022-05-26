@@ -9,10 +9,11 @@ import codegen.CodeGen
 object Main extends App {
   Reporter.debugEnabled = true
 
-  val text = Source.fromResource("base_breeds/logo/std.nlogo").getLines.reduce((x,y) => x + "\n" +y) + "\n"+
-             Source.fromResource("demo/example1.nlogo").getLines.reduce((x,y) => x + "\n" +y) + "\n"
-  val buffer = new StringBufferedIterator(text, "example")
-  val tokens = Lexer.tokenize(buffer)
+  var files = List("base_breeds/logo/std.nlogo", "demo/example1.nlogo")
+
+  val tokens = files.map(FileLoader.load(_))
+                    .map(Lexer.tokenize(_)).foldLeft(new TokenBufferBuilder())(_.union(_))
+
   Reporter.debug(tokens.list.toString())
 
   val context = Parser.parse(tokens.toIterator())
