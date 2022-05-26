@@ -17,6 +17,7 @@ to setup
     ]
 end
 to fct [ value ]
+<<<<<<< HEAD
     set value ifelse-value value = 0
         [ value  + (((((((((1))))))))) ]
         value = 1
@@ -24,6 +25,9 @@ to fct [ value ]
         [ value ]
     set value 0
     report 5
+=======
+    set value 0 
+>>>>>>> f33ea4146cb734c06122f5425c9ebb709097f186
 end
 to go
     let p 1

@@ -138,11 +138,36 @@ class Context(){
     def getBreeds(): Set[Breed] = {
         breedsPlur.values.toSet
     }
+
     /**
       * @return Return the observer Breed
       */
     def getObserverBreed(): Breed = {
         _observer
+    }
+    /**
+      * @return Return the agent Breed
+      */
+    def getAgentBreed(): Breed = {
+        _agent
+    }
+    /**
+      * @return Return the turtle Breed
+      */
+    def getTurtleBreed(): Breed = {
+        _turtles
+    }
+    /**
+      * @return Return the link Breed
+      */
+    def getLinkBreed(): Breed = {
+        _links
+    }
+    /**
+      * @return Return the patch Breed
+      */
+    def getPatchBreed(): Breed = {
+        _patches
     }
 
     /** 
