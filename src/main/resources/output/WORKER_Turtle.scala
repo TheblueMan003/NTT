@@ -27,7 +27,7 @@ class WORKER_Turtle(val DEFAULT_observer: Observer, val DEFAULT_Parent: Turtle, 
 						while(!tmp_3.forall(_.isCompleted)){
 							waitAndReply(1)
 						}
-						tmp_5 = tmp_4.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)
+						tmp_5 = tmp_4.map(o => o.popValue.get).asInstanceOf[List[Boolean]].forall(_)
 					}
 				}
 			}

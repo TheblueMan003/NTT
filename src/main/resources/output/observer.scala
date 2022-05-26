@@ -7,11 +7,17 @@ import meta.runtime.Actor
 @lift
 class Observer(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int){
 	val wolves = mutable.Set[Wolf]()
-	val patches = mutable.Set[Patch]()
-	val observers = mutable.Set[Observer]()
-	val linkes = mutable.Set[Link]()
-	val turtles = mutable.Set[Turtle]()
+	def get_wolves(): mutable.Set[Wolf] = wolves
 	val agents = mutable.Set[Agent]()
+	def get_agents(): mutable.Set[Agent] = agents
+	val turtles = mutable.Set[Turtle]()
+	def get_turtles(): mutable.Set[Turtle] = turtles
+	val patches = mutable.Set[Patch]()
+	def get_patches(): mutable.Set[Patch] = patches
+	val observers = mutable.Set[Observer]()
+	def get_observers(): mutable.Set[Observer] = observers
+	val linkes = mutable.Set[Link]()
+	def get_linkes(): mutable.Set[Link] = linkes
 	val DEFAULT_LOG_Variables = mutable.Map[String, Any]()
 	var DEFAULT_ASK = -1
 	var test : Any = 0

@@ -185,7 +185,7 @@ object ContentGen{
                                 InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(
                                     InstructionGen("waitAndReply(1)")
                                 )),
-                                InstructionGen(f"$vari3 = $vari2.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)")
+                                InstructionGen(f"$vari3 = $vari2.map(o => o.popValue.get).asInstanceOf[List[Boolean]].forall(_)")
                             ))
                         )
                     }

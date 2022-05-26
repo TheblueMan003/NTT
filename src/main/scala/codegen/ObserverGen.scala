@@ -18,7 +18,21 @@ object ObserverGen{
      */
     def generateObserverSets()(implicit context: Context): List[Instruction] = {
         context.getBreeds().map(b =>
-            InstructionGen(f"val ${Renamer.toValidName(b.pluralName)} = mutable.Set[${b.className}]()")
-        ).toList
+            List(
+                InstructionGen(f"val ${Renamer.toValidName(b.pluralName)} = mutable.Set[${b.className}]()"),
+                generateObserverSetGetter(b)
+            )
+        ).toList.flatten
+    }
+
+    /**
+     * Generate Observer getters.
+     *
+     * @return	Instruction
+     */
+    def generateObserverSetGetter(b: Breed)(implicit context: Context): Instruction={
+        val typ = b.className
+        val name = Renamer.toValidName(b.pluralName)
+        InstructionGen(f"def get_${name}(): mutable.Set[${typ}] = ${Renamer.toValidName(b.pluralName)}")
     }
 }

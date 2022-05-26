@@ -70,7 +70,7 @@ class Turtle(val DEFAULT_observer: Observer, val DEFAULT_X: Int, val DEFAULT_Y: 
 						while(!tmp_0.forall(_.isCompleted)){
 							waitAndReply(1)
 						}
-						tmp_2 = tmp_1.map(o => o.popValue.get).asInstanceOf[List[Boolean]].all(_)
+						tmp_2 = tmp_1.map(o => o.popValue.get).asInstanceOf[List[Boolean]].forall(_)
 					}
 				}
 			}
