@@ -22,7 +22,6 @@ end
 to go
     let p 1
     show("start of tick")
-    let m [ p ] of turtles
     ask turtles [
         ask turtles [
             forward 1.0

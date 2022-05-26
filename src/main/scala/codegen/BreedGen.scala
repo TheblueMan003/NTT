@@ -244,7 +244,7 @@ object BreedGen{
                     InstructionBlock(
                         InstructionGen("handleMessages()"),
                         generateMainFunctionSwitch(breed),
-                        InstructionGen(f"$workerParentName.asyncMessage(() => $workerParentName.DEFAULT_UpdateFromWorker($logName))"),
+                        InstructionGen(f"asyncMessage(() => $workerParentName.DEFAULT_UpdateFromWorker($logName))"),
                         InstructionGen(f"while($askVaraibleName == -2) waitAndReply(1)"),
                         InstructionGen("waitLabel(Turn, 1)")
                     )

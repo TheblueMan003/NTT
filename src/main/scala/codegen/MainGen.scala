@@ -113,6 +113,6 @@ object MainGen{
                 InstructionGen(f"patch.pycord = y"),
                 InstructionGen(f"patch.${BreedGen.observerVariable} = ${MainGen.observerVariableName}"),
                 InstructionGen(f"patch"),
-        ), "})).flatten")
+        ), "}).toList).toList.flatten")
     }
 }

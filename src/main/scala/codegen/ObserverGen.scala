@@ -44,8 +44,8 @@ object ObserverGen{
       */
     def generateObserverFields(): List[Instruction] = {
         List(
-            InstructionGen("var boardSizeX = 10"),
-            InstructionGen("var boardSizeY = 10")
+            InstructionGen(f"var $boardSizeX = 10"),
+            InstructionGen(f"var $boardSizeY = 10")
         )
     }
 }

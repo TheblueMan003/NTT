@@ -198,10 +198,10 @@ object ContentGen{
                             InstructionGen(f"var $vari3 = false"),
                             InstructionCompose(f"while(!$vari3)", InstructionBlock(
                                 InstructionGen(f"val $vari2 = $vari.map(s => asyncMessage(() => s.${BreedGen.isWorkerDoneFunctionName}()))"),
-                                InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(
+                                InstructionCompose(f"while(!$vari2.forall(_.isCompleted))", InstructionBlock(
                                     InstructionGen("waitAndReply(1)")
                                 )),
-                                InstructionGen(f"$vari3 = $vari2.map(o => o.popValue.get).asInstanceOf[List[Boolean]].forall(_)")
+                                InstructionGen(f"$vari3 = $vari2.map(o => o.popValue.get).toList.forall(_ == true)")
                             )),
                             InstructionGen(f"$vari.map(s => asyncMessage(() => s.${BreedGen.isWorkerDoneFunctionName}()))"),
                         )
