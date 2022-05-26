@@ -174,24 +174,6 @@ object Parser{
 
             AST.IfElseBlock(buffer.toList, cmds)
         }
-        else if (text.isKeyword("ifelse-value")){ //ifelse (<expr> [expr])* <expr>
-            text.take()
-            val buffer = ListBuffer[(Expression, Expression)]()
-
-            while(!text.isDelimiter("[")){
-                val cond = parseExpression()
-                text.requierToken(DelimiterToken("["))
-                val value = parseExpression()
-                text.requierToken(DelimiterToken("]"))
-                buffer.addOne((cond, value))
-            }
-
-            text.requierToken(DelimiterToken("["))
-            val value = parseExpression()
-            text.requierToken(DelimiterToken("]"))
-
-            AST.IfElseBlockExpression(buffer.toList, value)
-        }
         else if (text.isKeyword("loop")){ //loop [block]
             text.take()
             val cmds = parseInstructionBlock()
@@ -297,6 +279,23 @@ object Parser{
                 text.requierToken(KeywordToken("of"))
                 val from = parseExpression()
                 AST.OfValue(reporter, from)
+            }
+            case KeywordToken("ifelse-value") => { //ifelse (<expr> [expr])* <expr>
+                val buffer = ListBuffer[(Expression, Expression)]()
+
+                while(!text.isDelimiter("[")){
+                    val cond = parseExpression()
+                    text.requierToken(DelimiterToken("["))
+                    val value = parseExpression()
+                    text.requierToken(DelimiterToken("]"))
+                    buffer.addOne((cond, value))
+                }
+
+                text.requierToken(DelimiterToken("["))
+                val value = parseExpression()
+                text.requierToken(DelimiterToken("]"))
+
+                AST.IfElseBlockExpression(buffer.toList, value)
             }
             case other => throw new UnexpectedTokenException(other, "Any Expression Token")
         }
