@@ -15,9 +15,12 @@ object BreedGen{
     val askVaraibleName = "DEFAULT_ASK"
     val logsType = "mutable.Map[String, Any]"
     val logName = "DEFAULT_logs"
+    val sourceLogName = "DEFAULT_source_logs"
     val workerParentName = "DEFAULT_Parent"
     val observerVariable = "DEFAULT_observer"
     val mainFunctionName = "main"
+    val killWorkerFunctionName = "DEFAULT_kill_worker"
+    val isWorkerDoneFunctionName = "DEFAULT_is_worker_done"
 
     /**
      * Generate Breed Class.
@@ -32,7 +35,6 @@ object BreedGen{
                 "@lift",
                 "class",
                 breed.className,
-                getClassArguments(breed),
                 getParents(breed),
                 generateBreedFields(breed), 
                 generateBreedFunctions(breed)
@@ -42,10 +44,9 @@ object BreedGen{
                 "@lift",
                 "class",
                 "WORKER_"+breed.className,
-                getWorkerClassArguments(breed),
-                List(breed.className+f"($observerVariable, 0, 0, -1)"),
-                List(),
-                List(generateMainWorkerFunction(breed))
+                List(breed.className),
+                generateWorkerFields(breed),
+                List(generateMainWorkerFunction(breed), generateWorkerIsDone(), generatekillWorkerFunction())
             )
         )
     }
@@ -58,7 +59,9 @@ object BreedGen{
      */
     def generateBreedFields(breed: Breed)(implicit context: Context):List[Instruction] = {
         if (breed == context.getObserverBreed()){
-            ObserverGen.generateObserverSets():::ContentGen.generateVariables(breed.getAllVariables())
+            ObserverGen.generateObserverSets():::
+            ObserverGen.generateObserverFields():::
+            ContentGen.generateVariables(breed.getAllVariables())
         } else {
             ContentGen.generateVariables(breed.getAllVariables())
         }
@@ -127,7 +130,12 @@ object BreedGen{
             EmptyInstruction
         }
         else{
-            ToolGen.generateSwitchInstruction(breed, askVaraibleName, breed.getAllAskedFunctions().map(_.asInstanceOf[LinkedFunction]), Flag.MainFunctionFlag)
+            ToolGen.generateSwitchInstruction(
+                breed, 
+                askVaraibleName, 
+                breed.getAllAskedFunctions().map(_.asInstanceOf[LinkedFunction]), Flag.MainFunctionFlag,
+                InstructionGen(f"$askVaraibleName = -2")
+            )
         }
     }
 
@@ -146,13 +154,13 @@ object BreedGen{
      */
     def getParents(breed: Breed)(implicit context: Context): List[String] = {
         if (breed.parent == null){
-            List()
+            List("Actor")
         }
         else if (breed == context.getObserverBreed()){
-            List()
+            List("Actor")
         }
         else{
-            List(breed.parent.className+f"($observerVariable, DEFAULT_X, DEFAULT_Y, $initerVariableName)")
+            List(breed.parent.className)
         }
     }
     def generateAskLambda(breed: Breed, function: LinkedFunction)(implicit context: Context): FunctionGen = {
@@ -201,7 +209,7 @@ object BreedGen{
 
         val isOverride = breed.parent != context.getAgentBreed()
 
-        FunctionGen("DEFAULT_UpdateFromParent", List(vari), "Unit",
+        FunctionGen("DEFAULT_UpdateFromWorker", List(vari), "Unit",
         InstructionBlock(
             InstructionCompose("dic.map(kv => ",InstructionBlock(
             breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(x.getSetter(f"kv._2.asInstanceOf[${Type.toString(x.getType())}]"))))).toList
@@ -223,31 +231,56 @@ object BreedGen{
     }
 
     /**
-     * Return the arguments for the class generacted by breed.
-     *
-     * @return	String of arguments
-     */
-    def getWorkerClassArguments(breed: Breed): String = {
-        f"(val $observerVariable: Observer, val $workerParentName: ${breed.className}, val $logName: $logsType, val $askVaraibleName: Int)"
-    }
-
-    /**
      * @param	breed	
      * @return	FunctionGenerator for the main function of the breed
      */
     def generateMainWorkerFunction(breed: Breed)(implicit context: Context): FunctionGen = {
         FunctionGen(mainFunctionName, List(), "Unit", 
             InstructionBlock(
-                InstructionGen(f"DEFAULT_UpdateFromParent($logName)"),
+                InstructionGen(f"DEFAULT_UpdateFromParent($sourceLogName)"),
                 InstructionCompose(f"while(true)", 
                     InstructionBlock(
                         InstructionGen("handleMessages()"),
                         generateMainFunctionSwitch(breed),
-                        InstructionGen("default_is_done = true"),
+                        InstructionGen(f"$workerParentName.asyncMessage(() => $workerParentName.DEFAULT_UpdateFromWorker($logName))"),
+                        InstructionGen(f"while($askVaraibleName == -2) waitAndReply(1)"),
                         InstructionGen("waitLabel(Turn, 1)")
                     )
                 )
             )  
+        )
+    }
+
+    /**
+     * Generate the function that tell if the Worker is done
+     * 
+     * @param	breed
+     * @return	FunctionGenerator
+     */
+    def generateWorkerIsDone(): FunctionGen={
+        FunctionGen(isWorkerDoneFunctionName, List(), "Boolean", InstructionGen(f"$askVaraibleName == -2"))
+    }
+
+    /**
+     * Generate the function that kill the worker
+     * 
+     * @param	breed
+     * @return	FunctionGenerator
+     */
+    def generatekillWorkerFunction(): FunctionGen={
+        FunctionGen(killWorkerFunctionName, List(), "Unit", InstructionGen(f"death()"))
+    }
+
+    /**
+     * Generate the function that kill the worker
+     * 
+     * @param	breed
+     * @return	FunctionGenerator
+     */
+    def generateWorkerFields(breed: Breed): List[Instruction]={
+        List(
+            InstructionGen(f"var $workerParentName: ${breed.className} = null"),
+            InstructionGen(f"var $sourceLogName: $logsType = null")
         )
     }
 }

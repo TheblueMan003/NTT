@@ -37,7 +37,7 @@ object NameAnalyser{
                 )
 
             case AST.Declaration(variExp, expr) => {
-                val vari = function.breed.addVariable(f"${function.name}_${variExp.name}")
+                val vari = function.breed.addVariable(f"${function.name}_${variExp.name}", true)
                 localVar.add(variExp.name, vari)
                 SymTree.Declaration(SymTree.VariableValue(vari), toSymTreeExpr(expr))
             }

@@ -12,7 +12,6 @@ import utils.Reporter
 
 object ContentGen{
     var varCounter = 0
-    val logVariableMapName = "DEFAULT_LOG_Variables"
 
     /**
      * Generate Function Content.
@@ -40,8 +39,10 @@ object ContentGen{
 
     def generateDefaultVariable(): List[Instruction] = {
         List(
-            InstructionGen(f"val $logVariableMapName = mutable.Map[String, Any]()"),
-            InstructionGen(f"var ${BreedGen.askVaraibleName} = -1")
+            InstructionGen(f"val ${BreedGen.logName} = mutable.Map[String, Any]()"),
+            InstructionGen(f"var ${BreedGen.askVaraibleName} = -1"),
+            InstructionGen(f"var ${BreedGen.initerVariableName} = -1"),
+            InstructionGen(f"var ${BreedGen.observerVariable}: Observer = null")
         )
     }
 
@@ -59,7 +60,7 @@ object ContentGen{
         InstructionGen(f"def ${variable.getGetterName()}(): ${typ} = ${variable.getName()}"),
         InstructionCompose(f"def ${variable.getSetterName()}(DEFAULT_value : ${typ}): Unit = ", 
             InstructionBlock(
-                InstructionGen(f"$logVariableMapName($p${variable.getName()}$p) = DEFAULT_value"),
+                InstructionGen(f"${BreedGen.logName}($p${variable.getName()}$p) = DEFAULT_value"),
                 InstructionGen(f"${variable.getName()} = DEFAULT_value"))
             )
         )
@@ -114,8 +115,12 @@ object ContentGen{
                 InstructionList(prefix, InstructionGen(content))
             }
             case CreateBreed(b, nb, fct) => {
+                val tmp = getUniqueVariableName()
                 generateRepeat(nb, InstructionBlock(
-                        InstructionGen(f"${Renamer.toValidName(b.name.pluralName)}.add(new ${b.name.className}(this, 0, 0, ${fct.lambdaIndex}))")
+                    InstructionGen(f"val $tmp = new ${b.name.className}()"),
+                    InstructionGen(f"$tmp.${BreedGen.observerVariable} = this"),
+                    InstructionGen(f"$tmp.${BreedGen.initerVariableName} = ${fct.lambdaIndex}"),
+                    InstructionGen(f"${Renamer.toValidName(b.name.pluralName)}.add($tmp)")
                 ))
             }
 
@@ -176,17 +181,29 @@ object ContentGen{
                         val fct = block.lambdaIndex
                         val vari2 = getUniqueVariableName()
                         val vari3 = getUniqueVariableName()
+                        val tmpvar = getUniqueVariableName()
                         InstructionList(
                             set._1,
-                            InstructionGen(f"val $vari = ${set._2}.toList.map(s => WORKER_Turtle(${BreedGen.observerVariable}, this, ${BreedGen.logName}, $fct))"),
+                            InstructionCompose(f"val $vari = ${set._2}.toList.map(s => ",
+                                InstructionBlock(
+                                    InstructionGen(f"val $tmpvar = new WORKER_Turtle()"),
+                                    InstructionGen(f"$tmpvar.${BreedGen.observerVariable} = ${BreedGen.observerVariable}"),
+                                    InstructionGen(f"$tmpvar.${BreedGen.askVaraibleName} = $fct"),
+                                    InstructionGen(f"$tmpvar.${BreedGen.workerParentName} = this"),
+                                    InstructionGen(f"$tmpvar.${BreedGen.sourceLogName} = ${BreedGen.logName}"),
+                                    InstructionGen(f"$tmpvar")
+                                ),
+                                ")"
+                            ),
                             InstructionGen(f"var $vari3 = false"),
                             InstructionCompose(f"while(!$vari3)", InstructionBlock(
-                                InstructionGen(f"val $vari2 = $vari.map(s => asyncMessage(() => s.get_default_is_done()))"),
+                                InstructionGen(f"val $vari2 = $vari.map(s => asyncMessage(() => s.${BreedGen.isWorkerDoneFunctionName}()))"),
                                 InstructionCompose(f"while(!$vari.forall(_.isCompleted))", InstructionBlock(
                                     InstructionGen("waitAndReply(1)")
                                 )),
                                 InstructionGen(f"$vari3 = $vari2.map(o => o.popValue.get).asInstanceOf[List[Boolean]].forall(_)")
-                            ))
+                            )),
+                            InstructionGen(f"$vari.map(s => asyncMessage(() => s.${BreedGen.isWorkerDoneFunctionName}()))"),
                         )
                     }
                 }

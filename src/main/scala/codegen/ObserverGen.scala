@@ -11,6 +11,9 @@ import netlogo.Type
 import utils.Reporter
 
 object ObserverGen{
+    val boardSizeX = "DEFAULT_BOARD_SIZE_X"
+    val boardSizeY = "DEFAULT_BOARD_SIZE_Y"
+
     /**
      * Generate Observer sets.
      *
@@ -34,5 +37,15 @@ object ObserverGen{
         val typ = b.className
         val name = Renamer.toValidName(b.pluralName)
         InstructionGen(f"def get_${name}(): mutable.Set[${typ}] = ${Renamer.toValidName(b.pluralName)}")
+    }
+
+    /**
+      * Generate Observer fields.
+      */
+    def generateObserverFields(): List[Instruction] = {
+        List(
+            InstructionGen("var boardSizeX = 10"),
+            InstructionGen("var boardSizeY = 10")
+        )
     }
 }

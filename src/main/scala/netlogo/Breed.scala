@@ -14,8 +14,8 @@ class Breed(val parent: Breed, val singularName: String, val pluralName: String)
 
     def className = Renamer.toClassName(singularName)
 
-    override def addVariable(name: String) = {
-        val vari = new Variable(name)
+    override def addVariable(name: String, isClassField: Boolean = false) = {
+        val vari = new Variable(name, true, isClassField)
         ownedVars.addOne((name, vari))
         vari
     }

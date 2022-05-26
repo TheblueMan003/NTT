@@ -25,7 +25,6 @@ object MainGen{
             "",
             "object",
             "MainInit",
-            "",
             List(""),
             generateMainInitContent(), 
             List(),
@@ -43,7 +42,9 @@ object MainGen{
         InstructionCompose("val liftedMain = meta.classLifting.liteLift",
         InstructionBlock(
             InstructionCompose("def apply(size_x: Int, size_y: Int): List[Actor] = ", InstructionBlock(
-                InstructionGen(f"val $observerVariableName = new ${observer}(size_x, size_y)"),
+                InstructionGen(f"val $observerVariableName = new ${observer}"),
+                InstructionGen(f"$observerVariableName.${ObserverGen.boardSizeX} = size_x"),
+                InstructionGen(f"$observerVariableName.${ObserverGen.boardSizeY} = size_y"),
                 generateGrid(),
                 InstructionGen(f"$observerVariableName :: $patchVariableName")
             ))
@@ -61,7 +62,6 @@ object MainGen{
             "",
             "object",
             "Simulation",
-            "",
             List("App"),
             generateMainClassContent(), 
             List(),
@@ -106,9 +106,13 @@ object MainGen{
      * @return	Instruction
      */
     def generateGrid()(implicit context: Context):Instruction = {
-        InstructionCompose(f"val ${MainGen.patchVariableName} = (1 to size_x).map(x => (1 to size_y).map(y =>",
+        InstructionCompose(f"val ${MainGen.patchVariableName} = (1 to size_x).map(x => (1 to size_y).map(y => {",
         InstructionBlock(
-                InstructionGen(f"new Patch(${MainGen.observerVariableName}, x, y, -1)")
-        ), ")).flatten")
+                InstructionGen(f"val patch = new Patch()"),
+                InstructionGen(f"patch.pxcord = x"),
+                InstructionGen(f"patch.pycord = y"),
+                InstructionGen(f"patch.${BreedGen.observerVariable} = ${MainGen.observerVariableName}"),
+                InstructionGen(f"patch"),
+        ), "})).flatten")
     }
 }

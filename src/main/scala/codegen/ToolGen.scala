@@ -11,14 +11,17 @@ import netlogo.Type
 import utils.Reporter
 
 object ToolGen{
-    def generateSwitchInstruction(breed: Breed, indexValue: String, functions: Iterable[LinkedFunction], flag: Flag)(implicit context: Context):Instruction = {
+    def generateSwitchInstruction(breed: Breed, indexValue: String, functions: Iterable[LinkedFunction], flag: Flag, ending: Instruction = EmptyInstruction)(implicit context: Context):Instruction = {
         if (functions.isEmpty){
             EmptyInstruction
         }
         else {
             val lst = functions.map(f => 
                 InstructionCompose(f"if ($indexValue == ${f.lambdaIndex})", 
-                    ContentGen.generate(f.symTree)(f, breed, context, flag)
+                    InstructionBlock(
+                        ContentGen.generate(f.symTree)(f, breed, context, flag),
+                        ending
+                    )
                 )
             )
             InstructionList(lst.toList)
