@@ -30,20 +30,26 @@ object ContentGen{
      * @param	variables	
      * @return	List[Instruction]
      */
-    def generateVariables(variables: Iterable[Variable])(implicit context: Context): List[Instruction] = {
+    def generateVariables(breed: Breed)(implicit context: Context): List[Instruction] = {
+        val variables = breed.getAllVariables()
         val exported = variables.filter(_.exported)
-        generateDefaultVariable() ::: 
+        generateDefaultVariable(breed) ::: 
         exported.map(generate(_)).toList ::: 
         exported.map(generateGetterSetter(_)).toList.flatten
     }
 
-    def generateDefaultVariable(): List[Instruction] = {
-        List(
-            InstructionGen(f"val ${BreedGen.logName} = mutable.Map[String, Any]()"),
-            InstructionGen(f"var ${BreedGen.askVaraibleName} = -1"),
-            InstructionGen(f"var ${BreedGen.initerVariableName} = -1"),
-            InstructionGen(f"var ${BreedGen.observerVariable}: Observer = null")
-        )
+    def generateDefaultVariable(breed: Breed)(implicit context: Context): List[Instruction] = {
+        if (breed == context.getAgentBreed()){
+            List(
+                InstructionGen(f"val ${BreedGen.logName} = mutable.Map[String, Any]()"),
+                InstructionGen(f"var ${BreedGen.askVaraibleName} = -1"),
+                InstructionGen(f"var ${BreedGen.initerVariableName} = -1"),
+                InstructionGen(f"var ${BreedGen.observerVariable}: Observer = null")
+            )
+        }
+        else{
+            List()
+        }
     }
 
     /**
@@ -129,6 +135,7 @@ object ContentGen{
                 conds match {
                     case head :: Nil => generateIfElse(head._1, head._2, block)
                     case head :: tail => generateIfElse(head._1, head._2, IfElseBlock(tail, block))
+                    case Nil => generate(block)
                 }
             }
 
@@ -276,6 +283,7 @@ object ContentGen{
                 conds match {
                     case head :: Nil => generateIfElseExpr(head._1, head._2, block)
                     case head :: tail => generateIfElseExpr(head._1, head._2, IfElseBlockExpression(tail, block))
+                    case Nil => generateExpr(block)
                 }
             }
 

@@ -25,4 +25,8 @@ class Variable(_name: String, val exported: Boolean = true, val isClassField: Bo
 
     def getGetter() = if (hasGetterSetter){f"get_${Renamer.toValidName(name)}()"}else{Renamer.toValidName(name)}
     def getSetter(value: String) = if (hasGetterSetter){f"set_${Renamer.toValidName(name)}($value)"}else{f"${Renamer.toValidName(name)}=$value"}
+    
+        override def toString(): String = {
+            return f"Variable($name, ${getType()})"
+        }
 }

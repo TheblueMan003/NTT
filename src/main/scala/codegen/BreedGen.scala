@@ -26,44 +26,73 @@ object BreedGen{
      * Generate Breed Class.
      *
      * @param	breed	
+     * @param	context: Context for code generation
      * @return	ClassFile
      */
     def generateBreed(breed: Breed)(implicit context: Context): List[ClassFile] = {
-        List(
-            ClassFile(
-                CodeGen.imports,
-                "@lift",
-                "class",
-                breed.className,
-                getParents(breed),
-                generateBreedFields(breed), 
-                generateBreedFunctions(breed)
-            ),
-            ClassFile(
-                CodeGen.imports,
-                "@lift",
-                "class",
-                "WORKER_"+breed.className,
-                List(breed.className),
-                generateWorkerFields(breed),
-                List(generateMainWorkerFunction(breed), generateWorkerIsDone(), generatekillWorkerFunction())
-            )
+        if (breed == context.getAgentBreed()){
+            List(generateBreedClass(breed))
+        }
+        else{
+            List(generateBreedClass(breed), generateBreedWorkerClass(breed))
+        }   
+    }
+
+
+    /**
+      * Generate Breed Class.
+      *
+      * @param breed: Breed for which to generate the  class
+      * @param context: Context for the generation
+      * @return
+      */
+    def generateBreedClass(breed: Breed)(implicit context: Context): ClassFile = {
+        ClassFile(
+            CodeGen.imports,
+            "@lift",
+            "class",
+            breed.className,
+            getParents(breed),
+            generateBreedFields(breed), 
+            generateBreedFunctions(breed)
         )
     }
+
+    /**
+     * Generate Class that allow breed to have nested ask
+     * 
+     * @param breed: Breed for which to generate class
+     * @param context: Context for the generation
+     * 
+     * @return	ClassFile
+     */
+    def generateBreedWorkerClass(breed: Breed)(implicit context: Context): ClassFile = {
+        ClassFile(
+            CodeGen.imports,
+            "@lift",
+            "class",
+            "WORKER_"+breed.className,
+            List(breed.className),
+            generateWorkerFields(breed),
+            List(generateMainWorkerFunction(breed), generateWorkerIsDone(), generatekillWorkerFunction())
+        )
+    }
+
 
     /**
      * Generate Field for breed Class.
      *
      * @param	breed	
+     * @param context: Context for the generation
      * @return	List[Instruction] 
      */
     def generateBreedFields(breed: Breed)(implicit context: Context):List[Instruction] = {
         if (breed == context.getObserverBreed()){
             ObserverGen.generateObserverSets():::
             ObserverGen.generateObserverFields():::
-            ContentGen.generateVariables(breed.getAllVariables())
+            ContentGen.generateVariables(breed)
         } else {
-            ContentGen.generateVariables(breed.getAllVariables())
+            ContentGen.generateVariables(breed)
         }
     }
 
@@ -71,6 +100,7 @@ object BreedGen{
      * Generate Functions for a Breed.
      *
      * @param	breed	
+     * @param context: Context for the generation
      * @return	List[FunctionGen]
      */
     def generateBreedFunctions(breed: Breed)(implicit context: Context): List[FunctionGen] = {
@@ -93,7 +123,10 @@ object BreedGen{
     }
 
     /**
+     * Generate the main function for a breed.
+     * 
      * @param	breed	
+     * @param context: Context for the generation
      * @return	FunctionGenerator for the main function of the breed
      */
     def generateMainFunction(breed: Breed)(implicit context: Context): FunctionGen = {
@@ -101,7 +134,7 @@ object BreedGen{
             InstructionGen("setup()")
         }
         else{
-            generateSettupFunctionSwitch(breed)
+            generateSetupFunctionSwitch(breed)
         }
         val go = if (breed == context.getObserverBreed()){
             val fct = breed.getFunction("go").asInstanceOf[LinkedFunction]
@@ -110,6 +143,7 @@ object BreedGen{
         else{
             InstructionGen("")
         }
+        val isScalaOverride = breed != context.getAgentBreed()
 
         FunctionGen(mainFunctionName, List(), "Unit", 
             InstructionBlock(
@@ -122,10 +156,19 @@ object BreedGen{
                         InstructionGen("waitLabel(Turn, 1)")
                     )
                 )
-            )  
+            ),
+            0, 
+            isScalaOverride  
         )
     }
 
+    /**
+      * Generate the main function switch for a breed.
+      *
+      * @param breed: Breed for which to generate the main function switch
+      * @param context: Context for the generation
+      * @return Instruction
+      */
     def generateMainFunctionSwitch(breed: Breed)(implicit context: Context): Instruction = {
         if (breed == context.getObserverBreed() || breed.getAllAskedFunctions().isEmpty){
             EmptyInstruction
@@ -140,7 +183,14 @@ object BreedGen{
         }
     }
 
-    def generateSettupFunctionSwitch(breed: Breed)(implicit context: Context): Instruction = {
+    /**
+      * Generate the setup function switch for a breed.
+      *
+      * @param breed: Breed for which to generate the setup function switch
+      * @param context: Context for the generation
+      * @return Instruction
+      */
+    def generateSetupFunctionSwitch(breed: Breed)(implicit context: Context): Instruction = {
         if (breed == context.getObserverBreed() || breed.getAllCreateFunctions().isEmpty){
             EmptyInstruction
         }
@@ -150,21 +200,44 @@ object BreedGen{
     }
 
     /**
-     * @param	breed
-     * @return	List of parents for the breed class
-     */
-    def getParents(breed: Breed)(implicit context: Context): List[String] = {
+      * Get the parents for a breed.
+      *
+      * @param breed: Breed for which to get the parents
+      * @param context: context for the generation
+      * @return List[String]: List of parents
+      */
+    def getParents(breed: Breed): List[String] = {
         if (breed.parent == null){
-            List("Actor")
-        }
-        else if (breed == context.getObserverBreed()){
             List("Actor")
         }
         else{
             List(breed.parent.className)
         }
     }
+
+    /**
+      * Get the number of parents for a breed.
+      *
+      * @param breed: Breed for which to get the number of parents
+      * @return Int: number of parents
+      */
+    def getNumberOfParent(breed: Breed, acc: Int = 0): Int = {
+        if (breed.parent == null){
+            acc
+        }
+        else{
+            getNumberOfParent(breed.parent, acc+1)
+        }
+    }
     
+    /**
+      * Generate the ask lambda function.
+      *
+      * @param breed: breed for which to generate the ask lambda function
+      * @param function: function for which to generate the ask lambda function
+      * @param context: Context for the generation
+      * @return FunctionGen: FunctionGen for the ask lambda function
+      */
     def generateAskLambda(breed: Breed, function: LinkedFunction)(implicit context: Context): FunctionGen = {
         FunctionGen(Renamer.toValidName(function.name), function._args, Type.toString(function.getType()), 
                 InstructionBlock(
@@ -186,15 +259,13 @@ object BreedGen{
         val vari = new Variable("dic")
         vari.setType(CodeGenType(logsType))
 
-        val isOverride = breed.parent != context.getAgentBreed()
-
         FunctionGen("DEFAULT_UpdateFromParent", List(vari), "Unit",
         InstructionBlock(
             InstructionCompose("dic.map(kv => ",InstructionBlock(
             breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(f"${x.name} = kv._2.asInstanceOf[${Type.toString(x.getType())}]")))).toList
             ),")"
         )), 
-        isOverride)
+        getNumberOfParent(breed))
     }
 
     /**
@@ -209,15 +280,13 @@ object BreedGen{
         val vari = new Variable("dic")
         vari.setType(CodeGenType(logsType))
 
-        val isOverride = breed.parent != context.getAgentBreed()
-
         FunctionGen("DEFAULT_UpdateFromWorker", List(vari), "Unit",
         InstructionBlock(
             InstructionCompose("dic.map(kv => ",InstructionBlock(
             breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(x.getSetter(f"kv._2.asInstanceOf[${Type.toString(x.getType())}]"))))).toList
             ),")"
         ))
-        , isOverride)
+        , getNumberOfParent(breed))
     }
 
     /**
@@ -249,7 +318,9 @@ object BreedGen{
                         InstructionGen("waitLabel(Turn, 1)")
                     )
                 )
-            )  
+            ),
+            0,
+            true  
         )
     }
 
@@ -270,7 +341,7 @@ object BreedGen{
      * @return	FunctionGenerator
      */
     def generatekillWorkerFunction(): FunctionGen={
-        FunctionGen(killWorkerFunctionName, List(), "Unit", InstructionGen(f"death()"))
+        FunctionGen(killWorkerFunctionName, List(), "Unit", InstructionBlock())
     }
 
     /**

@@ -106,13 +106,24 @@ object Types{
 
 trait Typed{
     private var typ: Type = Types.NoType
+    private var defaultTyp: Type = Types.NoType
     var typeFixed: Boolean = false
 
+    def setDefaultType(typ: Type) = {
+        this.defaultTyp = typ
+    }
     def setType(typ: Type, fixed: Boolean = false) = {
         this.typ = typ
         typeFixed = fixed
     }
-    def getType() = typ
+    def getType():Type = {
+        if (typ == Types.NoType){
+            defaultTyp
+        }
+        else{
+            typ
+        }
+    }
 
     /**
      * Change for the type for ntyp. Return true if different from current one.

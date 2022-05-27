@@ -36,11 +36,11 @@ case class ClassFile(val imports: List[String], val anotation: String, val prefi
         pw.close
     }
 }
-case class FunctionGen(val name: String, val args: List[Variable], val returnType: String, val content: Instruction, val isOverride: Boolean = false) extends Generator{
+case class FunctionGen(val name: String, val args: List[Variable], val returnType: String, val content: Instruction, val isTickTalkOverride: Int = 0, val isScalaOverride: Boolean = false) extends Generator{
     def generate(indentation: Int): String = {
         val argsStr = if (args.size > 0){args.map(v => Renamer.toValidName(v.name)+f" : ${v.getType()}").reduce(_ + ", " + _)}else {""}
-        val overrideStr = if (isOverride) "override" else ""
-        val overridePrefix = if (isOverride) "override_" else ""
+        val overrideStr = if (isScalaOverride) "override" else ""
+        val overridePrefix = "override_"*isTickTalkOverride
         InstructionCompose(f"$overrideStr def $overridePrefix$name($argsStr):$returnType = ", content).generate(indentation)
     }
 }

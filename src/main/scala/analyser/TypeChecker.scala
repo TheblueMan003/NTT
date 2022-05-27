@@ -10,7 +10,7 @@ import netlogo.Type
 object TypeChecker{
     def analyse(context: Context) = {
         val constraints = genConstraints(context)
-
+        
         resolveConstraits(constraints)
     }
     def genConstraints(context: Context): List[TypeConstraint] = {
@@ -150,6 +150,7 @@ object TypeChecker{
                             case TypeOwn(owner) => {
                                 if (owner.canPutIn(ownerExp)){
                                     changed |= owner.putIn(ownerExp)
+                                    ownerExp.setDefaultType(owner.getType())
                                 }
                                 else{
                                     throw TypeException(it.found, it.expected)
