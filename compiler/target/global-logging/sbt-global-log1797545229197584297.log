@@ -1,0 +1,11 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(2a3d009b-bdef-4617-8001-b30444b9a85b), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 20 Scala sources to D:\git\NTT\target\scala-2.13\classes ...[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\analyser\NameAnalyser.scala:55:90: too many arguments (found 2, expected 1) for method apply: (name: ast.Variable): analyser.SymTree.VariableValue in object VariableValue[0m
+[0m[[0m[31merror[0m] [0m[0m            case AST.OfValue(e, v) => SymTree.VariableValue(toSymTreeExpr(e), getVariable(v))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 6 s, completed 24 mars 2022 21:37:15[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

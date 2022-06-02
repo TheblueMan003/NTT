@@ -1,0 +1,37 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(test, Some(185624cf-c5cb-4598-a3d3-e0db8286370e), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / test[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to D:\git\NTT\target\scala-2.13\classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0mInstrumenting 257 classes to D:\git\NTT\target\scala-2.13\jacoco\instrumented-classes[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mRenamerTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- rename correctly[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLexerTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- IntLitToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- FloatLitToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- StringLitToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- BooleanLitToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- OperatorToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- DelimiterToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- KeywordToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- IdentifierToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Remove Space[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Remove Comment[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mParserTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Expression With Operator order[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Expression With Operator order 2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- If Empty Block[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- If Esle Empty Block[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Repeat[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- While[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Loop[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mBreedTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Using breed own force function breed[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Function call for other force function breed[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 533 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 20[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 4, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 20, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 1 s, completed 13 mai 2022 14:10:02[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m

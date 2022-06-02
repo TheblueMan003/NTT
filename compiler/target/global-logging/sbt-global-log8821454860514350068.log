@@ -1,0 +1,12 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(9950fb16-6f14-49e7-b66b-0090c79f0c63), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to D:\git\NTT\target\scala-2.13\classes ...[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\codegen\ContentGen.scala:60:58: not enough arguments for method getSetterName: (value: String): String.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter value.[0m
+[0m[[0m[31merror[0m] [0m[0m        InstructionCompose(f"def ${variable.getSetterName()}(DEFAULT_value : ${typ}): Unit = ", [0m
+[0m[[0m[31merror[0m] [0m[0m                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 0 s, completed 20 mai 2022 14:07:30[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

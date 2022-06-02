@@ -1,0 +1,17 @@
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(RenamerTest, org.scalatest.tools.Framework$$anon$1@1a2b050d, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(BreedTest, org.scalatest.tools.Framework$$anon$1@1a2b050d, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(LexerTest, org.scalatest.tools.Framework$$anon$1@1a2b050d, false, [SuiteSelector])[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(ParserTest, org.scalatest.tools.Framework$$anon$1@1a2b050d, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mRenamerTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- rename correctly[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mLexerTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- IntLitToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- FloatLitToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- StringLitToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- BooleanLitToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- OperatorToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- DelimiterToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- KeywordToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- IdentifierToken[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Remove Space[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Remove Comment[0m[0m

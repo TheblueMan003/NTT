@@ -1,0 +1,120 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(1de4b143-2e32-4d81-b66c-1c3d27040ef4), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 10 Scala sources to D:\git\NTT\target\scala-2.13\classes ...[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Lexer.scala:14:63: not found: type TokenBuffer[0m
+[0m[[0m[31merror[0m] [0m[0m    def parse(text: StringBufferedIterator, acc: TokenBuffer):TokenBuffer = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Lexer.scala:14:21: not found: type StringBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def parse(text: StringBufferedIterator, acc: TokenBuffer):TokenBuffer = {[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Lexer.scala:14:50: not found: type TokenBuffer[0m
+[0m[[0m[31merror[0m] [0m[0m    def parse(text: StringBufferedIterator, acc: TokenBuffer):TokenBuffer = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Main.scala:8:62: not found: type TokenBuffer[0m
+[0m[[0m[31merror[0m] [0m[0m  val r1 = Lexer.parse(new StringBufferedIterator(text), new TokenBuffer())[0m
+[0m[[0m[31merror[0m] [0m[0m                                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:16:21: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def parse(text: TokenBufferedIterator): Context = {[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:8:18: object module is not a member of package java.lang[0m
+[0m[[0m[31merror[0m] [0m[0mimport java.lang.module.ModuleDescriptor.Exports[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:26:44: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def functionDiscovery()(implicit text: TokenBufferedIterator, context: Context): Unit = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:73:45: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def parseFunctionsBody()(implicit text: TokenBufferedIterator, context: Context):Tree = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                            ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:66:47: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m            f.body = parseFunctionsBody()(new TokenBufferedIterator(f.tokenBody), context)[0m
+[0m[[0m[31merror[0m] [0m[0m                                              ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:157:38: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def getArgsName()(implicit text: TokenBufferedIterator, context: Context): List[String] = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:32:28: not found: value getBody[0m
+[0m[[0m[31merror[0m] [0m[0m                val body = getBody()[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:39:28: not found: value getBody[0m
+[0m[[0m[31merror[0m] [0m[0m                val body = getBody()[0m
+[0m[[0m[31merror[0m] [0m[0m                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:138:44: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def getVariablesGroup()(implicit text: TokenBufferedIterator): List[String] = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:84:46: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def parseCallOrVariable()(implicit text: TokenBufferedIterator, context: Context): Expression = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:115:58: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def parseExpression(opIndex: Int = 0)(implicit text: TokenBufferedIterator, context: Context): Expression = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:109:9: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
+[0m[[0m[31merror[0m] [0m[0m required: ast.Expression[0m
+[0m[[0m[31merror[0m] [0m[0m        }[0m
+[0m[[0m[31merror[0m] [0m[0m        ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:105:14: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
+[0m[[0m[31merror[0m] [0m[0m required: ast.Expression[0m
+[0m[[0m[31merror[0m] [0m[0m        else if (text.isKeyword("let")){[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\Parsing\Parser.scala:167:42: not found: type TokenBufferedIterator[0m
+[0m[[0m[31merror[0m] [0m[0m    def getFunctionBody()(implicit text: TokenBufferedIterator, context: Context): List[Token] = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferBuilder.scala:7:30: not found: type Token[0m
+[0m[[0m[31merror[0m] [0m[0m    val list = new ArrayList[Token]()[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferBuilder.scala:9:60: not found: type TokenBuffer[0m
+[0m[[0m[31merror[0m] [0m[0m    def add(token: Token, buffer: StringBufferedIterator): TokenBuffer = {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                           ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferBuilder.scala:9:20: not found: type Token[0m
+[0m[[0m[31merror[0m] [0m[0m    def add(token: Token, buffer: StringBufferedIterator): TokenBuffer = {[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:3:42: not found: type Token[0m
+[0m[[0m[31merror[0m] [0m[0mclass TokenBufferedIterator(string: List[Token]) extends Positionable{[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:7:16: not found: type Token[0m
+[0m[[0m[31merror[0m] [0m[0m    def take():Token = {[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:12:30: not found: type Token[0m
+[0m[[0m[31merror[0m] [0m[0m    def takeWhile(predicate: Token=>Boolean) = {[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:17:16: not found: type Token[0m
+[0m[[0m[31merror[0m] [0m[0m    def peek():Token ={[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:23:21: not found: type Token[0m
+[0m[[0m[31merror[0m] [0m[0m    def cut(): List[Token] = {[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:33:29: not found: type Token[0m
+[0m[[0m[31merror[0m] [0m[0m    def requierToken(token: Token) = {[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:35:23: not found: type UnexpectedEOFException[0m
+[0m[[0m[31merror[0m] [0m[0m            throw new UnexpectedEOFException()[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:38:23: not found: type UnexpectedTokenException[0m
+[0m[[0m[31merror[0m] [0m[0m            throw new UnexpectedTokenException(peek(), token)[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:54:22: not found: value IdentifierToken[0m
+[0m[[0m[31merror[0m] [0m[0m                case IdentifierToken(name) => true[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:65:23: not found: type UnexpectedEOFException[0m
+[0m[[0m[31merror[0m] [0m[0m            throw new UnexpectedEOFException()[0m
+[0m[[0m[31merror[0m] [0m[0m                      ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:69:22: not found: value IdentifierToken[0m
+[0m[[0m[31merror[0m] [0m[0m                case IdentifierToken(name) => name[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:70:41: not found: type UnexpectedTokenException[0m
+[0m[[0m[31merror[0m] [0m[0m                case token => throw new UnexpectedTokenException(token, IdentifierToken("_"))[0m
+[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:70:73: not found: value IdentifierToken[0m
+[0m[[0m[31merror[0m] [0m[0m                case token => throw new UnexpectedTokenException(token, IdentifierToken("_"))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                        ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:84:22: not found: value KeywordToken[0m
+[0m[[0m[31merror[0m] [0m[0m                case KeywordToken(name) => name == value[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\utils\TokenBufferIterator.scala:99:22: not found: value OperatorToken[0m
+[0m[[0m[31merror[0m] [0m[0m                case OperatorToken(name) => { [0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m36 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed 17 mars 2022 11:24:19[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

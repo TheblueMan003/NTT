@@ -1,0 +1,11 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(0f5e2405-309c-431d-9478-dff24f3a437a), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 2 Scala sources to D:\git\NTT\target\scala-2.13\classes ...[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\codegen\ContentGen.scala:36:17: Boolean does not take parameters[0m
+[0m[[0m[31merror[0m] [0m[0m        logInMap(logInMap) :: exported.map(generate(_)).toList ::: [0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 8 s, completed 19 mai 2022 10:28:21[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

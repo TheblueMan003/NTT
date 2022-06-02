@@ -1,0 +1,56 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(a1644b68-e83a-4575-b8df-9fd88720fac7), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m
+[0m[[0m[31merror[0m] [0m[0mparsing.UnexpectedTokenException: found: in file example at line 107 at index 31 DelimiterToken([) expected: EOFToken()[0m
+[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parseIntruction(Parser.scala:236)[0m
+[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parseFunctionsBody(Parser.scala:112)[0m
+[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.$anonfun$parseAllFuncitonsBody$1(Parser.scala:99)[0m
+[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.$anonfun$parseAllFuncitonsBody$1$adapted(Parser.scala:96)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.Iterator$$anon$9.next(Iterator.scala:575)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.prependedAll(List.scala:156)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List$.from(List.scala:651)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List$.from(List.scala:648)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableFactory$Delegate.from(Factory.scala:288)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Iterable$.from(Iterable.scala:35)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Iterable$.from(Iterable.scala:32)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableFactory$Delegate.from(Factory.scala:288)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOps.map(Iterable.scala:671)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOps.map$(Iterable.scala:671)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterable.map(Iterable.scala:920)[0m
+[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parseAllFuncitonsBody(Parser.scala:96)[0m
+[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parse(Parser.scala:28)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.delayedEndpoint$Main$1(Main.scala:18)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$delayedInit$body.apply(Main.scala:9)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp(Function0.scala:39)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp$(Function0.scala:39)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.App.$anonfun$main$1(App.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.App.$anonfun$main$1$adapted(App.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:553)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:551)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterable.foreach(Iterable.scala:920)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.App.main(App.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.App.main$(App.scala:71)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.main(Main.scala:9)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main.main(Main.scala)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.reflect.Method.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.invokeMain(Run.scala:143)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.execute$1(Run.scala:93)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.$anonfun$runWithLoader$5(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run$.executeSuccess(Run.scala:186)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.runWithLoader(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$bgRunTask$6(Defaults.scala:1983)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$termWrapper$2(Defaults.scala:1922)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Try$.apply(Try.scala:213)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.BackgroundThreadPool$BackgroundRunnable.run(DefaultBackgroundJobService.scala:369)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) parsing.UnexpectedTokenException: found: in file example at line 107 at index 31 DelimiterToken([) expected: EOFToken()[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed 12 mai 2022 15:14:54[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

@@ -1,0 +1,43 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(a444a7e7-f3c6-49da-970d-9fcd3c8796df), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[31merror[0m] [0m[0manalyser.BreedException: Expected: Set(TurtleBreed(wolf,wolves,TurtleBreed(turtle,turtles,AgentBreed()))) Found: Set(TurtleBreed(turtle,turtles,AgentBreed()))[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.BreedAnalyser$.$anonfun$resolveConstraits$1(BreedAnalyser.scala:140)[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.BreedAnalyser$.$anonfun$resolveConstraits$1$adapted(BreedAnalyser.scala:133)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.map(List.scala:250)[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.BreedAnalyser$.resolveConstraits(BreedAnalyser.scala:133)[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.BreedAnalyser$.analyse(BreedAnalyser.scala:20)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.delayedEndpoint$Main$1(Main.scala:16)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$delayedInit$body.apply(Main.scala:8)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp(Function0.scala:39)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp$(Function0.scala:39)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.App.$anonfun$main$1(App.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.App.$anonfun$main$1$adapted(App.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.foreach(IterableOnce.scala:553)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:551)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterable.foreach(Iterable.scala:920)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.App.main(App.scala:73)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.App.main$(App.scala:71)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.main(Main.scala:8)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main.main(Main.scala)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.reflect.Method.invoke(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.invokeMain(Run.scala:143)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.execute$1(Run.scala:93)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.$anonfun$runWithLoader$5(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run$.executeSuccess(Run.scala:186)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.runWithLoader(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$bgRunTask$6(Defaults.scala:1983)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$termWrapper$2(Defaults.scala:1922)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Try$.apply(Try.scala:213)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.BackgroundThreadPool$BackgroundRunnable.run(DefaultBackgroundJobService.scala:369)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) analyser.BreedException: Expected: Set(TurtleBreed(wolf,wolves,TurtleBreed(turtle,turtles,AgentBreed()))) Found: Set(TurtleBreed(turtle,turtles,AgentBreed()))[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 0 s, completed 25 mars 2022 08:22:45[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

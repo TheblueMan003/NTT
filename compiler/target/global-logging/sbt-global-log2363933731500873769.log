@@ -1,0 +1,14 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run, Some(0250bc09-f877-45d2-b114-720ff0b4fb05), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 12 Scala sources to D:\git\NTT\target\scala-2.13\classes ...[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\codegen\BreedGen.scala:107:21: method generateSwitchInstruction in object ToolGen cannot be accessed as a member of object codegen.ToolGen from object BreedGen in package codegen[0m
+[0m[[0m[31merror[0m] [0m[0m            ToolGen.generateSwitchInstruction(breed, askVaraibleName, breed.getAllAskedFunctions().map(_.asInstanceOf[LinkedFunction]))[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\src\main\scala\codegen\BreedGen.scala:116:21: method generateSwitchInstruction in object ToolGen cannot be accessed as a member of object codegen.ToolGen from object BreedGen in package codegen[0m
+[0m[[0m[31merror[0m] [0m[0m            ToolGen.generateSwitchInstruction(breed, initerVariableName, breed.getAllCreateFunctions().map(_.asInstanceOf[LinkedFunction]))[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mcompileIncremental[0m) Compilation failed[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed 18 mai 2022 14:20:57[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
