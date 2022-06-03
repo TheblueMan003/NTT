@@ -18,6 +18,7 @@ class Variable(_name: String, val exported: Boolean = true, val isClassField: Bo
     var name = _name
 
     var hasGetterSetter = isClassField
+    var isGlobal = false
 
     def getName() = Renamer.toValidName(name)
     def getGetterName() = f"get_${Renamer.toValidName(name)}"

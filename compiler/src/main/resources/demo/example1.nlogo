@@ -17,7 +17,8 @@ to setup
     ]
 end
 
-to fct [ value ]
+to-report fct [ value ]
+    report value + 1
 end
 
 to go
@@ -33,7 +34,12 @@ to go
     show("middle of tick")
     ask turtles [
         left 90.0
-        show "turn"
+        show fct test
+    ]
+    show "part 2"
+    ask turtles [
+        set index index + 1
+        show index
     ]
     show("end of tick")
 

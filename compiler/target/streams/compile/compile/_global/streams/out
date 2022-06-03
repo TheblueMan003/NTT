@@ -1,6 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0mD:\git\NTT\compiler\src\main\scala\codegen\ContentGen.scala:194:35: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : codegen.InstructionGen[0m
-[0m[[0m[31merror[0m] [0m[0m required: String[0m
-[0m[[0m[31merror[0m] [0m[0m                    InstructionGen(f"$vari.map(s => asyncMessage(() => s.${BreedGen.killWorkerFunctionName}()))")[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[33mwarn[0m] [0m[0mD:\git\NTT\compiler\src\main\scala\utils\Context.scala:187:43: comparing values of types Boolean and netlogo.Breed using `==` will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m                    if (hasBreedPlural(k) == getObserverBreed()){[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                          ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

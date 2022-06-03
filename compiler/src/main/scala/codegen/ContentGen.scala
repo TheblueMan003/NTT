@@ -104,7 +104,12 @@ object ContentGen{
             }
             case Assignment(VariableValue(v), value) => {
                 val expr = generateExpr(value)
-                InstructionList(expr._1, InstructionGen(f"${v.getSetter(expr._2)}"))
+                if (context.getObserverBreed() != breed && v.isGlobal){
+                    InstructionList(expr._1, InstructionGen(f"${BreedGen.observerVariable}.${v.getSetter(expr._2)}"))
+                }
+                else{
+                    InstructionList(expr._1, InstructionGen(f"${v.getSetter(expr._2)}"))
+                }
             }
             case Declaration(OfValue(v, b), value) => {
                 val expr = generateExpr(value)
@@ -160,8 +165,7 @@ object ContentGen{
                 val vari = getUniqueVariableName()
                 InstructionList(
                     expr2._1,
-                    InstructionGen(f"val $vari = ${expr2._2}"),
-                    InstructionGen(vari)
+                    InstructionGen(function.returnVariable.getSetter(expr2._2))
                 )
             }
 
@@ -285,7 +289,14 @@ object ContentGen{
      */
     def generateExpr(expr: Expression)(implicit function: Function, breed: Breed, context: Context): (Instruction, String) = {
         expr match{
-            case VariableValue(v) => (EmptyInstruction, f"${v.getGetter()}")
+            case VariableValue(v) => {
+                if (context.getObserverBreed() != breed && v.isGlobal){
+                    (EmptyInstruction, f"${BreedGen.observerVariable}.${v.getGetter()}")
+                }
+                else{
+                    (EmptyInstruction, f"${v.getGetter()}")
+                }
+            }
             case BooleanValue(v) => (EmptyInstruction, v.toString())
             case IntValue(v) => (EmptyInstruction, v.toString())
             case FloatValue(v) => (EmptyInstruction, v.toString())
@@ -352,12 +363,9 @@ object ContentGen{
                         }
                         else{
                             val argsPro = args.map(generateExpr(_))
-                            val argsCall = argsPro.map(_._2).reduce(_ + ", "+ _)
+                            val argsCall = argsPro.map(_._2)
                             val argsInstr = argsPro.map(_._1)
-                            (
-                                InstructionList(argsInstr),
-                                InstructionGen(f"${fct.name}($argsCall)").generate(0)
-                            )
+                            (InstructionList(InstructionList(argsInstr), generateFunctionCallNoReturn(argsCall, fct, breed)), Renamer.toValidName(fct.returnVariable.name))
                         }
                     }
                     case fct: BaseFunction =>{

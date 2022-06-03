@@ -34,9 +34,10 @@ subtract-headings;x:Float,y:Float;Float;Random.Next()
 sum;x:List[Float];Float;$x.foldLeft(0)(_+_)
 tan;x:Float;Float;Math.tan($x)
 variance;x:List[Float];Float;Math.var($x)
-show;x:String;Unit;println($x)
+show;x:Any;Unit;println($x)
 
 any?;x:breedset[agents];Boolean;$x.any(_==_)
 other;x:breedset[agents];breedset[agents];$x
 count;x:breedset[agents];Int;$x.map(1).foldLeft(0)(_+_)
 not;x:Boolean;Boolean;!$x
+default_str;x:Any;String;f"$x"

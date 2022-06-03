@@ -183,7 +183,10 @@ class Context(){
     def breedVariableOwnSetup() = {
         _ownedBuffer.map{ case (k, v) => {
                 if (hasBreedPlural(k)){
-                    getBreedPlural(k).addVariable(v, true)
+                    val vari = getBreedPlural(k).addVariable(v, true)
+                    if (getBreedPlural(k) == getObserverBreed()){
+                        vari.isGlobal = true
+                    }
                 } else {
                     throw new Exception(f"Unknown Breed: ${k}")
                 }

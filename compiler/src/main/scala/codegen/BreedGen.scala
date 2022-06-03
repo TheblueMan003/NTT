@@ -318,7 +318,7 @@ object BreedGen{
                     InstructionGen("var kv = values.head"),
                     InstructionGen("values = values.tail"),
                     InstructionList(
-                        breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(InstructionGen(f"${x.name} = kv._2.asInstanceOf[${Type.toString(x.getType())}]")))).toList
+                        breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${Renamer.toValidName(x.name)}$p)",InstructionBlock(InstructionGen(f"${Renamer.toValidName(x.name)} = kv._2.asInstanceOf[${Type.toString(x.getType())}]")))).toList
                     )
                 )
             )), 
@@ -349,9 +349,9 @@ object BreedGen{
                     InstructionGen("var kv = values.head"),
                     InstructionGen("values = values.tail"),
                     InstructionList(
-                        breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${x.name}$p)",InstructionBlock(
-                            InstructionGen(f"${x.name} = kv._2.asInstanceOf[${Type.toString(x.getType())}]"),
-                            InstructionGen(f"${BreedGen.logName}($p${x.getName()}$p) = ${x.name}")
+                        breed.getAllVariablesFromTree().map(x => InstructionCompose(f"if(kv._1 == $p${Renamer.toValidName(x.name)}$p)",InstructionBlock(
+                            InstructionGen(f"${Renamer.toValidName(x.name)} = kv._2.asInstanceOf[${Type.toString(x.getType())}]"),
+                            InstructionGen(f"${BreedGen.logName}($p${x.getName()}$p) = ${Renamer.toValidName(x.name)}")
                         ))).toList
                     )
                 )

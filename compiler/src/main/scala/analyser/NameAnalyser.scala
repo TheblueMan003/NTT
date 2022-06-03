@@ -18,6 +18,8 @@ object NameAnalyser{
                     val localVar = ContextMap[Variable]()
                     cf._args.map(v => localVar.add(v.name, v))
                     cf._args.map(v => {v.name = f"FUNCTION_ARG_${cf.name}_${v.name}";breed.addVariable(v)})
+                    cf.returnVariable.name = f"FUNCTION_RETURN_${cf.name}"
+                    breed.addVariable(cf.returnVariable)
                     cf.symTree = toSymTree(cf.body)(context, breed, cf, localVar)
                 }
             }

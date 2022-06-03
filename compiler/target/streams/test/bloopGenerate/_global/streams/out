@@ -1,4 +1,4 @@
-[debug] [ntt-test] Classpath dependencies List()
-[debug] [ntt-test] Dependencies from configurations List(ntt)
-[debug] Bloop wrote the configuration of project 'ntt-test' to 'D:\git\NTT\.bloop\ntt-test.json'
-[success] Generated .bloop\ntt-test.json
+[debug] [compiler-test] Classpath dependencies List()
+[debug] [compiler-test] Dependencies from configurations List(compiler)
+[debug] Bloop wrote the configuration of project 'compiler-test' to 'D:\git\NTT\.bloop\compiler-test.json'
+[success] Generated .bloop\compiler-test.json

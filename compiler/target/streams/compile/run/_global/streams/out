@@ -1,33 +1,23 @@
-[0m[[0m[31merror[0m] [0m[0mjava.lang.Exception: Unknown Variable: value in turtles[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.getVariable(NameAnalyser.scala:192)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.toSymTreeExpr(NameAnalyser.scala:149)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.$anonfun$toSymTreeExpr$1(NameAnalyser.scala:134)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.map(List.scala:246)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.toSymTreeExpr(NameAnalyser.scala:134)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.toSymTree(NameAnalyser.scala:33)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.$anonfun$toSymTree$1(NameAnalyser.scala:48)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.map(List.scala:246)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.toSymTree(NameAnalyser.scala:48)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.analyse(NameAnalyser.scala:21)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.$anonfun$analyse$2(NameAnalyser.scala:11)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.$anonfun$analyse$2$adapted(NameAnalyser.scala:11)[0m
+[0m[[0m[31merror[0m] [0m[0mjava.lang.ArrayIndexOutOfBoundsException: 1[0m
+[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.getArgument(FunctionLoader.scala:42)[0m
+[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.$anonfun$getFunction$2(FunctionLoader.scala:29)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.ArrayOps$.map$extension(ArrayOps.scala:924)[0m
+[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.getFunction(FunctionLoader.scala:29)[0m
+[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.$anonfun$getAll$1(FunctionLoader.scala:17)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.collection.Iterator$$anon$9.next(Iterator.scala:575)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.prependedAll(List.scala:153)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List$.from(List.scala:651)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List$.from(List.scala:648)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableFactory$Delegate.from(Factory.scala:288)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Iterable$.from(Iterable.scala:35)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Iterable$.from(Iterable.scala:32)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableFactory$Delegate.from(Factory.scala:288)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOps.map(Iterable.scala:671)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOps.map$(Iterable.scala:671)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterable.map(Iterable.scala:920)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.$anonfun$analyse$1(NameAnalyser.scala:11)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.Iterator$$anon$6.hasNext(Iterator.scala:471)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.prependedAll(List.scala:155)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.toList(IterableOnce.scala:1258)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.toList$(IterableOnce.scala:1258)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterator.toList(Iterator.scala:1279)[0m
+[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.getAll(FunctionLoader.scala:18)[0m
+[0m[[0m[31merror[0m] [0m[0m	at utils.Context.$anonfun$breedVariableOwnSetup$2(Context.scala:196)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.collection.StrictOptimizedIterableOps.map(StrictOptimizedIterableOps.scala:99)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.collection.StrictOptimizedIterableOps.map$(StrictOptimizedIterableOps.scala:86)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.HashSet.map(HashSet.scala:34)[0m
-[0m[[0m[31merror[0m] [0m[0m	at analyser.NameAnalyser$.analyse(NameAnalyser.scala:11)[0m
-[0m[[0m[31merror[0m] [0m[0m	at Main$.delayedEndpoint$Main$1(Main.scala:21)[0m
+[0m[[0m[31merror[0m] [0m[0m	at utils.Context.breedVariableOwnSetup(Context.scala:196)[0m
+[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parse(Parser.scala:25)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.delayedEndpoint$Main$1(Main.scala:17)[0m
 [0m[[0m[31merror[0m] [0m[0m	at Main$delayedInit$body.apply(Main.scala:9)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp(Function0.scala:39)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp$(Function0.scala:39)[0m
@@ -58,4 +48,4 @@
 [0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Unknown Source)[0m
-[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.lang.Exception: Unknown Variable: value in turtles[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.lang.ArrayIndexOutOfBoundsException: 1[0m

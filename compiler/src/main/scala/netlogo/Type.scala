@@ -30,6 +30,7 @@ object Type{
     }
     def fromString(string: String)(implicit context: Context): Type = {
         string.toLowerCase match {
+            case "any" => Types.AnyType
             case "int" => Types.IntType
             case "float" => Types.FloatType
             case "string" => Types.StringType

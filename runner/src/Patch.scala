@@ -36,9 +36,6 @@ class Patch extends Agent {
       if (kv._1 == "pxcord") {
         pxcord = kv._2.asInstanceOf[Any]
       }
-      if (kv._1 == "FUNCTION_ARG_fct_value") {
-        FUNCTION_ARG_fct_value = kv._2.asInstanceOf[Any]
-      }
     }
   }
   override def DEFAULT_UpdateFromWorker(dic: mutable.Map[String, Any]): Unit = {
@@ -53,10 +50,6 @@ class Patch extends Agent {
       if (kv._1 == "pxcord") {
         pxcord = kv._2.asInstanceOf[Any]
         DEFAULT_logs("pxcord") = pxcord
-      }
-      if (kv._1 == "FUNCTION_ARG_fct_value") {
-        FUNCTION_ARG_fct_value = kv._2.asInstanceOf[Any]
-        DEFAULT_logs("FUNCTION_ARG_fct_value") = FUNCTION_ARG_fct_value
       }
     }
   }
