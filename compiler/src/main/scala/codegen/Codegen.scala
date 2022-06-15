@@ -18,7 +18,8 @@ object CodeGen{
         "import meta.classLifting.SpecialInstructions._",
         "import squid.quasi.lift",
         "import scala.collection.mutable",
-        "import meta.runtime.Actor"
+        "import meta.runtime.Actor",
+        "import scala.util.Random",
     )
 
     def generate(context: Context): List[ClassFile] = {

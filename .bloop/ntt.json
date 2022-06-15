@@ -13,8 +13,7 @@
         ],
         "dependencies": [
             "compiler",
-            "runner",
-            "genExample"
+            "runner"
         ],
         "classpath": [
             "D:\\git\\NTT\\lib\\squid-core-macros_2.12.jar",

@@ -134,8 +134,8 @@ object MainGen{
         InstructionCompose(f"val ${MainGen.patchVariableName} = (1 to size_x).map(x => (1 to size_y).map(y => {",
         InstructionBlock(
                 InstructionGen(f"val patch = new Patch()"),
-                InstructionGen(f"patch.pxcord = x"),
-                InstructionGen(f"patch.pycord = y"),
+                InstructionGen(f"patch.pxcor = x"),
+                InstructionGen(f"patch.pycor = y"),
                 InstructionGen(f"patch.${BreedGen.observerVariable} = ${MainGen.observerVariableName}"),
                 InstructionGen(f"patch"),
         ), "}).toList).toList.flatten")

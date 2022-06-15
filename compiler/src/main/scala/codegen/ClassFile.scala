@@ -67,6 +67,9 @@ case class InstructionBlock(val content: List[Generator]) extends Instruction{
         val sCont = content.filter(_ != EmptyInstruction).map(_.generate(indentation + 1)).foldLeft("")(Renamer.concatLine(_, _))
         "{\n" + sCont + "\n" + "\t" * indentation + "}"
     }
+    def toInstructionList(): InstructionList = {
+        InstructionList(content)
+    }
 }
 object InstructionBlock {
     def apply(content: Generator*): InstructionBlock = {

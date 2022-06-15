@@ -4,6 +4,7 @@ import meta.classLifting.SpecialInstructions._
 import squid.quasi.lift
 import scala.collection.mutable
 import meta.runtime.Actor
+import scala.util.Random
 
 object MainInit {
   val liftedMain = meta.classLifting.liteLift {
@@ -17,8 +18,8 @@ object MainInit {
             .map(y => {
               {
                 val patch = new Patch()
-                patch.pxcord = x
-                patch.pycord = y
+                patch.pxcor = x
+                patch.pycor = y
                 patch.DEFAULT_observer = observer
                 patch
               }

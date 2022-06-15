@@ -2,6 +2,10 @@ globals [
   percent-similar  ; on the average, what percent of a turtle's neighbors
                    ; are the same color as that turtle?
   percent-unhappy  ; what percent of the turtles are unhappy?
+
+  %-similar-wanted
+  visualization
+  density
 ]
 
 turtles-own [
@@ -14,15 +18,22 @@ turtles-own [
 
 to setup
   clear-all
+  set %-similar-wanted 0.3
+  set visualization "square-x"
+  set density 95
   ; create turtles on random patches.
   ask patches [
 
     set pcolor white
-    if random 100 < density [   ; set the occupancy density
+    if (random 100) < density [   ; set the occupancy density
       sprout 1 [
         ; 105 is the color number for "blue"
         ; 27 is the color number for "orange"
-        set color one-of [105 27]
+        ifelse (random 2) < 1 [
+          set color 105
+        ] [
+          set color 27
+        ]
         set size 1
       ]
     ]

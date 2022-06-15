@@ -14,8 +14,7 @@
         "dependencies": [
             "ntt",
             "compiler-test",
-            "runner-test",
-            "genExample-test"
+            "runner-test"
         ],
         "classpath": [
             "D:\\git\\NTT\\.bloop\\ntt\\scala-2.13\\classes",

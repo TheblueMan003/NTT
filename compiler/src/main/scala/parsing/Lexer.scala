@@ -6,12 +6,12 @@ import utils.{TokenBufferBuilder,StringBufferedIterator,Reporter}
 
 object Lexer{
     val delimiter = List('[', ']', '(', ')')
-    val operators = Set("+", "-", "*", "/", "<", "=", ">", "!", "and", "or", "xor", "mod")
+    val operators = Set("+", "-", "*", "/", "<", "<=", ">=","=", "!=", ">", "!", "and", "or", "xor", "mod", "^", "with")
     val identifier = ".?=*!<>:#+/%$_^'&-".toCharArray
     val keyword = Set("breed", "directed-link-breed", "end", "extensions", "globals", 
                         "__includes", "to", "to-report", "of", "list",
-                        "undirected-link-breed", "with",
-                        "let", "set", "ask", "tick", "repeat",
+                        "undirected-link-breed", "not",
+                        "let", "set", "ask", "repeat",
                         "if", "ifelse", "ifelse-value", "report")
     
     // TODO add position to token for errors
@@ -27,58 +27,64 @@ object Lexer{
                     text.take()
                     text.takeWhile(x => x.isDigit)
                     val cut = text.cut()
-                    tokenize(text, acc.add(FloatLitToken(cut._1.toFloat).pos(cut._2), text))
+                    tokenize(text, acc.add(FloatLitToken(cut._1.toFloat).pos(cut._2)))
                 }
                 else{
                     val cut = text.cut()
-                    tokenize(text, acc.add(IntLitToken(cut._1.toInt).pos(cut._2), text))
+                    tokenize(text, acc.add(IntLitToken(cut._1.toInt).pos(cut._2)))
                 }
             }
             else if (c == '"'){
                 text.takeWhile(x => x != '"')
                 text.take()
                 val cut = text.cut()
-                tokenize(text, acc.add(StringLitToken(cut._1.substring(1, cut._1.length()-1)).pos(cut._2), text))
+                tokenize(text, acc.add(StringLitToken(cut._1.substring(1, cut._1.length()-1)).pos(cut._2)))
             }
             // Delimiter
             else if (delimiter.contains(c)){
                 val cut = text.cut()
-                tokenize(text, acc.add(DelimiterToken(cut._1).pos(cut._2), text))
+                tokenize(text, acc.add(DelimiterToken(cut._1).pos(cut._2)))
             }
             // Identifier or Keyword
             else if (c.isLetter || identifier.contains(c)){
                 text.takeWhile(x => x.isLetterOrDigit || identifier.contains(x))
                 val cut = text.cut()
                 if (keyword.contains(cut._1)){
-                    tokenize(text, acc.add(KeywordToken(cut._1).pos(cut._2), text))
+                    tokenize(text, acc.add(KeywordToken(cut._1).pos(cut._2)))
                 }
                 else if (operators.contains(cut._1)){
-                    tokenize(text, acc.add(OperatorToken(cut._1).pos(cut._2), text))
+                    tokenize(text, acc.add(OperatorToken(cut._1).pos(cut._2)))
                 }
                 else if (cut._1 == "true" || cut._1 == "false"){
-                    tokenize(text, acc.add(BoolLitToken(cut._1 == "true").pos(cut._2), text))
+                    tokenize(text, acc.add(BoolLitToken(cut._1 == "true").pos(cut._2)))
+                }
+                else if (!cut._1.toIntOption.isEmpty){
+                    tokenize(text, acc.add(IntLitToken(cut._1.toInt).pos(cut._2)))
+                }
+                else if (!cut._1.toFloatOption.isEmpty){
+                    tokenize(text, acc.add(FloatLitToken(cut._1.toFloat).pos(cut._2)))
                 }
                 else{
-                    tokenize(text, acc.add(IdentifierToken(cut._1).pos(cut._2), text))
+                    tokenize(text, acc.add(IdentifierToken(cut._1).pos(cut._2)))
                 }
             }
             // Comment
             else if (c == ';'){
                 text.takeWhile(x => x != '\n')
                 val cut = text.cut()
-                tokenize(text, acc.add(CommentToken(cut._1).pos(cut._2), text))
+                tokenize(text, acc.add(CommentToken(cut._1).pos(cut._2)))
             }
             // Spaces Chars
             else if (c.isSpaceChar || c == '\n'){
                 text.takeWhile(x => x.isSpaceChar || x == '\n')
                 val cut = text.cut()
-                tokenize(text, acc.add(SpaceToken().pos(cut._2), text))
+                tokenize(text, acc.add(SpaceToken().pos(cut._2)))
 
             }
             else{
                 val cut = text.cut()
                 Reporter.error(f"Unknown Token ${cut._2.positionString()}")
-                tokenize(text, acc.add(ErrorToken(cut._1).pos(cut._2), text))
+                tokenize(text, acc.add(ErrorToken(cut._1).pos(cut._2)))
             }
         }
         else{

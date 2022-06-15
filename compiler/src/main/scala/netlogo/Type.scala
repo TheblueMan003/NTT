@@ -13,12 +13,16 @@ object Type{
             case Types.UnitType => "Unit"
             case Types.AnyType => "Any"
             case Types.NoType => "Any"
+            case Types.BreedSetType(breed) => f"List[${breed.className}]"
+            case Types.BreedType(breed) => f"${breed.className}"
             case Types.CodeGenType(value) => value
             case null => "Int"
         }
     }
     def defaultValue(typ: Type):String = {
         typ match {
+            case Types.BreedSetType(breed) => f"List[${breed.className}]()"
+            case Types.BreedType(breed) => "null"
             case Types.BoolType => "false"
             case Types.FloatType => "0"
             case Types.IntType => "0"
@@ -66,6 +70,9 @@ abstract class Type(_parent: Type){
         else if (parent != Types.NoType){
             parent.hasAsParent(other)
         }
+        else if (other.isInstanceOf[Types.BreedType] && this.isInstanceOf[Types.BreedType]){
+            other.asInstanceOf[Types.BreedType].breed.isParentOf(this.asInstanceOf[Types.BreedType].breed)
+        }
         else{
             false
         }
@@ -77,6 +84,9 @@ abstract class Type(_parent: Type){
         }
         else if (other == this){
             true
+        }
+        else if (other.isInstanceOf[Types.BreedType] && this.isInstanceOf[Types.BreedType]){
+            asInstanceOf[Types.BreedType].breed.isParentOf(other.asInstanceOf[Types.BreedType].breed)
         }
         else if (other.parent != Types.NoType){
             isParentOf(other.parent)

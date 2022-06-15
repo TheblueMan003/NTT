@@ -11,6 +11,8 @@ import netlogo._
 object BreedAnalyser{
     private val observersFunctions = Set("go", "setup")
     private val emptyConst = List[BreedConstraint]()
+
+
     /**
     *  generateConstraints breeds contraint and force function to belong to a breed.
     */ 
@@ -52,7 +54,7 @@ object BreedAnalyser{
         context.functions.values.map(
             _ match {
                 case cf: UnlinkedFunction => {
-                    val vars = ContextMap[VariableValue]()
+                    val vars = new ContextMap[VariableValue]()
                     cf.argsNames.map(x => vars.add(x, VariableValue(x)))
                     generateConstraints(cf.body)(context, BreedOwn(cf), vars)
                 }
@@ -66,10 +68,15 @@ object BreedAnalyser{
      */ 
     private def generateConstraints(tree: AST)(implicit context: Context, found: BreedConstrainer, localVar: ContextMap[VariableValue]): (List[BreedConstraint]) = {
         tree match{
+            case Call("tick", List()) => List(BreedConstraint(found, BreedSet(Set(context.getObserverBreed()))))
             case BooleanValue(_) => Nil
             case IntValue(_) => Nil
             case FloatValue(_) => Nil
             case StringValue(_) => Nil
+            case OneOfValue(values) => values.map(generateConstraints(_)).flatten
+            case Not(value) => generateConstraints(value)
+
+
             case BreedValue(_) => Nil
             case WithValue(value, predicate) => {
                 generateConstraints(predicate)(context, getBreedFrom(value), localVar)
@@ -77,6 +84,52 @@ object BreedAnalyser{
             case OfValue(expr, from) => {
                 generateConstraints(expr)(context, getBreedFrom(from), localVar)
             }
+            case SortBy(expr, sorter) => {
+                generateConstraints(sorter)(context, getBreedFrom(expr), localVar)
+            }
+            case MinOneAgent(expr) => generateConstraints(expr)
+            case MaxOneAgent(expr) => generateConstraints(expr)
+            case MinNAgent(expr, nb) => generateConstraints(expr):::generateConstraints(nb)
+            case MaxNAgent(expr, nb) => generateConstraints(expr):::generateConstraints(nb)
+            case BreedAt(breed, x, y) => {
+                generateConstraints(x):::
+                generateConstraints(y):::
+                generateConstraints(breed)
+            }
+            case BreedAtSingle(breed, x, y) => {
+                generateConstraints(x):::
+                generateConstraints(y):::
+                generateConstraints(breed)
+            }
+            case BreedOn(breed, set) => {
+                generateConstraints(set):::
+                generateConstraints(breed)
+            }
+            case Neighbors => {
+                Nil
+            }
+            case Nobody => {
+                Nil
+            }
+            case Other(breed) => {
+                generateConstraints(breed)
+            }
+            case OneOf(breed) => {
+                generateConstraints(breed)
+            }
+
+
+            case All(breed, predicate) => {
+                generateConstraints(breed):::
+                generateConstraints(predicate)(context, getBreedFrom(breed), localVar)
+            }
+            case Any(breed) => {
+                generateConstraints(breed)
+            }
+            case Count(breed) => {
+                generateConstraints(breed)
+            }
+
 
             case Call(name, args) => 
                 List(BreedConstraint(found, getFunctionBreeds(name))) ::: args.map(generateConstraints(_)).foldLeft(emptyConst)(_ ::: _)
@@ -90,13 +143,21 @@ object BreedAnalyser{
                 else{
                     val breeds = context.getBreedsWithVariable(name)
                     if (breeds.isEmpty){
-                        throw new Exception(f"Unknown variable: $name")
+                        if (name == "myself")
+                        {
+                            Nil
+                        }
+                        else{
+                            throw new Exception(f"Unknown variable: $name at ${tree.positionString()}")
+                        }
                     }
                     else{
                         List(BreedConstraint(found, BreedSet(context.getBreedsWithVariable(name))))
                     }
                 }
             }
+
+            
 
             case Declaration(vari, expr) => {
                 vari.initConstraints(context.getBreeds())
@@ -152,6 +213,16 @@ object BreedAnalyser{
 
                 ret
             }
+            case HatchBreed(breed, nb, block) => {
+                localVar.push()
+
+                val ret = List(BreedConstraint(found, BreedSet(context.getBreeds().diff(Set(context.getObserverBreed()))))) :::
+                          generateConstraints(block)(context, getBreedFrom(breed), localVar)
+
+                localVar.pop()
+
+                ret
+            }
             case Block(content) => {
                 localVar.push()
                 val ret = if (content.isEmpty){
@@ -162,7 +233,6 @@ object BreedAnalyser{
                 localVar.pop()
                 ret
             }
-            case Tick => List(BreedConstraint(found, BreedSet(Set(context.getObserverBreed()))))
         }
     }
 
@@ -204,6 +274,16 @@ object BreedAnalyser{
                 v.initConstraints(context.getBreeds())
                 BreedOwn(v)
             }
+            case AST.MinNAgent(expr, nb) => getBreedFrom(expr)
+            case AST.MaxNAgent(expr, nb) => getBreedFrom(expr)
+            case AST.SortBy(expr, sorter) => getBreedFrom(expr)
+            case AST.BreedAt(breed, x, y) => getBreedFrom(breed)
+            case AST.BreedAtSingle(breed, x, y) => getBreedFrom(breed)
+            case AST.BreedOn(breed, expr) => getBreedFrom(breed)
+            case AST.Neighbors => BreedSet(Set(context.getPatchBreed()))
+            case AST.Other(breed) => getBreedFrom(breed)
+            case AST.Nobody => BreedSet(Set(context.getAgentBreed()))
+            case AST.OneOf(breed) => getBreedFrom(breed)
         }
     }
 

@@ -6,12 +6,22 @@ import parsing.Token
 import parsing.Tokens
 
 class TokenBufferBuilder(val list: mutable.ArrayBuffer[Token] = new mutable.ArrayBuffer[Token]()){
-    
-    def add(token: Token, buffer: StringBufferedIterator): TokenBufferBuilder = {
+    /**
+      * Add a token to the buffer.
+      *
+      * @param token: Token to add to the buffer.
+      * @return this
+      */
+    def add(token: Token): TokenBufferBuilder = {
         list.addOne(token)
         this
     }
 
+    /**
+      * Transforms to a TokenBufferedIterator
+      *
+      * @return TokenBufferedIterator
+      */
     def toIterator(): TokenBufferedIterator = {
         new TokenBufferedIterator(list.filter(
             _ match {
@@ -22,6 +32,12 @@ class TokenBufferBuilder(val list: mutable.ArrayBuffer[Token] = new mutable.Arra
         ).toList)
     }
 
+    /**
+      * Append the given tokens to the buffer.
+      *
+      * @param other: The tokens to append.
+      * @return The new buffer.
+      */
     def union(other: TokenBufferBuilder):TokenBufferBuilder = {
         new TokenBufferBuilder(list ++ other.list)
     } 

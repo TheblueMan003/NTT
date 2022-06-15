@@ -1,24 +1,12 @@
-[0m[[0m[31merror[0m] [0m[0mjava.lang.ArrayIndexOutOfBoundsException: 1[0m
-[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.getArgument(FunctionLoader.scala:42)[0m
-[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.$anonfun$getFunction$2(FunctionLoader.scala:29)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.ArrayOps$.map$extension(ArrayOps.scala:924)[0m
-[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.getFunction(FunctionLoader.scala:29)[0m
-[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.$anonfun$getAll$1(FunctionLoader.scala:17)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.Iterator$$anon$9.next(Iterator.scala:575)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.Iterator$$anon$6.hasNext(Iterator.scala:471)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.prependedAll(List.scala:155)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.toList(IterableOnce.scala:1258)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOnceOps.toList$(IterableOnce.scala:1258)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterator.toList(Iterator.scala:1279)[0m
-[0m[[0m[31merror[0m] [0m[0m	at utils.FunctionLoader$.getAll(FunctionLoader.scala:18)[0m
-[0m[[0m[31merror[0m] [0m[0m	at utils.Context.$anonfun$breedVariableOwnSetup$2(Context.scala:196)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.StrictOptimizedIterableOps.map(StrictOptimizedIterableOps.scala:99)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.StrictOptimizedIterableOps.map$(StrictOptimizedIterableOps.scala:86)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.HashSet.map(HashSet.scala:34)[0m
-[0m[[0m[31merror[0m] [0m[0m	at utils.Context.breedVariableOwnSetup(Context.scala:196)[0m
-[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parse(Parser.scala:25)[0m
-[0m[[0m[31merror[0m] [0m[0m	at Main$.delayedEndpoint$Main$1(Main.scala:17)[0m
-[0m[[0m[31merror[0m] [0m[0m	at Main$delayedInit$body.apply(Main.scala:9)[0m
+[0m[[0m[31merror[0m] [0m[0manalyser.TypeException: Expected: Boolean Found: Int in file demo/fountain.nlogo at line 101 at index 23[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.TypeChecker$.resolveConstraint(TypeChecker.scala:227)[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.TypeChecker$.$anonfun$resolveConstraits$1(TypeChecker.scala:176)[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.TypeChecker$.$anonfun$resolveConstraits$1$adapted(TypeChecker.scala:176)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.map(List.scala:250)[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.TypeChecker$.resolveConstraits(TypeChecker.scala:176)[0m
+[0m[[0m[31merror[0m] [0m[0m	at analyser.TypeChecker$.analyse(TypeChecker.scala:15)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.delayedEndpoint$Main$1(Main.scala:39)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$delayedInit$body.apply(Main.scala:12)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp(Function0.scala:39)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp$(Function0.scala:39)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:17)[0m
@@ -29,7 +17,7 @@
 [0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterable.foreach(Iterable.scala:920)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.App.main(App.scala:73)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.App.main$(App.scala:71)[0m
-[0m[[0m[31merror[0m] [0m[0m	at Main$.main(Main.scala:9)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.main(Main.scala:12)[0m
 [0m[[0m[31merror[0m] [0m[0m	at Main.main(Main.scala)[0m
 [0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[0m
 [0m[[0m[31merror[0m] [0m[0m	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)[0m
@@ -48,4 +36,4 @@
 [0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Unknown Source)[0m
-[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.lang.ArrayIndexOutOfBoundsException: 1[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) analyser.TypeException: Expected: Boolean Found: Int in file demo/fountain.nlogo at line 101 at index 23[0m

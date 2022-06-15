@@ -4,6 +4,7 @@ import meta.classLifting.SpecialInstructions._
 import squid.quasi.lift
 import scala.collection.mutable
 import meta.runtime.Actor
+import scala.util.Random
 
 object Simulation extends App {
   val mainClass                                         = MainInit.liftedMain
@@ -11,8 +12,6 @@ object Simulation extends App {
   val WORKER_observer: ClassWithObject[WORKER_Observer] = WORKER_Observer.reflect(IR)
   val link: ClassWithObject[Link]                       = Link.reflect(IR)
   val WORKER_link: ClassWithObject[WORKER_Link]         = WORKER_Link.reflect(IR)
-  val wolf: ClassWithObject[Wolf]                       = Wolf.reflect(IR)
-  val WORKER_wolf: ClassWithObject[WORKER_Wolf]         = WORKER_Wolf.reflect(IR)
   val agent: ClassWithObject[Agent]                     = Agent.reflect(IR)
   val turtle: ClassWithObject[Turtle]                   = Turtle.reflect(IR)
   val WORKER_turtle: ClassWithObject[WORKER_Turtle]     = WORKER_Turtle.reflect(IR)
@@ -26,11 +25,9 @@ object Simulation extends App {
       WORKER_patch,
       observer,
       agent,
-      wolf,
       link,
-      patch,
-      WORKER_wolf,
-      WORKER_observer
+      WORKER_observer,
+      patch
     ),
     Some(mainClass)
   )

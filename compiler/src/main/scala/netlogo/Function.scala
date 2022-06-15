@@ -13,6 +13,8 @@ object FunctionType{
     case object Normal extends FunctionType
     case object Ask extends FunctionType
     case object Create extends FunctionType
+    case object Predicate extends FunctionType
+    case object Sorter extends FunctionType
 }
 
 
@@ -20,8 +22,8 @@ abstract class Function(_name: String, _argsNames: List[String], _hasReturnValue
     val name = _name
     val argsNames = _argsNames
     val hasReturnValue = _hasReturnValue
-    val returnValue = AST.VariableValue("return") // Used to capture return type breed constraints
-    val returnVariable = new Variable("return") // Used to capture return type constraints
+    val returnValue = AST.VariableValue(f"FUNCTION_RETURN_$name") // Used to capture return type breed constraints
+    val returnVariable = new Variable(f"FUNCTION_RETURN_$name") // Used to capture return type constraints
     var functionType: FunctionType = FunctionType.Normal
     var lambdaIndex = 0
 

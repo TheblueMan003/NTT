@@ -13,7 +13,7 @@ breed [ wolves wolf ]
 to setup
     create-turtles 10 [
         set speed 0
-        set xcord 0
+        set xcor 0
     ]
 end
 
@@ -31,17 +31,24 @@ to go
     ask turtles with [color < 1] [
         show("filtered")
     ]
+
     show("middle of tick")
     ask turtles [
         left 90.0
         show fct test
+        set p (p + 5) mod 4
     ]
     show "part 2"
-    ask turtles [
+    ask wolves [
         set index index + 1
         show index
+        let v [color] of myself
+        hatch 1 [
+            show "hello"
+        ]
     ]
+    let l min-n-of turtles 5 [ color ]
     show("end of tick")
-
-    let c [ speed ] of turtles
+    let c [ color ] of turtles
+    let d count (turtles-on neighbors) with [ color != [ color ] of myself ]
 end

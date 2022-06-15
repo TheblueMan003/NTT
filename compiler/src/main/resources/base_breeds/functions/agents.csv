@@ -4,7 +4,7 @@ sin;x:Float;Float;Math.sin($x)
 abs;x:Float;Float;Math.abs($x)
 acos;x:Float;Float;Math.acos($x)
 asin;x:Float;Float;Math.asin($x)
-atan;x:Float;Float;Math.atan($x)
+atan;x:Float,y:Float;Float;Math.atan($y, $x)
 ceiling;x:Float;Float;Math.ceiling($x)
 cos;x:Float;Float;Math.cos($x)
 exp;x:Float;Float;Math.exp($x)
@@ -36,8 +36,21 @@ tan;x:Float;Float;Math.tan($x)
 variance;x:List[Float];Float;Math.var($x)
 show;x:Any;Unit;println($x)
 
-any?;x:breedset[agents];Boolean;$x.any(_==_)
-other;x:breedset[agents];breedset[agents];$x
-count;x:breedset[agents];Int;$x.map(1).foldLeft(0)(_+_)
 not;x:Boolean;Boolean;!$x
-default_str;x:Any;String;f"$x"
+default_to_str;x:Any;String;$x.toString
+default_to_int;x:Float;Int;$x.toInt
+
+first;x:breedset[agents];breed[agent];$x.head
+last;x:breedset[agents];breed[agent];$x.last
+watch;x:breed[agent];Unit; 
+
+clear-drawing;;Unit; 
+pen-down;;Unit; 
+pen-up;;Unit; 
+scale-color;color:Float,number:Float,range1:Float,range2:Float;Float;0
+
+die;;Unit;deleted = true
+display;;Unit; 
+clear-all;;Unit; 
+stop;;Unit; 
+set-default-shape;x:breedset[turtles],y:String;Unit; 

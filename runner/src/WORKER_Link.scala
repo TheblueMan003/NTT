@@ -4,9 +4,10 @@ import meta.classLifting.SpecialInstructions._
 import squid.quasi.lift
 import scala.collection.mutable
 import meta.runtime.Actor
+import scala.util.Random
 @lift
 class WORKER_Link extends Link {
-  var DEFAULT_Parent: Link = null
+  var DEFAULT_Parent: Agent = null
   override def main(): Unit = {
     DEFAULT_UpdateFromParent(DEFAULT_Parent.get_DEFAULT_logs())
     while (true) {

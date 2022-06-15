@@ -10,19 +10,27 @@ import utils.TokenBufferedIterator
 import scala.collection.mutable.ArrayBuffer
 import scala.collection.mutable.ListBuffer
 import netlogo.BreedClass._
+import utils.Reporter
+import java.awt.RenderingHints.Key
 
 object Parser{
     
-    private var operatorsPriority = List(List("^"), List("*", "/", "mod"), List("+", "-"), List("<", ">", "<=", ">="), List("=", "!="), List("and","or", "xor")).reverse
+    private var operatorsPriority = List(List("with"), List("^"), List("*", "/", "mod"), List("+", "-"), List("<", ">", "<=", ">="), List("=", "!="), List("and","or", "xor")).reverse
 
     def parse(text: TokenBufferedIterator): Context = {
         val con = new Context()
 
+        Reporter.debug("Phase 1 - Function Discovery")
+
         // Phase 1 - Function & Breed Discovery
         functionDiscovery()(text, con)
 
+        Reporter.debug("Phase 2 - Variable to Breed")
+
         // Phase 1.5 - Add All owned variable to their breed
         con.breedVariableOwnSetup()
+
+        Reporter.debug("Phase 2.5 - Function Parsing")
 
         // Phase 2 - Parse Inside of Function
         parseAllFuncitonsBody()(con)
@@ -96,6 +104,7 @@ object Parser{
         context.functions.values.map( f =>
             f match {
                 case cf: UnlinkedFunction => {
+                    Reporter.debug("Parsing function " + cf.name)
                     cf.body = parseFunctionsBody()(new TokenBufferedIterator(cf.tokenBody), context)
                 }
                 case _ => 
@@ -119,7 +128,8 @@ object Parser{
      * Parse an instruction
      */ 
     def parseIntruction()(implicit text: TokenBufferedIterator, context: Context): AST = {
-        if (text.isKeyword("let")){ //let <var> <expr>
+        val token = text.peek()
+        val tree = if (text.isKeyword("let")){ //let <var> <expr>
             text.take()
             val iden = text.getIdentifier()
             val value = parseExpression()
@@ -134,13 +144,37 @@ object Parser{
         else if (text.isIdentifier()){
             val token = text.peek()
             val iden = text.getIdentifier()
-            if (iden.startsWith("create-")){
+            if (iden.startsWith("create-") && context.hasBreedPlural(iden.drop("create-".length()))){ //create-<breed> <expr>
                 val breed = context.getBreedPlural(iden.drop("create-".length()))
                 val nb = parseExpression()
                 val block = parseInstructionBlock()
                 AST.CreateBreed(AST.BreedValue(breed), nb, block)
             }
-            else if (context.hasFunction(iden)){
+            else if (iden.startsWith("hatch-") && context.hasBreedPlural(iden.drop("hatch-".length()))){ // hatch-<breed> <nb> <block>
+                val breed = context.getBreedPlural(iden.drop("hatch-".length()))
+                val nb = parseExpression()
+                val block = parseInstructionBlock()
+                AST.Ask(AST.BreedValue(context.getObserverBreed()), AST.CreateBreed(AST.BreedValue(breed), nb, block))
+            }
+            else if (iden.startsWith("hatch")){ //hatch <nb> <block>
+                val breed = context.getTurtleBreed()
+                val nb = parseExpression()
+                val block = parseInstructionBlock()
+                AST.HatchBreed(AST.BreedValue(breed), nb, block)
+            }
+            else if (iden.startsWith("sprout-") && context.hasBreedPlural(iden.drop("sprout-".length()))){ // sprout-<breed> <nb> <block>
+                val breed = context.getBreedPlural(iden.drop("sprout-".length()))
+                val nb = parseExpression()
+                val block = parseInstructionBlock()
+                AST.Ask(AST.BreedValue(context.getObserverBreed()), AST.CreateBreed(AST.BreedValue(breed), nb, block))
+            }
+            else if (iden.startsWith("sprout")){ //sprout <nb> <block>
+                val breed = context.getTurtleBreed()
+                val nb = parseExpression()
+                val block = parseInstructionBlock()
+                AST.Ask(AST.BreedValue(context.getObserverBreed()), AST.CreateBreed(AST.BreedValue(breed), nb, block))
+            }
+            else if (context.hasFunction(iden)){ //function call
                 parseCall(iden, false)
             }
             else{
@@ -211,18 +245,18 @@ object Parser{
             text.requierToken(DelimiterToken(")"))
             AST.ListValue(buffer.toList)
         }
-        else if (text.isKeyword("tick")){
-            AST.Tick
-        }
         else{
             throw new UnexpectedTokenException(text.take(), EOFToken())
         }
+        tree.setPosition(token)
+        tree
     }
 
     /**
      * Parse an instruction block delimited by [ ]
      */ 
     def parseInstructionBlock()(implicit text: TokenBufferedIterator, context: Context): AST.Block = {
+        val token = text.peek()
         text.requierToken(DelimiterToken("["))
 
         val buffer = ListBuffer[AST]()
@@ -231,7 +265,9 @@ object Parser{
         }
 
         text.requierToken(DelimiterToken("]"))
-        AST.Block(buffer.toList)
+        val tree = AST.Block(buffer.toList)
+        tree.setPosition(token)
+        tree
     }
 
     /**
@@ -242,19 +278,135 @@ object Parser{
         val args = ArrayBuffer[Expression]()
         var i = 0
         for( i <- 0 to fun.argsNames.length - 1){
-            args.addOne(parseExpression())
+            args.addOne(parseSimpleExpression())
         }
         AST.Call(iden, args.toList)
+    }
+
+    /**
+     * Parse a reporter call
+     */
+    def parseReporter()(implicit text: TokenBufferedIterator, context: Context): Expression = {
+        text.requierToken(DelimiterToken("["))
+        val reporter = parseExpression()
+        text.requierToken(DelimiterToken("]"))
+        reporter
     }
 
     /**
      * Parse a function call or a variable 
      */
     def parseSimpleExpression()(implicit text: TokenBufferedIterator, context: Context): Expression = {
-        val token = text.take() 
-        token match{
+        val token = text.take()
+        val tree = token match{
+            case(IdentifierToken("min-one-of")) => {
+                AST.MinOneAgent(AST.SortBy(parseSimpleExpression(), parseReporter()))
+            }
+            case(IdentifierToken("max-one-of")) => {
+                AST.MaxOneAgent(AST.SortBy(parseSimpleExpression(), parseReporter()))
+            }
+            case(IdentifierToken("min-n-of")) => {
+                val turtles = parseSimpleExpression()
+                val nb = parseSimpleExpression()
+                val reporter = parseReporter()
+                AST.MinNAgent(AST.SortBy(turtles, reporter), nb)
+            }
+            case(IdentifierToken("max-n-of")) => {
+                val turtles = parseSimpleExpression()
+                val nb = parseSimpleExpression()
+                val reporter = parseReporter()
+                AST.MaxNAgent(AST.SortBy(turtles, reporter), nb)
+            }
+            case(IdentifierToken("neighbors")) => { 
+                AST.Neighbors
+            }
+            case(IdentifierToken("nobody")) => { 
+                AST.Nobody
+            }
+            case(IdentifierToken("all?")) => { 
+                val turtles = parseSimpleExpression()
+                val reporter = parseReporter()
+                AST.All(turtles, reporter)
+            }
+            case(IdentifierToken("any?")) => { 
+                AST.Any(parseSimpleExpression())
+            }
+            case(IdentifierToken("count")) => { 
+                AST.Count(parseSimpleExpression())
+            }
+            case(IdentifierToken("other")) => { 
+                val turtles = parseSimpleExpression()
+                AST.Other(turtles)
+            }
+            case(IdentifierToken("patch")) => { 
+                AST.BreedAtSingle(AST.BreedValue(context.getBreedSingular("patch")), parseSimpleExpression(), parseSimpleExpression())
+            }
+            case(IdentifierToken("one-of")) => { 
+                if (text.hasNext() && text.peek() == DelimiterToken("[")){
+                    text.requierToken(DelimiterToken("["))
+                    var content = List[Expression]()
+                    while (text.hasNext() && text.peek() != DelimiterToken("]")){
+                        content = parseSimpleExpression() :: content
+                    }
+                    text.requierToken(DelimiterToken("]"))
+                    AST.OneOfValue(content)
+                }
+                else{
+                    val turtles = parseSimpleExpression()
+                    AST.OneOf(turtles)
+                }
+            }
+            case(IdentifierToken("patch-ahead")) => {
+                val angle = parseSimpleExpression()
+                val x = AST.BinarayExpr("+", AST.Call("cos", List(angle)), AST.VariableValue("pycor"))
+                val y = AST.BinarayExpr("+", AST.Call("sin", List(angle)), AST.VariableValue("pycor"))
+                AST.BreedAt(AST.BreedValue(context.getPatchBreed()), x, y)
+            }
+            case(IdentifierToken("patch-at-heading-and-distance")) => {
+                val angle = parseSimpleExpression()
+                val distance = parseSimpleExpression()
+                val x = AST.BinarayExpr("+", AST.BinarayExpr("*", distance, AST.Call("cos", List(angle))), AST.VariableValue("pycor"))
+                val y = AST.BinarayExpr("+", AST.BinarayExpr("*", distance, AST.Call("sin", List(angle))), AST.VariableValue("pycor"))
+                AST.BreedAt(AST.BreedValue(context.getPatchBreed()), x, y)
+            }
+            case(IdentifierToken("patch-left-and-ahead")) => {
+                val angle = parseSimpleExpression()
+                val distance = parseSimpleExpression()
+                val x = AST.BinarayExpr("+", AST.BinarayExpr("*", distance, AST.Call("cos", List(AST.BinarayExpr("+", AST.VariableValue("heading"), angle)))), AST.VariableValue("pycor"))
+                val y = AST.BinarayExpr("+", AST.BinarayExpr("*", distance, AST.Call("sin", List(AST.BinarayExpr("+", AST.VariableValue("heading"), angle)))), AST.VariableValue("pycor"))
+                AST.BreedAt(AST.BreedValue(context.getPatchBreed()), x, y)
+            }
+            case(IdentifierToken("patch-right-and-ahead")) => {
+                val angle = parseSimpleExpression()
+                val distance = parseSimpleExpression()
+                val x = AST.BinarayExpr("+", AST.BinarayExpr("*", distance, AST.Call("cos", List(AST.BinarayExpr("-", AST.VariableValue("heading"), angle)))), AST.VariableValue("pycor"))
+                val y = AST.BinarayExpr("+", AST.BinarayExpr("*", distance, AST.Call("sin", List(AST.BinarayExpr("-", AST.VariableValue("heading"), angle)))), AST.VariableValue("pycor"))
+                AST.BreedAt(AST.BreedValue(context.getPatchBreed()), x, y)
+            }
             case IdentifierToken(iden) => {
-                if (context.hasBreedPlural(iden)){
+                // Breed-at
+                if (iden.endsWith("-at")){
+                    val name = iden.dropRight("-at".length())
+                    if (context.hasBreedPlural(name)){
+                        AST.BreedAt(AST.BreedValue(context.getBreedPlural(iden.dropRight("-at".length()))), parseSimpleExpression(), parseSimpleExpression())
+                    }
+                    else{
+                        AST.BreedAtSingle(AST.BreedValue(context.getBreedSingular(iden.dropRight("-at".length()))), parseSimpleExpression(), parseSimpleExpression())
+                    }
+                }// Breed-here
+                else if (iden.endsWith("-here")){
+                    val name = iden.dropRight("-here".length())
+                    if (context.hasBreedPlural(name)){
+                        AST.BreedAt(AST.BreedValue(context.getBreedPlural(name)), AST.VariableValue("pxcor"), AST.VariableValue("pycor"))
+                    }
+                    else{
+                        AST.BreedAtSingle(AST.BreedValue(context.getBreedSingular(name)), AST.VariableValue("pxcor"), AST.VariableValue("pycor"))
+                    }
+                }// Breed-on
+                else if (iden.endsWith("-on")){
+                    AST.BreedOn(AST.BreedValue(context.getBreedPlural(iden.dropRight("-on".length()))), parseSimpleExpression())
+                }
+                else if (context.hasBreedPlural(iden)){
                     AST.BreedValue(context.getBreedPlural(iden))
                 }
                 else if (context.hasFunction(iden)){
@@ -264,22 +416,30 @@ object Parser{
                     AST.VariableValue(iden)
                 }
             }
+
+            
             case DelimiterToken("(") => {
                 val expr = parseExpression()
                 text.requierToken(DelimiterToken(")"))
                 expr
             }
+
+            // Literals
             case IntLitToken(value)    => AST.IntValue(value)
             case BoolLitToken(value)   => AST.BooleanValue(value)
             case StringLitToken(value) => AST.StringValue(value)
             case FloatLitToken(value)  => AST.FloatValue(value)
+
+            //[expr] of <identifier>
             case DelimiterToken("[") => { //[expr] of <identifier>
                 val reporter = parseExpression()
                 text.requierToken(DelimiterToken("]"))
                 text.requierToken(KeywordToken("of"))
-                val from = parseExpression()
+                val from = parseSimpleExpression()
                 AST.OfValue(reporter, from)
             }
+
+            // If statement
             case KeywordToken("ifelse-value") => { //ifelse (<expr> [expr])* <expr>
                 val buffer = ListBuffer[(Expression, Expression)]()
 
@@ -297,8 +457,21 @@ object Parser{
 
                 AST.IfElseBlockExpression(buffer.toList, value)
             }
+            
+            // Unary operators
+            case OperatorToken("-") => {
+                val expr = parseExpression()
+                AST.BinarayExpr("-", AST.IntValue(0), expr)
+            }
+            // Unary operators
+            case KeywordToken("not") => {
+                AST.Not(parseExpression())
+            }
+
             case other => throw new UnexpectedTokenException(other, "Any Expression Token")
         }
+        tree.setPosition(token)
+        tree
     }
     
     /**
@@ -307,28 +480,43 @@ object Parser{
     def parseExpression(opIndex: Int = 0)(implicit text: TokenBufferedIterator, context: Context): Expression = {
         def rec(): Expression = {
             if (opIndex + 1 == operatorsPriority.size){
-                return parseSimpleExpression()
+                parseSimpleExpression()
             }
             else{
-                return parseExpression(opIndex + 1)
+                parseExpression(opIndex + 1)
             }
         }
 
+        // Get Left Part of potential binary expression
+        val token = text.peek()
         var left = rec()
+        left.setPosition(token)
+
+        // Get Operator according to priority
         val ops = operatorsPriority(opIndex)
-        var op = text.getOperator(ops)
-        while(op.nonEmpty){
-            left = AST.BinarayExpr(op.get, left, rec())
-            op = text.getOperator(ops)
+        if (ops == List("with")){
+            if (text.hasNext && text.peek() == OperatorToken("with")){
+                text.take()
+                text.requierToken(DelimiterToken("["))
+                val predicate = parseExpression(0)
+                text.requierToken(DelimiterToken("]"))
+                left = AST.WithValue(left, predicate)
+                left.setPosition(token)
+                left
+            }
+            else{
+                left
+            }
         }
-        if (text.hasNext && text.peek() == KeywordToken("with")){
-            text.take()
-            text.requierToken(DelimiterToken("["))
-            val predicate = parseExpression(0)
-            text.requierToken(DelimiterToken("]"))
-            left = AST.WithValue(left, predicate)
+        else{
+            var op = text.getOperator(ops)
+            while(op.nonEmpty){
+                left = AST.BinarayExpr(op.get, left, rec())
+                left.setPosition(token)
+                op = text.getOperator(ops)
+            }
+            left
         }
-        return left
     }
 
     /**
@@ -341,10 +529,12 @@ object Parser{
                     case DelimiterToken("]") => false
                     case _ => true 
             })
+
         val tokens = text.cut().map(_ match {
             case IdentifierToken(name) => name
             case found => throw new UnexpectedTokenException(found, IdentifierToken("_"))
         })
+
         text.requierToken(DelimiterToken("]"))
 
         tokens

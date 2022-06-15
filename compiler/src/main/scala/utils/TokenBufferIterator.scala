@@ -7,25 +7,52 @@ class TokenBufferedIterator(string: List[Token]) extends Positionable{
     var itIndex = 0
     var start = -1
 
+    /**
+      * Returns the next token in the buffer and consumes it.
+      *
+      * @return Token
+      */
     def take():Token = {
         val c = string(itIndex)
         itIndex += 1
         c
     }
+    /**
+      * Consumes the next tokens in the buffer while the predicate is true.
+      *
+      * @param predicate: (Token) => Boolean The predicate to test the tokens against.
+      */
     def takeWhile(predicate: Token=>Boolean) = {
         while (hasNext() && predicate(peek())){
             take()
         }
     }
+
+    /**
+      * @return the next token in the buffer without consuming it.
+      */
     def peek():Token ={
         string(itIndex)
     }
+
+    /**
+      * Set the start of the cut
+      */
     def setStart() = {
         start = itIndex
     }
+
+    /**
+      * @return list of tokens from the start of the cut to the current position
+      */
     def cut(): List[Token] = {
         string.slice(start, itIndex)
     }
+
+    /**
+     * @return true if there are more tokens in the buffer
+     *        false otherwise
+     */
     def hasNext(): Boolean = {
         itIndex < string.length
     }

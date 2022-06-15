@@ -15,7 +15,6 @@ import scala.collection.mutable.ListBuffer
 trait VariableOwner{
 }
 
-// TODO Rename to a more fitting name
 class Context(){
     val functions = Map[String, Function]()
     val breedsPlur = Map[String, Breed]()
@@ -27,7 +26,7 @@ class Context(){
     var _patches = new Breed.PatchBreed("patch", "patches", _agent)
     var _links = new Breed.LinkBreed("link", "linkes", true, _agent)
 
-
+    // Add Default NetLogo Breeds
     addBreed(_agent)
     addBreed(_observer)
     addBreed(_turtles)
@@ -37,11 +36,30 @@ class Context(){
 
     val _ownedBuffer = new ListBuffer[(String, String)]()
 
-
+    /**
+      * Add function to the context
+      *
+      * @param name: name of the function
+      * @param args: list of arguments of the function
+      * @param body: body of the function
+      * @param hasReturnValue: true if the function has a return value
+      */
     def addFunction(name: String, args: List[String], body: List[Token], hasReturnValue: Boolean) = {
         functions.addOne((name, new UnlinkedFunction(name, args, body, hasReturnValue)))
     }
+
+    /**
+      * @param name: The name of the function
+      * @return true if the function exists, false otherwise
+      */
     def hasFunction(name: String): Boolean = functions.contains(name)
+
+    /**
+      * return the function with the given name
+      *
+      * @param name: the name of the function
+      * @return the function with the given name
+      */
     def getFunction(name: String): Function = functions.get(name).get
     
     /**
@@ -54,9 +72,13 @@ class Context(){
         breedsPlur.map(_._2).filter(_.hasFunction(name)).toSet
     }
 
-    /** 
-     * Add a bread of Type typ
-     */ 
+  /**
+    * Add a breed to the context
+    *
+    * @param singular: Singular name of the breed
+    * @param plural: Plural name of the breed
+    * @param typ: Type of the breed
+    */
     def addBreed(singular: String, plural: String, typ: BreedClass) = {
         if (breedsPlur.contains(plural)){
             throw new Exception(f"Duplicated bread: ${singular}, ${plural}")
@@ -74,7 +96,12 @@ class Context(){
             }
         }
     }
-    // TODO Add Base Variable
+
+    /**
+      * Add a breed to the context
+      *
+      * @param breed: Breed to add
+      */
     def addBreed(breed: Breed) = {
         breed match{
             case Breed.TurtleBreed(s, p, _) => {
@@ -99,12 +126,33 @@ class Context(){
             }
         }
     }
+
+    /**
+      * Return true the breed with the name exists
+      *
+      * @param name: of the breed (plural)
+      * @return Boolean
+      */
     def hasBreedPlural(name: String): Boolean = {
         breedsPlur.contains(name)
     }
+
+    /**
+      * Return true the breed with the name exists
+      *
+      * @param name: of the breed (singular)
+      * @return Boolean
+      */
     def hasBreedSingular(name: String): Boolean = {
         breedsSing.contains(name)
     }
+
+    /**
+      * Return the breed with the name
+      *
+      * @param name: of the breed (plural)
+      * @return Breed
+      */
     def getBreedPlural(name: String): Breed = {
         if (breedsPlur.contains(name)){
             breedsPlur.get(name).get
@@ -113,6 +161,13 @@ class Context(){
             throw new Exception(f"Unknown breed ${name}")
         }
     }
+
+    /**
+      * Return the breed with the name
+      *
+      * @param name: of the breed (singular)
+      * @return Breed
+      */
     def getBreedSingular(name: String): Breed = {
         if (breedsSing.contains(name)){
             breedsSing.get(name).get
@@ -145,24 +200,28 @@ class Context(){
     def getObserverBreed(): Breed = {
         _observer
     }
+
     /**
       * @return Return the agent Breed
       */
     def getAgentBreed(): Breed = {
         _agent
     }
+
     /**
       * @return Return the turtle Breed
       */
     def getTurtleBreed(): Breed = {
         _turtles
     }
+
     /**
       * @return Return the link Breed
       */
     def getLinkBreed(): Breed = {
         _links
     }
+
     /**
       * @return Return the patch Breed
       */
@@ -218,9 +277,20 @@ class Context(){
         }
     }
 
+    /**
+     * @param name: of the variable
+     * @return true if the variable with name exists
+     */
     def hasVariable(name: String): Boolean = {
         breedsPlur.values.exists(_.hasVariable(name))
     }
+
+    /**
+      * Return the variable with the name
+      * 
+      * @param name: of the variable
+      * @return Variable
+      */
     def getVariable(name: String): Variable = {
         breedsPlur.values
                 .filter(_.hasVariable(name))

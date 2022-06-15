@@ -17,12 +17,15 @@ object BreedGen{
     val logName = "DEFAULT_logs"
     val workerParentName = "DEFAULT_Parent"
     val observerVariable = "DEFAULT_observer"
+    val askStack = "DEFAULT_ASK_STACK"
     val mainFunctionName = "main"
     val killWorkerFunctionName = "DEFAULT_kill_worker"
     val isWorkerDoneFunctionName = "DEFAULT_is_worker_done"
     val predicateFunctionName = "DEFAULT_PREDICATE_"
+    val sorterFunctionName = "DEFAULT_SORTER_"
     val updateFromParentFunctionName = "DEFAULT_UpdateFromParent"
     val updateFromWorkerFunctionName = "DEFAULT_UpdateFromWorker"
+    val myselfVariableName = "DEFAULT_myself"
 
     /**
      * Generate Breed Class.
@@ -108,21 +111,8 @@ object BreedGen{
     def generateBreedFunctions(breed: Breed)(implicit context: Context): List[FunctionGen] = {
         generateMainFunction(breed)::
             generatePredicate(breed):::
-            /*breed.getAllAskedFunctions().map(f => generateAskLambda(breed, f.asInstanceOf[LinkedFunction])).toList:::*/
-            List(generateUpdaterFromParent(breed), generateUpdaterFromWorker(breed)):::
-        breed.getAllNormalFunctions().filter(_.name == "setup").map{
-            _ match {
-                case lc: LinkedFunction => {
-                    val flag = if (lc.functionType == netlogo.FunctionType.Normal){
-                        Flag.FunctionFlag
-                    } else{
-                        Flag.MainFunctionFlag
-                    }
-                    ContentGen.generate(lc, breed, flag)
-                }
-                case _ => null
-            }
-        }.filter(_ != null).toList
+            generateSorter(breed):::
+            List(generateUpdaterFromParent(breed), generateUpdaterFromWorker(breed))
     }
 
     /**
@@ -149,6 +139,28 @@ object BreedGen{
     }
 
     /**
+     * Generate Sorter function for breed.
+     * Return (value_to_sort_on, this)
+     * /
+     * @param breed: Breed for which to generate the function
+     * @param context: Context for the generation
+     * @return	FunctionGen
+     */
+    def generateSorter(breed: Breed)(implicit context: Context): List[FunctionGen] = {
+        breed.predicateSorter.zipWithIndex.map{case (p, i) => {
+            val fakeFunction = LinkedFunction("dummy", List(), ast.AST.Empty, breed, true)
+            val generated = ContentGen.generateExpr(p)(fakeFunction, breed, context)
+
+            FunctionGen(f"$sorterFunctionName$i", List(), f"(${p.getType()}, ${breed.className})", InstructionBlock(
+                    generated._1,
+                    InstructionGen(f"(${generated._2}, this)")
+                ), 
+            )
+        }
+        }.toList
+    }
+
+    /**
      * Generate the main function for a breed.
      * 
      * @param	breed	
@@ -157,9 +169,26 @@ object BreedGen{
      */
     def generateMainFunction(breed: Breed)(implicit context: Context): FunctionGen = {
         val init = if (breed == context.getObserverBreed()){
+            val setupInstr = if(context.getObserverBreed().hasFunction("setup")){
+                val setupfct = context.getObserverBreed().getFunction("setup")
+                ContentGen.generate(setupfct.asInstanceOf[LinkedFunction].symTree)(setupfct, breed, context, Flag.MainFunctionFlag)
+            }else{
+                EmptyInstruction
+            }
+            val defaultSetupInstr = if(context.getObserverBreed().hasFunction("default_setup")){
+                val setupfct = context.getObserverBreed().getFunction("default_setup")
+                ContentGen.generate(setupfct.asInstanceOf[LinkedFunction].symTree)(setupfct, breed, context, Flag.MainFunctionFlag)
+            }else{
+                EmptyInstruction
+            }
             InstructionList(
                 InstructionGen(f"$observerVariable = this"),
-                InstructionGen("setup()")
+                InstructionGen(f"max_pxcor = ${ObserverGen.boardSizeX}"),
+                InstructionGen(f"max_pycor = ${ObserverGen.boardSizeY}"),
+                InstructionGen(f"min_pxcor = 0"),
+                InstructionGen(f"min_pycor = 0"),
+                defaultSetupInstr.asInstanceOf[InstructionBlock].toInstructionList(),
+                setupInstr.asInstanceOf[InstructionBlock].toInstructionList()
             )
         }
         else{
@@ -361,18 +390,6 @@ object BreedGen{
     }
 
     /**
-     * Return the arguments for the class generacted by breed.
-     *
-     * @return	String of arguments
-     */
-    def getClassArguments(breed: Breed): String = {
-        breed.className match {
-            case "Observer" => "(val DEFAULT_BOARD_X: Int, val DEFAULT_BOARD_Y: Int)"
-            case other => f"(val $observerVariable: Observer, val DEFAULT_X: Int, val DEFAULT_Y: Int, val $initerVariableName: Int)"
-        }
-    }
-
-    /**
      * @param	breed	
      * @return	FunctionGenerator for the main function of the breed
      */
@@ -423,7 +440,7 @@ object BreedGen{
      */
     def generateWorkerFields(breed: Breed): List[Instruction]={
         List(
-            InstructionGen(f"var $workerParentName: ${breed.className} = null")
+            InstructionGen(f"var $workerParentName: Agent = null")
         )
     }
 }
