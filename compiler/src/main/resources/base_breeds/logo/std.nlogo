@@ -24,7 +24,7 @@ globals[
     ticks
 ]
 agents-own [
-    pxcor pycor shape size
+    pxcor pycor shape size pcolor
 ]
 turtles-own [
     xcor ycor heading shape-size color visible
@@ -38,7 +38,7 @@ to-report random-ycor
 end
 
 patches-own [
-    pcolor
+    
 ]
 
 to default_setup

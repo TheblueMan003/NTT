@@ -9,11 +9,25 @@ import netlogo.Type
 import ast.AST
 
 object TypeChecker{
+
+/**
+  * Type checker for the NetLogo language.
+  *
+  * @param context
+  * @return
+  */
     def analyse(context: Context) = {
         val constraints = genConstraints(context)
         
         resolveConstraits(constraints)
     }
+
+    /**
+      * Generates the constraints for the given context
+      *
+      * @param context
+      * @return
+      */
     def genConstraints(context: Context): List[TypeConstraint] = {
         context.getBreeds().flatMap(breed => breed.getAllFunctions().flatMap(
             _ match{
@@ -22,6 +36,16 @@ object TypeChecker{
             }
         )).toList
     }
+
+    /**
+      * Generates the constraints for a given function
+      *
+      * @param tree
+      * @param context
+      * @param function
+      * @param currentBreed
+      * @return
+      */
     def genConstraints(tree: SymTree)(implicit context: Context, function: Function, currentBreed: Breed): List[TypeConstraint] = {
         tree match{
             case Call(fct, args) => {
@@ -56,6 +80,16 @@ object TypeChecker{
             case expr: Expression => throw new Exception(f"Lonely expression: ${expr}")
         }
     }
+
+    /**
+      * Generate constraints for an expression
+      *
+      * @param expr
+      * @param context
+      * @param found
+      * @param currentBreed
+      * @return
+      */
     def genConstraintsExpr(expr: Expression)(implicit context: Context, found: TypeConstrainer, currentBreed: Breed): List[TypeConstraint] = {
         List(TypeConstraint(found, TypeOwn(expr), expr))::: (
         expr match{
@@ -149,6 +183,12 @@ object TypeChecker{
                 )
         })
     }
+
+    /**
+      * Generate constraints for a given variableLiked expression
+      *
+      * @param variLike
+      */
     def getVariableConstraint(variLike: VariableLike) = {
         variLike match{
             case VariableValue(vari) => TypeOwn(vari)
@@ -156,6 +196,12 @@ object TypeChecker{
         }
     }
     
+    /**
+      * Get the return type of a binary operation
+      *
+      * @param op: the operation
+      * @param varT: the type of the left or right operand
+      */
     def getBinaryOperationReturn(op: String, varT: TypedVariable) = {
         op match{
             case "+" | "-" | "/" | "*" | "mod" | "and" | "or" | "xor" | "^" =>{

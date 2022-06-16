@@ -4,7 +4,7 @@ sin;x:Float;Float;Math.sin($x)
 abs;x:Float;Float;Math.abs($x)
 acos;x:Float;Float;Math.acos($x)
 asin;x:Float;Float;Math.asin($x)
-atan;x:Float,y:Float;Float;Math.atan($y, $x)
+atan;x:Float,y:Float;Float;Math.atan2($y, $x)
 ceiling;x:Float;Float;Math.ceiling($x)
 cos;x:Float;Float;Math.cos($x)
 exp;x:Float;Float;Math.exp($x)
@@ -17,24 +17,22 @@ median;x:List[Float];Float;Math.median($x)
 min;x:List[Float];Float;Math.min($x)
 modes;x:List[Float];Float;$x
 new-seed;;Float;0
-precision;x:Float,y:Float;Float;Random.nextInt
-random;x:Float;Float;(Random.nextInt*$x)
-random-exponential;x:Float;Float;Random.nextFloat
-random-float;x:Float;Float;Random.nextFloat
-random-gamma;x:Float,y:Float;Float;Random.nextFloat
-random-normal;x:Float,y:Float;Float;Random.nextFloat
-random-poisson;x:Float;Float;Random.nextFloat
-random-seed;x:Float;Float;Random.nextFloat
-remainder;x:Float,y:Float;Float;Random.Next
+random;x:Float;Float;(Random.nextInt()*$x)
+random-exponential;x:Float;Float;Random.nextFloat()
+random-float;x:Float;Float;(Random.nextFloat()*$x)
+random-gamma;x:Float,y:Float;Float;Random.nextFloat()
+random-normal;x:Float,y:Float;Float;Random.nextFloat()
+random-poisson;x:Float;Float;Random.nextFloat()
+random-seed;x:Float;Float;Random.nextFloat()
 round;x:Float;Float;Math.round($x)
 sin;x:Float;Float;Math.sin($x)
 sqrt;x:Float;Float;Math.round($x)
 standard-deviation;x:List[Float];Float;Math.std($x)
-subtract-headings;x:Float,y:Float;Float;Random.Next()
 sum;x:List[Float];Float;$x.foldLeft(0)(_+_)
 tan;x:Float;Float;Math.tan($x)
 variance;x:List[Float];Float;Math.var($x)
 show;x:Any;Unit;println($x)
+show2;x:Any;Unit;print($x)
 
 not;x:Boolean;Boolean;!$x
 default_to_str;x:Any;String;$x.toString

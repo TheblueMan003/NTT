@@ -13,9 +13,10 @@ object Main extends App {
   Reporter.debugEnabled = true
 
   val filenames = if (args.length == 0) {
+    print("file: ")
     var file = readLine()
     if (file.trim == "") file = "example1"
-    List(f"demo/${file}.nlogo")
+    List(f"sources/${file}.nlogo")
   }
   else {
     args.toList

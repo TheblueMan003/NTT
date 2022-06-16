@@ -278,7 +278,7 @@ object Parser{
         val args = ArrayBuffer[Expression]()
         var i = 0
         for( i <- 0 to fun.argsNames.length - 1){
-            args.addOne(parseSimpleExpression())
+            args.addOne(parseExpression(1))
         }
         AST.Call(iden, args.toList)
     }

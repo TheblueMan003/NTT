@@ -79,11 +79,11 @@ class ContextMap[T](){
         stack.map(m => {
             if (m.contains(key)){
                 val value = m.get(key).get
-                if (getAskIndex() > 0){
-                    return (value._1 - 1, value._2)
+                if (value._1 == getAskIndex()){
+                    return (-1, value._2)
                 }
                 else{
-                    return (-1, value._2)
+                    return (getAskIndex() - value._1 - 1, value._2)
                 }
             }
         })

@@ -2,7 +2,13 @@ package codegen
 
 object Renamer{
     def toValidName(string: String) = {
-        string.replaceAll("[.?=*!<>:#+/%$_^'&-]","_")
+        val a = string.replaceAll("[.?=*!<>:#+/%$_^'&-]","_")
+        if (a.endsWith("_")){
+            a + "0"
+        }
+        else{
+            a
+        }
     }
 
     def toClassName(string: String) = {

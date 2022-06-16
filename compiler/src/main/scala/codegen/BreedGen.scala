@@ -169,18 +169,24 @@ object BreedGen{
      */
     def generateMainFunction(breed: Breed)(implicit context: Context): FunctionGen = {
         val init = if (breed == context.getObserverBreed()){
+
+            // call setup if it exists
             val setupInstr = if(context.getObserverBreed().hasFunction("setup")){
                 val setupfct = context.getObserverBreed().getFunction("setup")
                 ContentGen.generate(setupfct.asInstanceOf[LinkedFunction].symTree)(setupfct, breed, context, Flag.MainFunctionFlag)
             }else{
                 EmptyInstruction
             }
+
+            // call default setup function if it exists
             val defaultSetupInstr = if(context.getObserverBreed().hasFunction("default_setup")){
                 val setupfct = context.getObserverBreed().getFunction("default_setup")
                 ContentGen.generate(setupfct.asInstanceOf[LinkedFunction].symTree)(setupfct, breed, context, Flag.MainFunctionFlag)
             }else{
                 EmptyInstruction
             }
+
+            // setup variables
             InstructionList(
                 InstructionGen(f"$observerVariable = this"),
                 InstructionGen(f"max_pxcor = ${ObserverGen.boardSizeX}"),
@@ -194,6 +200,8 @@ object BreedGen{
         else{
             generateSetupFunctionSwitch(breed)
         }
+
+        // call go function if it exists
         val go = if (breed == context.getObserverBreed()){
             val fct = breed.getFunction("go").asInstanceOf[LinkedFunction]
             InstructionList(ContentGen.generate(fct.symTree)(fct, breed, context, Flag.ObserverMainFunctionFlag).asInstanceOf[InstructionBlock].content)
@@ -247,14 +255,14 @@ object BreedGen{
       * @return Instruction
       */
     def generateMainFunctionSwitch(breed: Breed)(implicit context: Context): Instruction = {
-        if (breed == context.getObserverBreed() || breed.getAllAskedFunctions().isEmpty){
+        if (breed.getAllFunctions().isEmpty){
             EmptyInstruction
         }
         else{
             ToolGen.generateSwitchInstruction(
                 breed, 
                 askVaraibleName, 
-                breed.getAllFunctions().map(_.asInstanceOf[LinkedFunction]), Flag.MainFunctionFlag,
+                breed.getAllFunctionsWithParent().map(_.asInstanceOf[LinkedFunction]), Flag.MainFunctionFlag,
                 InstructionGen(f"$askVaraibleName = -2")
             )
         }

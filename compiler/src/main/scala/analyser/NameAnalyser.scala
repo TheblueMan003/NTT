@@ -13,6 +13,13 @@ object NameAnalyser{
         context.getBreeds().flatMap(b => b.getAllFunctions().map(f => (b, f))).map{ case (b, f) =>{ analyse(context, b, f)}}
     }
 
+    /**
+      * Analyse a function
+      *
+      * @param context
+      * @param breed
+      * @param function
+      */
     def analyse(context: Context, breed: Breed, function: Function):Unit = {
         function match{
             case cf: LinkedFunction => {

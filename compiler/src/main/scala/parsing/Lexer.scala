@@ -12,7 +12,7 @@ object Lexer{
                         "__includes", "to", "to-report", "of", "list",
                         "undirected-link-breed", "not",
                         "let", "set", "ask", "repeat",
-                        "if", "ifelse", "ifelse-value", "report")
+                        "if", "ifelse", "ifelse-value", "report", "while", "repeat", "loop")
     
     // TODO add position to token for errors
     def tokenize(text: StringBufferedIterator, acc: TokenBufferBuilder = new TokenBufferBuilder()):TokenBufferBuilder = {

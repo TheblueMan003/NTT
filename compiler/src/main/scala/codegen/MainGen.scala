@@ -131,12 +131,17 @@ object MainGen{
      * @return	Instruction
      */
     def generateGrid()(implicit context: Context):Instruction = {
+        val xcordName = "\"pxcor\""
+        val ycordName = "\"pycor\""
         InstructionCompose(f"val ${MainGen.patchVariableName} = (1 to size_x).map(x => (1 to size_y).map(y => {",
         InstructionBlock(
                 InstructionGen(f"val patch = new Patch()"),
                 InstructionGen(f"patch.pxcor = x"),
                 InstructionGen(f"patch.pycor = y"),
+                InstructionGen(f"patch.${BreedGen.logName}($xcordName) = x"),
+                InstructionGen(f"patch.${BreedGen.logName}($ycordName) = y"),
                 InstructionGen(f"patch.${BreedGen.observerVariable} = ${MainGen.observerVariableName}"),
+                InstructionGen(f"${MainGen.observerVariableName}.patches.add(patch)"),
                 InstructionGen(f"patch"),
         ), "}).toList).toList.flatten")
     }

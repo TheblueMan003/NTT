@@ -42,6 +42,12 @@ object ContentGen{
         exported.map(generateGetterSetter(_)).toList.flatten
     }
 
+    /**
+     * Generate Default Variables.
+     *
+     * @param	breed	
+     * @return	List[Instruction]
+     */
     def generateDefaultVariable(breed: Breed)(implicit context: Context): List[Generator] = {
         if (breed == context.getAgentBreed()){
             List(
@@ -106,15 +112,17 @@ object ContentGen{
             }
             case Declaration(VariableValue(v), value) => {
                 val expr = generateExpr(value)
-                InstructionList(expr._1, InstructionGen(f"${v.getSetter(expr._2)}"))
+                val tmp = getUniqueVariableName()
+                InstructionList(InstructionList(expr._1, InstructionGen(f"val $tmp = ${expr._2}")), InstructionGen(f"${v.getSetter(tmp)}"))
             }
             case Assignment(VariableValue(v), value) => {
                 val expr = generateExpr(value)
+                val tmp = getUniqueVariableName()
                 if (context.getObserverBreed() != breed && v.isGlobal){
-                    InstructionList(expr._1, InstructionGen(f"${BreedGen.observerVariable}.${v.getSetter(expr._2)}"))
+                    InstructionList(InstructionList(expr._1, InstructionGen(f"val $tmp = ${expr._2}")), InstructionGen(f"${BreedGen.observerVariable}.${v.getSetter(tmp)}"))
                 }
                 else{
-                    InstructionList(expr._1, InstructionGen(f"${v.getSetter(expr._2)}"))
+                    InstructionList(InstructionList(expr._1, InstructionGen(f"val $tmp = ${expr._2}")), InstructionGen(f"${v.getSetter(tmp)}"))
                 }
             }
             case Assignment(OtherVariable(v, index), value) => {
@@ -197,7 +205,7 @@ object ContentGen{
                     set._1,
                     InstructionGen(f"var $agents = $setter"),
                     InstructionCompose(f"while($agents.nonEmpty)", InstructionBlock(
-                        InstructionCompose(f"val $worker =", newWorker(f"$agents.head", block, b)),
+                        InstructionCompose(f"val $worker =", newWorker(f"$agents.head", block, b, List(), true)),
                         InstructionGen(f"var $isDone = false"),
                         InstructionCompose(f"while(!$isDone)", InstructionBlock(
                             InstructionGen(f"val $doneMSG = asyncMessage(() => $worker.${BreedGen.isWorkerDoneFunctionName}())"),
@@ -231,7 +239,7 @@ object ContentGen{
             InstructionGen(f"$tmpvar.${BreedGen.workerParentName} = $source"),
             InstructionGen(f"$tmpvar.${BreedGen.myselfVariableName} = this"),
             if (realAsk){
-                InstructionGen(f"$tmpvar.${BreedGen.askStack} = ${BreedGen.askStack}:::List(this)")
+                InstructionGen(f"$tmpvar.${BreedGen.askStack} = this::${BreedGen.askStack}")
             }
             else{
                 InstructionGen(f"$tmpvar.${BreedGen.askStack} = ${BreedGen.askStack}")
@@ -268,6 +276,9 @@ object ContentGen{
         )
     }
 
+    /**
+      * Generate an instruction for a if-else block
+      */
     def generateIfElse(cond: Expression, ifBlock: SymTree, elseBlock: SymTree)(implicit function: Function, breed: Breed, context: Context, flag: Flag): Instruction = {
         val expr = generateExpr(cond)
         InstructionList(
@@ -277,6 +288,9 @@ object ContentGen{
         )
     }
 
+    /**
+      * Generate an instruction for a if-else expression
+      */
     def generateIfElseExpr(cond: Expression, ifBlock: Expression, elseBlock: Expression)(implicit function: Function, breed: Breed, context: Context): (Instruction, String) = {
         val expr = generateExpr(cond)
         val iff = generateExpr(ifBlock)
@@ -289,6 +303,9 @@ object ContentGen{
         )
     }
 
+    /**
+      * Generate an instruction for a repeat expression
+      */
     def generateRepeat(number: Expression, content: Instruction)(implicit function: Function, breed: Breed, context: Context):Instruction = {
         val expr = generateExpr(number)
         val vari = getUniqueVariableName()
@@ -301,6 +318,9 @@ object ContentGen{
         )
     }
 
+    /**
+      * Generate an instruction to get position of the agent
+      */
     def generateTurtlePositionGetter(turtle: Expression)(implicit function: Function, breed: Breed, context: Context): (Instruction, String) = {
         val expr = generateExpr(turtle)
         val vari = getUniqueVariableName()
@@ -327,7 +347,7 @@ object ContentGen{
       *
       * @param expr: Turtles
       * @param predicate: Index of the predicate Function
-      * @return	Scala expression as a (Instruction, String)
+      * @return	Scala expression as a (Instruction, String) Instruction need to be used befor the String
       */
     def generateWithExpression(expr: Expression, predicate: Int)(implicit function: Function, breed: Breed, context: Context): (Instruction, String) = {
         val expr2 = generateExpr(expr)
@@ -377,7 +397,7 @@ object ContentGen{
                         InstructionList(instructions),
                         InstructionGen(f"val $tmp = List($lstElemt)")
                     ),
-                    f"$tmp(random.nextInt($tmp.size))"
+                    f"$tmp(Random.nextInt($tmp.size))"
                 )
             }
             case Not(value) => {
@@ -614,7 +634,7 @@ object ContentGen{
                     InstructionGen(f"var $agents = ${setter}"),
                     InstructionGen(f"var $output = List[${Type.toString(block.returnVariable.getType())}]()"),
                     InstructionCompose(f"while($agents.nonEmpty)", InstructionBlock(
-                        InstructionCompose(f"val $worker =", newWorker(f"$agents.head", block, b)),
+                        InstructionCompose(f"val $worker =", newWorker(f"$agents.head", block, b, List(), true)),
                         InstructionGen(f"var $isDone = false"),
                         InstructionCompose(f"while(!$isDone)", InstructionBlock(
                             InstructionGen(f"val $doneMSG = asyncMessage(() => $worker.${BreedGen.isWorkerDoneFunctionName}())"),
@@ -623,11 +643,8 @@ object ContentGen{
                             )),
                             InstructionGen(f"$isDone = $doneMSG.popValue.get")
                         )),
-                        InstructionGen(f"val $tmp = asyncMessage(() => $worker.${block.returnVariable.getGetter})"),
-                        InstructionCompose(f"while(!$tmp.isCompleted)", InstructionBlock(
-                            InstructionGen("waitAndReply(1)")
-                        )),
-                        InstructionGen(f"$output = $tmp.popValue.get :: $output"),
+                        InstructionGen(f"val $tmp = $worker.${block.returnVariable.getGetter}"),
+                        InstructionGen(f"$output = $tmp :: $output"),
                         InstructionGen(f"asyncMessage(() => $worker.${BreedGen.killWorkerFunctionName}())"),
                         InstructionGen(f"$agents = $agents.tail")
                     ))

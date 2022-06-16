@@ -1,13 +1,8 @@
 [0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
-[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\demo\3DSolid.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\demo\3DSolid.nlogo)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\demo\car.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\demo\car.nlogo)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\demo\example1.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\demo\example1.nlogo)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\demo\fountain.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\demo\fountain.nlogo)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\demo\life.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\demo\life.nlogo)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\demo\segregation.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\demo\segregation.nlogo)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\sources\example1.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\sources\example1.nlogo)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\sources\fire.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\sources\fire.nlogo)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\sources\life.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\sources\life.nlogo)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\base_breeds\functions\agents.csv,D:\git\NTT\compiler\target\scala-2.13\classes\base_breeds\functions\agents.csv)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\base_breeds\functions\turtles.csv,D:\git\NTT\compiler\target\scala-2.13\classes\base_breeds\functions\turtles.csv)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\base_breeds\logo\std.nlogo,D:\git\NTT\compiler\target\scala-2.13\classes\base_breeds\logo\std.nlogo)[0m
 [0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\base_breeds\utils\NetLogoUtils.scala,D:\git\NTT\compiler\target\scala-2.13\classes\base_breeds\utils\NetLogoUtils.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\base_breeds\variables\observers.csv,D:\git\NTT\compiler\target\scala-2.13\classes\base_breeds\variables\observers.csv)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	(D:\git\NTT\compiler\src\main\resources\base_breeds\variables\turtles.csv,D:\git\NTT\compiler\target\scala-2.13\classes\base_breeds\variables\turtles.csv)[0m

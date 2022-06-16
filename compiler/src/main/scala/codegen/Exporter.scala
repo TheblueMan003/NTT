@@ -7,8 +7,19 @@ object Exporter{
     val extraFiles = List(
         "NetLogoUtils.scala"
     )
+
+    /**
+      * Exports the given codes to the given directory.
+      *
+      * @param code: The code to export.
+      * @param path: The path of the directory.
+      * @return
+      */
     def export(code: List[ClassFile], path: String)={
+        // export the code
         code.map(c => c.writeToFile(f"$path/${c.name}.scala"))
+
+        // add the extra files
         extraFiles.map(f => {
             Source.fromResource(f"base_breeds/utils/$f")
             val pw = new PrintWriter(f"$path/$f")

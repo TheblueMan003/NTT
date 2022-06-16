@@ -11,6 +11,17 @@ import netlogo.Type
 import utils.Reporter
 
 object ToolGen{
+    /**
+      * Generate a switch for the functions according to their lambdaIndex
+      *
+      * @param breed: breed of the functions
+      * @param indexValue: variable for which the switch is generated
+      * @param functions: functions to generate the switch for
+      * @param flag: flag for the functions
+      * @param ending: instruction to do after the switch
+      * @param context : context of the code generation
+      * @return
+      */
     def generateSwitchInstruction(breed: Breed, indexValue: String, functions: Iterable[LinkedFunction], flag: Flag, ending: Instruction = EmptyInstruction)(implicit context: Context):Instruction = {
         if (functions.isEmpty){
             EmptyInstruction

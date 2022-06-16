@@ -24,7 +24,7 @@ globals[
     ticks
 ]
 agents-own [
-    pxcor pycor shape size
+    pxcor pycor shape size pcolor
 ]
 turtles-own [
     xcor ycor heading shape-size color visible
@@ -38,7 +38,7 @@ to-report random-ycor
 end
 
 patches-own [
-    pcolor
+    
 ]
 
 to default_setup
@@ -96,10 +96,9 @@ to facexy [ x y ]
 end
 
 to forward [ value ]
-    let m value * cos heading
-    set xcor xcor + m
-    set m value * sin heading
-    set ycor ycor + m
+    let m1 value * cos heading
+    let m2 value * sin heading
+    setxy (xcor + m1) (ycor + m2)
 end
 
 to fd [ value ]

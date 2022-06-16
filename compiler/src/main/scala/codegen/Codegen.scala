@@ -22,9 +22,22 @@ object CodeGen{
         "import scala.util.Random",
     )
 
+    /**
+      * Generates the code for a given program.
+      *
+      * @param context: The context of the program.
+      * @return The code for the program.
+      */
     def generate(context: Context): List[ClassFile] = {
         generateAllClass()(context)
     }
+
+    /**
+      * Generate all classes
+      *
+      * @param context
+      * @return List of all classes
+      */
     private def generateAllClass()(implicit context: Context) = {
         MainGen.generateMainClass() ::
             List(MainGen.generateMainInit()):::

@@ -84,11 +84,51 @@ class Breed(val parent: Breed, val singularName: String, val pluralName: String)
             throw new Exception(f"Unknown Function: ${name}")
         }
     }
+
+    /**
+     * @return all functions in this breed and all parent breeds
+     */
+    def getAllFunctionsWithParent():List[Function] = {
+        if (parent != null) {
+            getAllDefinedFunctions().toList ::: parent.getAllFunctionsWithParent()
+        }
+        else{
+            getAllDefinedFunctions().toList
+        }
+    }
+
+    /**
+      * @return all functions in this breed defined from the code.
+      */
+    def getAllDefinedFunctions() = ownedFuns.values.filter(f => f match {
+        case d: LinkedFunction => true
+        case _ => false
+    })
+
+    /**
+      * @return all functions in this breed
+      */
     def getAllFunctions() = ownedFuns.values
+
+    /**
+      * @return all functions of type normal in this breed
+      */
     def getAllNormalFunctions() = getAllFunctions().filter(_.functionType == FunctionType.Normal)
+
+    /**
+      * @return all functions asked in this breed
+      */
     def getAllAskedFunctions() = getAllFunctions().filter(_.functionType == FunctionType.Ask)
+
+    /**
+      * @return all creation functions in this breed
+      */
     def getAllCreateFunctions() = getAllFunctions().filter(_.functionType == FunctionType.Create)
 
+    /**
+     * Add a new Lambda to the breed
+     * 
+     */ 
     def addLambda(tree: AST, parentCall: List[Variable], functionType: FunctionType, hasReturnValue: Boolean = false): LinkedFunction = {
         lambdaCounter += 1
         val name = f"lambda_${lambdaCounter}"
@@ -98,11 +138,16 @@ class Breed(val parent: Breed, val singularName: String, val pluralName: String)
         addFunction(func)
         func
     }
+
+    /**
+      * @return unique id for lambda
+      *
+      */
     def getLambdaID():Int={
         lambdaCounter += 1
         lambdaCounter
     }
-
+    
     def isParentOf(breed: Breed): Boolean = {
         if (breed == this){
             true
