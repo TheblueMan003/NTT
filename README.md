@@ -1,7 +1,7 @@
 # How to use
 Put source file in `compiler/src/main/resources/demo` with extension .nlogo
 
-Run and enter file name without extension. Output is exported to `runner/src`
+In sbt do `project compiler` then `run` and enter file name without extension. Output is exported to `runner/src`
 
 Main function must be called `go`. Setup function must be called `setup`
 
