@@ -83,12 +83,12 @@ object NameAnalyser{
 
                 val variOwner = new Variable(BreedGen.myselfVariableName) // is myself variable in NetLogo
                 variOwner.initConstraints(Set(breed))
+
+                val turtles = toSymTreeExpr(expr)
                 
                 localVar.push()
                 localVar.add("myself", variOwner)
                 localVar.pushAsk(variOwner)
-
-                val turtles = toSymTreeExpr(expr)
 
                 val lambda = b.addLambda(block, localVar.getAskVariables(), FunctionType.Ask) // Create Inner function
                 lambda.symTree = toSymTree(block)(context, b, lambda, localVar) // Analyse Inner function

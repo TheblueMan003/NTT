@@ -42,12 +42,21 @@ to go
   ;; the second ask.  This keeps all the patches in synch with each other,
   ;; so the births and deaths at each generation all happen in lockstep.
 
-  ask patches [
-      ifelse living? [
-        show2 "#"
-      ] [
-        show2 " "
+  let y 0
+  while y < 10 [
+    let x 0
+    while x < 10 [
+      ask patches-at x y [
+          ifelse living? [
+            show2 "#"
+          ] [
+            show2 " "
+          ]
       ]
+      set x x + 1
+    ]
+    show2 "\n"
+    set y y + 1
   ]
 
   

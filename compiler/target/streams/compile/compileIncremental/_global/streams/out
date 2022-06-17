@@ -2,37 +2,5 @@
 [0m[[0m[0mdebug[0m] [0m[0mIncrementalCompile.incrementalCompile[0m
 [0m[[0m[0mdebug[0m] [0m[0mprevious = Stamps for: 357 products, 34 sources, 2 libraries[0m
 [0m[[0m[0mdebug[0m] [0m[0mcurrent source = Set(${BASE}/compiler/src/main/scala/codegen/ClassFile.scala, ${BASE}/compiler/src/main/scala/Main.scala, ${BASE}/compiler/src/main/scala/utils/Positionable.scala, ${BASE}/compiler/src/main/scala/codegen/Exporter.scala, ${BASE}/compiler/src/main/scala/utils/Reporter.scala, ${BASE}/compiler/src/main/scala/utils/TokenBufferBuilder.scala, ${BASE}/compiler/src/main/scala/codegen/ObserverGen.scala, ${BASE}/compiler/src/main/scala/analyser/BreedAnalyser.scala, ${BASE}/compiler/src/main/scala/parsing/Lexer.scala, ${BASE}/compiler/src/main/scala/utils/loader/FunctionLoader.scala, ${BASE}/compiler/src/main/scala/codegen/Renamer.scala, ${BASE}/compiler/src/main/scala/codegen/MainGen.scala, ${BASE}/compiler/src/main/scala/netlogo/Variable.scala, ${BASE}/compiler/src/main/scala/analyser/TypeConstraint.scala, ${BASE}/compiler/src/main/scala/utils/FileLoader.scala, ${BASE}/compiler/src/main/scala/netlogo/Function.scala, ${BASE}/compiler/src/main/scala/analyser/NameAnalyser.scala, ${BASE}/compiler/src/main/scala/parsing/Parser.scala, ${BASE}/compiler/src/main/scala/codegen/Codegen.scala, ${BASE}/compiler/src/main/scala/utils/ContextMap.scala, ${BASE}/compiler/src/main/scala/analyser/SymbolicTree.scala, ${BASE}/compiler/src/main/scala/analyser/TypeChecker.scala, ${BASE}/compiler/src/main/scala/utils/Context.scala, ${BASE}/compiler/src/main/scala/utils/StringBufferedIterator.scala, ${BASE}/compiler/src/main/scala/parsing/Token.scala, ${BASE}/compiler/src/main/scala/codegen/ToolGen.scala, ${BASE}/compiler/src/main/scala/codegen/BreedGen.scala, ${BASE}/compiler/src/main/scala/ast/TreeModule.scala, ${BASE}/compiler/src/main/scala/analyser/BreedConstraint.scala, ${BASE}/compiler/src/main/scala/netlogo/Type.scala, ${BASE}/compiler/src/main/scala/utils/TokenBufferIterator.scala, ${BASE}/compiler/src/main/scala/netlogo/Breed.scala, ${BASE}/compiler/src/main/scala/codegen/ContentGen.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(${BASE}/src/main/scala/analyser/Splitter.scala), changed = Set(${BASE}/compiler/src/main/scala/codegen/Exporter.scala), unmodified = ...),Set(),Set(),API Changes: Set())[0m
-[0m[[0m[0mdebug[0m] [0m[0m[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial source changes:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	removed: Set(${BASE}/src/main/scala/analyser/Splitter.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(${BASE}/compiler/src/main/scala/codegen/Exporter.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(codegen.Exporter)[0m
-[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(codegen.Exporter)[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(${BASE}/compiler/src/main/scala/codegen/Exporter.scala)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: codegen.Exporter[0m
-[0m[[0m[0mdebug[0m] [0m[0mcompilation cycle 1[0m
-[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to D:\git\tmp\NTT\compiler\target\scala-2.13\classes ...[0m
-[0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.13:1.6.0:compile for Scala 2.13.3[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 2ee8d553 for Scala compiler version 2.13.3[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
-[0m[[0m[0mdebug[0m] [0m[0m	C:\Program Files\Java\jre1.8.0_321\lib\resources.jar;C:\Program Files\Java\jre1.8.0_321\lib\rt.jar;C:\Program Files\Java\jre1.8.0_321\lib\sunrsasign.jar;C:\Program Files\Java\jre1.8.0_321\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_321\lib\jce.jar;C:\Program Files\Java\jre1.8.0_321\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_321\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_321\classes;C:\Users\chris\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.13.3\scala-library-2.13.3.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
-[0m[[0m[0mdebug[0m] [0m[0m	D:\git\tmp\NTT\compiler\target\scala-2.13\classes;C:\Users\chris\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\modules\scala-parser-combinators_2.13\1.1.2\scala-parser-combinators_2.13-1.1.2.jar;C:\Users\chris\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scalameta\scalafmt-dynamic_2.13\3.5.4\scalafmt-dynamic_2.13-3.5.4.jar;C:\Users\chris\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scalameta\scalafmt-interfaces\3.5.4\scalafmt-interfaces-3.5.4.jar;C:\Users\chris\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\io\get-coursier\interface\0.0.17\interface-0.0.17.jar;C:\Users\chris\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\com\typesafe\config\1.4.2\config-1.4.2.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: [0m
-[0m[[0m[0mdebug[0m] [0m[0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
-[0m[[0m[0mdebug[0m] [0m[0mFinal step, transitive dependencies:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mNo classes were invalidated.[0m
-[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 1.2589044 s[0m
-[0m[[0m[0mdebug[0m] [0m[0mdone compiling[0m
+[0m[[0m[0mdebug[0m] [0m[0m> initialChanges = InitialChanges(Changes(added = Set(), removed = Set(${BASE}/src/main/scala/analyser/Splitter.scala), changed = Set(), unmodified = ...),Set(),Set(),API Changes: Set())[0m
+[0m[[0m[0mdebug[0m] [0m[0mNo changes[0m
