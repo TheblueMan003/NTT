@@ -34,6 +34,7 @@ to go
     show("middle of tick")
     ask turtles [
         left 90.0
+        show xcor
         show fct test
     ]
     show "part 2"
@@ -41,11 +42,6 @@ to go
         set index index + 1
         show index
         let v [color] of myself
-        hatch 1 [
-            show "hello"
-        ]
     ]
-    let l min-n-of turtles 5 [ color ]
     show("end of tick")
-    let c [ color ] of turtles
 end

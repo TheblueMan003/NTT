@@ -5,6 +5,9 @@ import netlogo.{Variable}
 import scala.collection.mutable.Map
 import scala.collection.mutable.Stack
 
+/**
+  * Store object with a scope
+  */
 class ContextMap[T](){
     private val stack = new Stack[Map[String, (Int, T)]]()
     private val ownerStack = new Stack[Variable]()

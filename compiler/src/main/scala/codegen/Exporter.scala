@@ -2,6 +2,7 @@ package codegen
 
 import scala.io.Source
 import java.io.PrintWriter
+import java.io.File
 
 object Exporter{
     val extraFiles = List(
@@ -16,6 +17,10 @@ object Exporter{
       * @return
       */
     def export(code: List[ClassFile], path: String)={
+        val directory = new File(path)
+        if (! directory.exists()){
+            directory.mkdir()
+        }
         // export the code
         code.map(c => c.writeToFile(f"$path/${c.name}.scala"))
 

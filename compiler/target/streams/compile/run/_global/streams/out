@@ -1,22 +1,15 @@
-[0m[[0m[31merror[0m] [0m[0mjava.lang.Exception: Unknown function: while at in file demo/life.nlogo at line 48 at index 2[0m
-[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parseIntruction(Parser.scala:181)[0m
-[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parseFunctionsBody(Parser.scala:121)[0m
-[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.$anonfun$parseAllFuncitonsBody$1(Parser.scala:108)[0m
-[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.$anonfun$parseAllFuncitonsBody$1$adapted(Parser.scala:104)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.Iterator$$anon$9.next(Iterator.scala:575)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.prependedAll(List.scala:156)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List$.from(List.scala:651)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List$.from(List.scala:648)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableFactory$Delegate.from(Factory.scala:288)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Iterable$.from(Iterable.scala:35)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.Iterable$.from(Iterable.scala:32)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableFactory$Delegate.from(Factory.scala:288)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOps.map(Iterable.scala:671)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.IterableOps.map$(Iterable.scala:671)[0m
-[0m[[0m[31merror[0m] [0m[0m	at scala.collection.AbstractIterable.map(Iterable.scala:920)[0m
-[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parseAllFuncitonsBody(Parser.scala:104)[0m
-[0m[[0m[31merror[0m] [0m[0m	at parsing.Parser$.parse(Parser.scala:36)[0m
-[0m[[0m[31merror[0m] [0m[0m	at Main$.delayedEndpoint$Main$1(Main.scala:29)[0m
+[0m[[0m[31merror[0m] [0m[0mjava.io.FileNotFoundException: .\runner\src\Simulation.scala (The system cannot find the path specified)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.FileOutputStream.open0(Native Method)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.FileOutputStream.open(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.FileOutputStream.<init>(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.FileOutputStream.<init>(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.io.PrintWriter.<init>(Unknown Source)[0m
+[0m[[0m[31merror[0m] [0m[0m	at codegen.ClassFile.writeToFile(ClassFile.scala:30)[0m
+[0m[[0m[31merror[0m] [0m[0m	at codegen.Exporter$.$anonfun$export$1(Exporter.scala:20)[0m
+[0m[[0m[31merror[0m] [0m[0m	at codegen.Exporter$.$anonfun$export$1$adapted(Exporter.scala:20)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.collection.immutable.List.map(List.scala:246)[0m
+[0m[[0m[31merror[0m] [0m[0m	at codegen.Exporter$.export(Exporter.scala:20)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main$.delayedEndpoint$Main$1(Main.scala:46)[0m
 [0m[[0m[31merror[0m] [0m[0m	at Main$delayedInit$body.apply(Main.scala:12)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp(Function0.scala:39)[0m
 [0m[[0m[31merror[0m] [0m[0m	at scala.Function0.apply$mcV$sp$(Function0.scala:39)[0m
@@ -47,4 +40,4 @@
 [0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)[0m
 [0m[[0m[31merror[0m] [0m[0m	at java.lang.Thread.run(Unknown Source)[0m
-[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.lang.Exception: Unknown function: while at in file demo/life.nlogo at line 48 at index 2[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) java.io.FileNotFoundException: .\runner\src\Simulation.scala (The system cannot find the path specified)[0m
