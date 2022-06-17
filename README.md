@@ -10,6 +10,7 @@ Main function must be called `go`. Setup function must be called `setup`
 - _list_ of value
 - UI related functions
 - Some operations on agents
+- Link creation
 
 # Code Structure
 `scala/parsing/Lexer`: Split code into token
